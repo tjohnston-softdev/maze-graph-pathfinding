@@ -1,0 +1,43 @@
+Source: https://keesiemeijer.github.io/maze-generator
+Date: 2020-06-29
+
+---
+
+Wall Thickness: 10
+Columns: 5
+Rows: 5
+Remove Maze Walls: 2
+Maze Entries: Diagonal
+Bias: None
+Background Colour: #ffffff
+Maze Colour: #000000
+
+---
+
+Grid Size: 11x11
+Start: 2,1
+End: 10,11
+
+---
+
+2,1 - 2,2
+2,2 - 8,2
+8,2 - 10,2
+10,2 - 10,4
+8,2 - 8,4
+8,4 - 4,4
+4,4 - 4,6
+4,6 - 6,6
+4,6 - 2,6
+2,2 - 2,6
+2,6 - 2,8
+2,8 - 2,10
+2,8 - 6,8
+6,8 - 6,10
+6,10 - 4,10
+6,10 - 10,10
+10,10 - 10,11
+8,4 - 8,6
+8,6 - 8,8
+8,6 - 10,6
+10,6 - 10,10

@@ -1,0 +1,8 @@
+{
+	"wall": "#000000",
+	"floor": "#FFFFFF",
+	"tolerance": 0.000,
+	"tileSize": 10,
+	"x": 0,
+	"y": 0
+}

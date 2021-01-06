@@ -1,0 +1,55 @@
+{
+	"completedPaths":
+	[
+		{
+			"sequence":
+			[
+				5,
+				13,
+				21,
+				32,
+				39,
+				62,
+				63,
+				69,
+				87,
+				92
+			],
+			"totalDistance": 8419
+		},
+		{
+			"sequence":
+			[
+				3,
+				10,
+				30,
+				34,
+				44,
+				51,
+				63,
+				79,
+				88,
+				99
+			],
+			"totalDistance": 1323
+		},
+		{
+			"sequence":
+			[
+				9,
+				13,
+				29,
+				30,
+				53,
+				55,
+				65,
+				66,
+				78,
+				92
+			],
+			"totalDistance": 7634
+		}
+	],
+	"successful": true,
+	"messageText": "Multiple"
+}
