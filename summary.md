@@ -2,9 +2,9 @@
 
 **Version:** 1.0.0
 
-**Date:** 2021-01-06
+**Date:** 2021-01-30
 
-**Title:** Initial Commit
+**Title:** GitHub Migration
 
 **Description:**
-Originally worked on from 29 June to 17 October 2020.
+Migrated from GitLab to GitHub.

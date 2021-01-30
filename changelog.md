@@ -1,3 +1,4 @@
 # Changelog
 
-* Initial commit
+* Migrated from GitLab to GitHub.
+* Updated copyright year.
