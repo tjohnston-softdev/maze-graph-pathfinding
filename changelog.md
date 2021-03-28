@@ -1,4 +1,4 @@
 # Changelog
 
-* Migrated from GitLab to GitHub.
-* Updated copyright year.
+* Opened 1.1 Branch
+* Created '.gitignore' with 'node_modules' folder.

@@ -1,10 +1,11 @@
 # Summary
 
-**Version:** 1.0.0
+**Version:** 1.0.1
 
-**Date:** 2021-01-30
+**Date:** 2021-03-29
 
-**Title:** GitHub Migration
+**Title:** Opened 1.1 Branch
 
 **Description:**
-Migrated from GitLab to GitHub.
+
+Begun development of version 1.1
