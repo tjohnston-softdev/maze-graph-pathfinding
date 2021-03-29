@@ -1,6 +1,6 @@
 // Functions used to help with value preperation.
 
-const spaceRegex = /\s/g;		// Captures whitespace.
+const spaceRegex = /\s/g;
 
 
 

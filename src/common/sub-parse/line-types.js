@@ -1,10 +1,6 @@
 // This file contains functions for classifying text input lines..
 
 
-// Line begins with number Regex
-const numberBegin = /^\d/;
-
-
 // Start field (Absolute, Relative)
 function checkStartLineType(lineTxt)
 {
@@ -24,7 +20,7 @@ function checkEndLineType(lineTxt)
 // Line starts with number.
 function checkNumberLineType(lineTxt)
 {
-	var matchFlag = lineTxt.search(numberBegin);
+	var matchFlag = lineTxt.search(/^\d/);
 	var checkRes = false;
 	
 	if (matchFlag === 0)

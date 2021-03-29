@@ -1,10 +1,11 @@
 # Summary
 
-**Version:** 1.0.8
+**Version:** 1.0.9
 
 **Date:** 2021-03-29
 
-**Title:** Converted text files to markdown.
+**Title:** Cleaned RegEx
 
 **Description:**
 
+Removed unnecessary RegEx code.

@@ -62,7 +62,7 @@ function getFileWriteErrorText(fileDesc, fileCreated)
 function getFolderCreateErrorText(eMsg)
 {
 	// Removes the error code from the beginning of the message.
-	var bodyText = eMsg.replace(prefixRegex, "");
+	var bodyText = eMsg.replace(prefixSyntax, "");
 	var firstChar = "";
 	var otherChars = "";
 	
