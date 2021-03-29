@@ -1,11 +1,4 @@
 # Changelog
 
-**./src/common/sub-traverse/errors/**
-* Renamed 'tr-error-txt.js' to 'traverse-error-text.js
-
----
-
-**Requirement Paths**
-* Updated following:
-	* ./src/common/sub-traverse/traverse-help-tasks.js
-	* ./src/common/sub-traverse/traverse-error-display.js
+**./src/common/value-prep.js**
+* 'checkInputObjectType' now correctly checks for 'object' type instead of 'string'.

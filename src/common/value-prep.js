@@ -16,7 +16,7 @@ function checkInputStringType(vString)
 function checkInputObjectType(vObject)
 {
 	var oType = typeof vObject;
-	var checkRes = (vObject !== undefined && vObject !== null && oType === "string");
+	var checkRes = (vObject !== undefined && vObject !== null && oType === "object");
 	return checkRes;
 }
 
