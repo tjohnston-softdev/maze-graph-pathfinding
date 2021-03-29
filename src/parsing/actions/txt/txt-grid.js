@@ -95,8 +95,9 @@ function readCurrentLine(origLineText, ignoreErr, lineNumber, retGridObj)
 	
 	if (safeLength === true)
 	{
-		prepLineText = valuePrep.sanitizeString(origLineText);			// Removes spaces and casing from line text.
-		gridLineType = lineTypes.checkNumber(prepLineText);				// Checks if line starts with number.
+		// Sanitizes string and checks if it starts with a number.
+		prepLineText = valuePrep.sanitizeString(origLineText);
+		gridLineType = lineTypes.checkNumber(prepLineText);
 		canUse = true;
 	}
 	
@@ -153,16 +154,20 @@ function handleGridLine(numberTxt, lineNum, retGrid, ignoreNonbinary, oResObj)
 
 
 
-
+// Adds row to parsed grid.
 function addNewGridRow(rTxt, rgMatrix, nLine, oRes)
 {
-	var safeRowCount = valuePrep.checkNumberRange(rgMatrix.length, 0, valueLimits.maxGridDimension);
-	var addPossible = gridHelpTasks.checkRowAdd(rTxt.length, valueLimits.maxGridDimension, safeRowCount, nLine, oRes);
+	var safeRowCount = false;
+	var addPossible = false;
 	
 	var finalRowText = "";
 	var splitTiles = [];
 	
 	var addSuccessful = false;
+	
+	// Checks if add is possible based on row count.
+	safeRowCount = valuePrep.checkNumberRange(rgMatrix.length, 0, valueLimits.maxGridDimension);
+	addPossible = gridHelpTasks.checkRowAdd(rTxt.length, valueLimits.maxGridDimension, safeRowCount, nLine, oRes);
 	
 	if (addPossible === true)
 	{

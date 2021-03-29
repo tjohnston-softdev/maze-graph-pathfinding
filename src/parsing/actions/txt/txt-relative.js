@@ -289,22 +289,26 @@ function handleEdgeDefinition(edgeTxt, lineNum, retData, oResObj)
 	// If field and value have been separated:
 	if (formatValid === true)
 	{
+		// Read input numbers.
 		enteredOriginID = relativeHelpTasks.readEnteredNumber(edgePropertySplit, 0);
 		enteredDestinationID = relativeHelpTasks.readEnteredNumber(edgePropertySplit, 1);
 		enteredDistanceNumber = relativeHelpTasks.readEnteredNumber(edgePropertySplit, 2);
 		
+		// Validate origin node ID.
 		originValid = relativeHelpTasks.checkNodeID(enteredOriginID, "Origin", lineNum, oResObj);
 	}
 	
 	
 	if (originValid === true)
 	{
+		// Validate destination node ID.
 		destinationValid = relativeHelpTasks.checkNodeID(enteredDestinationID, "Destination", lineNum, oResObj);
 	}
 	
 	
 	if (destinationValid === true)
 	{
+		// Validate distance number.
 		distanceValid = relativeHelpTasks.checkEdgeDistance(enteredDistanceNumber, lineNum, oResObj);
 	}
 	
@@ -317,7 +321,7 @@ function handleEdgeDefinition(edgeTxt, lineNum, retData, oResObj)
 	
 	if (keyNumbersDifferent === true)
 	{
-		// Check both edge nodes exist.
+		// Check origin node exists.
 		originExistsFlag = findNodes.checkNodeNumberExists(enteredOriginID, retData.nodeList);
 		destinationExistsFlag = findNodes.checkNodeNumberExists(enteredDestinationID, retData.nodeList);
 		
@@ -326,6 +330,7 @@ function handleEdgeDefinition(edgeTxt, lineNum, retData, oResObj)
 	
 	if (originFlagValid === true)
 	{
+		// Check destination node exists.
 		destinationFlagValid = relativeHelpTasks.checkNodeExistFlag(destinationExistsFlag, retData.nodeList.length, "Destination", lineNum, oResObj);
 	}
 	

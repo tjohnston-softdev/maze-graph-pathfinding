@@ -1,41 +1,39 @@
 # Changelog
 
-**./src/output/file-write/raw-data-export.js**
-* Expanded IF structure commenting on 'performNodeRawDataExport'
+**./src/parsing/actions/grid/grid-dimensions.js**
+* 'rowCountValid' declaration and assessment are now on separate lines.
+* Added comments:
+	* "Validates row count."
+	* "Validates column count."
 
 ---
 
-**./src/output/file-write/conversion-steps/graph-edge-coordinates.js**
-* Added comment to the IF on 'prepareEdgeLine'
-	* "Add line break for next edge."
+**./src/parsing/actions/img/\*.js**
+* Added comments to callback IF structure in 'img-open.js'
+* Added "Read current row." comment to 'parseImagePixelsLoop' in 'img-pixels.js'
 
 ---
 
-**./src/output/file-write/conversion-steps/header-info.js**
-* Added comments to 'handleIntroSection'
+**./src/parsing/actions/txt/txt-grid.js**
+* readCurrentLine
+	* Merged `if (safeLength === true)` inline comments.
+* addNewGridRow
+	* Added header comment.
+	* The following variables are now declared and assigned on separate lines:
+		* safeRowCount
+		* addPossible
+	* Added comment "Checks if add is possible based on row count."
 
 ---
 
-**./src/output/file-write/raw-data-steps/edge-data.js**
-* Added new comments to 'writeEdgesLoop'
-	* "Loop edges."
-	* "Read edge object."
+**./src/parsing/actions/txt/txt-relative.js handleEdgeDefinition**
+* Added comments to the following:
+	* `if (formatValid === true)`
+	* `if (originValid === true)`
+	* `if (destinationValid === true)`
+	* `if (originFlagValid === true)`
+* Changed existing comment in `if (keyNumbersDifferent === true)`
+	* **Before:** "Check both edge nodes exist."
+	* **After:** "Check origin node exists."
 
----
 
-**./src/output/file-write/raw-data-steps/node-data.js**
-* Added new comments to 'writeNodesLoop'
-	* "Loop nodes."
-	* "Read node object."
-* Added comments to the IF structures in:
-	* writeHeaderRow
-	* prepareSubAttributes
-
----
-
-**./src/output/file-write/raw-data-steps/path-data.js**
-* Added comments to the IF structure in 'writePathContents'
-* Added new comments to 'handleSinglePathLoop'
-	* "Read current Node ID."
-	* "Append text."
-* Added comments to 'handleOutcomeProperties'

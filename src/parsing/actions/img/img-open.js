@@ -11,11 +11,13 @@ function openTargetImageFile(imgFilePath, openCallback)
 	{
 		if (oError !== null)
 		{
+			// Image error.
 			flaggedErrorText = streamExceptions.getFileRead("Image", oError.code);
 			return openCallback(new Error(flaggedErrorText), null);
 		}
 		else
 		{
+			// Open successful.
 			return openCallback(null, oRes);
 		}
 	});

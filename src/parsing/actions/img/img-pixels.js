@@ -27,6 +27,7 @@ function parseImagePixelsLoop(tgtImageObj, tgtImageSettings, tgtImageColours, ig
 	// Loops through image pixels row-by-row, starting from the origin point.
 	while (rowPosition >= 0 && rowPosition >= tgtImageSettings.originY && rowPosition < rowCutoff && canContinue === true)
 	{
+		// Read current row.
 		currentRowOutcome = parseObjects.definePixelRowOutcome();
 		currentRowRead = readCurrentPixelRow(rowPosition, tgtImageObj, tgtImageSettings, tgtImageColours, ignoreImgErrs, currentRowOutcome);
 		currentAddPossible = false;

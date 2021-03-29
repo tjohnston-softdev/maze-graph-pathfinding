@@ -9,12 +9,16 @@ const valueLimits = require("../../../common/value-limits");
 function verifyGridDimensions(gridMatrixObject, allowMatrixTrim, dimensionCallback)
 {
 	var outcomeResultObject = parseObjects.defineLineOutcome();
-	var rowCountValid = gridHelpTasks.checkDimensionNumber(gridMatrixObject.length, valueLimits.maxGridDimension, "Rows", outcomeResultObject);
+	var rowCountValid = false;
 	
 	var columnLimitsObject = {};
 	var columnLimitsValid = false;
 	
 	var colCountValid = false;
+	
+	
+	// Validates row count.
+	rowCountValid = gridHelpTasks.checkDimensionNumber(gridMatrixObject.length, valueLimits.maxGridDimension, "Rows", outcomeResultObject);
 	
 	
 	if (rowCountValid === true)
@@ -26,6 +30,7 @@ function verifyGridDimensions(gridMatrixObject, allowMatrixTrim, dimensionCallba
 	
 	if (columnLimitsValid === true)
 	{
+		// Validates column count.
 		colCountValid = gridHelpTasks.checkDimensionNumber(columnLimitsObject.shortest, valueLimits.maxGridDimension, "Columns", outcomeResultObject);
 	}
 	
