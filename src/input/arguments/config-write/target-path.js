@@ -17,17 +17,20 @@ function validateConfigWritePathString(writeStr, resObject)
 	
 	if (preparedPath.length >= 1 && preparedPath.length <= valueLimits.maxPathLength)
 	{
+		// Path valid.
 		resObject.enteredTargetPath = preparedPath;
 		validationResult = true;
 	}
 	else if (preparedPath.length > valueLimits.maxPathLength)
 	{
+		// Too long.
 		validationResult = false;
 		invalidMessage = errorText.writeStringTooLong("Target file path", valueLimits.maxPathLength);
 		exitProgram.callExit(invalidMessage);
 	}
 	else
 	{
+		// Empty - Use default.
 		resObject.enteredTargetPath = defaultValues.imageConfigPath;
 		validationResult = true;
 	}
@@ -46,7 +49,7 @@ function parseEnteredTargetPath(resObject)
 
 
 
-
+// Checks and sanitizes input string.
 function preparePathString(origStr)
 {
 	var stringTypeUsed = valuePrep.checkStringType(origStr);

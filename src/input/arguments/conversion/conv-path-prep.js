@@ -35,6 +35,7 @@ function validateIoPathsDifferent(resObject)
 	
 	if (inputPath === writePath)
 	{
+		// Paths are the same.
 		validationResult = false;
 		invalidMessage = errorText.writeSame("Input and Output file paths");
 		exitProgram.callExit(invalidMessage);

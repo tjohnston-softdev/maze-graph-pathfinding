@@ -12,11 +12,13 @@ function readImageConfigFile(cFilePath, readCallback)
 	{
 		if (rError !== null)
 		{
+			// Read error.
 			flaggedErrorText = streamExceptions.getFileRead("Load Image Config", rError.code);
 			return readCallback(new Error(flaggedErrorText), null);
 		}
 		else
 		{
+			// Successful.
 			return readCallback(null, rData);
 		}
 	});
@@ -33,23 +35,18 @@ function parseImageConfigContents(cStringData, parseCallback)
 	{
 		if (pError !== null)
 		{
-			flaggedErrorText = writeInvalidJsonText();
+			// JSON error.
+			flaggedErrorText = "Load Config is not a valid JSON file.";
 			return parseCallback(new Error(flaggedErrorText), null);
 		}
 		else
 		{
+			// Valid.
 			return parseCallback(null, pObj);
 		}
 	});
 }
 
-
-
-function writeInvalidJsonText()
-{
-	var writeRes = "Load Config is not a valid JSON file.";
-	return writeRes;
-}
 
 
 

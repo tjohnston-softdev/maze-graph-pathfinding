@@ -13,10 +13,12 @@ function validateWriteFilePathString(writeStr, resObject, defaultPathString)
 	
 	if (stringTypeUsed === true)
 	{
+		// Use string.
 		validationResult = handleStringEntry(writeStr, resObject);
 	}
 	else
 	{
+		// Use default.
 		resObject.writeFilePath = defaultPathString
 		validationResult = true;
 	}
@@ -27,6 +29,7 @@ function validateWriteFilePathString(writeStr, resObject, defaultPathString)
 
 
 
+// Validate path string.
 function handleStringEntry(wStr, rObject, dPathStr)
 {
 	var preparedPath = valuePrep.sanitizeString(wStr);
@@ -35,17 +38,20 @@ function handleStringEntry(wStr, rObject, dPathStr)
 	
 	if (preparedPath.length > 0 && preparedPath.length <= valueLimits.maxPathLength)
 	{
+		// Valid.
 		rObject.writeFilePath = preparedPath;
 		handleSuccessful = true;
 	}
 	else if (preparedPath.length > valueLimits.maxPathLength)
 	{
+		// Too long.
 		handleSuccessful = false;
 		invalidMessage = errorText.writeStringTooLong("Output file path", valueLimits.maxPathLength);
 		exitProgram.callExit(invalidMessage);
 	}
 	else
 	{
+		// Empty - Use default.
 		handleSuccessful = true;
 		rObject.writeFilePath = dPathStr;
 	}

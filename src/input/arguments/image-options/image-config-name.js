@@ -13,10 +13,12 @@ function validateSaveConfigNameString(saveNameStr, resObject)
 	
 	if (stringTypeUsed === true)
 	{
+		// Read string.
 		validationResult = handleStringEntry(saveNameStr, resObject);
 	}
 	else
 	{
+		// Empty default.
 		resObject.saveConfigName = "";
 		validationResult = true;
 	}
@@ -26,6 +28,7 @@ function validateSaveConfigNameString(saveNameStr, resObject)
 
 
 
+// Validate and sanitize string.
 function handleStringEntry(sName, rObj)
 {
 	var preparedString = valuePrep.sanitizeString(sName);
@@ -35,6 +38,7 @@ function handleStringEntry(sName, rObj)
 	
 	if (validLength === true)
 	{
+		// Save
 		rObj.saveConfigName = preparedString;
 		handleRes = true;
 	}
@@ -43,6 +47,7 @@ function handleStringEntry(sName, rObj)
 }
 
 
+// Validate length.
 function checkFileNameLength(lengthNum)
 {
 	var checkRes = false;
@@ -50,10 +55,12 @@ function checkFileNameLength(lengthNum)
 	
 	if (lengthNum >= 0 && lengthNum <= valueLimits.maxFileNameLength)
 	{
+		// Valid length.
 		checkRes = true;
 	}
 	else
 	{
+		// Too long.
 		checkRes = false;
 		lengthMessage = errorText.writeStringTooLong("Save Config file name", valueLimits.maxFileNameLength);
 		exitProgram.callExit(lengthMessage);

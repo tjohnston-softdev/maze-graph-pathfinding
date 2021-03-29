@@ -12,10 +12,12 @@ function validateLoadConfigPathString(loadFileStr, resObject)
 	
 	if (stringTypeUsed === true)
 	{
+		// Read string.
 		validationResult = handleStringEntry(loadFileStr, resObject);
 	}
 	else
 	{
+		// Use empty.
 		resObject.loadConfigPath = "";
 		validationResult = true;
 	}
@@ -25,6 +27,7 @@ function validateLoadConfigPathString(loadFileStr, resObject)
 
 
 
+// Sanitize string and check length.
 function handleStringEntry(sFile, rObj)
 {
 	var preparedPath = valuePrep.sanitizeString(sFile);
@@ -33,17 +36,20 @@ function handleStringEntry(sFile, rObj)
 	
 	if (preparedPath.length >= 1 && preparedPath.length <= valueLimits.maxPathLength)
 	{
+		// Safe length.
 		rObj.loadConfigPath = preparedPath;
 		handleRes = true;
 	}
 	else if (preparedPath.length > valueLimits.maxPathLength)
 	{
+		// Too long.
 		handleRes = false;
 		invalidMessage = errorText.writeStringTooLong("Load config file path", valueLimits.maxPathLength);
 		exitProgram.callExit(invalidMessage);
 	}
 	else
 	{
+		// Empty.
 		rObj.loadConfigPath = "";
 		handleRes = true;
 	}

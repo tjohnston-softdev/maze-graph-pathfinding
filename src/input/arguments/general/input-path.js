@@ -21,7 +21,7 @@ function validateInputFilePathString(fileStr, resObject)
 	return validationResult;
 }
 
-
+// Validate and sanitize string.
 function preparePathString(origStr)
 {
 	var stringTypeUsed = valuePrep.checkStringType(origStr);
@@ -37,6 +37,7 @@ function preparePathString(origStr)
 
 
 
+// Validate length.
 function checkPathLength(pLength)
 {
 	var lengthRes = false;
@@ -44,15 +45,18 @@ function checkPathLength(pLength)
 	
 	if (pLength >= 1 && pLength <= valueLimits.maxPathLength)
 	{
+		// Valid length.
 		lengthRes = true;
 	}
 	else if (pLength > valueLimits.maxPathLength)
 	{
+		// Too long.
 		lengthMessage = errorText.writeStringTooLong("Input file path", valueLimits.maxPathLength);
 		exitProgram.callExit(lengthMessage);
 	}
 	else
 	{
+		// Empty.
 		lengthMessage = errorText.writeMissing("Input file path");
 		exitProgram.callExit(lengthMessage);
 	}

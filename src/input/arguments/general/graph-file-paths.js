@@ -43,13 +43,16 @@ function prepareDestinationPaths(pObject, expGraph, expRaw)
 {
 	var resFolderPath = pObject.outputFolder;
 	
+	
 	if (expGraph === true)
 	{
+		// Include graph file.
 		pObject.mainGraphFile = exportPaths.getMainGraphPath(resFolderPath);
 	}
 	
 	if (expRaw === true)
 	{
+		// Include data files.
 		pObject.rawNodesFile = exportPaths.getNodeDataPath(resFolderPath);
 		pObject.rawEdgesFile = exportPaths.getEdgeDataPath(resFolderPath);
 		pObject.rawSequenceFile = exportPaths.getSequenceDataPath(resFolderPath);
@@ -73,11 +76,14 @@ function appendImageConfigSaveLoadPaths(resObject)
 	resObject.preparedPaths["imageConfigSaveFile"] = "";
 	
 	
+	// Resolve load path.
 	if (loadDefined === true && ldPath.length > 0)
 	{
 		resObject.preparedPaths.imageConfigLoadFile = path.resolve(ldPath);
 	}
 	
+	
+	// Resolve save path.
 	if (saveDefined === true && sName.length > 0)
 	{
 		resObject.preparedPaths.imageConfigSaveFile = exportPaths.getCustomPath(resFolderPath, sName);

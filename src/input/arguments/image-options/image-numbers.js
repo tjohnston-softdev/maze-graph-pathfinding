@@ -17,11 +17,13 @@ function validateTolerancePercentageNumber(tolEntry, resObject, validationOutcom
 	
 	if (safeType === true && preparedNumber >= valueLimits.minPercentage && preparedNumber <= valueLimits.maxPercentage)
 	{
+		// Valid percentage.
 		resObject.imageItems.tolerancePercent = preparedNumber;
 		validationResult = true;
 	}
 	else
 	{
+		// Invalid.
 		validationResult = false;
 		validationOutcome.errorMessage = errorText.writePercent("Tolerance number");
 	}
@@ -40,18 +42,22 @@ function validateTileSizeNumber(sizeEntry, resObject, validationOutcome)
 	
 	var validationResult = false;
 	
+	
 	if (safeType === true && preparedNumber >= valueLimits.minTileSize && preparedNumber <= valueLimits.maxTileSize)
 	{
+		// Valid number.
 		resObject.imageItems.tileSize = preparedNumber;
 		validationResult = true;
 	}
 	else if (safeType === true && preparedNumber > valueLimits.maxTileSize)
 	{
+		// Too large.
 		validationResult = false;
 		validationOutcome.errorMessage = errorText.writeLargerThan("Tile size", valueLimits.maxTileSize);
 	}
 	else
 	{
+		// Invalid type.
 		validationResult = false;
 		validationOutcome.errorMessage = errorText.writePositiveWhole("Tile size");
 	}
@@ -70,18 +76,22 @@ function validateOriginCoordinatesNumberValue(coordValue, coordName, coordDesc, 
 	
 	var validationResult = false;
 	
+	
 	if (safeType === true && preparedNumber >= 0)
 	{
+		// Valid origin.
 		resObject.imageItems[coordName] = preparedNumber;
 		validationResult = true;
 	}
 	else if (safeType === true)
 	{
+		// Negative.
 		validationResult = false;
 		validationOutcome.errorMessage = errorText.writeCannotNegative(coordDesc);
 	}
 	else
 	{
+		// Invalid type.
 		validationResult = false;
 		validationOutcome.errorMessage = errorText.writeWhole(coordDesc);
 	}
@@ -97,10 +107,12 @@ function validateColourDifferencePercentageNumber(tolPercent, diffPercent, valid
 	
 	if (diffPercent > tolPercent)
 	{
+		// Valid colour difference.
 		validationResult = true;
 	}
 	else
 	{
+		// Too small.
 		validationResult = false;
 		validationOutcome.errorMessage = "The difference between the Wall and Floor colours must be greater than the allowed tolerance.";
 	}

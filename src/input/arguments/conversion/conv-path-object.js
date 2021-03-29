@@ -27,11 +27,15 @@ function defineImageConfigProperties(resObject)
 	var loadDefined = valuePrep.checkStringType(ldPath);
 	var saveDefined = valuePrep.checkStringType(sPath);
 	
+	
+	// Resolve load path.
 	if (loadDefined === true && ldPath.length > 0)
 	{
 		resObject.preparedPaths.loadConfig = path.resolve(ldPath);
 	}
 	
+	
+	// Resolve save path.
 	if (saveDefined === true && sPath.length > 0)
 	{
 		resObject.preparedPaths.saveConfig = path.resolve(sPath);

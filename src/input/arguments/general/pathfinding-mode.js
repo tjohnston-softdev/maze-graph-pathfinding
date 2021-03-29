@@ -13,6 +13,7 @@ function validatePathfindingModeString(pModeStr, resObject)
 	
 	if (stringTypeUsed === true)
 	{
+		// Read string.
 		validationResult = handleStringEntry(pModeStr, resObject);
 	}
 	else
@@ -37,6 +38,7 @@ function handleStringEntry(mString, rObj)
 	
 	if (safeLength === true)
 	{
+		// Parse string into mode flag.
 		derivedFlag = pathContext.getModeFlag(preparedText);
 		rObj.mapModeFlag = derivedFlag;
 		handleSuccessful = true;
@@ -54,6 +56,7 @@ function checkModeLength(cNumber)
 	
 	if (cNumber > valueLimits.maxModeLength)
 	{
+		// Too long.
 		invalidMessage = errorText.writeStringTooLong("Pathfinding mode", valueLimits.maxModeLength);
 		exitProgram.callExit(invalidMessage);
 	}

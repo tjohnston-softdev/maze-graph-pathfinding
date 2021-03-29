@@ -12,10 +12,12 @@ function validateSaveConfigPathString(saveFileStr, resObject)
 	
 	if (stringTypeUsed === true)
 	{
+		// Read string.
 		validationResult = handleStringEntry(saveFileStr, resObject);
 	}
 	else
 	{
+		// Use empty string.
 		resObject.saveConfigPath = "";
 		validationResult = true;
 	}
@@ -25,6 +27,7 @@ function validateSaveConfigPathString(saveFileStr, resObject)
 
 
 
+// Validate save path string.
 function handleStringEntry(sFileStr, rObject)
 {
 	var preparedPath = valuePrep.sanitizeString(sFileStr);
@@ -33,17 +36,20 @@ function handleStringEntry(sFileStr, rObject)
 	
 	if (preparedPath.length >= 1 && preparedPath.length <= valueLimits.maxPathLength)
 	{
+		// Valid.
 		rObject.saveConfigPath = preparedPath;
 		handleRes = true;
 	}
 	else if (preparedPath.length > valueLimits.maxPathLength)
 	{
+		// Too long.
 		handleRes = false;
 		invalidMessage = errorText.writeStringTooLong("Save config file path", valueLimits.maxPathLength);
 		exitProgram.callExit(invalidMessage);
 	}
 	else
 	{
+		// Empty.
 		handleRes = true;
 		rObject.saveConfigPath = "";
 	}

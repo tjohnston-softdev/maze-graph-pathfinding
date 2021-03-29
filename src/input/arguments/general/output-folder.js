@@ -13,10 +13,12 @@ function validateOutputFolderPathString(folderStr, resObject)
 	
 	if (stringTypeUsed === true)
 	{
+		// Read string.
 		validationResult = handleStringEntry(folderStr, resObject);
 	}
 	else
 	{
+		// Use default.
 		resObject.outputFolderPath = defaultValues.outputFolderPath;
 		validationResult = true;
 	}
@@ -26,6 +28,7 @@ function validateOutputFolderPathString(folderStr, resObject)
 }
 
 
+// Coordinate validation.
 function handleStringEntry(sFolder, rObj)
 {
 	var preparedPath = valuePrep.sanitizeString(sFolder);
@@ -34,17 +37,20 @@ function handleStringEntry(sFolder, rObj)
 	
 	if (preparedPath.length >= 1 && preparedPath.length <= valueLimits.maxPathLength)
 	{
+		// Length valid.
 		rObj.outputFolderPath = preparedPath;
 		handleSuccessful = true;
 	}
 	else if (preparedPath.length > valueLimits.maxPathLength)
 	{
+		// Too long.
 		handleSuccessful = false;
 		invalidMessage = errorText.writeStringTooLong("Output folder path", valueLimits.maxPathLength);
 		exitProgram.callExit(invalidMessage);
 	}
 	else
 	{
+		// Empty - use default.
 		rObj.outputFolderPath = defaultValues.outputFolderPath;
 		handleSuccessful = true;
 	}
