@@ -1,11 +1,11 @@
 # Summary
 
-**Version:** 1.0.9
+**Version:** 1.0.10
 
 **Date:** 2021-03-29
 
-**Title:** Cleaned RegEx
+**Title:** Cleaned 'value-prep'
 
 **Description:**
 
-Removed unnecessary RegEx code.
+Rewrote some value preparation functions for simplicity.

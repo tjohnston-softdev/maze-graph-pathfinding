@@ -7,14 +7,7 @@ const spaceRegex = /\s/g;
 // Checks if value is a valid, non-empty string.
 function checkInputStringType(vString)
 {
-	var sType = typeof vString;
-	var checkRes = false;
-	
-	if (vString !== undefined && vString !== null && sType === "string" && vString.length > 0)
-	{
-		checkRes = true;
-	}
-	
+	var checkRes = (typeof vString === "string" && vString.length > 0);
 	return checkRes;
 }
 
@@ -23,13 +16,7 @@ function checkInputStringType(vString)
 function checkInputObjectType(vObject)
 {
 	var oType = typeof vObject;
-	var checkRes = false;
-	
-	if (vObject !== undefined && vObject !== null && oType === "object")
-	{
-		checkRes = true;
-	}
-	
+	var checkRes = (vObject !== undefined && vObject !== null && oType === "string");
 	return checkRes;
 }
 
@@ -37,13 +24,8 @@ function checkInputObjectType(vObject)
 // Checks if an object has a given property.
 function checkObjectPropertyExists(vObject, tgtProp)
 {
-	var checkRes = false;
-	
-	if (vObject[tgtProp] !== undefined)
-	{
-		checkRes = true;
-	}
-	
+	var propVal = vObject[tgtProp];
+	var checkRes = (propVal !== undefined);
 	return checkRes;
 }
 
@@ -90,13 +72,7 @@ function checkPositiveWholeNumberType(vSubject, allowZero)
 // Checks valid True,False value.
 function checkBooleanType(vSubject)
 {
-	var checkRes = false;
-	
-	if (vSubject === true || vSubject === false)
-	{
-		checkRes = true;
-	}
-	
+	var checkRes = (vSubject === true || vSubject === false);
 	return checkRes;
 }
 
@@ -106,13 +82,7 @@ function checkBooleanType(vSubject)
 // Checks if a number falls within a certain range.
 function checkInputNumberRange(vLength, lowerLimit, upperLimit)
 {
-	var checkRes = false;
-	
-	if (vLength >= lowerLimit && vLength <= upperLimit)
-	{
-		checkRes = true;
-	}
-	
+	var checkRes = (vLength >= lowerLimit && vLength <= upperLimit);
 	return checkRes;
 }
 
