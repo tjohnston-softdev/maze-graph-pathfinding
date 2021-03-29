@@ -1,15 +1,6 @@
 # Changelog
 
-**./src/traverse/visit/cell-movement.js**
-* Added "Not allowed." comment to:
-	* moveVerticalDirection
-	* moveHorizontalDirection
-* Added comments to 'checkIntersectionFound'
-
----
-
-**./src/traverse/visit/mark-points.js**
-* Added comments to:
-	* updateEdgeList
-	* checkMarkTileValid
-	* createNewEdge
+* Rewrote the following files as 'readme.md' in their respective folders:
+	* ./result-folder/context.txt
+	* ./src/common/precompiled-graph/context.txt
+	* ./src/common/sub-interface/spin-text/context.txt

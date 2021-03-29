@@ -1,11 +1,10 @@
 # Summary
 
-**Version:** 1.0.7
+**Version:** 1.0.8
 
 **Date:** 2021-03-29
 
-**Title:** Cleaned 'traverse' comments.
+**Title:** Converted text files to markdown.
 
 **Description:**
 
-Revised commenting for './src/traverse'
