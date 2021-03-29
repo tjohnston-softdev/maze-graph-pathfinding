@@ -123,10 +123,12 @@ function updateEdgeList(nOrig, nMarked, gObject, cellRes)
 	
 	if (updateRequired === true)
 	{
+		// Create edge.
 		updateRes = createNewEdge(nOrig, nMarked, gObject.edgeList, cellRes);
 	}
 	else
 	{
+		// Edge already exists.
 		updateRes = true;
 	}
 	
@@ -147,6 +149,7 @@ function createNewEdge(originObj, destObj, gEdgeList, cRes)
 	
 	if (edgePossible === true)
 	{
+		// Create object.
 		newID = gEdgeList.length + 1;
 		newEdgeObject = graphObjects.defineEdge(newID, originObj.nodeID, destObj.nodeID, projectedDistance);
 		gEdgeList.push(newEdgeObject);
@@ -222,15 +225,18 @@ function checkMarkTileValid(subjectTile, rowInd, colInd, cellRes)
 	
 	if (subjectTile === tileSet.floorTile || subjectTile === tileSet.nodeTile)
 	{
+		// Valid.
 		mTileValid = true;
 	}
 	else if (subjectTile.length > 0)
 	{
+		// Bad position.
 		traverseErrorDisplay.showBadNodePositionError(rowInd, colInd, cellRes);
 		mTileValid = false;
 	}
 	else
 	{
+		// Missing cell.
 		traverseErrorDisplay.showMissingCellError(rowInd, colInd, cellRes);
 		mTileValid = false;
 	}

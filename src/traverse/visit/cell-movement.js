@@ -65,6 +65,7 @@ function moveVerticalDirection(startRow, startCol, gMatrix, markList, verOffset)
 		}
 		else
 		{
+			// Not allowed.
 			moveAllowed = false;
 		}
 		
@@ -127,6 +128,7 @@ function moveHorizontalDirection(startRow, startCol, gMatrix, markList, horOffse
 		}
 		else
 		{
+			// Not allowed.
 			moveAllowed = false;
 		}
 		
@@ -143,16 +145,19 @@ function checkIntersectionFound(tileA, tileB)
 	var foundB = false;
 	var interRes = false;
 	
+	// First
 	if (tileA === tileSet.floorTile || tileA === tileSet.nodeTile)
 	{
 		foundA = true;
 	}
 	
+	// Second
 	if (tileB === tileSet.floorTile || tileB === tileSet.nodeTile)
 	{
 		foundB = true;
 	}
 	
+	// Result
 	if (foundA === true || foundB === true)
 	{
 		interRes = true;
