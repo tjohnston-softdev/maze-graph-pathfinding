@@ -36,6 +36,7 @@ function findAllPossiblePaths(fullGraphObject, apsCallback)
 	
 	if (startNodeMarked === true)
 	{
+		// Attempts to mark end node.
 		endNodeMarked = pathHelpTasks.markGeneralEnd(fullGraphObject.endNodeIndex, fullGraphObject.nodeList, allPathsObject);
 	}
 	

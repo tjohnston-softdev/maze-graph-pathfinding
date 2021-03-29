@@ -37,6 +37,7 @@ function findShortestPossiblePath(fullGraphObject, useManualHeuristics, starCall
 	
 	if (startNodeMarked === true)
 	{
+		// Attempts to mark end node.
 		endNodeMarked = pathHelpTasks.markGeneralEnd(fullGraphObject.endNodeIndex, fullGraphObject.nodeList, shortestPathObject);
 	}
 	

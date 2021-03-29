@@ -1,11 +1,11 @@
 # Summary
 
-**Version:** 1.0.5
+**Version:** 1.0.6
 
 **Date:** 2021-03-29
 
-**Title:** Cleaned 'parsing' comments.
+**Title:** Cleaned 'pathfinding' comments.
 
 **Description:**
 
-Revised commenting for './src/parsing'
+Revised commenting for './src/pathfinding'

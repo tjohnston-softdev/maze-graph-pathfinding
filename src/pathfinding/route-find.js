@@ -16,26 +16,32 @@ function performNodeGraphPathfinding(inpPathMode, inpGraphObject, pathfindCallba
 	// Performs different pathfinding algorithm for corresponding mode.
 	if (inpPathMode === pathContext.modes.DIJKSTRA)
 	{
+		// Dijkstra
 		coordinateDsktraMode(inpGraphObject, pathfindCallback);
 	}
 	else if (inpPathMode === pathContext.modes.A_STAR)
 	{
+		// A*Star
 		coordinateAstarMode(inpGraphObject, false, pathfindCallback);
 	}
 	else if (inpPathMode === pathContext.modes.ALL_POSSIBLE)
 	{
+		// All Possible
 		coordinateAllPossibleMode(inpGraphObject, pathfindCallback);
 	}
 	else if (inpPathMode === pathContext.modes.ANY_POSSIBLE)
 	{
+		// Any Possible
 		coordinateAnyPossibleMode(inpGraphObject, pathfindCallback);
 	}
 	else if (inpPathMode === pathContext.modes.BLOCK)
 	{
+		// Block
 		coordinateBlockMode(inpGraphObject, pathfindCallback);
 	}
 	else
 	{
+		// Skip
 		coordinateSkipMode(inpGraphObject, pathfindCallback);
 	}
 }
@@ -47,6 +53,7 @@ function performNodeRelativePathfinding(inpPathMode, inpGraphObject, inpHeuristi
 {
 	if (inpPathMode === pathContext.modes.DIJKSTRA)
 	{
+		// Dijkstra
 		coordinateDsktraMode(inpGraphObject, pathfindCallback);
 	}
 	else if (inpPathMode === pathContext.modes.A_STAR && inpHeuristicsValid === true)
@@ -61,18 +68,22 @@ function performNodeRelativePathfinding(inpPathMode, inpGraphObject, inpHeuristi
 	}
 	else if (inpPathMode === pathContext.modes.ALL_POSSIBLE)
 	{
+		// All Possible
 		coordinateAllPossibleMode(inpGraphObject, pathfindCallback);
 	}
 	else if (inpPathMode === pathContext.modes.ANY_POSSIBLE)
 	{
+		// Any Possible
 		coordinateAnyPossibleMode(inpGraphObject, pathfindCallback);
 	}
 	else if (inpPathMode === pathContext.modes.BLOCK)
 	{
+		// Block
 		coordinateBlockMode(inpGraphObject, pathfindCallback);
 	}
 	else
 	{
+		// Skip
 		coordinateSkipMode(inpGraphObject, pathfindCallback);
 	}
 }

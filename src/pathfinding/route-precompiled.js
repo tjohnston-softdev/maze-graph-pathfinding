@@ -25,6 +25,7 @@ function retrievePrecompiledData(inpPathMode)
 	// Additional data will be added to the graph accordingly.
 	if (inpPathMode === pathContext.modes.DIJKSTRA)
 	{
+		// Dijkstra
 		highlightList = edgeStatus.defineDsktra();
 		
 		appendProperties.appendDsktra(compiledObject.graphData);
@@ -33,6 +34,7 @@ function retrievePrecompiledData(inpPathMode)
 	}
 	else if (inpPathMode === pathContext.modes.A_STAR)
 	{
+		// A*Star
 		highlightList = edgeStatus.defineAstar();
 		
 		appendProperties.appendAstar(compiledObject.graphData);
@@ -41,10 +43,12 @@ function retrievePrecompiledData(inpPathMode)
 	}
 	else if (inpPathMode === pathContext.modes.ALL_POSSIBLE)
 	{
+		// All Possible
 		compiledObject.pathData = pathObjects.defineAllPossible();
 	}
 	else if (inpPathMode === pathContext.modes.ANY_POSSIBLE)
 	{
+		// Any Possible
 		highlightList = edgeStatus.defineAnyPossible();
 		
 		appendProperties.appendAnyPossible(compiledObject.graphData);
@@ -53,6 +57,7 @@ function retrievePrecompiledData(inpPathMode)
 	}
 	else if (inpPathMode === pathContext.modes.BLOCK)
 	{
+		// Block
 		appendProperties.appendBlock(compiledObject.graphData);
 		compiledObject.pathData = pathObjects.defineBlock();
 	}

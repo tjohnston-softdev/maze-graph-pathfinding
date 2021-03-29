@@ -37,6 +37,7 @@ function findAnyPossiblePath(fullGraphObject, anyCallback)
 	
 	if (startNodeMarked === true)
 	{
+		// Attempts to mark end node.
 		endNodeMarked = pathHelpTasks.markGeneralEnd(fullGraphObject.endNodeIndex, fullGraphObject.nodeList, chosenPathObject);
 	}
 	
