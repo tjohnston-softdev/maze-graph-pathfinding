@@ -28,23 +28,14 @@ function initializeGridObject()
 // Line validation outcome.
 function defineLineOutcomeObject()
 {
-	var defineRes = {};
-	
-	defineRes["valid"] = false;
-	defineRes["messageText"] = "UNDEFINED";
-	
+	var defineRes = {valid: false, messageText: "UNDEFINED"};
 	return defineRes;
 }
 
 // Image pixel row validation outcome.
 function definePixelRowOutcomeObject()
 {
-	var defineRes = {};
-	
-	defineRes["tileList"] = [];
-	defineRes["successful"] = false;
-	defineRes["messageText"] = "";
-	
+	var defineRes = {tileList: [], successful: false, messageText: ""};
 	return defineRes;
 }
 
@@ -52,7 +43,7 @@ function definePixelRowOutcomeObject()
 // Node search result.
 function defineNodeSearchObject()
 {
-	var defineRes = {"matchIndex": -1, "overflow": false};
+	var defineRes = {matchIndex: -1, overflow: false};
 	return defineRes;
 }
 

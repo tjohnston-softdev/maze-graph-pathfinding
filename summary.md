@@ -1,11 +1,13 @@
 # Summary
 
-**Version:** 1.0.10
+**Version:** 1.0.11
 
 **Date:** 2021-03-29
 
-**Title:** Cleaned 'value-prep'
+**Title:** Reduced JSON Definitions
 
 **Description:**
 
-Rewrote some value preparation functions for simplicity.
+* Cleaned JSON definitions where possible:
+	* Reduced to single line.
+	* Removed quotation marks.

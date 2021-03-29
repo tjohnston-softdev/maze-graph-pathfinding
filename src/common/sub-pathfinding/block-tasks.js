@@ -4,7 +4,7 @@
 // Defines block count object for node loop.
 function initializeCounterObject()
 {
-	var intlRes = {"updateCount": 0};
+	var intlRes = {updateCount: 0};
 	return intlRes;
 }
 

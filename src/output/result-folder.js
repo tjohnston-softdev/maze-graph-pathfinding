@@ -1,7 +1,7 @@
 const fs = require("fs");
 const ora = require("ora");
 const streamExceptions = require("../common/sub-files/stream-exceptions");
-const folderOptions = {"recursive": true};
+const folderOptions = {recursive: true};
 
 /*
 	* Creates the output folder before any files are written.

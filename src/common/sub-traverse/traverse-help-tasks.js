@@ -4,11 +4,7 @@ const trErrorTxt = require("./errors/tr-error-txt");
 // Defines grid traverse result object.
 function defineCellTraverseObject()
 {
-	var defineRes = {};
-	
-	defineRes["successful"] = false;
-	defineRes["errorText"] = "";
-	
+	var defineRes = {successful: false, errorText: ""};
 	return defineRes;
 }
 
