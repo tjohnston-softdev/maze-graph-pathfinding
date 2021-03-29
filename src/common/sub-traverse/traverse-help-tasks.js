@@ -1,4 +1,4 @@
-const trErrorTxt = require("./errors/tr-error-txt");
+const traverseErrorText = require("./errors/traverse-error-text");
 
 
 // Defines grid traverse result object.
@@ -21,7 +21,7 @@ function checkUnvisitedNodeKeyExists(tgtNodeIndex, nCount, traverseResult)
 	else
 	{
 		checkRes = false;
-		traverseResult.errorText = trErrorTxt.writeMissingNodeObject();
+		traverseResult.errorText = traverseErrorText.writeMissingNodeObject();
 	}
 	
 	return checkRes;
@@ -55,7 +55,7 @@ function checkGridCellExists(matrixObj, tgtRowIndex, tgtColIndex, traverseResult
 	else
 	{
 		checkRes = false;
-		traverseResult.errorText = trErrorTxt.writeMissingCell(tgtRowIndex, tgtColIndex);
+		traverseResult.errorText = traverseErrorText.writeMissingCell(tgtRowIndex, tgtColIndex);
 	}
 	
 	
@@ -78,13 +78,13 @@ function checkNodeAddedSuccessfully(addObj, nCount, maxNodeLimit, tgtRowIndex, t
 	{
 		// Too many nodes.
 		checkRes = false;
-		traverseResult.errorText = trErrorTxt.writeMaximumTraversedObjects("Node", maxNodeLimit);
+		traverseResult.errorText = traverseErrorText.writeMaximumTraversedObjects("Node", maxNodeLimit);
 	}
 	else
 	{
 		// Error
 		checkRes = false;
-		traverseResult.errorText = trErrorTxt.writeNodeAddError(tgtRowIndex, tgtColIndex);
+		traverseResult.errorText = traverseErrorText.writeNodeAddError(tgtRowIndex, tgtColIndex);
 	}
 	
 	return checkRes;
@@ -99,7 +99,7 @@ function checkNodeKeyNumbersDifferent(numberA, numberB, traverseResult)
 	if (numberA === numberB)
 	{
 		checkRes = false;
-		traverseResult.errorText = trErrorTxt.writeNodeKeyError(numberA);
+		traverseResult.errorText = traverseErrorText.writeNodeKeyError(numberA);
 	}
 	
 	return checkRes;
@@ -134,13 +134,13 @@ function checkEdgeAddPossible(keyA, keyB, distValid, eCount, maxEdgeLimit, trave
 	{
 		// Too many edges.
 		checkRes = false;
-		traverseResult.errorText = trErrorTxt.writeMaximumTraversedObjects("Edge", maxEdgeLimit);
+		traverseResult.errorText = traverseErrorText.writeMaximumTraversedObjects("Edge", maxEdgeLimit);
 	}
 	else
 	{
 		// Invalid distance.
 		checkRes = false;
-		traverseResult.errorText = trErrorTxt.writeEdgeDistanceError(keyA, keyB);
+		traverseResult.errorText = traverseErrorText.writeEdgeDistanceError(keyA, keyB);
 	}
 	
 	

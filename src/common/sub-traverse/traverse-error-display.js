@@ -1,24 +1,24 @@
-const trErrorTxt = require("./errors/tr-error-txt");
+const traverseErrorText = require("./errors/traverse-error-text");
 
 
 // Cannot add node at given position.
 function showBadNodePositionErrorText(tgtRowIndex, tgtColIndex, traverseResult)
 {
-	traverseResult.errorText = trErrorTxt.writeNodeBadPosition(tgtRowIndex, tgtColIndex);
+	traverseResult.errorText = traverseErrorText.writeNodeBadPosition(tgtRowIndex, tgtColIndex);
 }
 
 
 // Missing node tile.
 function showMissingNodeLocationErrorText(tgtRowIndex, tgtColIndex, traverseResult)
 {
-	traverseResult.errorText = trErrorTxt.writeMissingNodeCoordinates(tgtRowIndex, tgtColIndex);
+	traverseResult.errorText = traverseErrorText.writeMissingNodeCoordinates(tgtRowIndex, tgtColIndex);
 }
 
 
 // Missing grid cell.
 function showMissingCellErrorText(tgtRowIndex, tgtColIndex, traverseResult)
 {
-	traverseResult.errorText = trErrorTxt.writeMissingCell(tgtRowIndex, tgtColIndex);
+	traverseResult.errorText = traverseErrorText.writeMissingCell(tgtRowIndex, tgtColIndex);
 }
 
 
