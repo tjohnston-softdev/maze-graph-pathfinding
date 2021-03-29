@@ -65,8 +65,10 @@ function writeNodesLoop(pMode, fullGraph, dfsObject)
 	
 	var cacheText = "";
 	
+	// Loop nodes.
 	for (nodeIndex = 0; nodeIndex < fullGraph.nodeList.length; nodeIndex = nodeIndex + 1)
 	{
+		// Read node object.
 		currentNodeObject = fullGraph.nodeList[nodeIndex];
 		currentValueList = [];
 		currentLineString = "";
@@ -111,22 +113,27 @@ function writeHeaderRow(pMode, dfsObject)
 	
 	if (pMode === pathContext.modes.DIJKSTRA)
 	{
+		// Dijkstra
 		rowLineText = csvHeaders.getDsktraNodeHeader();
 	}
 	else if (pMode === pathContext.modes.A_STAR)
 	{
+		// A*Star
 		rowLineText = csvHeaders.getAstarNodeHeader();
 	}
 	else if (pMode === pathContext.modes.BLOCK)
 	{
+		// Block
 		rowLineText = csvHeaders.getBlockedNodesHeader();
 	}
 	else if (pMode === pathContext.modes.ANY_POSSIBLE)
 	{
+		// Any Possible
 		rowLineText = csvHeaders.getAnyPossibleNodeHeader();
 	}
 	else
 	{
+		// Other
 		rowLineText = csvHeaders.getBasicNodeHeader();
 	}
 	
@@ -152,12 +159,14 @@ function prepareSubAttributes(nodeObj, valList, sType)
 {
 	if (sType === pathContext.modes.DIJKSTRA)
 	{
+		// Dijkstra
 		csvAttributes.addZeroPositiveNumber(nodeObj.distanceFromStart, false, valList);
 		csvAttributes.addPositiveNumber(nodeObj.previous, true, valList);
 		csvAttributes.addTrueFalse(nodeObj.visited, false, valList);
 	}
 	else if (sType === pathContext.modes.A_STAR)
 	{
+		// A*Star
 		csvAttributes.addZeroPositiveNumber(nodeObj.heuristicValue, false, valList);
 		csvAttributes.addZeroPositiveNumber(nodeObj.distanceFromStart, true, valList);
 		csvAttributes.addZeroPositiveNumber(nodeObj.totalCost, true, valList);
@@ -166,11 +175,13 @@ function prepareSubAttributes(nodeObj, valList, sType)
 	}
 	else if (sType === pathContext.modes.ANY_POSSIBLE)
 	{
+		// Any Possible
 		csvAttributes.addPositiveNumber(nodeObj.previous, true, valList);
 		csvAttributes.addFlagNumber(nodeObj.visitFlag, false, valList);
 	}
 	else if (sType === pathContext.modes.BLOCK)
 	{
+		// Block
 		csvAttributes.addTrueFalse(nodeObj.blocked, false, valList);
 	}
 }

@@ -22,14 +22,17 @@ function handleIntroSection(wStream, tTxtStr)
 {
 	var resTitleTxt = "";
 	
+	// Title.
 	resTitleTxt += tTxtStr;
 	resTitleTxt += charShortcuts.lineBreak;
 	
+	// Creation timestamp.
 	resTitleTxt += "File Created: ";
 	resTitleTxt += currentTime.prepareString();
 	resTitleTxt += charShortcuts.lineBreak;
 	resTitleTxt += charShortcuts.lineBreak;
 	
+	// Break
 	resTitleTxt += charShortcuts.divider;
 	resTitleTxt += charShortcuts.lineBreak;
 	resTitleTxt += charShortcuts.lineBreak;

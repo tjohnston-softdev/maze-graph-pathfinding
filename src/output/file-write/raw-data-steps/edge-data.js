@@ -66,8 +66,11 @@ function writeEdgesLoop(dfsObject, sRouteUsed, fullGraph)
 	
 	var cacheText = "";
 	
+	
+	// Loop edges.
 	for (edgeIndex = 0; edgeIndex < fullGraph.edgeList.length; edgeIndex = edgeIndex + 1)
 	{
+		// Read edge object.
 		currentEdgeObject = fullGraph.edgeList[edgeIndex];
 		currentValueList = [];
 		currentLineString = "";

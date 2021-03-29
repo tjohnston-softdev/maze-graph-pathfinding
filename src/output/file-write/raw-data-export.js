@@ -23,22 +23,27 @@ function performNodeRawDataExport(inpPathMode, destPathsObject, completedGraphOb
 	
 	if (exportData === true && inpPathMode === pathContext.modes.DIJKSTRA)
 	{
+		// Dijkstra
 		coordinateSinglePathDataExport(inpPathMode, destPathsObject, completedGraphObject, completedPathObject, dataExportCallback);
 	}
 	else if (exportData === true && inpPathMode === pathContext.modes.A_STAR)
 	{
+		// A*Star
 		coordinateSinglePathDataExport(inpPathMode, destPathsObject, completedGraphObject, completedPathObject, dataExportCallback);
 	}
 	else if (exportData === true && inpPathMode === pathContext.modes.ALL_POSSIBLE)
 	{
+		// All Possible
 		coordinateMultiplePathsDataExport(inpPathMode, destPathsObject, completedGraphObject, completedPathObject, dataExportCallback);
 	}
 	else if (exportData === true && inpPathMode === pathContext.modes.ANY_POSSIBLE)
 	{
+		// Any Possible
 		coordinateSinglePathDataExport(inpPathMode, destPathsObject, completedGraphObject, completedPathObject, dataExportCallback);
 	}
 	else if (exportData === true && inpPathMode === pathContext.modes.BLOCK)
 	{
+		// Block
 		coordinateBlockedRoutesDataExport(destPathsObject, completedGraphObject, completedPathObject, dataExportCallback);
 	}
 	else if (exportData === true)

@@ -57,6 +57,7 @@ function writePathContents(dfsStream, fullPathObj, pathCount)
 {
 	if (pathCount === 1)
 	{
+		// Single
 		handleOpen(dfsStream);
 		handleSinglePathLoop(dfsStream, fullPathObj);
 		handleSingleDistance(dfsStream, fullPathObj);
@@ -65,6 +66,7 @@ function writePathContents(dfsStream, fullPathObj, pathCount)
 	}
 	else if (pathCount >= 2)
 	{
+		// Multiple
 		handleOpen(dfsStream);
 		handleMultiplePathLoop(dfsStream, fullPathObj);
 		handleOutcomeProperties(dfsStream, fullPathObj);
@@ -72,6 +74,7 @@ function writePathContents(dfsStream, fullPathObj, pathCount)
 	}
 	else
 	{
+		// None
 		handleBlankPlaceholder(dfsStream, fullPathObj);
 	}
 }
@@ -120,10 +123,13 @@ function handleSinglePathLoop(dStream, pathObj)
 	// Loop writes Node IDs line-by-line for sequence array.
 	for (positionIndex = 0; positionIndex <= lastPosition; positionIndex = positionIndex + 1)
 	{
+		// Read current Node ID.
 		currentNumber = pathObj.sequence[positionIndex];
 		currentString = commaItems.writeSequenceNodeNumber(currentNumber, positionIndex, lastPosition);
 		currentLine = "";
 		
+		
+		// Append text.
 		currentLine += charShortcuts.secondIndent;
 		currentLine += currentString;
 		currentLine += charShortcuts.lineBreak;
@@ -285,12 +291,16 @@ function handleOutcomeProperties(dStream, pathObj)
 {
 	var detailsTxt = "";
 	
+	
+	// Successful.
 	detailsTxt += charShortcuts.firstIndent;
 	detailsTxt += '"successful": ';
 	detailsTxt += pathObj.successful;
 	detailsTxt += commaItems.com;
 	detailsTxt += charShortcuts.lineBreak;
 	
+	
+	// Message text.
 	detailsTxt += charShortcuts.firstIndent;
 	detailsTxt += '"messageText": "';
 	detailsTxt += pathObj.messageText;

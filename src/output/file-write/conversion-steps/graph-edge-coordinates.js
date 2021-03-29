@@ -87,6 +87,7 @@ function prepareEdgeLine(originPart, destPart, eIndex, eLast)
 	
 	if (eIndex >= 0 && eIndex < eLast)
 	{
+		// Add line break for next edge.
 		prepRes = prepRes + charShortcuts.lineBreak;
 	}
 	
