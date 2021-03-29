@@ -1,13 +1,12 @@
 # Summary
 
-**Version:** 1.0.11
+**Version:** 1.0.12
 
 **Date:** 2021-03-29
 
-**Title:** Reduced JSON Definitions
+**Title:** Templates - Sequence Data - Readme
 
 **Description:**
 
-* Cleaned JSON definitions where possible:
-	* Reduced to single line.
-	* Removed quotation marks.
+Rewrote './templates/sequence-data/context.txt' as
+'readme.md'
