@@ -40,7 +40,7 @@ function appendDsktraNodeAttributes(gObject)
 }
 
 
-// Adds completed A*Star algorithm data to nodes.
+// A*Star
 function appendAstarNodeAttributes(gObject)
 {
 	var propList = defineAstarAttributes();
@@ -77,7 +77,7 @@ function appendAstarNodeAttributes(gObject)
 }
 
 
-// Adds completed 'any possible' algorithm data to nodes.
+// Any Possible
 function appendAnyPossibleAttributes(gObject)
 {
 	var propList = defineAnyPossibleAttributes();
@@ -107,7 +107,7 @@ function appendAnyPossibleAttributes(gObject)
 
 
 
-// This function adds completed 'block' data to nodes.
+// Block
 function appendBlockNodeAttributes(gObject)
 {
 	var propList = defineBlockAttributes();
@@ -142,9 +142,9 @@ function defineDsktraAttributes()
 {	
 	var defineRes =
 	[
-		{nodeID: 1, distanceFromStart: 0, previous: null, visited: true},										// Start node
-		{nodeID: 2, distanceFromStart: 1800, previous: 17, visited: true},										// End node
-		{nodeID: 3, distanceFromStart: 100, previous: 1, visited: true},										// Other (etc)
+		{nodeID: 1, distanceFromStart: 0, previous: null, visited: true},			// Start
+		{nodeID: 2, distanceFromStart: 1800, previous: 17, visited: true},			// End
+		{nodeID: 3, distanceFromStart: 100, previous: 1, visited: true},			// Other (etc)
 		{nodeID: 4, distanceFromStart: 700, previous: 3, visited: true},
 		{nodeID: 5, distanceFromStart: 900, previous: 4, visited: true},
 		{nodeID: 6, distanceFromStart: 1100, previous: 5, visited: true},
@@ -168,14 +168,14 @@ function defineDsktraAttributes()
 }
 
 
-// Defines A*Star pathfinding node data.
+// A*Star.
 function defineAstarAttributes()
 {
 	var defineRes =
 	[
-		{nodeID: 1, heuristic: 1800, distanceFromStart: 0, totalCost: 1800, previous: null, visitFlag: 1},		// Start node
-		{nodeID: 2, heuristic: 0, distanceFromStart: 1800, totalCost: 1800, previous: 17, visitFlag: 1},		// End node
-		{nodeID: 3, heuristic: 1700, distanceFromStart: 100, totalCost: 1800, previous: 1, visitFlag: 1},		// Other (etc)
+		{nodeID: 1, heuristic: 1800, distanceFromStart: 0, totalCost: 1800, previous: null, visitFlag: 1},
+		{nodeID: 2, heuristic: 0, distanceFromStart: 1800, totalCost: 1800, previous: 17, visitFlag: 1},
+		{nodeID: 3, heuristic: 1700, distanceFromStart: 100, totalCost: 1800, previous: 1, visitFlag: 1},
 		{nodeID: 4, heuristic: 1100, distanceFromStart: 700, totalCost: 1800, previous: 3, visitFlag: 0},
 		{nodeID: 5, heuristic: 900, distanceFromStart: null, totalCost: null, previous: null, visitFlag: -1},
 		{nodeID: 6, heuristic: 700, distanceFromStart: null, totalCost: null, previous: null, visitFlag: -1},
@@ -200,14 +200,14 @@ function defineAstarAttributes()
 }
 
 
-// Defines 'any possible' pathfinding node data.
+// Any Possible
 function defineAnyPossibleAttributes()
 {
 	var defineRes =
 	[
-		{nodeID: 1, previous: null, visitFlag: 1},																// Start node
-		{nodeID: 2, previous: 17, visitFlag: 1},																// End node
-		{nodeID: 3, previous: 1, visitFlag: 1},																	// Other (etc)
+		{nodeID: 1, previous: null, visitFlag: 1},
+		{nodeID: 2, previous: 17, visitFlag: 1},
+		{nodeID: 3, previous: 1, visitFlag: 1},
 		{nodeID: 4, previous: 3, visitFlag: 1},
 		{nodeID: 5, previous: 4, visitFlag: 1},
 		{nodeID: 6, previous: 5, visitFlag: 1},
@@ -232,7 +232,7 @@ function defineAnyPossibleAttributes()
 
 
 
-// Defines 'block' pathfinding node data.
+// Block
 function defineBlockAttributes()
 {
 	var defineRes =

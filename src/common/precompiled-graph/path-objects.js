@@ -4,6 +4,7 @@
 */
 
 
+// Dijkstra
 function defineDsktraResults()
 {
 	var defineRes =
@@ -19,6 +20,7 @@ function defineDsktraResults()
 
 
 
+// A*Star
 function defineAstarResults()
 {
 	var defineRes =
@@ -34,6 +36,7 @@ function defineAstarResults()
 
 
 
+// All Possible
 function defineAllPossibleResults()
 {
 	var defineRes =
@@ -54,6 +57,8 @@ function defineAllPossibleResults()
 }
 
 
+
+// Any Possible
 function defineAnyPossibleResults()
 {
 	var defineRes =
@@ -69,7 +74,7 @@ function defineAnyPossibleResults()
 
 
 
-
+// Block
 function defineBlockResults()
 {
 	var defineRes =
@@ -84,7 +89,7 @@ function defineBlockResults()
 
 
 
-
+// Blank
 function defineBlankResults()
 {
 	var defineRes = {sequence: [], totalDistance: 0, successful: true, messageText: 'UNDEFINED'};

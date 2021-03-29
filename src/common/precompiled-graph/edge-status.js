@@ -36,7 +36,7 @@ function defineDsktraEdgeHighlights()
 }
 
 
-// Defines edge highlight status for A*Star pathfinding.
+// A*Star
 function defineAstarEdgeHighlights()
 {
 	var defineRes = [];
@@ -50,7 +50,7 @@ function defineAstarEdgeHighlights()
 }
 
 
-// Defines edge highlight status for 'any possible' pathfinding.
+// Any Possible
 function defineAnyPossibleEdgeHighlights()
 {
 	var defineRes = [];

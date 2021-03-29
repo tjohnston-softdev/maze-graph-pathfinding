@@ -9,6 +9,7 @@ const sequenceDataFileName = "path-data.json";
 // These functions are used to prepare the target output paths for exported map files.
 
 
+// Graph HTML file.
 function getMainGraphFilePath(tgtFolder)
 {
 	var pathRes = path.join(tgtFolder, graphFileName);
@@ -16,6 +17,7 @@ function getMainGraphFilePath(tgtFolder)
 }
 
 
+// Node data CSV.
 function getNodeDataFilePath(tgtFolder)
 {
 	var pathRes = path.join(tgtFolder, nodeDataFileName);
@@ -23,6 +25,7 @@ function getNodeDataFilePath(tgtFolder)
 }
 
 
+// Edge data CSV.
 function getEdgeDataFilePath(tgtFolder)
 {
 	var pathRes = path.join(tgtFolder, edgeDataFileName);
@@ -30,6 +33,7 @@ function getEdgeDataFilePath(tgtFolder)
 }
 
 
+// Path JSON file.
 function getSequenceDataFilePath(tgtFolder)
 {
 	var pathRes = path.join(tgtFolder, sequenceDataFileName);
@@ -38,6 +42,7 @@ function getSequenceDataFilePath(tgtFolder)
 
 
 
+// Custom
 function getCustomFilePath(tgtFolder, custFileName)
 {
 	var pathRes = path.join(tgtFolder, custFileName);

@@ -185,11 +185,13 @@ function trimRowsToLength(fullGrid, targetLength)
 	
 	for (rowIndex = 0; rowIndex < fullGrid.length; rowIndex = rowIndex + 1)
 	{
+		// Read current row and count excess columns.
 		currentRow = fullGrid[rowIndex];
 		currentTrim = currentRow.length - targetLength;
 		
 		if (currentTrim > 0)
 		{
+			// Remove excess columns.
 			currentRow.splice(targetLength, currentTrim);
 		}
 		

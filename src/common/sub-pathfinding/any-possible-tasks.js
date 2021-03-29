@@ -68,6 +68,7 @@ function findChoiceStartPoint(nList)
 		
 		if (currentNodeObject.visitFlag === 0)
 		{
+			// Unvisited node found.
 			findRes = nodeIndex;
 		}
 		
@@ -140,6 +141,7 @@ function checkEndNodeReached(eNode, rObject)
 	}
 	else
 	{
+		// End not visited.
 		checkRes = false;
 		rObject.messageText = pathErrorText.writeImpossibleRoute();
 	}

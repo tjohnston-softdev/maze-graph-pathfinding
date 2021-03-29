@@ -144,12 +144,14 @@ function checkNodeCoordinatesExist(tgtRow, tgtCol, nList)
 	
 	while (nodeIndex >= 0 && nodeIndex < nList.length && checkRes === -1)
 	{
+		// Read current node coordinates.
 		currentNode = nList[nodeIndex];
 		currentRow = currentNode.rowNumber;
 		currentCol = currentNode.colNumber;
 		
 		if (currentRow === tgtRow && currentCol === tgtCol)
 		{
+			// Target found.
 			checkRes = nodeIndex;
 		}
 		

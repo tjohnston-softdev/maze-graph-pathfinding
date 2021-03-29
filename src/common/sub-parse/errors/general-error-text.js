@@ -1,5 +1,7 @@
 // These functions write error text for general parsing errors. Mainly used for checking graph integrity.
 
+
+// Maximum objects reached.
 function writeMaximumObjectText(vType, vLimit)
 {
 	var fullText = "";
@@ -15,6 +17,7 @@ function writeMaximumObjectText(vType, vLimit)
 
 
 
+// Maximum grid size.
 function writeMaximumDimensionText(vDesc, vLimit)
 {
 	var fullText = "";
@@ -29,6 +32,7 @@ function writeMaximumDimensionText(vDesc, vLimit)
 }
 
 
+// Missing grid dimension.
 function writeMissingDimensionText(vDesc)
 {
 	var fullText = "";
@@ -42,7 +46,7 @@ function writeMissingDimensionText(vDesc)
 
 
 
-
+// Object types missing.
 function writeEmptyTypeText(vType)
 {
 	var fullText = "";
@@ -55,6 +59,7 @@ function writeEmptyTypeText(vType)
 }
 
 
+// Undefined target point.
 function writeTargetPointMissingText(vDesc)
 {
 	var fullText = "";

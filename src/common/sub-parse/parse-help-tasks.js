@@ -13,6 +13,7 @@ function checkSafeLineLengthNumber(lengthNum, upperLimit, lineLocationNumber, ou
 	}
 	else
 	{
+		// Invalid.
 		checkRes = false;
 		outcomeObj.messageText = lineErrorText.writeLineTooLong(upperLimit, lineLocationNumber);
 	}
@@ -65,6 +66,7 @@ function checkAbsoluteNodeKeyNumbersDifferent(pointA, pointB, lineLocationNumber
 	
 	if (pointA === pointB)
 	{
+		// Invalid.
 		checkRes = false;
 		outcomeObj.messageText = lineErrorText.writeAbsoluteZeroDistance(lineLocationNumber);
 	}
@@ -85,6 +87,7 @@ function checkAbsoluteDistanceNumberValid(dNumber, lineLocationNumber, outcomeOb
 	}
 	else
 	{
+		// Invalid.
 		checkRes = false;
 		outcomeObj.messageText = lineErrorText.writeAbsoluteZeroDistance(lineLocationNumber);
 	}
@@ -180,6 +183,7 @@ function checkStartEndPointsDifferent(sPoint, ePoint, outcomeObj)
 	
 	if (sPoint === ePoint)
 	{
+		// Invalid.
 		checkRes = false;
 		outcomeObj.messageText = "Start and End points cannot be the same.";
 	}

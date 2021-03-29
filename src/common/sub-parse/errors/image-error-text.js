@@ -1,5 +1,7 @@
 // These functions write error text for parsing image files.
 
+
+// Image dimensions too large.
 function writeDimensionsErrorText(vMaxPixels, vWidth, vHeight)
 {
 	var fullText = "";
@@ -13,6 +15,7 @@ function writeDimensionsErrorText(vMaxPixels, vWidth, vHeight)
 }
 
 
+// Unknown origin point.
 function writeUnknownOriginText(vOriginX, vOriginY)
 {
 	var fullText = "";
@@ -24,6 +27,7 @@ function writeUnknownOriginText(vOriginX, vOriginY)
 }
 
 
+// Invalid image pixel.
 function writeBadPixelText(vPixelX, vPixelY)
 {
 	var fullText = "";
@@ -35,6 +39,7 @@ function writeBadPixelText(vPixelX, vPixelY)
 }
 
 
+// Maximum parsed rows.
 function writeMaxRowsText(vLimit, vOriginX, vRowY)
 {
 	var fullText = "";
@@ -48,6 +53,7 @@ function writeMaxRowsText(vLimit, vOriginX, vRowY)
 }
 
 
+// Maximum parsed columns.
 function writeMaxColsText(vLimit, vOriginX, vRowY)
 {
 	var fullText = "";
@@ -62,6 +68,7 @@ function writeMaxColsText(vLimit, vOriginX, vRowY)
 }
 
 
+// No tiles parsed from row.
 function writeEmptyRowText(vOriginX, vOriginY)
 {
 	var fullText = "";
@@ -74,6 +81,7 @@ function writeEmptyRowText(vOriginX, vOriginY)
 }
 
 
+// Invalid tiles.
 function writeTileConversionText(vTileX, vTileY)
 {
 	var fullText = "";
@@ -86,8 +94,7 @@ function writeTileConversionText(vTileX, vTileY)
 
 
 
-
-
+// Writes image dimensions.
 function showDimensions(tWidth, tHeight)
 {
 	// (123x456)
@@ -96,6 +103,8 @@ function showDimensions(tWidth, tHeight)
 }
 
 
+
+// Writes pixel coordinates.
 function showCoordinates(tCoordX, tCoordY)
 {
 	// (123,456)
@@ -104,6 +113,7 @@ function showCoordinates(tCoordX, tCoordY)
 }
 
 
+// Write row start coordinates.
 function showRowStartCoordinates(tCoordX, tCoordX)
 {
 	// (123,456 onwards)

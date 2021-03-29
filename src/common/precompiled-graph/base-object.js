@@ -8,9 +8,9 @@ function setNodeEntries(gObject)
 {
 	gObject.nodeList =
 	[
-		{nodeID: 1, rowNumber: 200, colNumber: 100, typeFlag: -1},				// Start node
-		{nodeID: 2, rowNumber: 1000, colNumber: 1100, typeFlag: 1},				// End node
-		{nodeID: 3, rowNumber: 200, colNumber: 200, typeFlag: 0},				// Other (etc...)
+		{nodeID: 1, rowNumber: 200, colNumber: 100, typeFlag: -1},				// Start
+		{nodeID: 2, rowNumber: 1000, colNumber: 1100, typeFlag: 1},				// End
+		{nodeID: 3, rowNumber: 200, colNumber: 200, typeFlag: 0},				// Other (etc)
 		{nodeID: 4, rowNumber: 800, colNumber: 200, typeFlag: 0},
 		{nodeID: 5, rowNumber: 1000, colNumber: 200, typeFlag: 0 },
 		{nodeID: 6, rowNumber: 1000, colNumber: 400, typeFlag: 0 },
@@ -66,7 +66,7 @@ function setEdgeEntries(gObject)
 
 function setTargetKeys(gObject)
 {
-	// The start,end indicies refer to the 'nodeList' array
+	// The start,end index numbers refer to the 'nodeList' array
 	gObject.startNodeIndex = 0;
 	gObject.endNodeIndex = 1;
 }

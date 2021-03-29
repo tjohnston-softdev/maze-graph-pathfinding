@@ -11,12 +11,14 @@ function checkImageDimensionNumbersValid(widthNumber, heightNumber, minPixels, m
 	var checkRes = false;
 	
 	
+	// Check width.
 	if (widthNumber >= minPixels && widthNumber <= maxPixels)
 	{
 		widthValid = true;
 	}
 	
 	
+	// Check height.
 	if (heightNumber >= minPixels && heightNumber <= maxPixels)
 	{
 		heightValid = true;
@@ -25,10 +27,12 @@ function checkImageDimensionNumbersValid(widthNumber, heightNumber, minPixels, m
 	
 	if (widthValid === true && heightValid === true)
 	{
+		// Dimensions valid.
 		checkRes = true;
 	}
 	else
 	{
+		// Invalid dimensions.
 		checkRes = false;
 		outcomeObj.messageText = imageErrorText.writeDimensionsError(maxPixels, widthNumber, heightNumber);
 	}
@@ -47,24 +51,29 @@ function checkOriginPointCoordinatesExist(originPointX, originPointY, imgWidth, 
 	var checkRes = false;
 	
 	
+	// X point.
 	if (originPointX >= 0 && originPointX < imgWidth)
 	{
 		xExists = true;
 	}
 	
 	
+	// Y point.
 	if (originPointY >= 0 && originPointY < imgHeight)
 	{
 		yExists = true;
 	}
 	
 	
+	
 	if (xExists === true && yExists === true)
 	{
+		// Origin exists.
 		checkRes = true;
 	}
 	else
 	{
+		// Origin missing.
 		checkRes = false;
 		outcomeObj.messageText = imageErrorText.writeUnknownOrigin(originPointX, originPointY);
 	}

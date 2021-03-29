@@ -1,5 +1,7 @@
 // Writes error text related to pathfinding.
 
+
+// Target node missing.
 function writeTargetNodeMissingText(vDesc)
 {
 	var fullText = vDesc + " node is missing";
@@ -7,6 +9,7 @@ function writeTargetNodeMissingText(vDesc)
 }
 
 
+// No possible routes - Single.
 function writeImpossibleRouteText()
 {
 	var fullText = "There is no possible route between the start and end nodes.";
@@ -14,6 +17,7 @@ function writeImpossibleRouteText()
 }
 
 
+// No possible routes - Multiple.
 function writeImpossibleMultipleRoutesText()
 {
 	var fullText = "There are no possible routes between the start and end nodes.";
@@ -21,6 +25,7 @@ function writeImpossibleMultipleRoutesText()
 }
 
 
+// 'all-possible' maximum nodes.
 function writeAllPossibleMaxNodesText(vLimit)
 {
 	var fullText = "";

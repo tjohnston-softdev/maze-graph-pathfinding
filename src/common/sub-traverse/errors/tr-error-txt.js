@@ -1,5 +1,7 @@
 // Writes error text related to grid traversal.
 
+
+// Missing node object.
 function writeMissingNodeObjectText()
 {
 	var fullText = "Node object is missing.";
@@ -7,6 +9,7 @@ function writeMissingNodeObjectText()
 }
 
 
+// Missing node at coordinates.
 function writeMissingNodeCoordinatesText(vRow, vCol)
 {
 	var fullText = "";
@@ -18,7 +21,7 @@ function writeMissingNodeCoordinatesText(vRow, vCol)
 }
 
 
-
+// Cell does not exist.
 function writeMissingCellText(vRow, vCol)
 {
 	var fullText = "";
@@ -30,7 +33,7 @@ function writeMissingCellText(vRow, vCol)
 }
 
 
-
+// Maximum traversed objects.
 function writeMaximumTraversedObjectsText(vType, vCount)
 {
 	var fullText = "";
@@ -45,6 +48,7 @@ function writeMaximumTraversedObjectsText(vType, vCount)
 }
 
 
+// Invalid node location.
 function writeNodeBadPositionText(vRow, vCol)
 {
 	var fullText = "";
@@ -57,7 +61,7 @@ function writeNodeBadPositionText(vRow, vCol)
 }
 
 
-
+// Node add error.
 function writeNodeAddErrorText(vRow, vCol)
 {
 	var fullText = "";
@@ -70,7 +74,7 @@ function writeNodeAddErrorText(vRow, vCol)
 }
 
 
-
+// Node same ID error.
 function writeNodeKeyErrorText(vNum)
 {
 	var fullText = "";
@@ -83,6 +87,7 @@ function writeNodeKeyErrorText(vNum)
 }
 
 
+// Edge same coordinates error.
 function writeEdgeDistanceErrorText(vKeyA, vKeyB)
 {
 	var fullText = "";
@@ -99,6 +104,7 @@ function writeEdgeDistanceErrorText(vKeyA, vKeyB)
 
 
 
+// Writes coordinates.
 function showCoordinates(shRow, shCol)
 {
 	// (100,200)

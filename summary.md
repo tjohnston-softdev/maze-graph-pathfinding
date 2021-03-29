@@ -1,11 +1,11 @@
 # Summary
 
-**Version:** 1.0.1
+**Version:** 1.0.2
 
 **Date:** 2021-03-29
 
-**Title:** Opened 1.1 Branch
+**Title:** Cleaned 'common' comments.
 
 **Description:**
 
-Begun development of version 1.1
+Revised commenting for './src/common'

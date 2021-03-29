@@ -40,6 +40,7 @@ function checkEndNodeReached(eNode, rObject)
 	}
 	else
 	{
+		// Unvisited.
 		checkRes = false;
 		rObject.messageText = pathErrorText.writeImpossibleRoute();
 	}

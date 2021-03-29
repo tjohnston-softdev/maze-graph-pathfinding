@@ -5,6 +5,7 @@
 */
 
 
+// Main function.
 function prepareCurrentTimestampString()
 {
 	var tsObject = new Date();

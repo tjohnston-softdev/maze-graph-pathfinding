@@ -16,10 +16,12 @@ function checkSplitLineLength(splitObj, minLength, lineDesc, correctFormat, line
 	
 	if (splitObj.length >= minLength)
 	{
+		// Minimum reached.
 		checkRes = true;
 	}
 	else
 	{
+		// Invalid.
 		checkRes = false;
 		outcomeObj.messageText = lineErrorText.writeInvalidFormat(lineDesc, correctFormat, lineLocationNumber);
 	}
@@ -83,6 +85,7 @@ function checkNodeIDValid(idNum, idDesc, lineLocationNumber, outcomeObj)
 	}
 	else
 	{
+		// Invalid.
 		checkRes = false;
 		outcomeObj.messageText = lineErrorText.writeRelativeNodeNumberInvalid(idDesc, lineLocationNumber);
 	}
@@ -160,6 +163,7 @@ function checkNodeExistFlagValid(eFlag, nCount, idDesc, lineLocationNumber, outc
 	}
 	else
 	{
+		// Invalid.
 		checkRes = false;
 		outcomeObj.messageText = lineErrorText.writeRelativeMissingNode(idDesc, lineLocationNumber);
 	}
@@ -175,6 +179,7 @@ function checkEdgeKeyNumbersDifferent(pointA, pointB, lineLocationNumber, outcom
 	
 	if (pointA === pointB)
 	{
+		// Invalid.
 		checkRes = false;
 		outcomeObj.messageText = lineErrorText.writeEdgeNumbersSame(lineLocationNumber);
 	}

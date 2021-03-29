@@ -1,4 +1,4 @@
-// Used to parse numbers entered through the command line.
+// Used to parse numbers.
 
 const maxStringLength = 50;
 
@@ -10,17 +10,17 @@ function convertInputValueToNumber(origVal, sType, nType)
 	
 	if (sType === true)
 	{
-		// If original value is a string, cast to number.
+		// Original value is a string - Cast to number.
 		conversionResult = castString(origVal);
 	}
 	else if (nType === true)
 	{
-		// If original value is a number, use it as-is.
+		// Original value is a number - Use as-is.
 		conversionResult = origVal;
 	}
 	else
 	{
-		// Otherwise, invalid.
+		// Invalid
 		conversionResult = NaN;
 	}
 	
@@ -32,9 +32,9 @@ function castString(oString)
 {
 	var castRes = NaN;
 	
-	// If the string is a safe length, cast to number.
 	if (oString.length > 0 && oString.length <= maxStringLength)
 	{
+		// String safe length - Cast to number.
 		castRes = Number(oString);
 	}
 	
