@@ -13,6 +13,7 @@ const imageToAbsoluteMain = require("./src/image-to-absolute-main");
 const imageToGridMain = require("./src/image-to-grid-main");
 const absoluteToRelativeMain = require("./src/absolute-to-relative-main");
 const gridToRelativeMain = require("./src/grid-to-relative-main");
+const imageToRelativeMain = require("./src/image-to-relative-main");
 const testExportMain = require("./src/test-export-main");
 
 const versionText = "Version 1.0.0";
@@ -203,7 +204,7 @@ program
 .option("-y --start-y <number>", optionDesc.imageOriginY)
 .action(function (inpImagePath, inpWritePath, options)
 {
-	console.log("Image to Relative");
+	imageToRelativeMain.runFileConversion(inpImagePath, inpWritePath, options);
 });
 
 // test-export [pathfinding-mode]

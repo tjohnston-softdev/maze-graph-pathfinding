@@ -1,12 +1,11 @@
 # Summary
 
-**Version:** 1.0.18
+**Version:** 1.0.19
 
 **Date:** 2021-03-30
 
-**Title:** 'absolute-to-relative' Series Clean
+**Title:** Image to Relative
 
 **Description:**
 
-Removed unnecessary result variables from
-'absolute-to-relative'
+Implemented 'Image to Relative' conversion.

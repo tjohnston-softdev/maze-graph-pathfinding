@@ -143,6 +143,28 @@ function callAbsoluteGridToRelativeOutputTasks(cTargetPath, cGraphObject, cHeade
 }
 
 
+// 'image-to-relative'
+function callImageToRelativeOutputTasks(cPreparedInput, cGraphObject, cHeaderText)
+{
+	asyncModule.series(
+	[
+		relativeConversionExport.performFileExport.bind(null, cPreparedInput.preparedPaths.writePath, cGraphObject, cHeaderText),
+		imageConfigSaveExport.performFileExport.bind(null, cPreparedInput.preparedPaths.saveConfig, cPreparedInput.imageItems)
+	],
+	function (saveError, saveRes)
+	{
+		if (saveError !== null)
+		{
+			handleImageConversionFileClean(cPreparedInput.preparedPaths, saveError.message);
+		}
+		else
+		{
+			exitProgram.callComplete();
+		}
+	});
+}
+
+
 // 'create-image-config'
 function callCreateImageConfigOutputTasks(cPreparedInput)
 {
@@ -263,5 +285,6 @@ module.exports =
 	callImageToAbsoluteOutput: callImageToAbsoluteOutputTasks,
 	callImageToGridOutput: callImageToGridOutputTasks,
 	callAbsoluteGridToRelativeOutput: callAbsoluteGridToRelativeOutputTasks,
+	callImageToRelativeOutput: callImageToRelativeOutputTasks,
 	callCreateImageConfigOutput: callCreateImageConfigOutputTasks
 };

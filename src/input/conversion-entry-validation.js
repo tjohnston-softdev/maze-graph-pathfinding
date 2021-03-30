@@ -57,6 +57,22 @@ function readTextToRelativeArguments(argInputPath, argWritePath, optionalArgsObj
 }
 
 
+// Handles entry validation for the 'image-to-relative' commands.
+function readImageToRelativeArguments(argInputPath, argWritePath, optionalArgsObj)
+{
+	var argumentReadResult = coordinateMainArguments(argInputPath, argWritePath, optionalArgsObj, defaultValues.relativeConversionPath);
+	var imageAppendSuccessful = false;
+	
+	if (argumentReadResult.valid === true)
+	{
+		imageAppendSuccessful = coordinateImageItems(optionalArgsObj, argumentReadResult);
+		argumentReadResult.valid = imageAppendSuccessful;
+	}
+	
+	return argumentReadResult;
+}
+
+
 // Validates main arguments which are used in all conversion commands.
 function coordinateMainArguments(aInputPath, aWritePath, optionalArgs, defaultWritePath)
 {
@@ -128,7 +144,7 @@ function coordinateImageItems(optionalArgs, aReadRes)
 		loadSaveResolved = resolvedPath.validateConvSaveLoadConfigPaths(aReadRes.preparedPaths);
 	}
 	
-	if (saveNameValid === true)
+	if (loadSaveResolved === true)
 	{
 		appendRes = true;
 	}
@@ -176,5 +192,6 @@ module.exports =
 	readGridToAbsolute: readGridToAbsoluteArguments,
 	readImageToAbsolute: readImageToAbsoluteArguments,
 	readImageToGrid: readImageToGridArguments,
-	readTextToRelative: readTextToRelativeArguments
+	readTextToRelative: readTextToRelativeArguments,
+	readImageToRelative: readImageToRelativeArguments
 };
