@@ -49,6 +49,14 @@ function readImageToGridArguments(argInputPath, argWritePath, optionalArgsObj)
 }
 
 
+// Handles entry validation for the 'absolute-to-relative' and 'grid-to-relative' commands.
+function readTextToRelativeArguments(argInputPath, argWritePath, optionalArgsObj)
+{
+	var argumentReadResult = coordinateMainArguments(argInputPath, argWritePath, optionalArgsObj, defaultValues.relativeConversionPath);
+	return argumentReadResult;
+}
+
+
 // Validates main arguments which are used in all conversion commands.
 function coordinateMainArguments(aInputPath, aWritePath, optionalArgs, defaultWritePath)
 {
@@ -167,5 +175,6 @@ module.exports =
 {
 	readGridToAbsolute: readGridToAbsoluteArguments,
 	readImageToAbsolute: readImageToAbsoluteArguments,
-	readImageToGrid: readImageToGridArguments
+	readImageToGrid: readImageToGridArguments,
+	readTextToRelative: readTextToRelativeArguments
 };

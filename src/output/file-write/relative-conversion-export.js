@@ -5,26 +5,34 @@ const writeOptions = require("../../common/sub-files/write-options");
 const streamExceptions = require("../../common/sub-files/stream-exceptions");
 const writtenFile = require("../../common/sub-output/written-file");
 const headerInfo = require("./conversion-steps/header-info");
-const graphEdgeCoordinates = require("./conversion-steps/graph-edge-coordinates");
+const relativeMarkers = require("./conversion-steps/relative-markers");
+const relativeNodeList = require("./conversion-steps/relative-node-list");
+const relativeEdgeList = require("./conversion-steps/relative-edge-list");
+const relativeStartEnd = require("./conversion-steps/relative-start-end");
+
 
 
 /*
-	* This file is used to initiate absolute conversion output as a text file.
-	* This affects the commands 'image-to-absolute' and 'grid-to-absolute'
+	* This file is used to initiate relative conversion output as a text file.
+	* This affects the commands:
+		* absolute-to-relative
+		* grid-to-relative
+		* image-to-relative
 */
 
 
+
 // Main function.
-function performAbsoluteConversionFileExport(inpDestinationPath, inpGraphObject, fileHeaderText, convExportCallback)
+function performRelativeConversionFileExport(inpDestinationPath, inpGraphObject, fileHeaderText, convExportCallback)
 {
 	var exportSpinner = ora(spinText.conversionProg).start();
 	
-	coordinateFileWrite(inpDestinationPath, inpGraphObject, fileHeaderText, function (absExportError, absExportRes)
+	coordinateFileWrite(inpDestinationPath, inpGraphObject, fileHeaderText, function (relExportError, relExportRes)
 	{
-		if (absExportError !== null)
+		if (relExportError !== null)
 		{
 			exportSpinner.fail(spinText.conversionFail);
-			return convExportCallback(absExportError, null);
+			return convExportCallback(relExportError, null);
 		}
 		else
 		{
@@ -32,9 +40,7 @@ function performAbsoluteConversionFileExport(inpDestinationPath, inpGraphObject,
 			return convExportCallback(null, true)
 		}
 	});
-	
 }
-
 
 
 // File creation.
@@ -61,14 +67,27 @@ function coordinateFileWrite(inpDestPth, inpGraphObj, fileHeadTxt, fwCallback)
 	{
 		fileResultObject.created = true;
 		
-		headerInfo.writeAbsoluteGridHeader(convFileStreamObject, fileHeadTxt, inpGraphObj);			// Conversion file header.
-		graphEdgeCoordinates.writeEdgeList(convFileStreamObject, inpGraphObj);						// Edge coordinates list.
+		// Conversion file header.
+		headerInfo.writeRelativeHeader(convFileStreamObject, fileHeadTxt, inpGraphObj);
+		
+		// Nodes
+		relativeMarkers.writeLabel(convFileStreamObject, "NODES:");
+		relativeNodeList.writeNodes(convFileStreamObject, inpGraphObj.nodeList);
+		relativeMarkers.writeSeparator(convFileStreamObject);
+		
+		// Edges
+		relativeMarkers.writeLabel(convFileStreamObject, "EDGES:");
+		relativeEdgeList.writeEdges(convFileStreamObject, inpGraphObj);
+		relativeMarkers.writeSeparator(convFileStreamObject);
+		
+		// Start,End
+		relativeStartEnd.writePoints(convFileStreamObject, inpGraphObj);
 		
 		convFileStreamObject.end();
 	});
 	
 	
-	// Write complete.
+	// Write complete
 	convFileStreamObject.on('finish', function()
 	{
 		if (fileResultObject.successful === true)
@@ -80,8 +99,6 @@ function coordinateFileWrite(inpDestPth, inpGraphObj, fileHeadTxt, fwCallback)
 			return fwCallback(new Error(fileResultObject.errorMessageText), null);
 		}
 	});
-	
-	
 }
 
 
@@ -89,5 +106,5 @@ function coordinateFileWrite(inpDestPth, inpGraphObj, fileHeadTxt, fwCallback)
 
 module.exports =
 {
-	performFileExport: performAbsoluteConversionFileExport
+	performFileExport: performRelativeConversionFileExport
 };

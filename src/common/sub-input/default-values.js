@@ -13,6 +13,7 @@ const imageConfigPathString = "./image-config.json";							// 'create-image-conf
 const replaceExistingFile = false;												// Replace existing files
 const absoluteConversionPathString = "./absolute.txt";							// 'to-absolute' output path
 const gridConversionPathString = "./grid.txt";									// 'to-grid' output path
+const relativeConversionPathString = "./relative.txt";							// 'to-relative' output path
 
 
 
@@ -30,5 +31,6 @@ module.exports =
 	imageConfigPath: imageConfigPathString,
 	replaceExisting: replaceExistingFile,
 	absoluteConversionPath: absoluteConversionPathString,
-	gridConversionPath: gridConversionPathString
+	gridConversionPath: gridConversionPathString,
+	relativeConversionPath: relativeConversionPathString
 };

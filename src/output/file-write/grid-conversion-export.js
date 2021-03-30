@@ -57,7 +57,7 @@ function coordinateFileWrite(inpDestPth, inpGridObj, inpGraphObj, fileHeadTxt, f
 	{
 		fileResultObject.created = true;
 		
-		headerInfo.writeConversionHeader(convFileStreamObject, fileHeadTxt, inpGraphObj);				// Conversion file header.
+		headerInfo.writeAbsoluteGridHeader(convFileStreamObject, fileHeadTxt, inpGraphObj);				// Conversion file header.
 		gridLines.writeLines(convFileStreamObject, inpGridObj);											// Grid rows.
 		
 		convFileStreamObject.end();

@@ -12,6 +12,7 @@ const readImageConfigMain = require("./src/read-image-config-main");
 const gridToAbsoluteMain = require("./src/grid-to-absolute-main");
 const imageToAbsoluteMain = require("./src/image-to-absolute-main");
 const imageToGridMain = require("./src/image-to-grid-main");
+const absoluteToRelativeMain = require("./src/absolute-to-relative-main");
 
 const versionText = "Version 1.0.0";
 program.version(versionText);
@@ -166,9 +167,9 @@ program
 .description(cmdDesc.absoluteToRelative)
 .option("-r --replace", optionDesc.replaceExistingFile)
 .option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
-.action(function (inpFilePath, inpFindMode, options)
+.action(function (inpFilePath, inpWritePath, options)
 {
-	console.log("Absolute to Relative");
+	absoluteToRelativeMain.runFileConversion(inpFilePath, inpWritePath, options);
 });
 
 
@@ -178,7 +179,7 @@ program
 .description(cmdDesc.gridToRelative)
 .option("-r --replace", optionDesc.replaceExistingFile)
 .option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
-.action(function (inpFilePath, inpFindMode, options)
+.action(function (inpFilePath, inpWritePath, options)
 {
 	console.log("Grid to Relative");
 });

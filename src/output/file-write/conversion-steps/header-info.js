@@ -7,8 +7,8 @@ const csvAttributes = require("../../../common/sub-output/csv-attributes");
 // This file writes header information for conversion output files.
 
 
-// Main function.
-function writeConversionFileHeaderInformation(cWriteStream, titleTextString, fullGraphObject)
+// Main function - Absolute, Grid
+function writeAbsoluteGridConversionHeader(cWriteStream, titleTextString, fullGraphObject)
 {
 	handleIntroSection(cWriteStream, titleTextString);
 	handleMarkedCoordinates(cWriteStream, "Start", fullGraphObject.nodeList, fullGraphObject.startNodeIndex);
@@ -17,7 +17,7 @@ function writeConversionFileHeaderInformation(cWriteStream, titleTextString, ful
 }
 
 
-// Heading and creation time.
+// Heading and creation time. Writes Relative header.
 function handleIntroSection(wStream, tTxtStr)
 {
 	var resTitleTxt = "";
@@ -90,5 +90,6 @@ function handleEdgeDivide(wStream)
 
 module.exports =
 {
-	writeConversionHeader: writeConversionFileHeaderInformation
+	writeAbsoluteGridHeader: writeAbsoluteGridConversionHeader,
+	writeRelativeHeader: handleIntroSection
 };

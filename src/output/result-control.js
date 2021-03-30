@@ -5,6 +5,7 @@ const rawDataExport = require("./file-write/raw-data-export");
 const imageConfigSaveExport = require("./file-write/image-config-save-export");
 const absConversionExport = require("./file-write/absolute-conversion-export");
 const gridConversionExport = require("./file-write/grid-conversion-export");
+const relativeConversionExport = require("./file-write/relative-conversion-export");
 const conversionClean = require("./file-clean/conversion-clean");
 const graphClean = require("./file-clean/graph-clean");
 const imageConfigClean = require("./file-clean/image-config-clean");
@@ -125,6 +126,22 @@ function callImageToGridOutputTasks(cPreparedInput, cGridObject, cGraphObject, c
 	});
 }
 
+// 'absolute-to-relative', 'grid-to-relative'
+function callAbsoluteGridToRelativeOutputTasks(cTargetPath, cGraphObject, cHeaderText)
+{
+	relativeConversionExport.performFileExport(cTargetPath, cGraphObject, cHeaderText, function (saveError, saveRes)
+	{
+		if (saveError !== null)
+		{
+			handleTextConversionFileClean(cTargetPath, saveError.message);
+		}
+		else
+		{
+			exitProgram.callComplete();
+		}
+	});
+}
+
 
 // 'create-image-config'
 function callCreateImageConfigOutputTasks(cPreparedInput)
@@ -182,7 +199,7 @@ function handleImageFileClean(oPaths, eMsg)
 }
 
 
-// Deletes invalid output file for 'callGridToAbsoluteOutputTask'
+// Deletes invalid output file for 'callGridToAbsoluteOutputTask' and 'callAbsoluteGridToRelativeOutputTasks'
 function handleTextConversionFileClean(oPath, eMsg)
 {
 	conversionClean.removeTextConversion(oPath, function (cleanError, cleanRes)
@@ -245,5 +262,6 @@ module.exports =
 	callGridToAbsoluteOutput: callGridToAbsoluteOutputTask,
 	callImageToAbsoluteOutput: callImageToAbsoluteOutputTasks,
 	callImageToGridOutput: callImageToGridOutputTasks,
+	callAbsoluteGridToRelativeOutput: callAbsoluteGridToRelativeOutputTasks,
 	callCreateImageConfigOutput: callCreateImageConfigOutputTasks
 };
