@@ -1,11 +1,11 @@
 # Summary
 
-**Version:** 1.0.19
+**Version:** 1.0.20
 
 **Date:** 2021-03-30
 
-**Title:** Image to Relative
+**Title:** Ignore Default Output
 
 **Description:**
 
-Implemented 'Image to Relative' conversion.
+Revised .gitignore so that the result folder and default output paths are ignored.

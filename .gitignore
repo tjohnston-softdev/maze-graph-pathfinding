@@ -1,1 +1,7 @@
 node_modules
+result-folder
+/image-config.json
+/absolute.txt
+/grid.txt
+/relative.txt
+/graph.html
