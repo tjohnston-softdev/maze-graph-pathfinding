@@ -68,10 +68,10 @@ function executePreperationTasks(prepArgsObj)
 function executeGraphTasks(pArguments, parsedGraph)
 {
 	asyncModule.series(
-	{
-		"integrityPassed": parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),
-		"heuristicsCalculated": automaticHeuristics.performCalculation.bind(null, parsedGraph)
-	},
+	[
+		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),
+		automaticHeuristics.performCalculation.bind(null, parsedGraph)
+	],
 	function (graphTasksErr, graphTasksRes)
 	{
 		if (graphTasksErr !== null)

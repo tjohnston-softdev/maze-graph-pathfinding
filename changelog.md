@@ -1,11 +1,6 @@
 # Changelog
 
-**maze.js**
-* Added requirement for 'grid-to-relative-main'
-* The command `grid-to-relative` has been implemented.
-* 'testExportMain' has been moved to after 'gridToRelativeMain'
-
----
-
-**./src/grid-to-relative-main.js**
-* New file - Used to execute `grid-to-relative`
+**./src/absolute-to-relative-main.js**
+* The `series` in 'executeGraphTasks' now uses an array instead of an object.
+	* This saves space and makes the code more readable.
+	* The result properties are not necessary in this batch.
