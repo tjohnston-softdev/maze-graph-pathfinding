@@ -1,11 +1,11 @@
 # Summary
 
-**Version:** 1.0.16
+**Version:** 1.0.17
 
 **Date:** 2021-03-30
 
-**Title:** Absolute to Relative
+**Title:** Grid to Relative
 
 **Description:**
 
-Implemented 'Absolute to Relative' conversion.
+Implemented 'Grid to Relative' conversion.

@@ -6,13 +6,14 @@ const mapAbsoluteMain = require("./src/map-absolute-main");
 const mapGridMain = require("./src/map-grid-main");
 const mapRelativeMain = require("./src/map-relative-main");
 const mapImageMain = require("./src/map-image-main");
-const testExportMain = require("./src/test-export-main");
 const createImageConfigMain = require("./src/create-image-config-main");
 const readImageConfigMain = require("./src/read-image-config-main");
 const gridToAbsoluteMain = require("./src/grid-to-absolute-main");
 const imageToAbsoluteMain = require("./src/image-to-absolute-main");
 const imageToGridMain = require("./src/image-to-grid-main");
 const absoluteToRelativeMain = require("./src/absolute-to-relative-main");
+const gridToRelativeMain = require("./src/grid-to-relative-main");
+const testExportMain = require("./src/test-export-main");
 
 const versionText = "Version 1.0.0";
 program.version(versionText);
@@ -175,13 +176,13 @@ program
 
 // grid-to-relative <input-grid> [output-path]
 program
-.command("absolute-to-relative <input-grid> [output-path]")
+.command("grid-to-relative <input-grid> [output-path]")
 .description(cmdDesc.gridToRelative)
 .option("-r --replace", optionDesc.replaceExistingFile)
 .option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
 .action(function (inpFilePath, inpWritePath, options)
 {
-	console.log("Grid to Relative");
+	gridToRelativeMain.runFileConversion(inpFilePath, inpWritePath, options);
 });
 
 
