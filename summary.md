@@ -1,13 +1,14 @@
 # Summary
 
-**Version:** 1.0.14
+**Version:** 1.0.15
 
-**Date:** 2021-03-29
+**Date:** 2021-03-30
 
-**Title:** Fixed object validation bug
+**Title:** Defined Relative Conversion Commands
 
 **Description:**
 
-Fixed bug where JSON objects are validated incorrectly.
-It checked for 'string' type instead of 'object'.
-This caused the graph integrity check to fail.
+* Added definitions for commands that convert the respective input into a Relative definition file.
+	* absolute-to-relative
+	* grid-to-relative
+	* image-to-relative

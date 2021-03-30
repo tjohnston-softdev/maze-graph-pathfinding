@@ -160,6 +160,50 @@ program
 });
 
 
+// absolute-to-relative <input-absolute> [output-path]
+program
+.command("absolute-to-relative <input-absolute> [output-path]")
+.description(cmdDesc.absoluteToRelative)
+.option("-r --replace", optionDesc.replaceExistingFile)
+.option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
+.action(function (inpFilePath, inpFindMode, options)
+{
+	console.log("Absolute to Relative");
+});
+
+
+// grid-to-relative <input-grid> [output-path]
+program
+.command("absolute-to-relative <input-grid> [output-path]")
+.description(cmdDesc.gridToRelative)
+.option("-r --replace", optionDesc.replaceExistingFile)
+.option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
+.action(function (inpFilePath, inpFindMode, options)
+{
+	console.log("Grid to Relative");
+});
+
+
+
+// image-to-relative <input-image> [output-path]
+program
+.command("image-to-relative <input-image> [output-path]")
+.description(cmdDesc.imageToRelative)
+.option("-r --replace", optionDesc.replaceExistingFile)
+.option("-i --ignore-parse-errors", optionDesc.ignoreImageParse)
+.option("--load <path>", optionDesc.loadImageConfig)
+.option("--save <path>", optionDesc.saveImageConvConfig)
+.option("--wall <colour>", optionDesc.wallColour)
+.option("--floor <colour>", optionDesc.floorColour)
+.option("--tolerance <percent>", optionDesc.tolerancePercent)
+.option("--size <number>", optionDesc.tileSize)
+.option("-x --start-x <number>", optionDesc.imageOriginX)
+.option("-y --start-y <number>", optionDesc.imageOriginY)
+.action(function (inpImagePath, inpWritePath, options)
+{
+	console.log("Image to Relative");
+});
+
 // test-export [pathfinding-mode]
 program
 .command("test-export [pathfinding-mode]")

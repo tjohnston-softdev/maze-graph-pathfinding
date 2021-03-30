@@ -9,6 +9,9 @@ const loadImageConfigDesc = "Reads and validates an existing image configuration
 const gridToAbsoluteDesc = writeAbsoluteConversionDesc("Grid definition text");
 const imageToAbsoluteDesc = writeAbsoluteConversionDesc("Image");
 const imageToGridDesc = writeImageToGridDesc();
+const absoluteToRelativeDesc = writeRelativeConversionDesc("Absolute definition text");
+const gridToRelativeDesc = writeRelativeConversionDesc("Grid definition text");
+const imageToRelativeDesc = writeRelativeConversionDesc("Image");
 const testExportDesc = "Used to test file output by exporting a hard-coded graph.";
 const versionDesc = "Displays current version number.";
 
@@ -33,6 +36,18 @@ function writeAbsoluteConversionDesc(inputDesc)
 	writeRes += "Takes an existing ";
 	writeRes += inputDesc;
 	writeRes += " file, parses it into a graph, and outputs an Absolute definition text file.";
+	
+	return writeRes;
+}
+
+
+function writeRelativeConversionDesc(inputDesc)
+{
+	var writeRes = "";
+	
+	writeRes += "Takes an existing ";
+	writeRes += inputDesc;
+	writeRes += " file, parses it into a graph, and outputs a Relative definition text file.";
 	
 	return writeRes;
 }
@@ -62,6 +77,9 @@ module.exports =
 	gridToAbsolute: gridToAbsoluteDesc,
 	imageToAbsolute: imageToAbsoluteDesc,
 	imageToGrid: imageToGridDesc,
+	absoluteToRelative: absoluteToRelativeDesc,
+	gridToRelative: gridToRelativeDesc,
+	imageToRelative: imageToRelativeDesc,
 	testExport: testExportDesc,
 	version: versionDesc
 };
