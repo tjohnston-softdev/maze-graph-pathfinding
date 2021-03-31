@@ -1,10 +1,16 @@
 # Changelog
 
-**maze.js**
-* Updated command script calls.
-* Updated version string to 1.1.0
-
----
-
-**./src/%command%.js**
-* For each of these files, the public function name is now 'performCommand'
+**Version 1.1**
+* Cleaned script comments.
+* Converted text files to markdown.
+* Cleaned Regular Expression code.
+* Cleaned JSON definitions.
+* Cleaned input validation code.
+* Implemented commands to convert input to Relative graph definitions
+	* absolute-to-relative
+	* grid-to-relative
+	* image-to-relative
+* Default output files and the result folder are ignored by the repository.
+* Restructured documentation.
+* Cleaned output result control code.
+* Command and option descriptions are displayed as lowercase.

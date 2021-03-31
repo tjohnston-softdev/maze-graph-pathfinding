@@ -1,12 +1,9 @@
 # Summary
 
-**Version:** 1.0.27
+**Version:** 1.1.0
 
 **Date:** 2021-03-31
 
-**Title:** Version 1.1 Complete
+**Title:** Version 1.1 Released
 
 **Description:**
-
-* Updated version string.
-* Simplified command function calls.
