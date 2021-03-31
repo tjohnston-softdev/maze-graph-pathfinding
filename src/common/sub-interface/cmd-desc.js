@@ -23,7 +23,8 @@ function writeMapDesc(fileDesc)
 	
 	writeRes += "takes ";
 	writeRes += fileDesc;
-	writeRes += ", converts it into an interactive diagram, and performs a pathfinding algorithm.";
+	writeRes += ", converts it into an interactive diagram, ";
+	writeRes += "and performs a pathfinding algorithm.";
 	
 	return writeRes;
 }
@@ -35,7 +36,8 @@ function writeAbsoluteConversionDesc(inputDesc)
 	
 	writeRes += "takes an existing ";
 	writeRes += inputDesc;
-	writeRes += " file, parses it into a graph, and outputs an absolute definition text file.";
+	writeRes += " file, parses it into a graph, ";
+	writeRes += "and outputs an absolute definition text file.";
 	
 	return writeRes;
 }
@@ -47,7 +49,8 @@ function writeRelativeConversionDesc(inputDesc)
 	
 	writeRes += "takes an existing ";
 	writeRes += inputDesc;
-	writeRes += " file, parses it into a graph, and outputs a relative definition text file.";
+	writeRes += " file, parses it into a graph, ";
+	writeRes += "and outputs a relative definition text file.";
 	
 	return writeRes;
 }

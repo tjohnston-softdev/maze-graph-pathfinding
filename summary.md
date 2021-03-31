@@ -1,12 +1,12 @@
 # Summary
 
-**Version:** 1.0.25
+**Version:** 1.0.26
 
 **Date:** 2021-03-31
 
-**Title:** Lowercase command and option descriptions.
+**Title:** Cleaned Command Line Description Text
 
 **Description:**
 
-When displaying help on the command line, all command and
-option descriptions are now lowercase.
+Cleaned description text for commands and option arguments
+where possible.

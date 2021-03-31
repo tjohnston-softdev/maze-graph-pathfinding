@@ -14,13 +14,19 @@ const tileSizeDesc = "the approximate size of a maze tile in pixels. (default: 1
 const imageOriginDescX = writeOriginDesc("x");
 const imageOriginDescY = writeOriginDesc("y");
 const replaceExistingFileDesc = "specifies whether existing files will be replaced.";
-const saveImageConvConfigDesc = "specifies the path where the image configuration file will be saved. if this is blank, no file will be saved.";
+const saveImageConvConfigDesc = writeSaveImageConvConfigDesc();
 
 
 
 function writeIgnoreParseDesc(typeDesc)
 {
-	var writeRes = "ignores or corrects non-fatal errors when parsing input " + typeDesc + " files.";
+	var writeRes = "";
+	
+	writeRes += "ignores or corrects non-fatal errors ";
+	writeRes += "when parsing input ";
+	writeRes += typeDesc;
+	writeRes += " files.";
+	
 	return writeRes;
 }
 
@@ -44,7 +50,8 @@ function writeColourDesc(pixelDesc, defaultHex)
 	
 	writeRes += "the hex colour of ";
 	writeRes += pixelDesc;
-	writeRes += " pixels in the target image. (default: ";
+	writeRes += " pixels in the target image. ";
+	writeRes += "(default: ";
 	writeRes += defaultHex;
 	writeRes += ")";
 	
@@ -54,7 +61,25 @@ function writeColourDesc(pixelDesc, defaultHex)
 
 function writeOriginDesc(oPlane)
 {
-	var writeRes = "the approximate " + oPlane + " location of the first tile. (default: 0)";
+	var writeRes = "";
+	
+	writeRes += "the approximate ";
+	writeRes += oPlane;
+	writeRes += " location of the first tile. ";
+	writeRes += "(default: 0)";
+	
+	return writeRes;
+}
+
+
+function writeSaveImageConvConfigDesc()
+{
+	var writeRes = "";
+	
+	writeRes += "specifies the path where the ";
+	writeRes += "image configuration file will be saved. ";
+	writeRes += "if this is blank, no file will be saved.";
+	
 	return writeRes;
 }
 
