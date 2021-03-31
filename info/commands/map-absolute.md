@@ -1,5 +1,5 @@
 ## map-absolute
-**Usage:** `maze map-absolute [options] <input-path> [pathfinding-mode]`
+**Usage:** `maze map-absolute [options] <input-path> [pathfinding-mode]`  
 **Example:** `maze map-absolute ./examples/absolute/input.txt dsktra`
 
 Takes an absolute node graph text file, converts it into an interactive diagram, and performs a pathfinding algorithm.

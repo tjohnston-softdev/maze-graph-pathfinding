@@ -1,5 +1,5 @@
 ## image-to-grid
-**Usage:** `maze image-to-grid [options] <input-image> [output-path]`
+**Usage:** `maze image-to-grid [options] <input-image> [output-path]`  
 **Example:** `maze image-to-grid ./examples/image/small.png ./output.txt -r`
 
 Takes an existing image file, parses it into a grid, and outputs it as a definition text file.

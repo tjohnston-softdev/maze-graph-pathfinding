@@ -1,5 +1,5 @@
 ## grid-to-absolute
-**Usage:** `maze grid-to-absolute [options] <input-grid> [output-path]`
+**Usage:** `maze grid-to-absolute [options] <input-grid> [output-path]`  
 **Example:** `maze grid-to-absolute ./examples/grid/input.txt ./output.txt -r`
 
 Takes an existing Grid definition text file, parses it into a graph, and outputs an Absolute definition text file.

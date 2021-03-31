@@ -1,5 +1,5 @@
 ## map-image
-**Usage:** `maze map-image [options] <input-path> [pathfinding-mode]`
+**Usage:** `maze map-image [options] <input-path> [pathfinding-mode]`  
 **Example:** `maze map-image ./examples/image/small.png dsktra`
 
 Takes an existing image file of a maze, converts it into an interactive diagram, and performs a pathfinding algorithm.

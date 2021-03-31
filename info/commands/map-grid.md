@@ -1,5 +1,5 @@
 ## map-grid
-**Usage:** `maze map-grid [options] <input-path> [pathfinding-mode]`
+**Usage:** `maze map-grid [options] <input-path> [pathfinding-mode]`  
 **Example:** `maze map-grid ./examples/grid/input.txt dsktra`
 
 Takes a predefined binary grid text file, converts it into an interactive diagram, and performs a pathfinding algorithm.

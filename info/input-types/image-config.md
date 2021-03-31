@@ -21,14 +21,14 @@ You can either use the `--save` option in the relevant image commands, or you ca
 
 #### Properties:
 
-| Property | Description |
-| --- | --- |
-| wall | The hex colour of wall pixels in the target image. |
-| floor | The hex colour of floor pixels in the target image. |
+| Property  | Description                                                          |
+|-----------|----------------------------------------------------------------------|
+| wall      | The hex colour of wall pixels in the target image.                   |
+| floor     | The hex colour of floor pixels in the target image.                  |
 | tolerance | The percentage difference allowed when checking image pixel colours. |
-| tileSize | The approximate size of a maze tile in pixels. |
-| x | The approximate X location of the first tile. |
-| y | The approximate Y location of the first tile. |
+| tileSize  | The approximate size of a maze tile in pixels.                       |
+| x         | The approximate X location of the first tile.                        |
+| y         | The approximate Y location of the first tile.                        |
 
 
 ---

@@ -1,5 +1,5 @@
 ## map-relative
-**Usage:** `maze map-relative [options] <input-path> [pathfinding-mode]`
+**Usage:** `maze map-relative [options] <input-path> [pathfinding-mode]`  
 **Example:** `maze map-relative ./examples/relative/input.txt all-possible`
 
 Takes a relative node graph text file, converts it into an interactive diagram, and performs a pathfinding algorithm.

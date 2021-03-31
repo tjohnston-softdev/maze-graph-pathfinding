@@ -1,5 +1,5 @@
 ## create-image-config
-**Usage:** `maze create-image-config [options] [output-path]`
+**Usage:** `maze create-image-config [options] [output-path]`  
 **Example:** `maze create-image-config ./result.json --wall #000000 --floor #FFFFFF`
 
 Creates a configuration file that can be used when reading images.

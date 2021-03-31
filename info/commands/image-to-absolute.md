@@ -1,5 +1,5 @@
 ## image-to-absolute
-**Usage:** `maze image-to-absolute [options] <input-image> [output-path]`
+**Usage:** `maze image-to-absolute [options] <input-image> [output-path]`  
 **Example:** `maze image-to-absolute ./examples/image/small.png ./output.txt -r`
 
 Takes an existing Image file, parses it into a graph, and outputs an Absolute definition text file.
