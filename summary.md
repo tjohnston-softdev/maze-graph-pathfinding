@@ -1,11 +1,9 @@
 # Summary
 
-**Version:** 1.0.20
+**Version:** 1.0.21
 
-**Date:** 2021-03-30
+**Date:** 2021-03-31
 
-**Title:** Ignore Default Output
+**Title:** Restructured Documentation
 
 **Description:**
-
-Revised .gitignore so that the result folder and default output paths are ignored.

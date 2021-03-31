@@ -26,3 +26,30 @@
 
 **./info/readme.md**
 * New file - Navigation page for 'info' folder.
+
+---
+
+**./info/commands/**
+* readme.md
+	* Corrected links to individual commands.
+	* "Return to index" now links to the '../info' folder instead of the project root.
+* Others
+	* Regenerated argument table definition code. (Full instead of Compact)
+	* Corrected link to command list root.
+
+---
+
+**./info/input-types/**
+* readme.md
+	* Corrected links to individual input type pages.
+	* "Return to index" now links to the '../info' folder instead of the project root.
+* Others
+	* Corrected link to input type list root.
+	* Added horizontal rules between sections.
+
+---
+
+**./info/pathfinding-modes/readme.md**
+* Regenerated argument table definition code. (Full instead of Compact)
+* Escaped square brackets when referring to 'pathfinding-mode'
+* Added link back to '../info' folder.
