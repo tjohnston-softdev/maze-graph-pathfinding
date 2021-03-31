@@ -59,5 +59,5 @@ function executePreperationTasks(optArgsObj, prepArgsObj)
 
 module.exports =
 {
-	runConfigCreate: runCreateImageConfig
+	performCommand: runCreateImageConfig
 };

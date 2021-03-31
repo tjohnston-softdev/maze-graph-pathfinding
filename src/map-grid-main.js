@@ -124,5 +124,5 @@ function executeOutputTasks(pArgs, pGraph, pPathResult)
 
 module.exports =
 {
-	runGridMapping: runGridFileMapping
+	performCommand: runGridFileMapping
 };

@@ -112,5 +112,5 @@ function executeGraphTasks(pArguments, readGrid, parsedGraph)
 
 module.exports =
 {
-	runFileConversion: runGridToRelativeFileConversion
+	performCommand: runGridToRelativeFileConversion
 };

@@ -63,5 +63,5 @@ function executeReadTasks(prepArgsObj)
 
 module.exports =
 {
-	runConfigRead: runReadImageConfig
+	performCommand: runReadImageConfig
 };

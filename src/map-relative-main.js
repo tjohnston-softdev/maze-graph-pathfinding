@@ -116,5 +116,5 @@ function executePathfindingTasks(pArgs, pGraph, heurValid)
 
 module.exports =
 {
-	runRelativeMapping: runRelativeFileMapping
+	performCommand: runRelativeFileMapping
 };

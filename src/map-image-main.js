@@ -150,5 +150,5 @@ function executeGraphTasks(pArguments, readGrid, parsedGraph)
 
 module.exports =
 {
-	runImageMapping: runImageFileMapping
+	performCommand: runImageFileMapping
 };

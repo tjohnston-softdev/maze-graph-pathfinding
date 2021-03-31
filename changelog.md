@@ -1,17 +1,10 @@
 # Changelog
 
-**./src/common/sub-interface/cmd-desc.js**
-* Added substring breaks to:
-	* 'writeMapDesc' at "and performs..."
-	* 'writeAbsoluteConversionDesc' at "and outputs..."
-	* writeRelativeConversionDesc at "and outputs..."
+**maze.js**
+* Updated command script calls.
+* Updated version string to 1.1.0
 
 ---
 
-**./src/common/sub-interface/option-desc.js**
-* Split the text of these functions into substrings:
-	* writeIgnoreParseDesc
-	* writeOriginDesc
-* Added substring break to 'writeColourDesc' at "(default:"
-* Wrote new function 'writeSaveImageConvConfigDesc'
-	* Used to assign global variable 'saveImageConvConfigDesc'
+**./src/%command%.js**
+* For each of these files, the public function name is now 'performCommand'

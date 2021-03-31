@@ -149,5 +149,5 @@ function executeGraphTasks(pArgs, readGrid, parsedGraph)
 
 module.exports =
 {
-	runFileConversion: runImageToAbsoluteFileConversion
+	performCommand: runImageToAbsoluteFileConversion
 };

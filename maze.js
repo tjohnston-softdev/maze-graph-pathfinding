@@ -16,7 +16,7 @@ const gridToRelativeMain = require("./src/grid-to-relative-main");
 const imageToRelativeMain = require("./src/image-to-relative-main");
 const testExportMain = require("./src/test-export-main");
 
-const versionText = "Version 1.0.0";
+const versionText = "Version 1.1.0";
 program.version(versionText);
 
 
@@ -29,7 +29,7 @@ program
 .option("-r --raw", optionDesc.exportRaw)
 .action(function (inpFilePath, inpFindMode, options)
 {
-	mapAbsoluteMain.runAbsoluteMapping(inpFilePath, inpFindMode, options);
+	mapAbsoluteMain.performCommand(inpFilePath, inpFindMode, options);
 });
 
 
@@ -42,7 +42,7 @@ program
 .option("-r --raw", optionDesc.exportRaw)
 .action(function (inpFilePath, inpFindMode, options)
 {
-	mapGridMain.runGridMapping(inpFilePath, inpFindMode, options);
+	mapGridMain.performCommand(inpFilePath, inpFindMode, options);
 });
 
 
@@ -55,7 +55,7 @@ program
 .option("-r --raw", optionDesc.exportRaw)
 .action(function (inpFilePath, inpFindMode, options)
 {
-	mapRelativeMain.runRelativeMapping(inpFilePath, inpFindMode, options);
+	mapRelativeMain.performCommand(inpFilePath, inpFindMode, options);
 });
 
 
@@ -76,7 +76,7 @@ program
 .option("-y --start-y <number>", optionDesc.imageOriginY)
 .action(function (inpImagePath, inpFindMode, options)
 {
-	mapImageMain.runImageMapping(inpImagePath, inpFindMode, options);
+	mapImageMain.performCommand(inpImagePath, inpFindMode, options);
 });
 
 
@@ -94,7 +94,7 @@ program
 .option("-y --start-y <number>", optionDesc.imageOriginY)
 .action(function (inpWritePath, options)
 {
-	createImageConfigMain.runConfigCreate(inpWritePath, options);
+	createImageConfigMain.performCommand(inpWritePath, options);
 });
 
 
@@ -105,7 +105,7 @@ program
 .description(cmdDesc.loadImageConfig)
 .action(function (inpFilePath)
 {
-	readImageConfigMain.runConfigRead(inpFilePath);
+	readImageConfigMain.performCommand(inpFilePath);
 });
 
 
@@ -117,7 +117,7 @@ program
 .option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
 .action(function (inpGridPath, inpWritePath, options)
 {
-	gridToAbsoluteMain.runFileConversion(inpGridPath, inpWritePath, options);
+	gridToAbsoluteMain.performCommand(inpGridPath, inpWritePath, options);
 });
 
 
@@ -138,7 +138,7 @@ program
 .option("-y --start-y <number>", optionDesc.imageOriginY)
 .action(function (inpImagePath, inpWritePath, options)
 {
-	imageToAbsoluteMain.runFileConversion(inpImagePath, inpWritePath, options);
+	imageToAbsoluteMain.performCommand(inpImagePath, inpWritePath, options);
 });
 
 
@@ -159,7 +159,7 @@ program
 .option("-y --start-y <number>", optionDesc.imageOriginY)
 .action(function (inpImagePath, inpWritePath, options)
 {
-	imageToGridMain.runFileConversion(inpImagePath, inpWritePath, options);
+	imageToGridMain.performCommand(inpImagePath, inpWritePath, options);
 });
 
 
@@ -171,7 +171,7 @@ program
 .option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
 .action(function (inpFilePath, inpWritePath, options)
 {
-	absoluteToRelativeMain.runFileConversion(inpFilePath, inpWritePath, options);
+	absoluteToRelativeMain.performCommand(inpFilePath, inpWritePath, options);
 });
 
 
@@ -183,7 +183,7 @@ program
 .option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
 .action(function (inpFilePath, inpWritePath, options)
 {
-	gridToRelativeMain.runFileConversion(inpFilePath, inpWritePath, options);
+	gridToRelativeMain.performCommand(inpFilePath, inpWritePath, options);
 });
 
 
@@ -204,7 +204,7 @@ program
 .option("-y --start-y <number>", optionDesc.imageOriginY)
 .action(function (inpImagePath, inpWritePath, options)
 {
-	imageToRelativeMain.runFileConversion(inpImagePath, inpWritePath, options);
+	imageToRelativeMain.performCommand(inpImagePath, inpWritePath, options);
 });
 
 // test-export [pathfinding-mode]
@@ -216,7 +216,7 @@ program
 .option("-r --raw", optionDesc.exportRaw)
 .action(function (inpFindMode, options)
 {
-	testExportMain.runTestExport(inpFindMode, options);
+	testExportMain.performCommand(inpFindMode, options);
 });
 
 

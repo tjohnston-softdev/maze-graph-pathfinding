@@ -90,5 +90,5 @@ function executeGraphTasks(pArguments, parsedGraph)
 
 module.exports =
 {
-	runFileConversion: runAbsoluteToRelativeFileConversion
+	performCommand: runAbsoluteToRelativeFileConversion
 };

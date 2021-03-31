@@ -76,5 +76,5 @@ function executeOutputTasks(pArgs, pComp)
 
 module.exports =
 {
-	runTestExport: runTestGraphExport
+	performCommand: runTestGraphExport
 };

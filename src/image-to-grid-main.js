@@ -133,5 +133,5 @@ function executeGridPreperationTasks(pArguments, rGridObject)
 
 module.exports =
 {
-	runFileConversion: runImageToGridFileConversion
+	performCommand: runImageToGridFileConversion
 };

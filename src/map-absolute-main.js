@@ -103,5 +103,5 @@ function executeOutputTasks(pArgs, pGraph, pPathResult)
 
 module.exports =
 {
-	runAbsoluteMapping: runAbsoluteFileMapping
+	performCommand: runAbsoluteFileMapping
 };

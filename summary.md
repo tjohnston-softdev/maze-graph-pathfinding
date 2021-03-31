@@ -1,12 +1,12 @@
 # Summary
 
-**Version:** 1.0.26
+**Version:** 1.0.27
 
 **Date:** 2021-03-31
 
-**Title:** Cleaned Command Line Description Text
+**Title:** Version 1.1 Complete
 
 **Description:**
 
-Cleaned description text for commands and option arguments
-where possible.
+* Updated version string.
+* Simplified command function calls.
