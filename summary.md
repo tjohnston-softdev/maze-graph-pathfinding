@@ -4,9 +4,8 @@
 
 **Date:** 2021-03-31
 
-**Title:** Result Control Split
+**Title:** Result Control Delete
 
 **Description:**
 
-Split output result control code into different files for
-easier readability.
+Deleted original 'result-control.js' file.
