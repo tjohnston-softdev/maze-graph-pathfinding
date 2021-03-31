@@ -3,6 +3,8 @@ When parsing image files, certain parameters can be altered such as the target f
 
 You can either use the `--save` option in the relevant image commands, or you can use the stand-alone command `create-image-config`
 
+---
+
 #### Example:
 ```
 {
@@ -15,6 +17,7 @@ You can either use the `--save` option in the relevant image commands, or you ca
 }
 ```
 
+---
 
 #### Properties:
 
@@ -30,4 +33,4 @@ You can either use the `--save` option in the relevant image commands, or you ca
 
 ---
 
-[Input Types List](../input-root.md)
+[Input Types List](./readme.md)

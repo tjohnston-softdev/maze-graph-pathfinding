@@ -1,6 +1,8 @@
 # Relative Text File
 A relative text file defines a graph by manually entering the node and edge details rather than using absolute coordinates. This input type is named so because the nodes do not have fixed locations. They are placed relative to each other using edges.
 
+---
+
 ##### Rules:
 * Lines beginning with "node" or "edge" will tell the program to start interpreting number lines as the respective object definition.
 * Lines beginning with numbers will be interpreted as the current object definition. If a type has not been declared, it will be ignored.
@@ -11,6 +13,8 @@ A relative text file defines a graph by manually entering the node and edge deta
 * The Start and End nodes must already exist. Those lines should be placed after object definitions.
 * In order to use A*Star, all nodes must have heuristic values.
 * Other lines will be ignored safely.
+
+---
 
 #### Example:
 ```
@@ -59,4 +63,4 @@ End: 13
 
 ---
 
-[Input Types List](../input-root.md)
+[Input Types List](./readme.md)

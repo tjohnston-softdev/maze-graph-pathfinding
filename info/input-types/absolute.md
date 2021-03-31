@@ -1,12 +1,16 @@
 # Absolute Text File
 An absolute text file defines a graph by using absolute coordinates on a 2D grid. Any found coordinates are interpreted as nodes and linked together accordingly.
 
+---
+
 ##### Rules:
 * Coordinates are written in the format "Y,X" or "Row,Column" (eg. "1,2")
 * Lines beginning with "start" will be read as the start coordinates field. Must use the format: "start: 1,1"
 * Lines beginning with "end" will be read as the end coordinates.
 * Lines beginning with numbers will be interpreted as an edge between coordinates. Nodes will be created dynamically. Must use the format: "1,2 - 3,4"
 * Other lines will be ignored safely. This means you can include additional information such as "Grid Size: 5x5"
+
+---
 
 #### Example:
 ```
@@ -38,4 +42,4 @@ End: 10,11
 
 ---
 
-[Input Types List](../input-root.md)
+[Input Types List](./readme.md)
