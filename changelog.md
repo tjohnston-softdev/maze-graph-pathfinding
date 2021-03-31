@@ -1,15 +1,8 @@
 # Changelog
 
-**./info/%subfolder%/readme.md**
-* "Return to index" now links back to the project root.
-
----
-
 **./info/commands/**
-* Added line break between 'Usage' and 'Example' for individual commands.
-
----
-
-**./info/input-types/image-config.md**
-* Recompiled 'Properties' table definition code.
-	* Full instead of compact.
+* Created new files for Relative conversion commands:
+	* absolute-to-relative.md
+	* grid-to-relative.md
+	* image-to-relative.md
+* Added links to new command files inside readme.md
