@@ -5,7 +5,7 @@ const createConfigValidation = require("./input/create-image-config-validation")
 const imageEntryValidation = require("./input/image-entry-validation");
 const imageOptionsValidation = require("./input/image-options-validation");
 const ioTargetPath = require("./io-paths/target-path");
-const resultControl = require("./output/result-control");
+const imgConfigResCtrl = require("./output/res-ctrl-img-config");
 
 
 /*
@@ -49,7 +49,7 @@ function executePreperationTasks(optArgsObj, prepArgsObj)
 		}
 		else
 		{
-			resultControl.callCreateImageConfigOutput(prepArgsObj);
+			imgConfigResCtrl.callOutput(prepArgsObj);
 		}
 	});
 	

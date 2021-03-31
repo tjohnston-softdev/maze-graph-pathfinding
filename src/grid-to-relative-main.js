@@ -9,7 +9,7 @@ const initializeGrid = require("./parsing/initialize-grid");
 const gridTraverse = require("./traverse/grid-traverse");
 const parseStructureIntegrity = require("./parsing/parse-structure-integrity");
 const automaticHeuristics = require("./parsing/automatic-heuristics");
-const resultControl = require("./output/result-control");
+const resultControl = require("./output/res-ctrl-txt-conv");
 
 
 
@@ -102,7 +102,7 @@ function executeGraphTasks(pArguments, readGrid, parsedGraph)
 		}
 		else
 		{
-			resultControl.callAbsoluteGridToRelativeOutput(pArguments.preparedPaths.writePath, parsedGraph, "Grid to Relative Conversion");
+			resultControl.callAbsoluteGridToRelative(pArguments.preparedPaths.writePath, parsedGraph, "Grid to Relative Conversion");
 		}
 	});
 }

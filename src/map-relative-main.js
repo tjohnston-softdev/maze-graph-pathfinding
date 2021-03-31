@@ -9,7 +9,7 @@ const parseStructureIntegrity = require("./parsing/parse-structure-integrity");
 const manualHeuristics = require("./parsing/manual-heuristics");
 const routeFind = require("./pathfinding/route-find");
 const resultFolder = require("./output/result-folder");
-const resultControl = require("./output/result-control");
+const txtGraphResCtrl = require("./output/res-ctrl-txt-graph");
 
 
 /*
@@ -105,7 +105,7 @@ function executePathfindingTasks(pArgs, pGraph, heurValid)
 		}
 		else
 		{
-			resultControl.callTextGraphOutput(pArgs.preparedPaths, pArgs.mapModeFlag, pGraph, pathRes.pathfindObject, "Relative");
+			txtGraphResCtrl.callOutput(pArgs.preparedPaths, pArgs.mapModeFlag, pGraph, pathRes.pathfindObject, "Relative");
 		}
 	});
 }

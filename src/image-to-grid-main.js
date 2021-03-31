@@ -11,7 +11,7 @@ const imageColourValidation = require("./input/image-colour-validation");
 const imageFileRead = require("./parsing/image-file-read");
 const initializeGrid = require("./parsing/initialize-grid");
 const binaryGrid = require("./parsing/binary-grid");
-const resultControl = require("./output/result-control");
+const resultControl = require("./output/res-ctrl-img-conv");
 
 
 /*
@@ -123,7 +123,7 @@ function executeGridPreperationTasks(pArguments, rGridObject)
 		}
 		else
 		{
-			resultControl.callImageToGridOutput(pArguments, rGridObject, gridTaskRes.graphObject, "Image to Grid Conversion");
+			resultControl.callImageToGrid(pArguments, rGridObject, gridTaskRes.graphObject, "Image to Grid Conversion");
 		}
 	});
 }

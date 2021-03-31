@@ -13,7 +13,7 @@ const initializeGrid = require("./parsing/initialize-grid");
 const gridTraverse = require("./traverse/grid-traverse");
 const parseStructureIntegrity = require("./parsing/parse-structure-integrity");
 const automaticHeuristics = require("./parsing/automatic-heuristics");
-const resultControl = require("./output/result-control");
+const resultControl = require("./output/res-ctrl-img-conv");
 
 
 
@@ -145,7 +145,7 @@ function executeGraphTasks(pArgs, readGrid, parsedGraph)
 		}
 		else
 		{
-			resultControl.callImageToRelativeOutput(pArgs, parsedGraph, "Image to Relative Conversion");
+			resultControl.callImageToRelative(pArgs, parsedGraph, "Image to Relative Conversion");
 		}
 	});
 }

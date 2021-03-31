@@ -7,7 +7,7 @@ const ioTargetPath = require("./io-paths/target-path");
 const textFileRead = require("./parsing/text-file-read");
 const parseStructureIntegrity = require("./parsing/parse-structure-integrity");
 const automaticHeuristics = require("./parsing/automatic-heuristics");
-const resultControl = require("./output/result-control");
+const resultControl = require("./output/res-ctrl-txt-conv");
 
 
 /*
@@ -80,7 +80,7 @@ function executeGraphTasks(pArguments, parsedGraph)
 		}
 		else
 		{
-			resultControl.callAbsoluteGridToRelativeOutput(pArguments.preparedPaths.writePath, parsedGraph, "Absolute to Relative Conversion");
+			resultControl.callAbsoluteGridToRelative(pArguments.preparedPaths.writePath, parsedGraph, "Absolute to Relative Conversion");
 		}
 	});
 }

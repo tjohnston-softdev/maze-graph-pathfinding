@@ -10,7 +10,7 @@ const gridTraverse = require("./traverse/grid-traverse");
 const parseStructureIntegrity = require("./parsing/parse-structure-integrity");
 const routeFind = require("./pathfinding/route-find");
 const resultFolder = require("./output/result-folder");
-const resultControl = require("./output/result-control");
+const txtGraphResCtrl = require("./output/res-ctrl-txt-graph");
 
 
 /*
@@ -117,7 +117,7 @@ function executeGraphTasks(pArguments, readGrid, parsedGraph)
 
 function executeOutputTasks(pArgs, pGraph, pPathResult)
 {
-	resultControl.callTextGraphOutput(pArgs.preparedPaths, pArgs.mapModeFlag, pGraph, pPathResult, "Grid Text File");
+	txtGraphResCtrl.callOutput(pArgs.preparedPaths, pArgs.mapModeFlag, pGraph, pPathResult, "Grid Text File");
 }
 
 

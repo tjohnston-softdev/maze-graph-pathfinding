@@ -13,7 +13,7 @@ const gridTraverse = require("./traverse/grid-traverse");
 const parseStructureIntegrity = require("./parsing/parse-structure-integrity");
 const routeFind = require("./pathfinding/route-find");
 const resultFolder = require("./output/result-folder");
-const resultControl = require("./output/result-control");
+const imgGraphResCtrl = require("./output/res-ctrl-img-graph");
 
 
 
@@ -142,7 +142,7 @@ function executeGraphTasks(pArguments, readGrid, parsedGraph)
 		}
 		else
 		{
-			resultControl.callImageGraphOutput(pArguments, parsedGraph, graphTaskRes.pathfindObject, "Image");
+			imgGraphResCtrl.callOutput(pArguments, parsedGraph, graphTaskRes.pathfindObject, "Image");
 		}
 	});
 }

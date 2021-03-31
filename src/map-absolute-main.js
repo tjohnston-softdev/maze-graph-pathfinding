@@ -8,7 +8,7 @@ const textFileRead = require("./parsing/text-file-read");
 const parseStructureIntegrity = require("./parsing/parse-structure-integrity");
 const routeFind = require("./pathfinding/route-find");
 const resultFolder = require("./output/result-folder");
-const resultControl = require("./output/result-control");
+const txtGraphResCtrl = require("./output/res-ctrl-txt-graph");
 
 
 /*
@@ -92,7 +92,7 @@ function executePathfindingTasks(pArgsObj, parsedGraph)
 
 function executeOutputTasks(pArgs, pGraph, pPathResult)
 {
-	resultControl.callTextGraphOutput(pArgs.preparedPaths, pArgs.mapModeFlag, pGraph, pPathResult, "Absolute Text File");
+	txtGraphResCtrl.callOutput(pArgs.preparedPaths, pArgs.mapModeFlag, pGraph, pPathResult, "Absolute Text File");
 }
 
 

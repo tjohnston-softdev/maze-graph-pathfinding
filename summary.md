@@ -1,14 +1,12 @@
 # Summary
 
-**Version:** 1.0.23
+**Version:** 1.0.24
 
 **Date:** 2021-03-31
 
-**Title:** Relative Conversion Command Documentation
+**Title:** Result Control Split
 
 **Description:**
 
-* Created documentation files for Relative conversion commands
-	* absolute-to-relative
-	* grid-to-relative
-	* image-to-relative
+Split output result control code into different files for
+easier readability.

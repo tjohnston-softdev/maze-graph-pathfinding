@@ -12,7 +12,7 @@ const imageFileRead = require("./parsing/image-file-read");
 const initializeGrid = require("./parsing/initialize-grid");
 const gridTraverse = require("./traverse/grid-traverse");
 const parseStructureIntegrity = require("./parsing/parse-structure-integrity");
-const resultControl = require("./output/result-control");
+const resultControl = require("./output/res-ctrl-img-conv");
 
 
 /*
@@ -140,7 +140,7 @@ function executeGraphTasks(pArgs, readGrid, parsedGraph)
 		}
 		else
 		{
-			resultControl.callImageToAbsoluteOutput(pArgs, parsedGraph, "Image to Absolute Conversion");
+			resultControl.callImageToAbsolute(pArgs, parsedGraph, "Image to Absolute Conversion");
 		}
 	});
 }

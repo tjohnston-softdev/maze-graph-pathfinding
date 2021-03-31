@@ -8,7 +8,7 @@ const textFileRead = require("./parsing/text-file-read");
 const initializeGrid = require("./parsing/initialize-grid");
 const gridTraverse = require("./traverse/grid-traverse");
 const parseStructureIntegrity = require("./parsing/parse-structure-integrity");
-const resultControl = require("./output/result-control");
+const resultControl = require("./output/res-ctrl-txt-conv");
 
 
 /*
@@ -98,7 +98,7 @@ function executeGraphTasks(pArguments, readGrid, parsedGraph)
 		}
 		else
 		{
-			resultControl.callGridToAbsoluteOutput(pArguments.preparedPaths.writePath, parsedGraph, "Grid to Absolute Conversion");
+			resultControl.callGridToAbsolute(pArguments.preparedPaths.writePath, parsedGraph, "Grid to Absolute Conversion");
 		}
 	});
 }

@@ -6,7 +6,7 @@ const exportExist = require("./io-paths/export-exist");
 const templateFiles = require("./io-paths/template-files");
 const routePrecompiled = require("./pathfinding/route-precompiled");
 const resultFolder = require("./output/result-folder");
-const resultControl = require("./output/result-control");
+const txtGraphResCtrl = require("./output/res-ctrl-txt-graph");
 
 
 
@@ -68,7 +68,7 @@ function executePreperationTasks(prepArgsObj, precompGraphObj)
 
 function executeOutputTasks(pArgs, pComp)
 {
-	resultControl.callTextGraphOutput(pArgs.preparedPaths, pArgs.mapModeFlag, pComp.graphData, pComp.pathData, "Test");
+	txtGraphResCtrl.callOutput(pArgs.preparedPaths, pArgs.mapModeFlag, pComp.graphData, pComp.pathData, "Test");
 }
 
 
