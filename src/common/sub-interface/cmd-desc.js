@@ -4,16 +4,16 @@ const mapAbsoluteDesc = writeMapDesc("an absolute node graph text file");
 const mapGridDesc = writeMapDesc("a predefined binary grid text file");
 const mapRelativeDesc = writeMapDesc("a relative node graph text file");
 const mapImageDesc = writeMapDesc("an existing image file of a maze");
-const createImageConfigDesc = "Creates a configuration file that can be used when reading images.";
-const loadImageConfigDesc = "Reads and validates an existing image configuration file.";
-const gridToAbsoluteDesc = writeAbsoluteConversionDesc("Grid definition text");
-const imageToAbsoluteDesc = writeAbsoluteConversionDesc("Image");
+const createImageConfigDesc = "creates a configuration file that can be used when reading images.";
+const loadImageConfigDesc = "reads and validates an existing image configuration file.";
+const gridToAbsoluteDesc = writeAbsoluteConversionDesc("grid definition text");
+const imageToAbsoluteDesc = writeAbsoluteConversionDesc("image");
 const imageToGridDesc = writeImageToGridDesc();
-const absoluteToRelativeDesc = writeRelativeConversionDesc("Absolute definition text");
-const gridToRelativeDesc = writeRelativeConversionDesc("Grid definition text");
-const imageToRelativeDesc = writeRelativeConversionDesc("Image");
-const testExportDesc = "Used to test file output by exporting a hard-coded graph.";
-const versionDesc = "Displays current version number.";
+const absoluteToRelativeDesc = writeRelativeConversionDesc("absolute definition text");
+const gridToRelativeDesc = writeRelativeConversionDesc("grid definition text");
+const imageToRelativeDesc = writeRelativeConversionDesc("image");
+const testExportDesc = "used to test file output by exporting a hard-coded graph.";
+const versionDesc = "displays current version number.";
 
 
 
@@ -21,7 +21,7 @@ function writeMapDesc(fileDesc)
 {
 	var writeRes = "";
 	
-	writeRes += "Takes ";
+	writeRes += "takes ";
 	writeRes += fileDesc;
 	writeRes += ", converts it into an interactive diagram, and performs a pathfinding algorithm.";
 	
@@ -33,9 +33,9 @@ function writeAbsoluteConversionDesc(inputDesc)
 {
 	var writeRes = "";
 	
-	writeRes += "Takes an existing ";
+	writeRes += "takes an existing ";
 	writeRes += inputDesc;
-	writeRes += " file, parses it into a graph, and outputs an Absolute definition text file.";
+	writeRes += " file, parses it into a graph, and outputs an absolute definition text file.";
 	
 	return writeRes;
 }
@@ -45,9 +45,9 @@ function writeRelativeConversionDesc(inputDesc)
 {
 	var writeRes = "";
 	
-	writeRes += "Takes an existing ";
+	writeRes += "takes an existing ";
 	writeRes += inputDesc;
-	writeRes += " file, parses it into a graph, and outputs a Relative definition text file.";
+	writeRes += " file, parses it into a graph, and outputs a relative definition text file.";
 	
 	return writeRes;
 }
@@ -56,7 +56,7 @@ function writeImageToGridDesc()
 {
 	var writeRes = "";
 	
-	writeRes += "Takes an existing image file, ";
+	writeRes += "takes an existing image file, ";
 	writeRes += "parses it into a grid, and ";
 	writeRes += "outputs it as a definition text file.";
 	

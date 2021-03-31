@@ -1,26 +1,26 @@
 // Option description text.
 
-const outputFolderDesc = "Specifies the folder path where output result files will be written.";
+const outputFolderDesc = "specifies the folder path where output result files will be written.";
 const ignoreTextParseDesc = writeIgnoreParseDesc("text");
 const ignoreImageParseDesc = writeIgnoreParseDesc("image");
-const exportGraphDesc = "Indicates whether to export the resulting graph diagram.";
-const exportRawDesc = "Exports raw graph and path data to separate files.";
+const exportGraphDesc = "indicates whether to export the resulting graph diagram.";
+const exportRawDesc = "exports raw graph and path data to separate files.";
 const loadImageConfigDesc = writeLoadSaveImageConfigDesc("file path of an existing", "loaded.");
 const saveImageConfigDesc = writeLoadSaveImageConfigDesc("name of a saved", "saved.");
 const wallColourDesc = writeColourDesc("wall", "#000000");
 const floorColourDesc = writeColourDesc("floor", "#FFFFFF");
-const tolerancePercentDesc = "The percentage difference allowed when checking image pixel colours. (default: 0)";
-const tileSizeDesc = "The approximate size of a maze tile in pixels. (default: 10)";
-const imageOriginDescX = writeOriginDesc("X");
-const imageOriginDescY = writeOriginDesc("Y");
-const replaceExistingFileDesc = "Specifies whether existing files will be replaced.";
-const saveImageConvConfigDesc = "Specifies the path where the image configuration file will be saved. If this is blank, no file will be saved.";
+const tolerancePercentDesc = "the percentage difference allowed when checking image pixel colours. (default: 0)";
+const tileSizeDesc = "the approximate size of a maze tile in pixels. (default: 10)";
+const imageOriginDescX = writeOriginDesc("x");
+const imageOriginDescY = writeOriginDesc("y");
+const replaceExistingFileDesc = "specifies whether existing files will be replaced.";
+const saveImageConvConfigDesc = "specifies the path where the image configuration file will be saved. if this is blank, no file will be saved.";
 
 
 
 function writeIgnoreParseDesc(typeDesc)
 {
-	var writeRes = "Ignores or corrects non-fatal errors when parsing input " + typeDesc + " files.";
+	var writeRes = "ignores or corrects non-fatal errors when parsing input " + typeDesc + " files.";
 	return writeRes;
 }
 
@@ -29,9 +29,9 @@ function writeLoadSaveImageConfigDesc(valueDesc, fileAction)
 {
 	var writeRes = "";
 	
-	writeRes += "Specifies the " + valueDesc;
+	writeRes += "specifies the " + valueDesc;
 	writeRes += " image configuration file. ";
-	writeRes += " If this is blank, no file will be ";
+	writeRes += " if this is blank, no file will be ";
 	writeRes += fileAction;
 	
 	return writeRes;
@@ -42,7 +42,7 @@ function writeColourDesc(pixelDesc, defaultHex)
 {
 	var writeRes = "";
 	
-	writeRes += "The hex colour of ";
+	writeRes += "the hex colour of ";
 	writeRes += pixelDesc;
 	writeRes += " pixels in the target image. (default: ";
 	writeRes += defaultHex;
@@ -54,7 +54,7 @@ function writeColourDesc(pixelDesc, defaultHex)
 
 function writeOriginDesc(oPlane)
 {
-	var writeRes = "The approximate " + oPlane + " location of the first tile. (default: 0)";
+	var writeRes = "the approximate " + oPlane + " location of the first tile. (default: 0)";
 	return writeRes;
 }
 

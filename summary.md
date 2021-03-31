@@ -1,11 +1,12 @@
 # Summary
 
-**Version:** 1.0.24
+**Version:** 1.0.25
 
 **Date:** 2021-03-31
 
-**Title:** Result Control Delete
+**Title:** Lowercase command and option descriptions.
 
 **Description:**
 
-Deleted original 'result-control.js' file.
+When displaying help on the command line, all command and
+option descriptions are now lowercase.
