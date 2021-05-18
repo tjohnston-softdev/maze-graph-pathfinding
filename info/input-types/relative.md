@@ -6,11 +6,12 @@ A relative text file defines a graph by manually entering the node and edge deta
 ##### Rules:
 * Lines beginning with "node" or "edge" will tell the program to start interpreting number lines as the respective object definition.
 * Lines beginning with numbers will be interpreted as the current object definition. If a type has not been declared, it will be ignored.
-* Node definitions use the format "<ID>, [Heuristic]". Heuristics are only used with A*Star pathfinding.
-* Edge definitions use the format: "<Origin Node ID>, <Destination Node ID>, <Edge Distance>"
-* Lines beginning with "start" will be read as the start node ID. Must use the format: "start: 1"
+* Node definitions use the format `<ID>, [Heuristic]`
+	* Heuristics are only used with A*Star pathfinding.
+* Edge definitions use the format: `<Origin Node ID>, <Destination Node ID>, <Edge Distance>`
+* Lines beginning with "start" will be read as the start node ID. This must use the format: "start: 1"
 * Lines beginning with "end" will be read as the end node ID.
-* The Start and End nodes must already exist. Those lines should be placed after object definitions.
+* The Start and End nodes must already exist. Those lines should be placed after definitions.
 * In order to use A*Star, all nodes must have heuristic values.
 * Other lines will be ignored safely.
 

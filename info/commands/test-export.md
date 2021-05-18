@@ -1,6 +1,6 @@
 ## test-export
 **Usage:** `maze test-export [options] [pathfinding-mode]`  
-**Example:** `maze test-export astar -o ./result-folder -g -r
+**Example:** `maze test-export astar -o ./result-folder -g -r`
 
 Used to test file output by exporting a hard-coded graph.
 

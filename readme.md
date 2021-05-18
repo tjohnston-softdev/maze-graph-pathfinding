@@ -4,8 +4,8 @@ This is a command line application that I have developed in Node JS during my fr
 
 ---
 
-## Inspiration
-The inspiration for this software came about when one afternoon, I decided on impulse to watch a [Computerphile video](https://www.youtube.com/watch?v=GazC3A4OQTE) hosted by [Dr. Mike Pound](https://github.com/mikepound) demonstrating Dijkstra's algorithm. During my free time in the following months, I set about to write a program in Node JS that can perform pathfinding on mazes either from an image, or a specific-format text file.
+## Background
+One afternoon, I decided on impulse to watch a [Computerphile video](https://www.youtube.com/watch?v=GazC3A4OQTE) hosted by [Dr. Mike Pound](https://github.com/mikepound) demonstrating Dijkstra's algorithm. During my free time in the following months, I set about to write a program in Node JS that can perform pathfinding on mazes either from an image, or a specific-format text file.
 
 ---
 

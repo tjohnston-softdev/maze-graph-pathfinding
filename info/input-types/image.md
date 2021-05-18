@@ -13,15 +13,15 @@ maze-graph-pathfinding is able to take a common image file and parse it as a til
 #### Example:
 ![](./maze.png "Example Maze")
 
-Source: [Maze Generator](https://keesiemeijer.github.io/maze-generator)
-Date: 2020-10-15
-Wall Thickness: 20
-Columns: 5
-Rows: 5
-Remove Maze Walls: 2
-Maze Entries: Diagonal
-Bias: None
-Background Colour: #FFFFFF
+Source: [Maze Generator](https://keesiemeijer.github.io/maze-generator)  
+Date: 2020-10-15  
+Wall Thickness: 20  
+Columns: 5  
+Rows: 5  
+Remove Maze Walls: 2  
+Maze Entries: Diagonal  
+Bias: None  
+Background Colour: #FFFFFF  
 Maze Colour: #000000
 
 ---
