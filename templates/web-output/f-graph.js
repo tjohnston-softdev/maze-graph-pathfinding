@@ -26,6 +26,18 @@
 							"line-color": "#000000",
 							"line-width": 1
 						}
+					},
+					{
+						selector: "node[typeFlag < 0]",
+						style: {"background-color": "#67AB9F", "border-width": 2}
+					},
+					{
+						selector: "node[typeFlag > 0]",
+						style: {"background-color": "#EA6B66", "border-width": 2}
+					},
+					{
+						selector: "node[blocked]",
+						style: {"background-color": "#777777", "border-width": 1}
 					}
 				]
 			});
