@@ -16,4 +16,4 @@
 
 ---
 
-[Return to index](../../readme.md)
+[Return to index](../readme.md)
