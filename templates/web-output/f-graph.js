@@ -24,8 +24,12 @@
 						style:
 						{
 							"line-color": "#000000",
-							"line-width": 1
+							"width": 1
 						}
+					},
+					{
+						selector: "edge[?highlighted]",
+						style: {"width": 3}
 					},
 					{
 						selector: "node[typeFlag < 0]",
@@ -37,7 +41,7 @@
 					},
 					{
 						selector: "node[blocked]",
-						style: {"background-color": "#777777", "border-width": 1}
+						style: {"background-color": "#777777", "border-width": 1, "label": ""}
 					}
 				]
 			});

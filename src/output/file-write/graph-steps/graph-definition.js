@@ -128,13 +128,9 @@ function handleCommonNodeArray(wStream, gNodeArray)
 	
 	for (nodeIndex = 0; nodeIndex <= lastIndex; nodeIndex = nodeIndex + 1)
 	{
-		// Reads node object.
-		currentNode = gNodeArray[nodeIndex];
-		
 		// Converts node object into graph element.
+		currentNode = gNodeArray[nodeIndex];
 		currentElement = graphElements.defineNodeElement(currentNode);
-		graphElements.setNodeNumberLabel(currentElement, currentNode.nodeID);
-		graphElements.setNodeTarget(currentElement, currentNode.typeFlag);
 		
 		// Converts graph element to text.
 		currentLine = writeObjectLine(currentElement, nodeIndex, lastIndex);
@@ -241,12 +237,9 @@ function handleEdgeArray(wStream, gEdgeArray)
 	
 	for (edgeIndex = 0; edgeIndex <= lastIndex; edgeIndex = edgeIndex + 1)
 	{
-		// Reads current edge object.
-		currentEdge = gEdgeArray[edgeIndex];
-		
 		// Converts edge into graph element.
+		currentEdge = gEdgeArray[edgeIndex];
 		currentElement = graphElements.defineEdgeElement(currentEdge);
-		graphElements.setEdgeHighlight(currentElement, currentEdge.highlightedRoute);
 		
 		// Converts edge element to text.
 		currentLine = writeObjectLine(currentElement, edgeIndex, lastIndex);
@@ -296,8 +289,6 @@ function writeObjectLine(prepObj, loopInd, lastInd)
 	
 	return lineRes;
 }
-
-
 
 
 
