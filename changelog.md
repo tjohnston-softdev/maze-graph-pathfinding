@@ -1,15 +1,6 @@
 # Changelog
 
-**./src/common/sub-output/graph-elements.js**
-* Removed the 'highlightWeight' global variable.
-* defineNodeElementObject
-	* Created 'position' sub-object. - Contains node coordinates.
-	* Removed 'data.x' and 'data.y' to 'position'
-
----
-
-
-** ./templates/web-output/f-graph.js**
-* Specified 'preset' layout.
-	* Nodes are set to absolute positions.
-* Blocked node styling will now only apply if 'blocked' is true.
+* The 'cose' layout will be used for relative graphs using Cytoscape.
+	* Real-time animation is disabled.
+	* Loading spinner may be required.
+* Switching between graph layouts on file generation has not been implemented yet.
