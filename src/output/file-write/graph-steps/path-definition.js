@@ -21,8 +21,7 @@ function writeSinglePathDefinition(graphWriteStream, fullPathObject, definitionC
 	handleShortestPathDistance(graphWriteStream, fullPathObject);
 	handleOutcomeProperties(graphWriteStream, fullPathObject);
 	handleResultClose(graphWriteStream);
-	
-	//handleClosingText(graphWriteStream);
+	handlePathBreak(graphWriteStream);
 	
 	return definitionCallback(null, true);
 }
@@ -36,8 +35,7 @@ function writeMultiplePathDefinition(graphWriteStream, multPathsObject, definiti
 	handleAllPossibleOverflow(graphWriteStream, multPathsObject.overflow);
 	handleOutcomeProperties(graphWriteStream, multPathsObject);
 	handleResultClose(graphWriteStream);
-	
-	//handleClosingText(graphWriteStream);
+	handlePathBreak(graphWriteStream);
 	
 	return definitionCallback(null, true);
 }
@@ -50,8 +48,7 @@ function writeBlockPathDefinition(graphWriteStream, bPathsObject, definitionCall
 	handleBlockedNodesCount(graphWriteStream, bPathsObject);
 	handleOutcomeProperties(graphWriteStream, bPathsObject);
 	handleResultClose(graphWriteStream);
-	
-	//handleClosingText(graphWriteStream);
+	handlePathBreak(graphWriteStream);
 	
 	return definitionCallback(null, true);
 }
@@ -62,7 +59,7 @@ function writeBlockPathDefinition(graphWriteStream, bPathsObject, definitionCall
 function writeBlankPathDefinition(graphWriteStream, definitionCallback)
 {
 	handleBlankResult(graphWriteStream);
-	//handleClosingText(graphWriteStream);
+	handlePathBreak(graphWriteStream);
 	return definitionCallback(null, true);
 }
 
@@ -93,33 +90,21 @@ function handleResultOpen(wStream)
 // Close result object.
 function handleResultClose(wStream)
 {
-	var resCloseTxt = "";
-	
-	resCloseTxt += charShortcuts.thirdIndent;
-	resCloseTxt += "};";
-	
-	resCloseTxt += charShortcuts.lineBreak;
-	resCloseTxt += charShortcuts.thirdIndent;
-	resCloseTxt += charShortcuts.lineBreak;
-	
+	var resCloseTxt = charShortcuts.thirdIndent + "};";
 	wStream.write(resCloseTxt);
 }
 
 
-// End definition script. path-definition complete.
-function handleClosingText(wStream)
+// Add blank space before layout object.
+function handlePathBreak(wStream)
 {
-	var closeTxt = "";
+	var resBreakTxt = "";
 	
-	closeTxt += charShortcuts.lineBreak;
-	closeTxt += charShortcuts.secondIndent;
-	closeTxt += charShortcuts.lineBreak;
+	resBreakTxt += charShortcuts.lineBreak;
+	resBreakTxt += charShortcuts.thirdIndent;
+	resBreakTxt += charShortcuts.lineBreak;
 	
-	closeTxt += charShortcuts.secondIndent;
-	closeTxt += "</script>";
-	closeTxt += charShortcuts.lineBreak;
-	
-	wStream.write(closeTxt);
+	wStream.write(resBreakTxt);
 }
 
 
