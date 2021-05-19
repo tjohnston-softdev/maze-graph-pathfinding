@@ -18,7 +18,7 @@ const mathTasks = require("../../../common/math-tasks");
 function parseAbsoluteTextFile(tgtInputPath, ignoreErr, absCallback)
 {
 	var lineCountNumber = 0;														// Current line number.
-	var retrievedDataObject = parseObjects.initializeResultObject();				// Parsed graph object.
+	var retrievedDataObject = parseObjects.initializeResultObject(true);			// Parsed graph object.
 	var canContinue = true;															// Parse successful.
 	var flaggedErrorMessage = "";													// Error text.
 	var lineStreamObject = new lineByLine(tgtInputPath);							// Opens input file and reads by line.

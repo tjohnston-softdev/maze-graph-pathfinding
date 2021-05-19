@@ -22,7 +22,7 @@ function writeSinglePathDefinition(graphWriteStream, fullPathObject, definitionC
 	handleOutcomeProperties(graphWriteStream, fullPathObject);
 	handleResultClose(graphWriteStream);
 	
-	handleClosingText(graphWriteStream);
+	//handleClosingText(graphWriteStream);
 	
 	return definitionCallback(null, true);
 }
@@ -37,7 +37,7 @@ function writeMultiplePathDefinition(graphWriteStream, multPathsObject, definiti
 	handleOutcomeProperties(graphWriteStream, multPathsObject);
 	handleResultClose(graphWriteStream);
 	
-	handleClosingText(graphWriteStream);
+	//handleClosingText(graphWriteStream);
 	
 	return definitionCallback(null, true);
 }
@@ -51,7 +51,7 @@ function writeBlockPathDefinition(graphWriteStream, bPathsObject, definitionCall
 	handleOutcomeProperties(graphWriteStream, bPathsObject);
 	handleResultClose(graphWriteStream);
 	
-	handleClosingText(graphWriteStream);
+	//handleClosingText(graphWriteStream);
 	
 	return definitionCallback(null, true);
 }
@@ -62,7 +62,7 @@ function writeBlockPathDefinition(graphWriteStream, bPathsObject, definitionCall
 function writeBlankPathDefinition(graphWriteStream, definitionCallback)
 {
 	handleBlankResult(graphWriteStream);
-	handleClosingText(graphWriteStream);
+	//handleClosingText(graphWriteStream);
 	return definitionCallback(null, true);
 }
 
@@ -97,6 +97,10 @@ function handleResultClose(wStream)
 	
 	resCloseTxt += charShortcuts.thirdIndent;
 	resCloseTxt += "};";
+	
+	resCloseTxt += charShortcuts.lineBreak;
+	resCloseTxt += charShortcuts.thirdIndent;
+	resCloseTxt += charShortcuts.lineBreak;
 	
 	wStream.write(resCloseTxt);
 }

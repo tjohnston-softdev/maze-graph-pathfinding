@@ -17,7 +17,7 @@ const graphObjects = require("../../../common/sub-graph/graph-objects");
 // Main function.
 function setGridEntryExitPoints(gridMatrixObject, pointCallback)
 {
-	var graphResultObject = parseObjects.initializeResultObject();
+	var graphResultObject = parseObjects.initializeResultObject(true);
 	var pointOutcomeObject = parseObjects.defineLineOutcome();
 	
 	var startDefined = false;

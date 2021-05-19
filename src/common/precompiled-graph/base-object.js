@@ -72,6 +72,12 @@ function setTargetKeys(gObject)
 }
 
 
+function setAbsolutePositionStatus(gObject)
+{
+	gObject.absolutePositions = true;
+}
+
+
 
 
 
@@ -79,5 +85,6 @@ module.exports =
 {
 	setNodes: setNodeEntries,
 	setEdges: setEdgeEntries,
-	setTargets: setTargetKeys
+	setTargets: setTargetKeys,
+	setAbsolutePosition: setAbsolutePositionStatus
 };

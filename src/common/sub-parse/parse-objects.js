@@ -2,7 +2,7 @@
 
 
 // Graph object.
-function initializeParseResultsObject()
+function initializeParseResultsObject(fixedLayout)
 {
 	var intlRes = {};
 	
@@ -10,6 +10,7 @@ function initializeParseResultsObject()
 	intlRes["edgeList"] = [];
 	intlRes["startNodeIndex"] = -1;
 	intlRes["endNodeIndex"] = -1;
+	intlRes["absolutePositions"] = fixedLayout;
 	
 	return intlRes;
 }

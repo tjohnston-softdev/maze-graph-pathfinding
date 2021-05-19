@@ -23,7 +23,7 @@ const edgeFormat = "originNode, destinationNode, distance";
 function parseRelativeTextFile(tgtInputPath, ignoreErr, relativeCallback)
 {
 	var lineCountNumber = 0;													// Current line number.
-	var retrievedDataObject = parseObjects.initializeResultObject();			// Graph object.
+	var retrievedDataObject = parseObjects.initializeResultObject(false);		// Graph object.
 	var activeNumberMode = {flagValue: -1};										// Number read mode.
 	var canContinue = true;														// Parse successful.
 	var flaggedErrorMessage = "";												// Error text.

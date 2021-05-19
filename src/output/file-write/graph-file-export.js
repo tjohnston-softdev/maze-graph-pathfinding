@@ -9,6 +9,7 @@ const writtenFile = require("../../common/sub-output/written-file");
 const templateFile = require("./graph-steps/template-file");
 const graphDefinition = require("./graph-steps/graph-definition");
 const pathDefinition = require("./graph-steps/path-definition");
+const layoutDefinition = require("./graph-steps/layout-definition");
 const graphBody = require("./graph-steps/graph-body");
 const storedPaths = require("../../../stored-paths");
 
@@ -150,6 +151,7 @@ function compileShortestPath(gfsObject, compGraphObj, compPathObj, gText, pMode,
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.headerPath),								// Header.
 		graphDefinition.writeCommonDefinition.bind(null, gfsObject, compGraphObj),							// Graph definition.
 		pathDefinition.writeSingle.bind(null, gfsObject, compPathObj),										// Single path definition.
+		layoutDefinition.writeStructure.bind(null, gfsObject, compGraphObj),								// Graph layout.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.stylePath),								// CSS styling.
 		graphBody.writeBody.bind(null, gfsObject, gText, pMode),											// Main body contents.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.contentShortestPath),					// Single path body contents.
@@ -179,6 +181,7 @@ function compileAllPaths(gfsObject, compGraphObj, compPathObj, gText, pMode, fil
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.headerPath),								// Header.
 		graphDefinition.writeCommonDefinition.bind(null, gfsObject, compGraphObj),							// Graph definition.
 		pathDefinition.writeMultiple.bind(null, gfsObject, compPathObj),									// Multiple paths definition.
+		layoutDefinition.writeStructure.bind(null, gfsObject, compGraphObj),								// Graph layout.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.stylePath),								// CSS styling.
 		graphBody.writeBody.bind(null, gfsObject, gText, pMode),											// Main body contents.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.contentAllPath),							// Multiple path body contents.
@@ -208,6 +211,7 @@ function compileBlocked(gfsObject, compGraphObj, compPathObj, gText, pMode, file
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.headerPath),								// Header
 		graphDefinition.writeBlockDefinition.bind(null, gfsObject, compGraphObj),							// Graph definition with blocked nodes.
 		pathDefinition.writeBlock.bind(null, gfsObject, compPathObj),										// Block result definition.
+		layoutDefinition.writeStructure.bind(null, gfsObject, compGraphObj),								// Graph layout.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.stylePath),								// CSS styling.
 		graphBody.writeBody.bind(null, gfsObject, gText, pMode),											// Main body contents.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.contentBlockPath),						// Blocked nodes content.
@@ -239,6 +243,7 @@ function compileBlankPath(gfsObject, compGraphObj, gText, fileResObj)
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.headerPath),								// Header.
 		graphDefinition.writeCommonDefinition.bind(null, gfsObject, compGraphObj),							// Graph definition.
 		pathDefinition.writeBlank.bind(null, gfsObject),													// Blank result object.
+		layoutDefinition.writeStructure.bind(null, gfsObject, compGraphObj),								// Graph layout.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.stylePath),								// CSS styling.
 		graphBody.writeBody.bind(null, gfsObject, gText, -1),												// Main body contents.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.contentBlankPath),						// Begin script.

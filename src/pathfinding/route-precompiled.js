@@ -13,13 +13,14 @@ function retrievePrecompiledData(inpPathMode)
 	var highlightList = [];
 	
 	// Initializes data objects.
-	compiledObject["graphData"] = parseObjects.initializeResultObject();
+	compiledObject["graphData"] = parseObjects.initializeResultObject(null);
 	compiledObject["pathData"] = {};
 	
 	// Retrieves base graph data.
 	baseObject.setNodes(compiledObject.graphData);
 	baseObject.setEdges(compiledObject.graphData);
 	baseObject.setTargets(compiledObject.graphData);
+	baseObject.setAbsolutePosition(compiledObject.graphData);
 	
 	
 	// Additional data will be added to the graph accordingly.

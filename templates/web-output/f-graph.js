@@ -3,7 +3,7 @@
 			{
 				container: document.getElementById("graphContainer"),
 				elements: {nodes: nodeContents, edges: edgeContents},
-				layout: {name: "preset"},
+				layout: graphStructure,
 				style:
 				[
 					{
