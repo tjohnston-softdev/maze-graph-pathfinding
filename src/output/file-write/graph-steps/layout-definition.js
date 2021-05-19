@@ -1,5 +1,12 @@
 const charShortcuts = require("../../../common/sub-output/char-shortcuts");
 
+/*
+	* This file is used to dynamically write the graph layout definition into the exported HTML file.
+	* Example file: "../../../../templates/web-output/b-data.html"
+*/
+
+
+// Main function
 function writeGraphStructure(graphWriteStream, fullGraphObject, definitionCallback)
 {
 	handleStructure(graphWriteStream, fullGraphObject.absolutePositions);
@@ -8,20 +15,24 @@ function writeGraphStructure(graphWriteStream, fullGraphObject, definitionCallba
 }
 
 
+// Layout structure.
 function handleStructure(wStream, positionsSet)
 {
 	var resStructure = "";
 	var preparedObject = {};
 	
+	// Declare variable.
 	resStructure += charShortcuts.thirdIndent;
 	resStructure += "var graphStructure = ";
 	
 	if (positionsSet === true)
 	{
+		// Fixed layout.
 		preparedObject = {name: "preset"};
 	}
 	else
 	{
+		// Dynamic layout.
 		preparedObject = {name: "cose", fit: false, animate: false};
 	}
 	
