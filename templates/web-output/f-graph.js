@@ -3,6 +3,7 @@
 			{
 				container: document.getElementById("graphContainer"),
 				elements: {nodes: nodeContents, edges: edgeContents},
+				layout: {name: "preset"},
 				style:
 				[
 					{
@@ -40,7 +41,7 @@
 						style: {"background-color": "#EA6B66", "border-width": 2}
 					},
 					{
-						selector: "node[blocked]",
+						selector: "node[?blocked]",
 						style: {"background-color": "#777777", "border-width": 1, "label": ""}
 					}
 				]

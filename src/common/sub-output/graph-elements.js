@@ -3,8 +3,6 @@
 	* Default, Start, End node colours are from: https://app.diagrams.net/ (Retrieved 2020-07-13)
 */
 
-const highlightWeight = 5;
-
 
 
 // Converts a graph node object into a cytoscape.js compatible entry.
@@ -12,11 +10,12 @@ function defineNodeElementObject(origNode)
 {
 	var defineRes = {};
 	defineRes["data"] = {};
+	defineRes["position"] = {};
 	
 	defineRes.data["id"] = origNode.nodeID;
-	defineRes.data["x"] = origNode.colNumber;
-	defineRes.data["y"] = origNode.rowNumber;
 	defineRes.data["typeFlag"] = origNode.typeFlag;
+	defineRes.position["x"] = origNode.colNumber;
+	defineRes.position["y"] = origNode.rowNumber;
 	
 	return defineRes;
 }
