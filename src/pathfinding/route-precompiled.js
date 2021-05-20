@@ -30,7 +30,7 @@ function retrievePrecompiledData(inpPathMode)
 		highlightList = edgeStatus.defineDsktra();
 		
 		appendProperties.appendDsktra(compiledObject.graphData);
-		edgeStatus.setHighlights(compiledObject.graphData, highlightList);
+		edgeStatus.setHighlights(compiledObject.graphData.edgeList, highlightList);
 		compiledObject.pathData = pathObjects.defineDsktra();
 	}
 	else if (inpPathMode === pathContext.modes.A_STAR)
@@ -39,7 +39,7 @@ function retrievePrecompiledData(inpPathMode)
 		highlightList = edgeStatus.defineAstar();
 		
 		appendProperties.appendAstar(compiledObject.graphData);
-		edgeStatus.setHighlights(compiledObject.graphData, highlightList);
+		edgeStatus.setHighlights(compiledObject.graphData.edgeList, highlightList);
 		compiledObject.pathData = pathObjects.defineAstar();
 	}
 	else if (inpPathMode === pathContext.modes.ALL_POSSIBLE)
@@ -53,7 +53,7 @@ function retrievePrecompiledData(inpPathMode)
 		highlightList = edgeStatus.defineAnyPossible();
 		
 		appendProperties.appendAnyPossible(compiledObject.graphData);
-		edgeStatus.setHighlights(compiledObject.graphData, highlightList);
+		edgeStatus.setHighlights(compiledObject.graphData.edgeList, highlightList);
 		compiledObject.pathData = pathObjects.defineAnyPossible();
 	}
 	else if (inpPathMode === pathContext.modes.BLOCK)
