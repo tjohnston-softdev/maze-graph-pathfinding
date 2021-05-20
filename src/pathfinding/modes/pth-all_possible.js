@@ -231,7 +231,7 @@ function handleCompleteRoute(startNode, endNode, cRouteObject, aPathObj)
 	else if (completedSuccessfully === true && routeCount >= valueLimits.maxAllPossibleRoutes)
 	{
 		// Too many saved routes.
-		aPthObj.overflow = true;
+		aPathObj.overflow = true;
 		handleRes = 0;
 	}
 	else
