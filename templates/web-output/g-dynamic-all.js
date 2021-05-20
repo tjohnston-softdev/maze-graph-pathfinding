@@ -79,7 +79,7 @@
 					// Display current path.
 					pathElement.innerHTML = pathLabel + retrievedPathObject.sequence.join(", ");
 					distanceElement.innerHTML = distLabel + retrievedPathObject.totalDistance;
-					network.setData(data);
+					cytoscapeGraph.json({elements: {nodes: nodeContents, edges: edgeContents}});
 					overallSuccessful = true;
 				}
 				
@@ -116,7 +116,7 @@
 				for (edgeIndex = 0; edgeIndex < edgeContents.length; edgeIndex = edgeIndex + 1)
 				{
 					currentEdgeObject = edgeContents[edgeIndex];
-					currentEdgeObject.width = 1;
+					currentEdgeObject.data.highlighted = false;
 				}
 				
 			}
@@ -164,14 +164,14 @@
 				var currentDestination = -1;
 				var currentMatch = false;
 				
-				var highlightRes = false;
+				var connectionFound = false;
 				
 				// Loops through edges until connection is found.
-				while (edgeIndex >= 0 && edgeIndex < edgeContents.length && highlightRes !== true)
+				while (edgeIndex >= 0 && edgeIndex < edgeContents.length && connectionFound !== true)
 				{
 					currentEdgeObject = edgeContents[edgeIndex];
-					currentOrigin = currentEdgeObject.from;
-					currentDestination = currentEdgeObject.to;
+					currentOrigin = Number(currentEdgeObject.data.source);
+					currentDestination = Number(currentEdgeObject.data.target);
 					currentMatch = false;
 					
 					if (currentOrigin === originID && currentDestination === destinationID)
@@ -194,13 +194,13 @@
 					if (currentMatch === true)
 					{
 						// Highlight edge.
-						currentEdgeObject.width = 3;
-						highlightRes = true;
+						currentEdgeObject.data.highlighted = true;
+						connectionFound = true;
 					}
 					
 					
 					edgeIndex = edgeIndex + 1;
 				}
 				
-				return highlightRes;
+				return connectionFound;
 			}
