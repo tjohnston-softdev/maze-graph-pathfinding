@@ -1,13 +1,15 @@
 # Changelog
 
-**Edge Highlighting**
-* Now applied properly for Cytoscape graphs.
-* The glitch was that the precompiled graph's edges were not highlighted properly.
-* Mapped graph files appear to have been unaffected.
+**./src/common/sub-output/graph-elements.js**
+* Wrote new function 'setNodeBlockStatus'
+	* Appends 'blocked' property to node object.
+	* Used when searching for blocked nodes.
+	* Called publicly as 'setNodeBlocked'
 
 ---
 
-**./src/pathfinding/route-precompiled.js**
-* Modified 'edgeStatus.setHighlights' call arguments.
-	* Before: 'compiledObject.graphData'
-	* After: 'compiledObject.graphData.edgeList'
+**./src/output/file-write/graph-steps/graph-definition.js**
+* handleBlockNodeArray
+	* Removed `currentNode.blocked === true` IF structure.
+	* Added 'graphElements.setNodeBlocked' call.
+	* Removed blank 'currentLine' assignment.

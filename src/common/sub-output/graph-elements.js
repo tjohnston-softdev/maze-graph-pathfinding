@@ -36,11 +36,18 @@ function defineEdgeElementObject(origEdge)
 }
 
 
+function setNodeBlockStatus(nElement, nBlocked)
+{
+	nElement.data["blocked"] = nBlocked;
+}
+
+
 
 
 
 module.exports =
 {
 	defineNodeElement: defineNodeElementObject,
-	defineEdgeElement: defineEdgeElementObject
+	defineEdgeElement: defineEdgeElementObject,
+	setNodeBlocked: setNodeBlockStatus
 };

@@ -176,20 +176,7 @@ function handleBlockNodeArray(wStream, gNodeArray)
 		// Converts node object into graph element.
 		currentNode = gNodeArray[nodeIndex];
 		currentElement = graphElements.defineNodeElement(currentNode);
-		currentLine = "";
-		
-		
-		if (currentNode.blocked === true)
-		{
-			// Node is blocked. Set colour to Grey.
-			graphElements.setNodeBlockedColour(currentElement);
-		}
-		else
-		{
-			// Node is not blocked. Set properties as normal.
-			graphElements.setNodeNumberLabel(currentElement, currentNode.nodeID);
-			graphElements.setNodeTarget(currentElement, currentNode.typeFlag);
-		}
+		graphElements.setNodeBlocked(currentElement, currentNode.blocked);
 		
 		// Converts graph element to text.
 		currentLine = writeObjectLine(currentElement, nodeIndex, lastIndex);
