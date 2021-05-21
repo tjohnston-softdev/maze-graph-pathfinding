@@ -51,18 +51,19 @@ function getGridDimensions(gNodeList, dimensionsCallback)
 
 function initializeBlankGrid(dimObj)
 {
+	var dimensionValue = Math.max(dimObj.rowCount, dimObj.colCount);
 	var rowIndex = 0;
 	var currentRow = [];
 	
 	var intlRes = [];
 	
 	
-	for (rowIndex = 0; rowIndex < dimObj.rowCount; rowIndex = rowIndex + 1)
+	for (rowIndex = 0; rowIndex < dimensionValue; rowIndex = rowIndex + 1)
 	{
 		currentRow = [];
 		colIndex = 0;
 		
-		while (currentRow.length < dimObj.colCount)
+		while (currentRow.length < dimensionValue)
 		{
 			currentRow.push(tileSet.wallTile);
 		}

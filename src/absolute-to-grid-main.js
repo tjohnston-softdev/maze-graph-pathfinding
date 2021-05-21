@@ -7,6 +7,7 @@ const ioTargetPath = require("./io-paths/target-path");
 const textFileRead = require("./parsing/text-file-read");
 const parseStructureIntegrity = require("./parsing/parse-structure-integrity");
 const absoluteGridMap = require("./traverse/absolute-grid-map");
+const binaryGrid = require("./parsing/binary-grid");
 const resultControl = require("./output/res-ctrl-txt-conv");
 
 
@@ -49,12 +50,12 @@ function executePreperationTasks(prepArgsObj)
 }
 
 
-function executeGraphTasks(pArguments, parsedGraph)
+function executeGraphTasks(pArguments, parsedGraphObj)
 {
 	asyncModule.series(
 	{
-		"integrityPassed": parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),
-		"preparedGrid": absoluteGridMap.performMapping.bind(null, parsedGraph)
+		"integrityPassed": parseStructureIntegrity.performGraphCheck.bind(null, parsedGraphObj),
+		"preparedGrid": absoluteGridMap.performMapping.bind(null, parsedGraphObj)
 	},
 	function (graphTasksErr, graphTasksRes)
 	{
@@ -64,7 +65,23 @@ function executeGraphTasks(pArguments, parsedGraph)
 		}
 		else
 		{
-			resultControl.callAbsoluteToGrid(pArguments.preparedPaths.writePath, graphTasksRes.preparedGrid, parsedGraph, "Absolute to Grid Conversion");
+			executeTileConversion(pArguments, parsedGraphObj, graphTasksRes.preparedGrid);
+		}
+	});
+}
+
+
+function executeTileConversion(pArgs, parsedGraph, prepGrid)
+{
+	binaryGrid.convertTiles(prepGrid, function (tileConvErr, tileConvRes)
+	{
+		if (tileConvErr !== null)
+		{
+			exitProgram.callExit(tileConvErr.message);
+		}
+		else
+		{
+			resultControl.callAbsoluteToGrid(pArgs.preparedPaths.writePath, prepGrid, parsedGraph, "Absolute to Grid Conversion");
 		}
 	});
 }
