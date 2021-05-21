@@ -1,6 +1,7 @@
 const exitProgram = require("../common/exit-program");
 const absConversionExport = require("./file-write/absolute-conversion-export");
 const relativeConversionExport = require("./file-write/relative-conversion-export");
+const gridConversionExport = require("./file-write/grid-conversion-export");
 const conversionClean = require("./file-clean/conversion-clean");
 
 
@@ -18,6 +19,23 @@ const conversionClean = require("./file-clean/conversion-clean");
 function callGridToAbsoluteOutputTask(cTargetPath, cGraphObject, cHeaderText)
 {
 	absConversionExport.performFileExport(cTargetPath, cGraphObject, cHeaderText, function (saveError, saveRes)
+	{
+		if (saveError !== null)
+		{
+			handleTextConversionFileClean(cTargetPath, saveError.message);
+		}
+		else
+		{
+			exitProgram.callComplete();
+		}
+	});
+}
+
+
+// 'absolute-to-grid'
+function callAbsoluteToGridOutputTask(cTargetPath, cGridObject, cGraphObject, cHeaderText)
+{
+	gridConversionExport.performFileExport(cTargetPath, cGridObject, cGraphObject, cHeaderText, function (saveError, saveRes)
 	{
 		if (saveError !== null)
 		{
@@ -71,5 +89,6 @@ function handleTextConversionFileClean(oPath, eMsg)
 module.exports =
 {
 	callGridToAbsolute: callGridToAbsoluteOutputTask,
+	callAbsoluteToGrid: callAbsoluteToGridOutputTask,
 	callAbsoluteGridToRelative: callAbsoluteGridToRelativeOutputTask
 };

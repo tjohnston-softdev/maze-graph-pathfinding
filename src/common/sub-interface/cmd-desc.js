@@ -7,8 +7,9 @@ const mapImageDesc = writeMapDesc("an existing image file of a maze");
 const createImageConfigDesc = "creates a configuration file that can be used when reading images.";
 const loadImageConfigDesc = "reads and validates an existing image configuration file.";
 const gridToAbsoluteDesc = writeAbsoluteConversionDesc("grid definition text");
+const absoluteToGridDesc = writeGridConversionDesc("absolute definition text");
 const imageToAbsoluteDesc = writeAbsoluteConversionDesc("image");
-const imageToGridDesc = writeImageToGridDesc();
+const imageToGridDesc = writeGridConversionDesc("image");
 const absoluteToRelativeDesc = writeRelativeConversionDesc("absolute definition text");
 const gridToRelativeDesc = writeRelativeConversionDesc("grid definition text");
 const imageToRelativeDesc = writeRelativeConversionDesc("image");
@@ -55,12 +56,14 @@ function writeRelativeConversionDesc(inputDesc)
 	return writeRes;
 }
 
-function writeImageToGridDesc()
+
+function writeGridConversionDesc(inputDesc)
 {
 	var writeRes = "";
 	
-	writeRes += "takes an existing image file, ";
-	writeRes += "parses it into a grid, and ";
+	writeRes += "takes an existing ";
+	writeRes += inputDesc;
+	writeRes += "file, parses it into a grid, and ";
 	writeRes += "outputs it as a definition text file.";
 	
 	return writeRes;
@@ -78,6 +81,7 @@ module.exports =
 	createImageConfig: createImageConfigDesc,
 	loadImageConfig: loadImageConfigDesc,
 	gridToAbsolute: gridToAbsoluteDesc,
+	absoluteToGrid: absoluteToGridDesc,
 	imageToAbsolute: imageToAbsoluteDesc,
 	imageToGrid: imageToGridDesc,
 	absoluteToRelative: absoluteToRelativeDesc,

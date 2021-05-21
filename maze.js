@@ -9,6 +9,7 @@ const mapImageMain = require("./src/map-image-main");
 const createImageConfigMain = require("./src/create-image-config-main");
 const readImageConfigMain = require("./src/read-image-config-main");
 const gridToAbsoluteMain = require("./src/grid-to-absolute-main");
+const absoluteToGridMain = require("./src/absolute-to-grid-main");
 const imageToAbsoluteMain = require("./src/image-to-absolute-main");
 const imageToGridMain = require("./src/image-to-grid-main");
 const absoluteToRelativeMain = require("./src/absolute-to-relative-main");
@@ -118,6 +119,18 @@ program
 .action(function (inpGridPath, inpWritePath, options)
 {
 	gridToAbsoluteMain.performCommand(inpGridPath, inpWritePath, options);
+});
+
+
+// absolute-to-grid <input-absolute> [output-path]
+program
+.command("absolute-to-grid <input-absolute> [output-path]")
+.description(cmdDesc.absoluteToGrid)
+.option("-r --replace", optionDesc.replaceExistingFile)
+.option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
+.action(function (inpAbsolutePath, inpWritePath, options)
+{
+	absoluteToGridMain.performCommand(inpAbsolutePath, inpWritePath, options);
 });
 
 

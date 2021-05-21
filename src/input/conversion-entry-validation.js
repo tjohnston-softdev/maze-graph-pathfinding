@@ -17,6 +17,14 @@ function readGridToAbsoluteArguments(argInputPath, argWritePath, optionalArgsObj
 }
 
 
+// Handles entry validation for the 'absolute-to-grid' command.
+function readAbsoluteToGridArguments(argInputPath, argWritePath, optionalArgsObj)
+{
+	var argumentReadResult = coordinateMainArguments(argInputPath, argWritePath, optionalArgsObj, defaultValues.gridConversionPath);
+	return argumentReadResult;
+}
+
+
 // Handles entry validation for the 'image-to-absolute' command.
 function readImageToAbsoluteArguments(argInputPath, argWritePath, optionalArgsObj)
 {
@@ -190,6 +198,7 @@ function definePreparedArguments(dWrite)
 module.exports =
 {
 	readGridToAbsolute: readGridToAbsoluteArguments,
+	readAbsoluteToGrid: readAbsoluteToGridArguments,
 	readImageToAbsolute: readImageToAbsoluteArguments,
 	readImageToGrid: readImageToGridArguments,
 	readTextToRelative: readTextToRelativeArguments,
