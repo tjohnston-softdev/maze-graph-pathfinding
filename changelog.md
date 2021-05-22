@@ -1,7 +1,7 @@
 # Changelog
 
-**./common/value-limits.js**
-* Changed values:
-	* 'maxGridDimensionNumber' to 1000
-	* 'maxNodeCountNumber' to 1000000
-	* 'maxEdgeCountNumber' to 1000000
+**./common/maths-tasks.js**
+* Reduced whitespace
+* Renamed reference table columns:
+	* 'Purpose' to 'Title'
+	* 'Retrieval Date' to 'Date Retrieved'

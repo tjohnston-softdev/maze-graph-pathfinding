@@ -1,13 +1,11 @@
 // Math-related functions.
 
-
 const hexCharacterTable = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
 
 
 // Refer to 'calculateDifferenceBetweenColours'
 const colourDistanceMaximum = 195075;
 const colourPercentageRoot = Math.sqrt(colourDistanceMaximum);
-
 
 
 // Calculates the straight-line distance between two node objects. (Euclidean distance)
@@ -78,7 +76,6 @@ function calculateDifferenceBetweenColours(colourA, colourB)
 
 
 
-
 // Converts a hex value string to a decimal number.
 function convertHexToDecimal(hexVal)
 {	
@@ -139,13 +136,9 @@ module.exports =
 
 
 
-
-
-
-
 /*
 	REFERENCES:
-		(Purpose)						(URL)																					(Retrieval Date)
+		(Title)							(URL)																					(Date Retrieved)
 		Hexadecimal table				https://kb.iu.edu/d/afdl																2020-08-22
 		Calculate Euclidean distance	https://www.calculatorsoup.com/calculators/geometry-plane/distance-two-points.php		2020-07-06
 		Manhattan distance				https://www.geeksforgeeks.org/a-search-algorithm/										2020-07-17
