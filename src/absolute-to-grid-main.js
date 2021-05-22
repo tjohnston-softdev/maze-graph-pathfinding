@@ -11,6 +11,22 @@ const binaryGrid = require("./parsing/binary-grid");
 const resultControl = require("./output/res-ctrl-txt-conv");
 
 
+/*
+	Command: absolute-to-grid
+	Description: Takes an existing Absolute definition text file, parses it into a graph, and outputs a Grid definition text file.
+	Steps:
+		* Validate console input.
+		* Check input file exists.
+		* Check output path safe.
+		* Parse input file into graph.
+		* Verify graph integrity.
+		* Parse graph definition into tile grid.
+		* Convert grid tiles to binary characters.
+		* Write converted file.
+*/
+
+
+
 function runAbsoluteToGridFileConversion(eInputPath, eTargetPath, optionalArgumentsObject)
 {
 	var preparedArgumentsObject = conversionEntryValidation.readAbsoluteToGrid(eInputPath, eTargetPath, optionalArgumentsObject);
