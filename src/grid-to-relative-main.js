@@ -102,7 +102,7 @@ function executeGraphTasks(pArguments, readGrid, parsedGraph)
 		}
 		else
 		{
-			resultControl.callAbsoluteGridToRelative(pArguments.preparedPaths.writePath, parsedGraph, "Grid to Relative Conversion");
+			resultControl.callToRelative(pArguments.preparedPaths.writePath, parsedGraph, "Grid to Relative Conversion");
 		}
 	});
 }

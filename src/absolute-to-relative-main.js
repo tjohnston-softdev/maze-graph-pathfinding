@@ -80,7 +80,7 @@ function executeGraphTasks(pArguments, parsedGraph)
 		}
 		else
 		{
-			resultControl.callAbsoluteGridToRelative(pArguments.preparedPaths.writePath, parsedGraph, "Absolute to Relative Conversion");
+			resultControl.callToRelative(pArguments.preparedPaths.writePath, parsedGraph, "Absolute to Relative Conversion");
 		}
 	});
 }

@@ -50,7 +50,7 @@ function callAbsoluteToGridOutputTask(cTargetPath, cGridObject, cGraphObject, cH
 
 
 // 'absolute-to-relative', 'grid-to-relative'
-function callAbsoluteGridToRelativeOutputTask(cTargetPath, cGraphObject, cHeaderText)
+function callToRelativeOutputTask(cTargetPath, cGraphObject, cHeaderText)
 {
 	relativeConversionExport.performFileExport(cTargetPath, cGraphObject, cHeaderText, function (saveError, saveRes)
 	{
@@ -90,5 +90,5 @@ module.exports =
 {
 	callGridToAbsolute: callGridToAbsoluteOutputTask,
 	callAbsoluteToGrid: callAbsoluteToGridOutputTask,
-	callAbsoluteGridToRelative: callAbsoluteGridToRelativeOutputTask
+	callToRelative: callToRelativeOutputTask
 };
