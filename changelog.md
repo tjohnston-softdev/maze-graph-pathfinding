@@ -1,6 +1,4 @@
 # Changelog
 
-**./src/common/sub-interface/cmd-desc.js**
-* Corrected missing space typo in 'writeGridConversionDesc'
-	* Before: "absolute definition textfile"
-	* After: "absolute definition text file"
+**./info/commands/absolute-to-grid.md**
+* New file - Documentation for 'absolute-to-grid' command.
