@@ -1,11 +1,7 @@
 # Changelog
 
-**./src/output/res-ctrl-txt-conv.js**
-* Renamed 'callAbsoluteGridToRelativeOutputTask' function.
-	* New name: 'callToRelativeOutputTask'
-	* Public: 'callToRelative'
-
----
-
-**./src/%input%-to-relative-main.js**
-* Replaced 'callAbsoluteGridToRelative' with 'callToRelative'
+**./common/value-limits.js**
+* Changed values:
+	* 'maxGridDimensionNumber' to 1000
+	* 'maxNodeCountNumber' to 1000000
+	* 'maxEdgeCountNumber' to 1000000
