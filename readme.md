@@ -1,6 +1,6 @@
 # Maze Graph Pathfinding
 
-This is a command line application that I have developed in Node JS during my free time throughout the 2020 COVID pandemic. The program receives an [image](./info/input-types/maze.png) or [text](./info/input-types/absolute.md) input file representing a maze and outputs it as a HTML file rendered with [vis.js](https://visjs.org/). As the name suggests, this program can perform several different pathfinding operations on the maze. This includes finding the shortest path using [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) or [A*Star](https://en.wikipedia.org/wiki/A*_search_algorithm) algorithms.
+This is a command line application that I have developed in Node JS during my free time throughout the 2020 COVID pandemic. The program receives an [image](./info/input-types/maze.png) or [text](./info/input-types/absolute.md) input file representing a maze and outputs it as a HTML file rendered with [Cytoscape.js](https://js.cytoscape.org/). As the name suggests, this program can perform several different pathfinding operations on the maze. This includes finding the shortest path using [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) or [A*Star](https://en.wikipedia.org/wiki/A*_search_algorithm) algorithms.
 
 ---
 
