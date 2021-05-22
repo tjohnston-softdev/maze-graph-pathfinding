@@ -33,7 +33,7 @@ function handleStructure(wStream, positionsSet)
 	else
 	{
 		// Dynamic layout.
-		preparedObject = {name: "cose", fit: false, animate: true, animationThreshold: 500};
+		preparedObject = {name: "cose", fit: true, animate: true, animationThreshold: 500};
 	}
 	
 	resStructure += JSON.stringify(preparedObject);

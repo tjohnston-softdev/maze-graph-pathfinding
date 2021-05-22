@@ -1,6 +1,7 @@
 # Changelog
 
 **./src/output/file-write/graph-steps/layout-definition.js - handleStructure**
-* Added animation to COSE layout.
-	* Set 'animate' to true.
-	* Set 'animationThreshold' to 500ms (Before displaying iterations)
+* Altered COSE animation.
+	* Graph will zoom out to view all nodes.
+	* Provides an overhead view of the layout being assembled.
+	* `fit = true`
