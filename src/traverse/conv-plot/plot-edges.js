@@ -1,5 +1,6 @@
 const tileSet = require("../../common/sub-parse/tile-set");
 const traverseHelpTasks = require("../../common/sub-traverse/traverse-help-tasks");
+const traverseErrorDisplay = require("../../common/sub-traverse/traverse-error-display");
 const graphObjects = require("../../common/sub-graph/graph-objects");
 const cellAccess = require("../../common/sub-traverse/cell-access");
 const findNodes = require("../../common/sub-graph/find-nodes");
@@ -126,7 +127,7 @@ function verifyNodeExists(idNumber, nIndex, nCount, loopObj)
 	else
 	{
 		// Error.
-		loopObj.errorText = "Node ID " + idNumber + " does not exist.";
+		traverseErrorDisplay.showUnknownNodeNumberError(idNumber, loopObj);
 	}
 	
 	return verifyRes;
@@ -187,13 +188,7 @@ function chooseDirection(originCoord, destCoord, loopObj)
 	else
 	{
 		// Invalid
-		flaggedMessage += "Node edge paths may not be diagonal. (";
-		flaggedMessage += [originCoord.row, originCoord.col].join();
-		flaggedMessage += " - ";
-		flaggedMessage += [destCoord.row, destCoord.col].join();
-		flaggedMessage += ")";
-		
-		loopObj.errorText = flaggedMessage;
+		traverseErrorDisplay.showInvalidEdgeDirectionError(originCoord, destCoord, loopObj);
 	}
 	
 	return directionRes;

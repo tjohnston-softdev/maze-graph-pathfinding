@@ -103,6 +103,28 @@ function writeEdgeDistanceErrorText(vKeyA, vKeyB)
 }
 
 
+// Node number does not exist error.
+function writeNodeNumberDoesNotExistText(vNodeNumber)
+{
+	var writeRes = "Node ID " + vNodeNumber + " does not exist.";
+	return writeRes;
+}
+
+
+// Invalid edge direction error.
+function writeInvalidEdgeDirectionText(vOriginCoord, vDestCoord)
+{
+	var writeRes = "";
+	
+	writeRes += "Node edge paths may not be diagonal. ";
+	writeRes += showCoordinates(vOriginCoord.row, vOriginCoord.col);
+	writeRes += " - ";
+	writeRes += showCoordinates(vDestCoord.row, vDestCoord.col);
+	
+	return writeRes;
+}
+
+
 
 // Writes coordinates.
 function showCoordinates(shRow, shCol)
@@ -124,5 +146,7 @@ module.exports =
 	writeNodeBadPosition: writeNodeBadPositionText,
 	writeNodeAddError: writeNodeAddErrorText,
 	writeNodeKeyError: writeNodeKeyErrorText,
-	writeEdgeDistanceError: writeEdgeDistanceErrorText
+	writeEdgeDistanceError: writeEdgeDistanceErrorText,
+	writeNodeNumberDoesNotExist: writeNodeNumberDoesNotExistText,
+	writeInvalidEdgeDirection: writeInvalidEdgeDirectionText
 };

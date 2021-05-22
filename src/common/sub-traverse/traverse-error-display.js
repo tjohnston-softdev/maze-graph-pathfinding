@@ -22,10 +22,26 @@ function showMissingCellErrorText(tgtRowIndex, tgtColIndex, traverseResult)
 }
 
 
+// Unknown node number.
+function showUnknownNodeNumberErrorText(tgtNodeNumber, traverseResult)
+{
+	traverseResult.errorText = traverseErrorText.writeNodeNumberDoesNotExist(tgtNodeNumber);
+}
+
+
+// Invalid edge direction.
+function showInvalidEdgeDirectionErrorText(edgeOrigin, edgeDest, traverseResult)
+{
+	traverseResult.errorText = traverseErrorText.writeInvalidEdgeDirection(edgeOrigin, edgeDest);
+}
+
+
 
 module.exports =
 {
 	showBadNodePositionError: showBadNodePositionErrorText,
 	showMissingNodeLocationError: showMissingNodeLocationErrorText,
-	showMissingCellError: showMissingCellErrorText
+	showMissingCellError: showMissingCellErrorText,
+	showUnknownNodeNumberError: showUnknownNodeNumberErrorText,
+	showInvalidEdgeDirectionError: showInvalidEdgeDirectionErrorText
 };
