@@ -46,3 +46,8 @@
 					}
 				]
 			});
+			
+			cytoscapeGraph.ready(function()
+			{
+				alert("Graph Loaded");
+			});
