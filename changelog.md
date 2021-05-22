@@ -1,4 +1,9 @@
 # Changelog
 
-**./info/commands/absolute-to-grid.md**
-* New file - Documentation for 'absolute-to-grid' command.
+**Commented files**
+* ./src/traverse/
+	* absolute-grid-map.js
+	* conv-plot/
+		* plot-dimensions.js
+		* plot-nodes.js
+		* plot.edges.js

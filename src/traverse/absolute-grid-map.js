@@ -5,6 +5,13 @@ const plotNodes = require("./conv-plot/plot-nodes");
 const plotEdges = require("./conv-plot/plot-edges");
 
 
+/*
+	* This file converts a parsed graph into a tile grid.
+	* Written for the 'absolute-to-grid' command.
+*/
+
+
+// Main function.
 function performAbsoluteGridMapping(inpGraphObject, mappingCallback)
 {
 	var mapSpinner = ora("Converting Graph").start();
@@ -26,6 +33,7 @@ function performAbsoluteGridMapping(inpGraphObject, mappingCallback)
 
 
 
+// Calculate grid dimensions.
 function coordinateMap(mGraphObject, coordCallback)
 {
 	plotDimensions.getDimensions(mGraphObject.nodeList, function(dimErr, dimRes)
@@ -42,6 +50,7 @@ function coordinateMap(mGraphObject, coordCallback)
 }
 
 
+// Carve grid maze.
 function carveGridPaths(mGraphObj, mDimensions, carveCallback)
 {
 	var mappedGrid = plotDimensions.initializeGrid(mDimensions);
