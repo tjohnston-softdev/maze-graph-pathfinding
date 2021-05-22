@@ -63,7 +63,7 @@ function writeGridConversionDesc(inputDesc)
 	
 	writeRes += "takes an existing ";
 	writeRes += inputDesc;
-	writeRes += "file, parses it into a grid, and ";
+	writeRes += " file, parses it into a grid, and ";
 	writeRes += "outputs it as a definition text file.";
 	
 	return writeRes;
