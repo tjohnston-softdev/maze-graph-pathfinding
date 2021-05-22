@@ -105,7 +105,7 @@ function handleGraphWidget(wStream)
 	widgetTxt += charShortcuts.secondIndent;
 	widgetTxt += charShortcuts.lineBreak;
 	
-	// Line break.
+	// Line break before graph.
 	widgetTxt += charShortcuts.secondIndent;
 	widgetTxt += htmlShortcuts.br;
 	widgetTxt += charShortcuts.lineBreak;
@@ -114,6 +114,23 @@ function handleGraphWidget(wStream)
 	widgetTxt += charShortcuts.secondIndent;
 	widgetTxt += '<div id="graphContainer"></div>';
 	widgetTxt += charShortcuts.lineBreak;
+	
+	// Line break before loading spinner.
+	widgetTxt += charShortcuts.secondIndent;
+	widgetTxt += htmlShortcuts.br;
+	widgetTxt += charShortcuts.lineBreak;
+	
+	// Loading spinner containers.
+	widgetTxt += charShortcuts.secondIndent;
+	widgetTxt += '<div id="loadContainer">';
+	widgetTxt += charShortcuts.lineBreak;
+	widgetTxt += charShortcuts.thirdIndent;
+	widgetTxt += '<div class="loadSpinner"></div>';
+	widgetTxt += charShortcuts.lineBreak;
+	widgetTxt += charShortcuts.secondIndent;
+	widgetTxt += '</div>'
+	widgetTxt += charShortcuts.lineBreak;
+	
 	
 	// End graph-body.
 	widgetTxt += charShortcuts.secondIndent;

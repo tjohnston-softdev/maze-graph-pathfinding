@@ -49,5 +49,20 @@
 			
 			cytoscapeGraph.ready(function()
 			{
-				alert("Graph Loaded");
+				displayGraph();
 			});
+			
+			
+			function displayGraph()
+			{
+				try
+				{
+					document.getElementById("graphInfo").style.display = "block";
+					document.getElementById("graphContainer").style.display = "block";
+					document.getElementById("loadContainer").style.display = "none";
+				}
+				catch(e)
+				{
+					alert("Error displaying graph.");
+				}
+			}
