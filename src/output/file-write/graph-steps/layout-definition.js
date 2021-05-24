@@ -4,7 +4,7 @@ const storedPaths = require("../../../../stored-paths");
 
 /*
 	* This file is used to dynamically write the graph layout definition into the exported HTML file.
-	* Location: "../../../../templates/layouts"
+	* Location: "../../../../templates/web-output/relative-layout.js
 */
 
 
@@ -13,24 +13,24 @@ function writeGraphStructure(graphWriteStream, fullGraphObject, definitionCallba
 {
 	if (fullGraphObject.absolutePositions === true)
 	{
-		readLayout(graphWriteStream, storedPaths.absolutePath, definitionCallback);
+		return definitionCallback(null, true);
 	}
 	else
 	{
-		readLayout(graphWriteStream, storedPaths.relativePath, definitionCallback);
+		readRelativeLayout(graphWriteStream, definitionCallback);
 	}
 }
 
 
-function readLayout(wStream, layoutPath, readCallback)
+function readRelativeLayout(wStream, readCallback)
 {
 	var flaggedErrorText = "";
 	
-	fs.readFile(layoutPath, "utf8", function(rError, rData)
+	fs.readFile(storedPaths.relativeLayoutPath, "utf8", function(rError, rData)
 	{
 		if (rError !== null)
 		{
-			flaggedErrorText = streamExceptions.getFileRead("Layout", rError.code);
+			flaggedErrorText = streamExceptions.getFileRead("Relative Layout", rError.code);
 			return readCallback(new Error(flaggedErrorText), null);
 		}
 		else
