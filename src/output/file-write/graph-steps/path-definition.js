@@ -21,7 +21,7 @@ function writeSinglePathDefinition(graphWriteStream, fullPathObject, definitionC
 	handleShortestPathDistance(graphWriteStream, fullPathObject);
 	handleOutcomeProperties(graphWriteStream, fullPathObject);
 	handleResultClose(graphWriteStream);
-	handlePathBreak(graphWriteStream);
+	handleClosingText(graphWriteStream);
 	
 	return definitionCallback(null, true);
 }
@@ -35,7 +35,7 @@ function writeMultiplePathDefinition(graphWriteStream, multPathsObject, definiti
 	handleAllPossibleOverflow(graphWriteStream, multPathsObject.overflow);
 	handleOutcomeProperties(graphWriteStream, multPathsObject);
 	handleResultClose(graphWriteStream);
-	handlePathBreak(graphWriteStream);
+	handleClosingText(graphWriteStream);
 	
 	return definitionCallback(null, true);
 }
@@ -48,7 +48,7 @@ function writeBlockPathDefinition(graphWriteStream, bPathsObject, definitionCall
 	handleBlockedNodesCount(graphWriteStream, bPathsObject);
 	handleOutcomeProperties(graphWriteStream, bPathsObject);
 	handleResultClose(graphWriteStream);
-	handlePathBreak(graphWriteStream);
+	handleClosingText(graphWriteStream);
 	
 	return definitionCallback(null, true);
 }
@@ -59,7 +59,7 @@ function writeBlockPathDefinition(graphWriteStream, bPathsObject, definitionCall
 function writeBlankPathDefinition(graphWriteStream, definitionCallback)
 {
 	handleBlankResult(graphWriteStream);
-	handlePathBreak(graphWriteStream);
+	handleClosingText(graphWriteStream);
 	return definitionCallback(null, true);
 }
 
@@ -94,17 +94,20 @@ function handleResultClose(wStream)
 	wStream.write(resCloseTxt);
 }
 
-
-// Add blank space before layout object.
-function handlePathBreak(wStream)
+// End definition script. Graph Structure complete.
+function handleClosingText(wStream)
 {
-	var resBreakTxt = "";
+	var closeTxt = "";
 	
-	resBreakTxt += charShortcuts.lineBreak;
-	resBreakTxt += charShortcuts.thirdIndent;
-	resBreakTxt += charShortcuts.lineBreak;
+	closeTxt += charShortcuts.lineBreak;
+	closeTxt += charShortcuts.secondIndent;
+	closeTxt += charShortcuts.lineBreak;
 	
-	wStream.write(resBreakTxt);
+	closeTxt += charShortcuts.secondIndent;
+	closeTxt += "</script>";
+	closeTxt += charShortcuts.lineBreak;
+	
+	wStream.write(closeTxt);
 }
 
 

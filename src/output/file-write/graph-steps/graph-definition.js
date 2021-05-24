@@ -256,7 +256,6 @@ function handleEdgeArray(wStream, gEdgeArray)
 }
 
 
-
 // Writes given object as a line of text.
 function writeObjectLine(prepObj, loopInd, lastInd)
 {

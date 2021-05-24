@@ -151,11 +151,11 @@ function compileShortestPath(gfsObject, compGraphObj, compPathObj, gText, pMode,
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.headerPath),								// Header.
 		graphDefinition.writeCommonDefinition.bind(null, gfsObject, compGraphObj),							// Graph definition.
 		pathDefinition.writeSingle.bind(null, gfsObject, compPathObj),										// Single path definition.
-		layoutDefinition.writeStructure.bind(null, gfsObject, compGraphObj),								// Graph layout.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.stylePath),								// CSS styling.
 		graphBody.writeBody.bind(null, gfsObject, gText, pMode),											// Main body contents.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.contentShortestPath),					// Single path body contents.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.graphPath),								// Main graph scripting.
+		layoutDefinition.writeStructure.bind(null, gfsObject, compGraphObj),								// Graph layout.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.dynamicShortestPath),					// Single path scripting.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.footerPath)								// Footer.
 	],
@@ -181,11 +181,11 @@ function compileAllPaths(gfsObject, compGraphObj, compPathObj, gText, pMode, fil
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.headerPath),								// Header.
 		graphDefinition.writeCommonDefinition.bind(null, gfsObject, compGraphObj),							// Graph definition.
 		pathDefinition.writeMultiple.bind(null, gfsObject, compPathObj),									// Multiple paths definition.
-		layoutDefinition.writeStructure.bind(null, gfsObject, compGraphObj),								// Graph layout.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.stylePath),								// CSS styling.
 		graphBody.writeBody.bind(null, gfsObject, gText, pMode),											// Main body contents.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.contentAllPath),							// Multiple path body contents.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.graphPath),								// Main graph scripting.
+		layoutDefinition.writeStructure.bind(null, gfsObject, compGraphObj),								// Graph layout.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.dynamicAllPath),							// Multiple path scripting.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.footerPath)								// Footer
 	],
@@ -211,11 +211,11 @@ function compileBlocked(gfsObject, compGraphObj, compPathObj, gText, pMode, file
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.headerPath),								// Header
 		graphDefinition.writeBlockDefinition.bind(null, gfsObject, compGraphObj),							// Graph definition with blocked nodes.
 		pathDefinition.writeBlock.bind(null, gfsObject, compPathObj),										// Block result definition.
-		layoutDefinition.writeStructure.bind(null, gfsObject, compGraphObj),								// Graph layout.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.stylePath),								// CSS styling.
 		graphBody.writeBody.bind(null, gfsObject, gText, pMode),											// Main body contents.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.contentBlockPath),						// Blocked nodes content.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.graphPath),								// Main graph scripting.
+		layoutDefinition.writeStructure.bind(null, gfsObject, compGraphObj),								// Graph layout.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.dynamicBlockPath),						// Blocked nodes scripting.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.footerPath)								// Footer.
 	],
@@ -243,11 +243,11 @@ function compileBlankPath(gfsObject, compGraphObj, gText, fileResObj)
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.headerPath),								// Header.
 		graphDefinition.writeCommonDefinition.bind(null, gfsObject, compGraphObj),							// Graph definition.
 		pathDefinition.writeBlank.bind(null, gfsObject),													// Blank result object.
-		layoutDefinition.writeStructure.bind(null, gfsObject, compGraphObj),								// Graph layout.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.stylePath),								// CSS styling.
 		graphBody.writeBody.bind(null, gfsObject, gText, -1),												// Main body contents.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.contentBlankPath),						// Begin script.
-		templateFile.addTemplate.bind(null, gfsObject, storedPaths.graphPath),								// Graph scripting.
+		templateFile.addTemplate.bind(null, gfsObject, storedPaths.graphPath),								// Main graph scripting.
+		layoutDefinition.writeStructure.bind(null, gfsObject, compGraphObj),								// Graph layout.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.footerPath)								// Footer
 	],
 	function (compileError, compileRes)

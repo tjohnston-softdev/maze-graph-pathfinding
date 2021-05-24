@@ -3,7 +3,6 @@
 			{
 				container: document.getElementById("graphContainer"),
 				elements: {nodes: nodeContents, edges: edgeContents},
-				layout: graphStructure,
 				style:
 				[
 					{
@@ -47,11 +46,6 @@
 				]
 			});
 			
-			cytoscapeGraph.ready(function()
-			{
-				displayGraph();
-			});
-			
 			
 			function displayGraph()
 			{
@@ -66,3 +60,8 @@
 					alert("Error displaying graph.");
 				}
 			}
+			
+			cytoscapeGraph.ready(function()
+			{
+				displayGraph();
+			});

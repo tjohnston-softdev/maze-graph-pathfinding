@@ -1,60 +1,44 @@
-const charShortcuts = require("../../../common/sub-output/char-shortcuts");
+const fs = require("fs");
+const streamExceptions = require("../../../common/sub-files/stream-exceptions");
+const storedPaths = require("../../../../stored-paths");
 
 /*
 	* This file is used to dynamically write the graph layout definition into the exported HTML file.
-	* Example file: "../../../../templates/web-output/b-data.html"
+	* Location: "../../../../templates/layouts"
 */
 
 
 // Main function
 function writeGraphStructure(graphWriteStream, fullGraphObject, definitionCallback)
 {
-	handleStructure(graphWriteStream, fullGraphObject.absolutePositions);
-	handleClosingText(graphWriteStream);
-	return definitionCallback(null, true);
-}
-
-
-// Layout structure.
-function handleStructure(wStream, positionsSet)
-{
-	var resStructure = "";
-	var preparedObject = {};
-	
-	// Declare variable.
-	resStructure += charShortcuts.thirdIndent;
-	resStructure += "var graphStructure = ";
-	
-	if (positionsSet === true)
+	if (fullGraphObject.absolutePositions === true)
 	{
-		// Fixed layout.
-		preparedObject = {name: "preset"};
+		readLayout(graphWriteStream, storedPaths.absolutePath, definitionCallback);
 	}
 	else
 	{
-		// Dynamic layout.
-		preparedObject = {name: "cose", fit: true, animate: true, animationThreshold: 500};
+		readLayout(graphWriteStream, storedPaths.relativePath, definitionCallback);
 	}
-	
-	resStructure += JSON.stringify(preparedObject);
-	wStream.write(resStructure);
 }
 
 
-// End definition script. graph-structure complete.
-function handleClosingText(wStream)
+function readLayout(wStream, layoutPath, readCallback)
 {
-	var closeTxt = "";
+	var flaggedErrorText = "";
 	
-	closeTxt += charShortcuts.lineBreak;
-	closeTxt += charShortcuts.secondIndent;
-	closeTxt += charShortcuts.lineBreak;
-	
-	closeTxt += charShortcuts.secondIndent;
-	closeTxt += "</script>";
-	closeTxt += charShortcuts.lineBreak;
-	
-	wStream.write(closeTxt);
+	fs.readFile(layoutPath, "utf8", function(rError, rData)
+	{
+		if (rError !== null)
+		{
+			flaggedErrorText = streamExceptions.getFileRead("Layout", rError.code);
+			return readCallback(new Error(flaggedErrorText), null);
+		}
+		else
+		{
+			wStream.write(rData);
+			return readCallback(null, true);
+		}
+	});
 }
 
 

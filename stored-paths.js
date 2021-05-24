@@ -2,6 +2,7 @@
 
 const path = require("path");
 const webOutputFolder = path.join(".", "templates", "web-output");
+const layoutFolder = path.join(".", "templates", "layouts");
 
 const headerPathString = path.join(webOutputFolder, "a-header.html");
 const stylePathString = path.join(webOutputFolder, "c-styling.html");
@@ -15,6 +16,8 @@ const dynamicBlockPathString = path.join(webOutputFolder, "g-dynamic-block.js");
 const dynamicShortestPathString = path.join(webOutputFolder, "g-dynamic-shortest.js");
 const footerPathString = path.join(webOutputFolder, "h-footer.html");
 
+const absolutePathString = path.join(layoutFolder, "absolute.js");
+const relativePathString = path.join(layoutFolder, "relative.js");
 
 
 module.exports =
@@ -29,5 +32,7 @@ module.exports =
 	dynamicAllPath: dynamicAllPathString,
 	dynamicBlockPath: dynamicBlockPathString,
 	dynamicShortestPath: dynamicShortestPathString,
-	footerPath: footerPathString
+	footerPath: footerPathString,
+	absolutePath: absolutePathString,
+	relativePath: relativePathString
 };
