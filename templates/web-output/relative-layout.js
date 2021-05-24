@@ -13,7 +13,6 @@
 					var startPos = cytoscapeGraph.getElementById(1).position();
 					var zoomSettings = {level: 1.0, position: startPos};
 					cytoscapeGraph.zoom(zoomSettings);
-					displayGraph();
 				}
 			});
 			
