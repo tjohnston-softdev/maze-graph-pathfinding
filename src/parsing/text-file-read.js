@@ -56,7 +56,7 @@ function performGridEntryParsing(inpFilePath, inpIgnoreTextErrors, entryParseCal
 // Relative
 function performRelativeEntryParsing(inpFilePath, inpIgnoreTextErrors, entryParseCallback)
 {
-	var relativeSpinner = ora(spinText.parseProg);
+	var relativeSpinner = ora(spinText.parseProg).start();
 	
 	txtRelative.parseRelative(inpFilePath, inpIgnoreTextErrors, function (mError, mResult)
 	{
