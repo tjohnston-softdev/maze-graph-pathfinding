@@ -18,3 +18,4 @@
 					alert("Error displaying shortest path");
 				}
 			}
+			

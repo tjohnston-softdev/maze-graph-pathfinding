@@ -15,3 +15,4 @@
 					alert("Error displaying block count");
 				}
 			}
+			

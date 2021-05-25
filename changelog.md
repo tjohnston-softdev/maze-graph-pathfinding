@@ -1,9 +1,7 @@
 # Changelog
 
-**./templates/web-output/references.md**
-* Reformatted references to include:
-	* Source link
-	* Author
-	* Website
-	* Retrieval date.
-* Added references for Cytoscape tooltips.
+**./templates/web-output/**
+* Added extra blank line at the end of the dynamic script files:
+	* g-dynamic-all.js
+	* g-dynamic-block.js
+	* g-dynamic-shortest.js
