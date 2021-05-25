@@ -12,7 +12,7 @@ One afternoon, I decided on impulse to watch a [Computerphile video](https://www
 ## Getting Started
 After downloading the project, open a terminal inside the root folder and run `npm install`. Afterwards, run `node maze` to confirm that the program has been installed and to see a list of supported commands.
 
-For example, the command `node maze map-absolute ./examples/absolute/input.txt dsktra` to perform Dijkstra pathfinding on a maze text file. The program will then produce a file `graph.html` in the root directory.
+For example, the command `node maze map-absolute ./examples/absolute/input.txt dsktra` performs Dijkstra pathfinding on a maze text file. The program will then produce a file `graph.html` in the root directory.
 
 Example maze images have been generated using Kees Meijer's [Maze Generator](https://keesiemeijer.github.io/maze-generator/)
 
