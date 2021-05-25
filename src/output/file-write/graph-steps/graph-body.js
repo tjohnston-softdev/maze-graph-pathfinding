@@ -20,7 +20,11 @@ function writeBodyText(graphWriteStream, inpTypeText, inpPathFlag, bodyTxtCallba
 	handleInfoField(graphWriteStream, "Input Type:", inpTypeText);
 	handleInfoField(graphWriteStream, "Pathfinding Mode:", pathModeText);
 	handleInfoField(graphWriteStream, "File Created:", creationTime);
+	
+	handleInfoEnd(graphWriteStream);
 	handleGraphWidget(graphWriteStream);
+	handleLoadSpinnerWidget(graphWriteStream);
+	handleEndBody(graphWriteStream);
 	
 	return bodyTxtCallback(null, true);
 }
@@ -87,28 +91,37 @@ function handleInfoField(wStream, labelTxt, valueTxt)
 }
 
 
-// Vis.js graph container.
+// End header information.
+function handleInfoEnd(wStream)
+{
+	var infoEndTxt = "";
+	
+	// Seperator.
+	infoEndTxt += charShortcuts.thirdIndent;
+	infoEndTxt += charShortcuts.lineBreak;
+	
+	// End section.
+	infoEndTxt += charShortcuts.secondIndent;
+	infoEndTxt += "</div>";
+	infoEndTxt += charShortcuts.lineBreak;
+	
+	// Seperator.
+	infoEndTxt += charShortcuts.secondIndent;
+	infoEndTxt += charShortcuts.lineBreak;
+	
+	// Line break before graph.
+	infoEndTxt += charShortcuts.secondIndent;
+	infoEndTxt += htmlShortcuts.br;
+	infoEndTxt += charShortcuts.lineBreak;
+	
+	wStream.write(infoEndTxt);
+}
+
+
+// Cytoscape.js graph container.
 function handleGraphWidget(wStream)
 {
 	var widgetTxt = "";
-	
-	// Seperator.
-	widgetTxt += charShortcuts.thirdIndent;
-	widgetTxt += charShortcuts.lineBreak;
-	
-	// End header information.
-	widgetTxt += charShortcuts.secondIndent;
-	widgetTxt += "</div>";
-	widgetTxt += charShortcuts.lineBreak;
-	
-	// Seperator.
-	widgetTxt += charShortcuts.secondIndent;
-	widgetTxt += charShortcuts.lineBreak;
-	
-	// Line break before graph.
-	widgetTxt += charShortcuts.secondIndent;
-	widgetTxt += htmlShortcuts.br;
-	widgetTxt += charShortcuts.lineBreak;
 	
 	// Graph container.
 	widgetTxt += charShortcuts.secondIndent;
@@ -120,23 +133,38 @@ function handleGraphWidget(wStream)
 	widgetTxt += htmlShortcuts.br;
 	widgetTxt += charShortcuts.lineBreak;
 	
-	// Loading spinner containers.
+	wStream.write(widgetTxt);
+}
+
+
+// Loading spinner containers.
+function handleLoadSpinnerWidget(wStream)
+{
+	var widgetTxt = "";
+	
 	widgetTxt += charShortcuts.secondIndent;
 	widgetTxt += '<div id="loadContainer">';
 	widgetTxt += charShortcuts.lineBreak;
+	
 	widgetTxt += charShortcuts.thirdIndent;
 	widgetTxt += '<div class="loadSpinner"></div>';
 	widgetTxt += charShortcuts.lineBreak;
+	
 	widgetTxt += charShortcuts.secondIndent;
 	widgetTxt += '</div>'
 	widgetTxt += charShortcuts.lineBreak;
 	
-	
-	// End graph-body.
-	widgetTxt += charShortcuts.secondIndent;
-	widgetTxt += charShortcuts.lineBreak;
-	
 	wStream.write(widgetTxt);
+}
+
+
+// End graph-body.
+function handleEndBody(wStream)
+{
+	var endTxt = "";
+	endTxt += charShortcuts.secondIndent;
+	endTxt += charShortcuts.lineBreak;
+	wStream.write(endTxt);
 }
 
 
