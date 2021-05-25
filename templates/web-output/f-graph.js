@@ -48,6 +48,31 @@
 			});
 			
 			
+			function prepareEdgeTooltips()
+			{
+				cytoscapeGraph.edges().forEach(function (currentEdge)
+				{
+					addEdgeTooltip(currentEdge);
+				});
+			}
+			
+			
+			function addEdgeTooltip(edgeObj)
+			{
+				var tipRef = edgeObj.popperRef();
+				
+				edgeObj.tippy = tippy(document.createElement("div"),
+				{
+					lazy: false,
+					followCursor: "true",
+					hideOnClick: true,
+					flipOnUpdate: true,
+					content: edgeObj.data("distance"),
+					onShow(instance) {instance.popperInstance.reference = tipRef;}
+				});
+			}
+			
+			
 			function displayGraph()
 			{
 				try
@@ -65,4 +90,16 @@
 			cytoscapeGraph.ready(function()
 			{
 				displayGraph();
+				prepareEdgeTooltips();
 			});
+			
+			cytoscapeGraph.edges().bind("mouseover", function(event)
+			{
+				event.target.tippy.show();
+			});
+			
+			cytoscapeGraph.edges().bind("mouseout", function(event)
+			{
+				event.target.tippy.hide();
+			});
+			
