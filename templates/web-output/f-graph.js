@@ -15,7 +15,8 @@
 							"border-width": 1,
 							"label": "data(id)",
 							"text-valign": "center",
-							"text-halign": "center"
+							"text-halign": "center",
+							"min-zoomed-font-size": 12
 						
 						}
 					},
