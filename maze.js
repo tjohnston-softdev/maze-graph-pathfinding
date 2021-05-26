@@ -17,7 +17,7 @@ const gridToRelativeMain = require("./src/grid-to-relative-main");
 const imageToRelativeMain = require("./src/image-to-relative-main");
 const testExportMain = require("./src/test-export-main");
 
-const versionText = "Version 1.1.0";
+const versionText = "Version 1.2.0";
 program.version(versionText);
 
 
