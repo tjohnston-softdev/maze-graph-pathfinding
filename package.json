@@ -15,7 +15,6 @@
     "jimp": "^0.16.1",
     "line-by-line": "^0.1.6",
     "ora": "^5.4.1",
-    "validator": "^13.6.0",
     "yieldable-json": "^2.0.1"
   }
 }
