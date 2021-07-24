@@ -1,27 +1,20 @@
 # Changelog
 
-**./src/map-relative-main.js**
+**./src/absolute-grid-main.js**
 * Requirements:
 	* Removed 'async'.
 	* Added 'run-series'.
 * executePreperationTasks
-	* Declared 'parsedGraphObject' variable.
+	* Declared 'readAbsoluteObject' variable - Stores parsed grid.
 	* Replaced 'asyncModule.series' with 'series'
 	* 'series' now returns an array instead of an object.
-	* Replaced property names with comments.
-	* On success, 'parsedGraphObject' is assigned with `prepTaskRes[2]`
-	* Replaced 'prepTaskRes.parsedGraphObject' with 'parsedGraphObject'
-* executeGraphStructureTasks
-	* Declared 'heuristicsValid' variable.
+	* Replaces 'series' property names with comments.
+	* On success, 'readAbsoluteObject' is assigned with `prepRes[2]`
+	* Replaced 'prepRes.readAbsoluteObject' with 'readAbsoluteObject'
+* executeGraphTasks
+	* Declared 'preparedGrid' variable - Stores converted grid object.
 	* Replaced 'asyncModule.series' with 'series'
 	* 'series' now returns an array instead of an object.
-	* Replaced property names with comments.
-	* On success, 'heuristicsValid' is assigned with `structureRes[1]`
-	* Replaced 'structureRes.heuristicsValid' with 'heuristicsValid'
-* executePathfindingTasks
-	* Declared 'pathfindObject' variable.
-	* Replaced 'asyncModule.series' with 'series'
-	* 'series' now returns an array instead of an object.
-	* Replaced property names with comments.
-	* On success, 'pathfindObject' is assigned with `pathRes[0]`
-	* Replaced 'pathRes.pathfindObject' with 'pathfindObject'
+	* Replaces 'series' property names with comments.
+	* On success, 'preparedGrid' is assigned with `graphTasksRes[1]`
+	* Replaced 'graphTasksRes.preparedGrid' with 'preparedGrid'
