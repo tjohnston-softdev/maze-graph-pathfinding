@@ -1,9 +1,8 @@
 # Changelog
 
-**./package.json**
-* Updated packages to their latest version:
-	* commander
-	* jimp
-	* ora
-	* validator
-	* yieldable-json
+**./src/input/arguments/image-options/hex-colour.js**
+* Declared 'fullRegex' global variable.
+	* Hex colour regular expression.
+	* Copied from 'validator' library.
+* Replaced 'validator.isHexColor' with 'fullRegex.test'
+* Removed 'validator' requirement.

@@ -1,7 +1,7 @@
-const validator = require("validator");
 const valuePrep = require("../../../common/value-prep");
 const errorText = require("../../../common/sub-input/error-text");
 
+const fullRegex = /^#?([0-9A-F]{3}|[0-9A-F]{4}|[0-9A-F]{6}|[0-9A-F]{8})$/i;
 const startCodeRegex = /^#/;
 
 
@@ -9,7 +9,7 @@ const startCodeRegex = /^#/;
 function validateHexColourString(hexStr, colourName, colourDesc, resObject, validationOutcome)
 {
 	var preparedHex = prepareHexString(hexStr);
-	var hexValid = validator.isHexColor(preparedHex);
+	var hexValid = fullRegex.test(preparedHex);
 	
 	var validationResult = false;
 	
