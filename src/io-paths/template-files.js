@@ -1,4 +1,4 @@
-const asyncModule = require("async");
+const parallel = require("run-parallel");
 const ora = require("ora");
 const fsFileSize = require("../common/sub-files/fs-file-size");
 const sizeLimits = require("../common/sub-files/size-limits");
@@ -11,7 +11,7 @@ function verifyTemplateFilesSafe(ioTemplateCallback)
 {
 	var templateSpinner = ora("Checking Template Files").start();
 	
-	asyncModule.parallel(
+	parallel(
 	[
 		callTemplateFileCheck.bind(null, storedPaths.headerPath),
 		callTemplateFileCheck.bind(null, storedPaths.stylePath),
@@ -25,7 +25,7 @@ function verifyTemplateFilesSafe(ioTemplateCallback)
 		callTemplateFileCheck.bind(null, storedPaths.dynamicShortestPath),
 		callTemplateFileCheck.bind(null, storedPaths.footerPath)
 	],
-	function (overallError, overallResult)
+	function (overallError)
 	{
 		if (overallError !== null)
 		{
@@ -50,9 +50,6 @@ function callTemplateFileCheck(tFilePath, tFileCallback)
 		return tFileCallback(tError, tResult);
 	});
 }
-
-
-
 
 
 module.exports =

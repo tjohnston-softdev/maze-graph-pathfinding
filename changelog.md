@@ -1,6 +1,11 @@
 # Changelog
 
-**./package.json**
-* Installed modules:
-	* run-series
-	* run-parallel
+**./src/io-paths/**
+* Changes:
+	* Removed 'async' requirement.
+	* Added 'run-parallel' requirement.
+	* Replaced 'asyncModule.parallel' with 'parallel'
+	* Removed 'overallResult' parameter from parallel callbacks.
+* Affected files:
+	* map-exist.js
+	* template-files.js

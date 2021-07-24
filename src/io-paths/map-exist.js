@@ -1,4 +1,4 @@
-const asyncModule = require("async");
+const parallel = require("run-parallel");
 const ora = require("ora");
 const spinText = require("../common/sub-interface/spin-text/st-io-paths");
 const fsFileSize = require("../common/sub-files/fs-file-size");
@@ -20,12 +20,12 @@ function verifyTextInputOutputPathsExist(inpFilePath, resFolderPath, ioPathCallb
 {
 	var pathCheckSpinner = ora(spinText.ioPathsProg).start();
 	
-	asyncModule.parallel(
+	parallel(
 	[
 		fsFileSize.checkFileSize.bind(null, inpFilePath, "Input", sizeLimits.maxTextSize, false),
 		fsFolderSafe.checkFolderSafe.bind(null, resFolderPath, "Output")
 	],
-	function (overallError, overallResult)
+	function (overallError)
 	{
 		if (overallError !== null)
 		{
@@ -47,12 +47,12 @@ function verifyImageInputOutputPathsExist(inpFilePath, resFolderPath, ioPathCall
 {
 	var pathCheckSpinner = ora(spinText.ioPathsProg).start();
 	
-	asyncModule.parallel(
+	parallel(
 	[
 		fsFileSize.checkFileSize.bind(null, inpFilePath, "Input Image", sizeLimits.maxImageFileSize, false),
 		fsFolderSafe.checkFolderSafe.bind(null, resFolderPath, "Output")
 	],
-	function (overallError, overallResult)
+	function (overallError)
 	{
 		if (overallError !== null)
 		{
