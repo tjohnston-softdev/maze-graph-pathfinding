@@ -1,5 +1,5 @@
 const clear = require("clear");
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("./common/exit-program");
 const conversionEntryValidation = require("./input/conversion-entry-validation");
 const ioConversionExist = require("./io-paths/conversion-exist");
@@ -43,14 +43,15 @@ function executePreperationTasks(prepArgsObj)
 	var sOutputPath = prepArgsObj.preparedPaths.writePath;
 	var sReplace = prepArgsObj.replaceExistingFile;
 	var sIgnoreTextErrors = prepArgsObj.ignoreSafeParseErrors;
+	var readAbsoluteObject = null;
 	
 	
-	asyncModule.series(
-	{
-		"inputExists": ioConversionExist.verifyTextConvertInputExists.bind(null, sInputPath),
-		"targetSafe": ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),
-		"readAbsoluteObject": textFileRead.performAbsoluteParsing.bind(null, sInputPath, sIgnoreTextErrors)
-	},
+	series(
+	[
+		ioConversionExist.verifyTextConvertInputExists.bind(null, sInputPath),					// Check input file exists.
+		ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),								// Check target file path safe.
+		textFileRead.performAbsoluteParsing.bind(null, sInputPath, sIgnoreTextErrors)			// Parse graph from absolute text file.
+	],
 	function (prepError, prepRes)
 	{
 		if (prepError !== null)
@@ -59,7 +60,8 @@ function executePreperationTasks(prepArgsObj)
 		}
 		else
 		{
-			executeGraphTasks(prepArgsObj, prepRes.readAbsoluteObject);
+			readAbsoluteObject = prepRes[2];
+			executeGraphTasks(prepArgsObj, readAbsoluteObject);
 		}
 	});
 }
@@ -67,7 +69,7 @@ function executePreperationTasks(prepArgsObj)
 
 function executeGraphTasks(pArguments, parsedGraph)
 {
-	asyncModule.series(
+	series(
 	[
 		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),
 		automaticHeuristics.performCalculation.bind(null, parsedGraph)
