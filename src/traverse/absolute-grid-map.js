@@ -1,4 +1,4 @@
-const asyncModule = require("async");
+const series = require("run-series");
 const ora = require("ora");
 const plotDimensions = require("./conv-plot/plot-dimensions");
 const plotNodes = require("./conv-plot/plot-nodes");
@@ -55,12 +55,12 @@ function carveGridPaths(mGraphObj, mDimensions, carveCallback)
 {
 	var mappedGrid = plotDimensions.initializeGrid(mDimensions);
 	
-	asyncModule.series(
+	series(
 	[
 		plotNodes.plotTiles.bind(null, mGraphObj.nodeList, mappedGrid),
 		plotEdges.plotTiles.bind(null, mGraphObj, mappedGrid)
 	],
-	function (carvePathErr, carvePathRes)
+	function (carvePathErr)
 	{
 		if (carvePathErr !== null)
 		{
