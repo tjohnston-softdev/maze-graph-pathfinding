@@ -1,5 +1,5 @@
 const clear = require("clear");
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("./common/exit-program");
 const readImageConfigValidation = require("./input/read-image-config-validation");
 const imageEntryValidation = require("./input/image-entry-validation");
@@ -39,13 +39,13 @@ function executeReadTasks(prepArgsObj)
 {
 	var optionsPlaceholder = {};
 	
-	asyncModule.series(
-	{
-		"readSuccessful": loadImageConfig.loadRequiredFile.bind(null, prepArgsObj.preparedFilePath, prepArgsObj.imageItems),
-		"contentsValid": imageOptionsValidation.prepareOptionArguments.bind(null, prepArgsObj, optionsPlaceholder),
-		"coloursValid": imageColourValidation.convertTargetColours.bind(null, prepArgsObj.imageItems)
-	},
-	function (readTaskError, readTaskRes)
+	series(
+	[
+		loadImageConfig.loadRequiredFile.bind(null, prepArgsObj.preparedFilePath, prepArgsObj.imageItems),		// Read successful
+		imageOptionsValidation.prepareOptionArguments.bind(null, prepArgsObj, optionsPlaceholder),				// Contents valid
+		imageColourValidation.convertTargetColours.bind(null, prepArgsObj.imageItems)							// Colours valid
+	],
+	function (readTaskError)
 	{
 		if (readTaskError !== null)
 		{

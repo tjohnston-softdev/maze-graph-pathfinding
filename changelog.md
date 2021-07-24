@@ -1,8 +1,10 @@
 # Changelog
 
-**./src/test-export-main.js**
+**./src/read-image-config-main.js**
 * Removed 'async' requirement.
 * Added 'run-series' requirement.
-* Changes to 'executePreperationTasks'
+* Changes to 'executeReadTasks'
 	* Replaced 'asyncModule.series' with 'series'
-	* Removed 'prepRes' parameter from callback.
+	* 'series now returns an array instead of an object.
+	* Removed 'readTaskRes' parameter from 'series' callback.
+	* Replaced task property names with comments.
