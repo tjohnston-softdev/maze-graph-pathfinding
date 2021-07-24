@@ -1,4 +1,4 @@
-const asyncModule = require("async");
+const series = require("run-series");
 const ora = require("ora");
 const spinText = require("../../common/sub-interface/spin-text/st-output-raw");
 const pathContext = require("../../common/sub-input/path-context");
@@ -66,13 +66,13 @@ function coordinateSinglePathDataExport(pMode, destPathsObj, completedGraph, com
 {
 	var exportSpinner = ora(spinText.rawDataProg).start();
 	
-	asyncModule.series(
+	series(
 	[
 		graphPoints.createNodeFile.bind(null, pMode, destPathsObj, completedGraph),
 		edgeData.createEdgeFile.bind(null, destPathsObj, true, completedGraph),
 		pathData.createPathFile.bind(null, destPathsObj, completedPath, 1)
 	],
-	function (mError, mResult)
+	function (mError)
 	{
 		if (mError !== null)
 		{
@@ -95,13 +95,13 @@ function coordinateMultiplePathsDataExport(pMode, destPathsObj, completedGraph, 
 {
 	var exportSpinner = ora(spinText.rawDataProg).start();
 	
-	asyncModule.series(
+	series(
 	[
 		graphPoints.createNodeFile.bind(null, pMode, destPathsObj, completedGraph),
 		edgeData.createEdgeFile.bind(null, destPathsObj, false, completedGraph),
 		pathData.createPathFile.bind(null, destPathsObj, completedPath, 2)
 	],
-	function (mError, mResult)
+	function (mError)
 	{
 		if (mError !== null)
 		{
@@ -125,13 +125,13 @@ function coordinateBlockedRoutesDataExport(destPathsObj, completedGraph, complet
 {
 	var exportSpinner = ora(spinText.rawDataProg).start();
 	
-	asyncModule.series(
+	series(
 	[
 		graphPoints.createNodeFile.bind(null, pathContext.modes.BLOCK, destPathsObj, completedGraph),
 		edgeData.createEdgeFile.bind(null, destPathsObj, false, completedGraph),
 		pathData.createPathFile.bind(null, destPathsObj, completedPath, 0)
 	],
-	function (mError, mResult)
+	function (mError)
 	{
 		if (mError !== null)
 		{
@@ -154,13 +154,13 @@ function coordinateBlankDataExport(destPathsObj, completedGraph, completedPath, 
 {
 	var exportSpinner = ora(spinText.rawDataProg).start();
 	
-	asyncModule.series(
+	series(
 	[
 		graphPoints.createNodeFile.bind(null, -1, destPathsObj, completedGraph),
 		edgeData.createEdgeFile.bind(null, destPathsObj, false, completedGraph),
 		pathData.createPathFile.bind(null, destPathsObj, completedPath, 0)
 	],
-	function (mError, mResult)
+	function (mError)
 	{
 		if (mError !== null)
 		{

@@ -1,4 +1,4 @@
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("../common/exit-program");
 const imageConfigSaveExport = require("./file-write/image-config-save-export");
 const absConversionExport = require("./file-write/absolute-conversion-export");
@@ -16,16 +16,15 @@ const conversionClean = require("./file-clean/conversion-clean");
 */
 
 
-
 // 'image-to-absolute'
 function callImageToAbsoluteOutputTasks(cPreparedInput, cGraphObject, cHeaderText)
 {
-	asyncModule.series(
+	series(
 	[
 		absConversionExport.performFileExport.bind(null, cPreparedInput.preparedPaths.writePath, cGraphObject, cHeaderText),
 		imageConfigSaveExport.performFileExport.bind(null, cPreparedInput.preparedPaths.saveConfig, cPreparedInput.imageItems)
 	],
-	function (saveError, saveRes)
+	function (saveError)
 	{
 		if (saveError !== null)
 		{
@@ -42,12 +41,12 @@ function callImageToAbsoluteOutputTasks(cPreparedInput, cGraphObject, cHeaderTex
 // 'image-to-grid'
 function callImageToGridOutputTasks(cPreparedInput, cGridObject, cGraphObject, cHeaderText)
 {
-	asyncModule.series(
+	series(
 	[
 		gridConversionExport.performFileExport.bind(null, cPreparedInput.preparedPaths.writePath, cGridObject, cGraphObject, cHeaderText),
 		imageConfigSaveExport.performFileExport.bind(null, cPreparedInput.preparedPaths.saveConfig, cPreparedInput.imageItems)
 	],
-	function (saveError, saveRes)
+	function (saveError)
 	{
 		if (saveError !== null)
 		{
@@ -66,12 +65,12 @@ function callImageToGridOutputTasks(cPreparedInput, cGridObject, cGraphObject, c
 // 'image-to-relative'
 function callImageToRelativeOutputTasks(cPreparedInput, cGraphObject, cHeaderText)
 {
-	asyncModule.series(
+	series(
 	[
 		relativeConversionExport.performFileExport.bind(null, cPreparedInput.preparedPaths.writePath, cGraphObject, cHeaderText),
 		imageConfigSaveExport.performFileExport.bind(null, cPreparedInput.preparedPaths.saveConfig, cPreparedInput.imageItems)
 	],
-	function (saveError, saveRes)
+	function (saveError)
 	{
 		if (saveError !== null)
 		{
@@ -88,8 +87,9 @@ function callImageToRelativeOutputTasks(cPreparedInput, cGraphObject, cHeaderTex
 // Deletes invalid output files.
 function handleImageConversionFileClean(oPaths, eMsg)
 {
-	conversionClean.removeImageConversion(oPaths, function (cleanError, cleanRes)
+	conversionClean.removeImageConversion(oPaths, function (cleanError)
 	{
+		// Error is displayed regardless.
 		if (cleanError !== null)
 		{
 			exitProgram.callExit(cleanError.message);

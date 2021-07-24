@@ -1,4 +1,4 @@
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("../common/exit-program");
 const graphFileExport = require("./file-write/graph-file-export");
 const rawDataExport = require("./file-write/raw-data-export");
@@ -18,12 +18,12 @@ const graphClean = require("./file-clean/graph-clean");
 // Main function.
 function callOutputTasks(outputPathsObject, cMapMode, cGraphObject, cPathObject, outputLabel)
 {
-	asyncModule.series(
+	series(
 	[
 		graphFileExport.performGraphExport.bind(null, cMapMode, outputPathsObject, cGraphObject, cPathObject, outputLabel),
 		rawDataExport.performRawDataExport.bind(null, cMapMode, outputPathsObject, cGraphObject, cPathObject)
 	],
-	function (outputError, outputRes)
+	function (outputError)
 	{
 		if (outputError !== null)
 		{
@@ -36,8 +36,6 @@ function callOutputTasks(outputPathsObject, cMapMode, cGraphObject, cPathObject,
 	});
 	
 }
-
-
 
 
 // Deletes invalid output files.

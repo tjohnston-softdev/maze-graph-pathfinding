@@ -1,4 +1,4 @@
-const asyncModule = require("async");
+const series = require("run-series");
 const fs = require("fs");
 const ora = require("ora");
 const valuePrep = require("../../common/value-prep");
@@ -15,7 +15,6 @@ const storedPaths = require("../../../stored-paths");
 
 
 // This file is used to initiate graph export as a HTML file.
-
 
 
 // Main function.
@@ -146,7 +145,7 @@ function manageFileCreation(pthMode, graphFilePath, completedGraph, completedPat
 // Writes graph file contents for single path.
 function compileShortestPath(gfsObject, compGraphObj, compPathObj, gText, pMode, fileResObj)
 {
-	asyncModule.series(
+	series(
 	[
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.headerPath),								// Header.
 		graphDefinition.writeCommonDefinition.bind(null, gfsObject, compGraphObj),							// Graph definition.
@@ -159,7 +158,7 @@ function compileShortestPath(gfsObject, compGraphObj, compPathObj, gText, pMode,
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.dynamicShortestPath),					// Single path scripting.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.footerPath)								// Footer.
 	],
-	function (compileError, compileRes)
+	function (compileError)
 	{
 		if (compileError !== null)
 		{
@@ -176,7 +175,7 @@ function compileShortestPath(gfsObject, compGraphObj, compPathObj, gText, pMode,
 // Writes graph file contents for multiple paths.
 function compileAllPaths(gfsObject, compGraphObj, compPathObj, gText, pMode, fileResObj)
 {
-	asyncModule.series(
+	series(
 	[
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.headerPath),								// Header.
 		graphDefinition.writeCommonDefinition.bind(null, gfsObject, compGraphObj),							// Graph definition.
@@ -189,7 +188,7 @@ function compileAllPaths(gfsObject, compGraphObj, compPathObj, gText, pMode, fil
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.dynamicAllPath),							// Multiple path scripting.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.footerPath)								// Footer
 	],
-	function (compileError, compileRes)
+	function (compileError)
 	{
 		if (compileError !== null)
 		{
@@ -206,7 +205,7 @@ function compileAllPaths(gfsObject, compGraphObj, compPathObj, gText, pMode, fil
 // Writes graph file contents for blocked nodes.
 function compileBlocked(gfsObject, compGraphObj, compPathObj, gText, pMode, fileResObj)
 {
-	asyncModule.series(
+	series(
 	[
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.headerPath),								// Header
 		graphDefinition.writeBlockDefinition.bind(null, gfsObject, compGraphObj),							// Graph definition with blocked nodes.
@@ -219,7 +218,7 @@ function compileBlocked(gfsObject, compGraphObj, compPathObj, gText, pMode, file
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.dynamicBlockPath),						// Blocked nodes scripting.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.footerPath)								// Footer.
 	],
-	function (compileError, compileRes)
+	function (compileError)
 	{
 		if (compileError !== null)
 		{
@@ -238,7 +237,7 @@ function compileBlocked(gfsObject, compGraphObj, compPathObj, gText, pMode, file
 // Writes graph file contents without any paths.
 function compileBlankPath(gfsObject, compGraphObj, gText, fileResObj)
 {
-	asyncModule.series(
+	series(
 	[
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.headerPath),								// Header.
 		graphDefinition.writeCommonDefinition.bind(null, gfsObject, compGraphObj),							// Graph definition.
@@ -250,7 +249,7 @@ function compileBlankPath(gfsObject, compGraphObj, gText, fileResObj)
 		layoutDefinition.writeStructure.bind(null, gfsObject, compGraphObj),								// Graph layout.
 		templateFile.addTemplate.bind(null, gfsObject, storedPaths.footerPath)								// Footer
 	],
-	function (compileError, compileRes)
+	function (compileError)
 	{
 		if (compileError !== null)
 		{
