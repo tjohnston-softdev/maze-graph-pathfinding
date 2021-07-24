@@ -9,7 +9,6 @@
   "author": "Tyrone Johnston",
   "license": "MIT",
   "dependencies": {
-    "async": "^3.2.0",
     "clear": "^0.1.0",
     "commander": "^8.0.0",
     "jimp": "^0.16.1",
