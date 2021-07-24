@@ -1,5 +1,5 @@
 const clear = require("clear");
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("./common/exit-program");
 const imageEntryValidation = require("./input/image-entry-validation");
 const loadImageConfig = require("./input/load-image-config");
@@ -63,15 +63,18 @@ function executePreperationTasks(optArgsObj, prepArgsObj)
 	var sOutputFolder = prepArgsObj.preparedPaths.outputFolder;
 	var sLoadPath = prepArgsObj.preparedPaths.imageConfigLoadFile;
 	
-	asyncModule.series(
-	{
-		"loadSuccessful": loadImageConfig.loadExistingFile.bind(null, sLoadPath, prepArgsObj.imageItems),
-		"optionsValid": imageOptionsValidation.prepareOptionArguments.bind(null, prepArgsObj, optArgsObj),
-		"preparedColours": imageColourValidation.convertTargetColours.bind(null, prepArgsObj.imageItems),
-		"ioPathsSafe": mapExist.verifyImagePathsExist.bind(null, sInputPath, sOutputFolder),
-		"templateSafe": templateFiles.verifyTemplateFiles.bind(null),
-		"targetImageFile": imageFileRead.performFileOpen.bind(null, sInputPath)
-	},
+	var preparedColours = null;
+	var targetImageFile = null;
+	
+	series(
+	[
+		loadImageConfig.loadExistingFile.bind(null, sLoadPath, prepArgsObj.imageItems),				// Load existing config file, if entered.
+		imageOptionsValidation.prepareOptionArguments.bind(null, prepArgsObj, optArgsObj),			// Validate image option arguments.
+		imageColourValidation.convertTargetColours.bind(null, prepArgsObj.imageItems),				// Convert hex colours to RGB.
+		mapExist.verifyImagePathsExist.bind(null, sInputPath, sOutputFolder),						// Check IO paths safe.
+		templateFiles.verifyTemplateFiles.bind(null),												// Check template files exist.
+		imageFileRead.performFileOpen.bind(null, sInputPath)										// Open image file.
+	],
 	function (prepError, prepRes)
 	{
 		if (prepError !== null)
@@ -80,7 +83,9 @@ function executePreperationTasks(optArgsObj, prepArgsObj)
 		}
 		else
 		{
-			executeImageReadTasks(prepArgsObj, prepRes.preparedColours, prepRes.targetImageFile);
+			preparedColours = prepRes[2];
+			targetImageFile = prepRes[5];
+			executeImageReadTasks(prepArgsObj, preparedColours, targetImageFile);
 		}
 	});
 }
@@ -89,11 +94,13 @@ function executePreperationTasks(optArgsObj, prepArgsObj)
 
 function executeImageReadTasks(pArgsObj, targetColoursObject, targetImageObject)
 {
-	asyncModule.series(
-	{
-		"dimensionsValid": imageFileRead.performDimensionsRead.bind(null, targetImageObject, pArgsObj.imageItems),
-		"readGridObject": imageFileRead.performContentsParse.bind(null, targetImageObject, targetColoursObject, pArgsObj.imageItems, pArgsObj.ignoreImageParseErrors)
-	},
+	var readGridObject = null;
+	
+	series(
+	[
+		imageFileRead.performDimensionsRead.bind(null, targetImageObject, pArgsObj.imageItems),
+		imageFileRead.performContentsParse.bind(null, targetImageObject, targetColoursObject, pArgsObj.imageItems, pArgsObj.ignoreImageParseErrors)
+	],
 	function (imgReadError, imgReadRes)
 	{
 		if (imgReadError !== null)
@@ -102,7 +109,8 @@ function executeImageReadTasks(pArgsObj, targetColoursObject, targetImageObject)
 		}
 		else
 		{
-			executeGridInitialization(pArgsObj, imgReadRes.readGridObject);
+			readGridObject = imgReadRes[1];
+			executeGridInitialization(pArgsObj, readGridObject);
 		}
 	});
 }
@@ -127,13 +135,15 @@ function executeGridInitialization(pArgs, readGridObject)
 
 function executeGraphTasks(pArguments, readGrid, parsedGraph)
 {
-	asyncModule.series(
-	{
-		"traverseSuccessful": gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),
-		"graphIntegritySafe": parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),
-		"pathfindObject": routeFind.performGraphPathfinding.bind(null, pArguments.mapModeFlag, parsedGraph),
-		"folderPrepared": resultFolder.createOutputFolder.bind(null, pArguments.preparedPaths.outputFolder)
-	},
+	var pathfindObject = null;
+	
+	series(
+	[
+		gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),						// Traverse grid for nodes.
+		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),						// Validate graph structure.
+		routeFind.performGraphPathfinding.bind(null, pArguments.mapModeFlag, parsedGraph),		// Run pathfinding algorithm.
+		resultFolder.createOutputFolder.bind(null, pArguments.preparedPaths.outputFolder)		// Prepare output folder.
+	],
 	function (graphTaskError, graphTaskRes)
 	{
 		if (graphTaskError !== null)
@@ -142,7 +152,8 @@ function executeGraphTasks(pArguments, readGrid, parsedGraph)
 		}
 		else
 		{
-			imgGraphResCtrl.callOutput(pArguments, parsedGraph, graphTaskRes.pathfindObject, "Image");
+			pathfindObject = graphTaskRes[2];
+			imgGraphResCtrl.callOutput(pArguments, parsedGraph, pathfindObject, "Image");
 		}
 	});
 }
