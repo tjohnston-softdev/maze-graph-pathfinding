@@ -15,6 +15,8 @@
     "jimp": "^0.16.1",
     "line-by-line": "^0.1.6",
     "ora": "^5.4.1",
+    "run-parallel": "^1.2.0",
+    "run-series": "^1.1.9",
     "yieldable-json": "^2.0.1"
   }
 }

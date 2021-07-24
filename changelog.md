@@ -1,4 +1,6 @@
 # Changelog
 
 **./package.json**
-* Uninstalled 'validator' library.
+* Installed modules:
+	* run-series
+	* run-parallel
