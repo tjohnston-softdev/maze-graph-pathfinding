@@ -1,5 +1,5 @@
 const clear = require("clear");
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("./common/exit-program");
 const createConfigValidation = require("./input/create-image-config-validation");
 const imageEntryValidation = require("./input/image-entry-validation");
@@ -36,12 +36,12 @@ function runCreateImageConfig(eTargetPath, optionalArgumentsObject)
 
 function executePreperationTasks(optArgsObj, prepArgsObj)
 {
-	asyncModule.series(
+	series(
 	[
 		imageOptionsValidation.prepareOptionArguments.bind(null, prepArgsObj, optArgsObj),
 		ioTargetPath.verifySafe.bind(null, prepArgsObj.resolvedTargetPath, prepArgsObj.replaceExistingFile)
 	],
-	function (prepError, prepRes)
+	function (prepError)
 	{
 		if (prepError !== null)
 		{
