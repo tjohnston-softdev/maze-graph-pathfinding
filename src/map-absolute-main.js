@@ -1,5 +1,5 @@
 const clear = require("clear");
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("./common/exit-program");
 const textEntryValidation = require("./input/text-entry-validation");
 const mapExist = require("./io-paths/map-exist");
@@ -46,13 +46,14 @@ function executePreperationTasks(prepArgsObj)
 	var sInputFile = prepArgsObj.preparedPaths.inputFile;
 	var sOutputFolder = prepArgsObj.preparedPaths.outputFolder;
 	var sIgnoreTextErrors = prepArgsObj.ignoreTextErrors;
+	var parsedGraphObject = null;
 	
-	asyncModule.series(
-	{
-		"ioPathsSafe": mapExist.verifyTextPathsExist.bind(null, sInputFile, sOutputFolder),
-		"templateSafe": templateFiles.verifyTemplateFiles.bind(null),
-		"parsedGraphObject": textFileRead.performAbsoluteParsing.bind(null, sInputFile, sIgnoreTextErrors)
-	},
+	series(
+	[
+		mapExist.verifyTextPathsExist.bind(null, sInputFile, sOutputFolder),				// Check IO paths safe.
+		templateFiles.verifyTemplateFiles.bind(null),										// Check template files safe.
+		textFileRead.performAbsoluteParsing.bind(null, sInputFile, sIgnoreTextErrors)		// Parse input file.
+	],
 	function (prepError, prepRes)
 	{
 		if (prepError !== null)
@@ -61,7 +62,8 @@ function executePreperationTasks(prepArgsObj)
 		}
 		else
 		{
-			executePathfindingTasks(prepArgsObj, prepRes.parsedGraphObject);			
+			parsedGraphObject = prepRes[2];
+			executePathfindingTasks(prepArgsObj, parsedGraphObject);			
 		}
 	});
 }
@@ -69,13 +71,14 @@ function executePreperationTasks(prepArgsObj)
 
 function executePathfindingTasks(pArgsObj, parsedGraph)
 {
+	var pathfindObject = null;
 	
-	asyncModule.series(
-	{
-		"validStructure": parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),
-		"pathfindObject": routeFind.performGraphPathfinding.bind(null, pArgsObj.mapModeFlag, parsedGraph),
-		"folderPrepared": resultFolder.createOutputFolder.bind(null, pArgsObj.preparedPaths.outputFolder)
-	},
+	series(
+	[
+		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),						// Check graph structure valid.
+		routeFind.performGraphPathfinding.bind(null, pArgsObj.mapModeFlag, parsedGraph),		// Run pathfinding algorithm.
+		resultFolder.createOutputFolder.bind(null, pArgsObj.preparedPaths.outputFolder)			// Create output folder.
+	],
 	function (pathError, pathRes)
 	{
 		if (pathError !== null)
@@ -84,7 +87,8 @@ function executePathfindingTasks(pArgsObj, parsedGraph)
 		}
 		else
 		{
-			executeOutputTasks(pArgsObj, parsedGraph, pathRes.pathfindObject);
+			pathfindObject = pathRes[1];
+			executeOutputTasks(pArgsObj, parsedGraph, pathfindObject);
 		}
 	});
 }
@@ -94,10 +98,6 @@ function executeOutputTasks(pArgs, pGraph, pPathResult)
 {
 	txtGraphResCtrl.callOutput(pArgs.preparedPaths, pArgs.mapModeFlag, pGraph, pPathResult, "Absolute Text File");
 }
-
-
-
-
 
 
 
