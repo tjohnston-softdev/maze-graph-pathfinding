@@ -1,5 +1,5 @@
 const clear = require("clear");
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("./common/exit-program");
 const conversionEntryValidation = require("./input/conversion-entry-validation");
 const ioConversionExist = require("./io-paths/conversion-exist");
@@ -48,14 +48,15 @@ function executePreperationTasks(prepArgsObj)
 	var sOutputPath = prepArgsObj.preparedPaths.writePath;
 	var sReplace = prepArgsObj.replaceExistingFile;
 	var sIgnoreTextErrors = prepArgsObj.ignoreSafeParseErrors;
+	var readGridObject = null;
 	
 	
-	asyncModule.series(
-	{
-		"inputExists": ioConversionExist.verifyTextConvertInputExists.bind(null, sInputPath),
-		"targetSafe": ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),
-		"readGridObject": textFileRead.performGridParsing.bind(null, sInputPath, sIgnoreTextErrors)
-	},
+	series(
+	[
+		ioConversionExist.verifyTextConvertInputExists.bind(null, sInputPath),				// Check input file exists.
+		ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),							// Check output file path safe.
+		textFileRead.performGridParsing.bind(null, sInputPath, sIgnoreTextErrors)			// Parse grid from input file.
+	],
 	function (prepTasksErr, prepTasksRes)
 	{
 		if (prepTasksErr !== null)
@@ -64,7 +65,8 @@ function executePreperationTasks(prepArgsObj)
 		}
 		else
 		{
-			executeGridInitialization(prepArgsObj, prepTasksRes.readGridObject);
+			readGridObject = prepTasksRes[2];
+			executeGridInitialization(prepArgsObj, readGridObject);
 		}
 	});
 }
@@ -86,15 +88,15 @@ function executeGridInitialization(pArgsObj, readGridObj)
 }
 
 
-function executeGraphTasks(pArguments, readGrid, parsedGraph)
+function executeGraphTasks(pArgs, readGrid, parsedGraph)
 {
-	asyncModule.series(
+	series(
 	[
 		gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),
 		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),
 		automaticHeuristics.performCalculation.bind(null, parsedGraph)
 	],
-	function (graphError, graphResult)
+	function (graphError)
 	{
 		if (graphError !== null)
 		{
@@ -102,7 +104,7 @@ function executeGraphTasks(pArguments, readGrid, parsedGraph)
 		}
 		else
 		{
-			resultControl.callToRelative(pArguments.preparedPaths.writePath, parsedGraph, "Grid to Relative Conversion");
+			resultControl.callToRelative(pArgs.preparedPaths.writePath, parsedGraph, "Grid to Relative Conversion");
 		}
 	});
 }
