@@ -1,4 +1,4 @@
-const asyncModule = require("async");
+const series = require("run-series");
 const ora = require("ora");
 const gridDimensions = require("./actions/grid/grid-dimensions");
 const gridPoints = require("./actions/grid/grid-points");
@@ -15,11 +15,11 @@ function performGridObjectInitialization(inpMatrixGrid, inpAllowMatrixTrim, grid
 {
 	var gridSpinner = ora("Initializing Grid").start();
 	
-	asyncModule.series(
-	{
-		"dimensionsValid": gridDimensions.verifyDimensions.bind(null, inpMatrixGrid, inpAllowMatrixTrim),
-		"pointsGraph": gridPoints.setEntryExit.bind(null, inpMatrixGrid)
-	},
+	series(
+	[
+		gridDimensions.verifyDimensions.bind(null, inpMatrixGrid, inpAllowMatrixTrim),
+		gridPoints.setEntryExit.bind(null, inpMatrixGrid)
+	],
 	function (intlError, intlResult)
 	{
 		if (intlError !== null)
@@ -30,7 +30,7 @@ function performGridObjectInitialization(inpMatrixGrid, inpAllowMatrixTrim, grid
 		else
 		{
 			gridSpinner.succeed("Grid Initialized");
-			return gridIntlCallback(null, intlResult.pointsGraph);
+			return gridIntlCallback(null, intlResult[1]);
 		}
 	});
 	
