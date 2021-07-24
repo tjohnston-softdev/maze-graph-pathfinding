@@ -1,4 +1,4 @@
-const asyncModule = require("async");
+const series = require("run-series");
 const ora = require("ora");
 const fsFileSize = require("../common/sub-files/fs-file-size");
 const sizeLimits = require("../common/sub-files/size-limits");
@@ -60,11 +60,13 @@ function coordinateConfigSkip(modeCallback)
 // Retrieves config file contents.
 function callFileRead(loadPthStr, imgProps, fileReadCallback)
 {
-	asyncModule.series(
-	{
-		"configFileExists": fsFileSize.checkFileSize.bind(null, loadPthStr, "Image Config", sizeLimits.maxImageConfigSize, false),
-		"configFileData": configFile.readConfig.bind(null, loadPthStr)
-	},
+	var retrievedConfig = {"data": null};
+	
+	series(
+	[
+		fsFileSize.checkFileSize.bind(null, loadPthStr, "Image Config", sizeLimits.maxImageConfigSize, false),
+		configFile.readConfig.bind(null, loadPthStr, retrievedConfig)
+	],
 	function (cReadErr, cReadRes)
 	{
 		if (cReadErr !== null)
@@ -75,7 +77,7 @@ function callFileRead(loadPthStr, imgProps, fileReadCallback)
 		else
 		{
 			// File read successfully. Parse contents.
-			callFileParse(imgProps, cReadRes.configFileData, fileReadCallback);
+			callFileParse(imgProps, retrievedConfig.data, fileReadCallback);
 		}
 	});
 }

@@ -4,7 +4,7 @@ const streamExceptions = require("../../common/sub-files/stream-exceptions");
 
 
 // Opens and reads image config file.
-function readImageConfigFile(cFilePath, readCallback)
+function readImageConfigFile(cFilePath, cMemory, readCallback)
 {
 	var flaggedErrorText = "";
 	
@@ -19,7 +19,8 @@ function readImageConfigFile(cFilePath, readCallback)
 		else
 		{
 			// Successful.
-			return readCallback(null, rData);
+			cMemory.data = rData;
+			return readCallback(null, true);
 		}
 	});
 	
