@@ -1,5 +1,5 @@
 const clear = require("clear");
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("./common/exit-program");
 const textEntryValidation = require("./input/text-entry-validation");
 const mapExist = require("./io-paths/map-exist");
@@ -45,13 +45,14 @@ function executePreperationTasks(prepArgsObj)
 	var sInputFile = prepArgsObj.preparedPaths.inputFile;
 	var sOutputFolder = prepArgsObj.preparedPaths.outputFolder;
 	var sIgnoreTextErrors = prepArgsObj.ignoreTextErrors;
+	var parsedGraphObject = null;
 	
-	asyncModule.series(
-	{
-		"mapPathsExist": mapExist.verifyTextPathsExist.bind(null, sInputFile, sOutputFolder),
-		"templatesSafe": templateFiles.verifyTemplateFiles.bind(null),
-		"parsedGraphObject": textFileRead.performRelativeParsing.bind(null, sInputFile, sIgnoreTextErrors)
-	},
+	series(
+	[
+		mapExist.verifyTextPathsExist.bind(null, sInputFile, sOutputFolder),				// Check target paths exist.
+		templateFiles.verifyTemplateFiles.bind(null),										// Check template files safe.
+		textFileRead.performRelativeParsing.bind(null, sInputFile, sIgnoreTextErrors)		// Parse input text file.
+	],
 	function (prepTaskErr, prepTaskRes)
 	{
 		if (prepTaskErr !== null)
@@ -60,7 +61,8 @@ function executePreperationTasks(prepArgsObj)
 		}
 		else
 		{
-			executeGraphStructureTasks(prepArgsObj, prepTaskRes.parsedGraphObject);
+			parsedGraphObject = prepTaskRes[2];
+			executeGraphStructureTasks(prepArgsObj, parsedGraphObject);
 		}
 	});
 	
@@ -70,11 +72,13 @@ function executePreperationTasks(prepArgsObj)
 
 function executeGraphStructureTasks(pArgsObj, parsedGraph)
 {
-	asyncModule.series(
-	{
-		"structureValid": parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),
-		"heuristicsValid": manualHeuristics.performManualHeuristicCheck.bind(null, parsedGraph, pArgsObj.mapModeFlag)
-	},
+	var heuristicsValid = false;
+	
+	series(
+	[
+		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),									// Check graph structure.
+		manualHeuristics.performManualHeuristicCheck.bind(null, parsedGraph, pArgsObj.mapModeFlag)			// Check heuristics valid.
+	],
 	function (structureError, structureRes)
 	{
 		if (structureError !== null)
@@ -83,20 +87,22 @@ function executeGraphStructureTasks(pArgsObj, parsedGraph)
 		}
 		else
 		{
-			executePathfindingTasks(pArgsObj, parsedGraph, structureRes.heuristicsValid);
+			heuristicsValid = structureRes[1];
+			executePathfindingTasks(pArgsObj, parsedGraph, heuristicsValid);
 		}
 	});
 }
 
 
 function executePathfindingTasks(pArgs, pGraph, heurValid)
-{
+{	
+	var pathfindObject = null;
 	
-	asyncModule.series(
-	{
-		"pathfindObject": routeFind.performRelativePathfinding.bind(null, pArgs.mapModeFlag, pGraph, heurValid),
-		"folderPrepared": resultFolder.createOutputFolder.bind(null, pArgs.preparedPaths.outputFolder)
-	},
+	series(
+	[
+		routeFind.performRelativePathfinding.bind(null, pArgs.mapModeFlag, pGraph, heurValid),				// Run pathfinding algorithm.
+		resultFolder.createOutputFolder.bind(null, pArgs.preparedPaths.outputFolder)						// Prepare output folder.
+	],
 	function (pathError, pathRes)
 	{
 		if (pathError !== null)
@@ -105,13 +111,11 @@ function executePathfindingTasks(pArgs, pGraph, heurValid)
 		}
 		else
 		{
-			txtGraphResCtrl.callOutput(pArgs.preparedPaths, pArgs.mapModeFlag, pGraph, pathRes.pathfindObject, "Relative");
+			pathfindObject = pathRes[0];
+			txtGraphResCtrl.callOutput(pArgs.preparedPaths, pArgs.mapModeFlag, pGraph, pathfindObject, "Relative");
 		}
 	});
 }
-
-
-
 
 
 module.exports =

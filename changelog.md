@@ -1,39 +1,27 @@
 # Changelog
 
-### ./src/map-image-main.js
-
-**Requirements**
-* Removed 'async' requirement.
-* Added 'run-series' requirement.
-
-\
-**executePreperationTasks**
-* Declared variables:
-	* 'preparedColours' - Stores prepared target hex colours.
-	* 'targetImageFile' - Stores input image file.
-* Replaced 'asyncModule.series' with 'series'
-* 'series' now returns an array instead of an object.
-* Replaced property names with comments.
-* On success:
-	* 'preparedColours' is assigned with `prepRes[2]`
-	* 'targetImageFile' is assigned with `prepRes[5]`
-* Replaced 'prepRes.preparedColours' with 'preparedColours'
-* Replaced 'prepRes.targetImageFile' with 'targetImageFile'
-
-\
-**executeImageReadTasks**
-* Declared 'readGridObject' variable.
-	* Stores parsed grid from image pixels.
-* Replaced 'asyncModule.series' with 'series'
-* 'series' now returns an array instead of an object.
-* On success, 'readGridObject' is assigned with `imgReadRes[1]`
-* Replaced 'imgReadRes.readGridObject' with 'readGridObject'
-
-\
-**executeGraphTasks**
-* Declared 'pathfindObject' variable - Stores pathfinding result.
-* Replaced 'asyncModule.series' with 'series'
-* 'series' now returns an array instead of an object.
-* Replaced property names with comments.
-* On success, 'pathfindObject' is assigned with `graphTaskRes[2]`
-* Replaced 'graphTaskRes.pathfindObject' with 'pathfindObject'
+**./src/map-relative-main.js**
+* Requirements:
+	* Removed 'async'.
+	* Added 'run-series'.
+* executePreperationTasks
+	* Declared 'parsedGraphObject' variable.
+	* Replaced 'asyncModule.series' with 'series'
+	* 'series' now returns an array instead of an object.
+	* Replaced property names with comments.
+	* On success, 'parsedGraphObject' is assigned with `prepTaskRes[2]`
+	* Replaced 'prepTaskRes.parsedGraphObject' with 'parsedGraphObject'
+* executeGraphStructureTasks
+	* Declared 'heuristicsValid' variable.
+	* Replaced 'asyncModule.series' with 'series'
+	* 'series' now returns an array instead of an object.
+	* Replaced property names with comments.
+	* On success, 'heuristicsValid' is assigned with `structureRes[1]`
+	* Replaced 'structureRes.heuristicsValid' with 'heuristicsValid'
+* executePathfindingTasks
+	* Declared 'pathfindObject' variable.
+	* Replaced 'asyncModule.series' with 'series'
+	* 'series' now returns an array instead of an object.
+	* Replaced property names with comments.
+	* On success, 'pathfindObject' is assigned with `pathRes[0]`
+	* Replaced 'pathRes.pathfindObject' with 'pathfindObject'
