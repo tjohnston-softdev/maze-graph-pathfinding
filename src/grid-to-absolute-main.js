@@ -1,5 +1,5 @@
 const clear = require("clear");
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("./common/exit-program");
 const conversionEntryValidation = require("./input/conversion-entry-validation");
 const ioConversionExist = require("./io-paths/conversion-exist");
@@ -46,13 +46,14 @@ function executePreperationTasks(prepArgsObj)
 	var sOutputPath = prepArgsObj.preparedPaths.writePath;
 	var sReplace = prepArgsObj.replaceExistingFile;
 	var sIgnoreTextErrors = prepArgsObj.ignoreSafeParseErrors;
+	var readGridObject = null;
 	
-	asyncModule.series(
-	{
-		"inputExists": ioConversionExist.verifyTextConvertInputExists.bind(null, sInputPath),
-		"targetSafe": ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),
-		"readGridObject": textFileRead.performGridParsing.bind(null, sInputPath, sIgnoreTextErrors)
-	},
+	series(
+	[
+		ioConversionExist.verifyTextConvertInputExists.bind(null, sInputPath),					// Check input file exists.
+		ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),								// Check output file path safe.
+		textFileRead.performGridParsing.bind(null, sInputPath, sIgnoreTextErrors)				// Parse grid from input file.
+	],
 	function (prepError, prepRes)
 	{
 		if (prepError !== null)
@@ -61,7 +62,8 @@ function executePreperationTasks(prepArgsObj)
 		}
 		else
 		{
-			executeGridInitialization(prepArgsObj, prepRes.readGridObject);
+			readGridObject = prepRes[2];
+			executeGridInitialization(prepArgsObj, readGridObject);
 		}
 	});
 }
@@ -85,12 +87,12 @@ function executeGridInitialization(pArgsObj, readGridObj)
 
 function executeGraphTasks(pArguments, readGrid, parsedGraph)
 {
-	asyncModule.series(
+	series(
 	[
 		gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),
 		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph)
 	],
-	function (graphError, graphResult)
+	function (graphError)
 	{
 		if (graphError !== null)
 		{
