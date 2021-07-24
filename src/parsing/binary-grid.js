@@ -1,4 +1,3 @@
-const asyncModule = require("async");
 const ora = require("ora");
 const tileSet = require("../common/sub-parse/tile-set");
 const imageErrorText = require("../common/sub-parse/errors/image-error-text");

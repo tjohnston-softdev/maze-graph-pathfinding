@@ -1,4 +1,3 @@
-const asyncModule = require("async");
 const ora = require("ora");
 const spinText = require("../common/sub-interface/spin-text/st-pathfind");
 const pathContext = require("../common/sub-input/path-context");
