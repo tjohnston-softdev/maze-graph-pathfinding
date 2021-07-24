@@ -1,6 +1,7 @@
 const valuePrep = require("../../../common/value-prep");
 const errorText = require("../../../common/sub-input/error-text");
 
+// Regular expression from 'validator' library.
 const fullRegex = /^#?([0-9A-F]{3}|[0-9A-F]{4}|[0-9A-F]{6}|[0-9A-F]{8})$/i;
 const startCodeRegex = /^#/;
 
