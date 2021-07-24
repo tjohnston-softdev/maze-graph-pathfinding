@@ -1,5 +1,5 @@
 const clear = require("clear");
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("./common/exit-program");
 const exportEntryValidation = require("./input/export-entry-validation");
 const exportExist = require("./io-paths/export-exist");
@@ -44,13 +44,13 @@ function runTestGraphExport(eMappingMode, optionalArgumentsObject)
 
 function executePreperationTasks(prepArgsObj, precompGraphObj)
 {
-	asyncModule.series(
+	series(
 	[
 		exportExist.verifyTestExportFolderExists.bind(null, prepArgsObj.preparedPaths.outputFolder),
 		templateFiles.verifyTemplateFiles.bind(null),
 		resultFolder.createOutputFolder.bind(null, prepArgsObj.preparedPaths.outputFolder)
 	],
-	function (prepError, prepRes)
+	function (prepError)
 	{
 		if (prepError !== null)
 		{
@@ -62,7 +62,6 @@ function executePreperationTasks(prepArgsObj, precompGraphObj)
 		}
 	});
 }
-
 
 
 
