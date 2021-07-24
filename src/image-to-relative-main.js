@@ -1,5 +1,5 @@
 const clear = require("clear");
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("./common/exit-program");
 const conversionEntryValidation = require("./input/conversion-entry-validation");
 const imageEntryValidation = require("./input/image-entry-validation");
@@ -41,9 +41,6 @@ const resultControl = require("./output/res-ctrl-img-conv");
 
 
 
-
-
-
 function runImageToRelativeFileConversion(eInputPath, eTargetPath, optionalArgumentsObject)
 {
 	preparedArgumentsObject = conversionEntryValidation.readImageToRelative(eInputPath, eTargetPath, optionalArgumentsObject);
@@ -65,16 +62,19 @@ function executePreperationTasks(prepArgsObj, optArgsObj)
 	var sSavePath = prepArgsObj.preparedPaths.saveConfig;
 	var sReplace = prepArgsObj.replaceExistingFile;
 	
-	asyncModule.series(
-	{
-		"inputFileExists": ioConversionExist.verifyImageConvertInputExists.bind(null, sInputPath),
-		"targetPathSafe": ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),
-		"savePathSafe": ioTargetPath.verifySafe.bind(null, sSavePath, sReplace),
-		"loadSuccessful": loadImageConfig.loadExistingFile.bind(null, sLoadPath, prepArgsObj.imageItems),
-		"imageOptionsValid": imageOptionsValidation.prepareOptionArguments.bind(null, prepArgsObj, optArgsObj),
-		"preparedColours": imageColourValidation.convertTargetColours.bind(null, prepArgsObj.imageItems),
-		"targetImageFile": imageFileRead.performFileOpen.bind(null, sInputPath)
-	},
+	var preparedColours = null;
+	var targetImageFile = null;
+	
+	series(
+	[
+		ioConversionExist.verifyImageConvertInputExists.bind(null, sInputPath),							// Check input image file exists.
+		ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),										// Check output file path safe.
+		ioTargetPath.verifySafe.bind(null, sSavePath, sReplace),										// Check image config save path safe.
+		loadImageConfig.loadExistingFile.bind(null, sLoadPath, prepArgsObj.imageItems),					// Load existing image config file, if given.
+		imageOptionsValidation.prepareOptionArguments.bind(null, prepArgsObj, optArgsObj),				// Validate image option arguments.
+		imageColourValidation.convertTargetColours.bind(null, prepArgsObj.imageItems),					// Convert input hex colours to RGB.
+		imageFileRead.performFileOpen.bind(null, sInputPath)											// Open input image file.
+	],
 	function (prepTaskError, prepTaskRes)
 	{
 		if (prepTaskError !== null)
@@ -83,21 +83,24 @@ function executePreperationTasks(prepArgsObj, optArgsObj)
 		}
 		else
 		{
-			executeImageReadTasks(prepArgsObj, prepTaskRes.preparedColours, prepTaskRes.targetImageFile);
+			preparedColours = prepTaskRes[5];
+			targetImageFile = prepTaskRes[6];
+			executeImageReadTasks(prepArgsObj, preparedColours, targetImageFile);
 		}
 	});
 }
 
 
-function executeImageReadTasks(pArgsObj, targetColoursObj, targetImageObj)
+function executeImageReadTasks(pArgsObj, tgtColsObj, tgtImgObj)
 {
-	var sIgnoreErrors = pArgsObj.ignoreSafeParseErrors;
+	var sIgnore = pArgsObj.ignoreSafeParseErrors;
+	var readGridObject = null;
 	
-	asyncModule.series(
-	{
-		"dimensionsValid": imageFileRead.performDimensionsRead.bind(null, targetImageObj, pArgsObj.imageItems),
-		"readGridObject": imageFileRead.performContentsParse.bind(null, targetImageObj, targetColoursObj, pArgsObj.imageItems, sIgnoreErrors)
-	},
+	series(
+	[
+		imageFileRead.performDimensionsRead.bind(null, tgtImgObj, pArgsObj.imageItems),
+		imageFileRead.performContentsParse.bind(null, tgtImgObj, tgtColsObj, pArgsObj.imageItems, sIgnore)
+	],
 	function (imageTaskError, imageTaskRes)
 	{
 		if (imageTaskError !== null)
@@ -106,16 +109,17 @@ function executeImageReadTasks(pArgsObj, targetColoursObj, targetImageObj)
 		}
 		else
 		{
-			executeGridInitialization(pArgsObj, imageTaskRes.readGridObject);
+			readGridObject = imageTaskRes[1];
+			executeGridInitialization(pArgsObj, readGridObject);
 		}
 	});
 }
 
 
 
-function executeGridInitialization(pArguments, readGridObject)
+function executeGridInitialization(pArguments, rGridObj)
 {
-	initializeGrid.performGridInitialization(readGridObject, pArguments.ignoreSafeParseErrors, function (intlGridError, intlGridRes)
+	initializeGrid.performGridInitialization(rGridObj, pArguments.ignoreSafeParseErrors, function (intlGridError, intlGridRes)
 	{
 		if (intlGridError !== null)
 		{
@@ -123,7 +127,7 @@ function executeGridInitialization(pArguments, readGridObject)
 		}
 		else
 		{
-			executeGraphTasks(pArguments, readGridObject, intlGridRes);
+			executeGraphTasks(pArguments, rGridObj, intlGridRes);
 		}
 	});
 }
@@ -131,13 +135,13 @@ function executeGridInitialization(pArguments, readGridObject)
 
 function executeGraphTasks(pArgs, readGrid, parsedGraph)
 {
-	asyncModule.series(
+	series(
 	[
 		gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),
 		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),
 		automaticHeuristics.performCalculation.bind(null, parsedGraph)
 	],
-	function (graphTasksError, graphTasksRes)
+	function (graphTasksError)
 	{
 		if (graphTasksError !== null)
 		{
