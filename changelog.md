@@ -1,3 +1,9 @@
 # Changelog
 
-Opened Version 1.3 branch
+**./package.json**
+* Updated packages to their latest version:
+	* commander
+	* jimp
+	* ora
+	* validator
+	* yieldable-json
