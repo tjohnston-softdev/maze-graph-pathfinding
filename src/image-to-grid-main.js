@@ -1,5 +1,5 @@
 const clear = require("clear");
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("./common/exit-program");
 const conversionEntryValidation = require("./input/conversion-entry-validation");
 const imageEntryValidation = require("./input/image-entry-validation");
@@ -59,16 +59,19 @@ function executePreperationTasks(prepArgsObj, optArgsObj)
 	var sSavePath = prepArgsObj.preparedPaths.saveConfig;
 	var sReplace = prepArgsObj.replaceExistingFile;
 	
-	asyncModule.series(
-	{
-		"inputFileExists": ioConversionExist.verifyImageConvertInputExists.bind(null, sInputPath),
-		"targetPathSafe": ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),
-		"savePathSafe": ioTargetPath.verifySafe.bind(null, sSavePath, sReplace),
-		"loadSuccessful": loadImageConfig.loadExistingFile.bind(null, sLoadPath, prepArgsObj.imageItems),
-		"imageOptionsValid": imageOptionsValidation.prepareOptionArguments.bind(null, prepArgsObj, optArgsObj),
-		"preparedColours": imageColourValidation.convertTargetColours.bind(null, prepArgsObj.imageItems),
-		"targetImageFile": imageFileRead.performFileOpen.bind(null, sInputPath)
-	},
+	var preparedColours = null;
+	var targetImageFile = null;
+	
+	series(
+	[
+		ioConversionExist.verifyImageConvertInputExists.bind(null, sInputPath),					// Check input file path valid.
+		ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),								// Check output file path safe.
+		ioTargetPath.verifySafe.bind(null, sSavePath, sReplace),								// Check image config save path safe.
+		loadImageConfig.loadExistingFile.bind(null, sLoadPath, prepArgsObj.imageItems),			// Load existing image config file, if given.
+		imageOptionsValidation.prepareOptionArguments.bind(null, prepArgsObj, optArgsObj),		// Validate image option arguments.
+		imageColourValidation.convertTargetColours.bind(null, prepArgsObj.imageItems),			// Convert input hex colours to RGB.
+		imageFileRead.performFileOpen.bind(null, sInputPath)									// Open input image file.
+	],
 	function (prepTaskError, prepTaskRes)
 	{
 		if (prepTaskError !== null)
@@ -77,7 +80,9 @@ function executePreperationTasks(prepArgsObj, optArgsObj)
 		}
 		else
 		{
-			executeImageReadTasks(prepArgsObj, prepTaskRes.preparedColours, prepTaskRes.targetImageFile);
+			preparedColours = prepTaskRes[5];
+			targetImageFile = prepTaskRes[6];
+			executeImageReadTasks(prepArgsObj, preparedColours, targetImageFile);
 		}
 	});
 	
@@ -85,15 +90,16 @@ function executePreperationTasks(prepArgsObj, optArgsObj)
 
 
 
-function executeImageReadTasks(pArgsObj, targetColoursObj, targetImageObj)
+function executeImageReadTasks(pArgsObj, tgtColsObj, tgtImgObj)
 {
-	var sIgnoreErrors = pArgsObj.ignoreSafeParseErrors;
+	var sIgnore = pArgsObj.ignoreSafeParseErrors;
+	var readGridObject = null;
 	
-	asyncModule.series(
-	{
-		"dimensionsValid": imageFileRead.performDimensionsRead.bind(null, targetImageObj, pArgsObj.imageItems),
-		"readGridObject": imageFileRead.performContentsParse.bind(null, targetImageObj, targetColoursObj, pArgsObj.imageItems, sIgnoreErrors)
-	},
+	series(
+	[
+		imageFileRead.performDimensionsRead.bind(null, tgtImgObj, pArgsObj.imageItems),							// Validate image dimensions.
+		imageFileRead.performContentsParse.bind(null, tgtImgObj, tgtColsObj, pArgsObj.imageItems, sIgnore)		// Parse grid from input image.
+	],
 	function (imageTaskError, imageTaskRes)
 	{
 		if (imageTaskError !== null)
@@ -102,19 +108,22 @@ function executeImageReadTasks(pArgsObj, targetColoursObj, targetImageObj)
 		}
 		else
 		{
-			executeGridPreperationTasks(pArgsObj, imageTaskRes.readGridObject);
+			readGridObject = imageTaskRes[1];
+			executeGridPreperationTasks(pArgsObj, readGridObject);
 		}
 	});
 }
 
 
-function executeGridPreperationTasks(pArguments, rGridObject)
+function executeGridPreperationTasks(pArgs, rGridObject)
 {
-	asyncModule.series(
-	{
-		"graphObject": initializeGrid.performGridInitialization.bind(null, rGridObject, pArguments.ignoreSafeParseErrors),
-		"tilesConverted": binaryGrid.convertTiles.bind(null, rGridObject)
-	},
+	var graphObject = null;
+	
+	series(
+	[
+		initializeGrid.performGridInitialization.bind(null, rGridObject, pArgs.ignoreSafeParseErrors),				// Find start and end points on grid.
+		binaryGrid.convertTiles.bind(null, rGridObject)																// Convert tiles characters to binary numbers.
+	],
 	function (gridTaskError, gridTaskRes)
 	{
 		if (gridTaskError !== null)
@@ -123,12 +132,11 @@ function executeGridPreperationTasks(pArguments, rGridObject)
 		}
 		else
 		{
-			resultControl.callImageToGrid(pArguments, rGridObject, gridTaskRes.graphObject, "Image to Grid Conversion");
+			graphObject = gridTaskRes[1];
+			resultControl.callImageToGrid(pArgs, rGridObject, graphObject, "Image to Grid Conversion");
 		}
 	});
 }
-
-
 
 
 module.exports =

@@ -1,6 +1,6 @@
 # Changelog
 
-### ./src/image-to-absolute-main.js
+### ./src/image-to-grid-main.js
 
 **Requirements**
 * Removed 'async'.
@@ -34,6 +34,11 @@
 	* 'targetImageObj' to 'tgtImgObj'
 
 \
-**executeGraphTasks**
+**executeGridPreperationTasks**
+* Declared 'graphObject' variable. - Stores parsed graph.
+* Renamed 'pArguments' parameter to 'pArgs'
 * Replaced 'asyncModule.series' with 'series'
-* Removed 'graphTasksRes' parameter from 'series' callback.
+* 'series' now returns an array instead of an object.
+* Replaced 'series' property names with comments.
+* On success, 'graphObject' is assigned with `gridTaskRes[1]`
+* Replaced 'gridTaskRes.graphObject' with 'graphObject'
