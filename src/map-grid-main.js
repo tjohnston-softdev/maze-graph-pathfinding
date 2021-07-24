@@ -1,5 +1,5 @@
 const clear = require("clear");
-const asyncModule = require("async");
+const series = require("run-series");
 const exitProgram = require("./common/exit-program");
 const textEntryValidation = require("./input/text-entry-validation");
 const mapExist = require("./io-paths/map-exist");
@@ -50,13 +50,14 @@ function executePreperationTasks(prepArgsObj)
 	var sInputFile = prepArgsObj.preparedPaths.inputFile;
 	var sOutputFolder = prepArgsObj.preparedPaths.outputFolder;
 	var sIgnoreTextErrors = prepArgsObj.ignoreTextErrors;
+	var readGridObject = null;
 	
-	asyncModule.series(
-	{
-		"ioPathsSafe": mapExist.verifyTextPathsExist.bind(null, sInputFile, sOutputFolder),
-		"templateFilesSafe": templateFiles.verifyTemplateFiles.bind(null),
-		"readGridObject": textFileRead.performGridParsing.bind(null, sInputFile, sIgnoreTextErrors)
-	},
+	series(
+	[
+		mapExist.verifyTextPathsExist.bind(null, sInputFile, sOutputFolder),				// Check IO paths safe.
+		templateFiles.verifyTemplateFiles.bind(null),										// Check template files safe.
+		textFileRead.performGridParsing.bind(null, sInputFile, sIgnoreTextErrors)			// Parse input file.
+	],
 	function (prepError, prepRes)
 	{
 		if (prepError !== null)
@@ -65,7 +66,8 @@ function executePreperationTasks(prepArgsObj)
 		}
 		else
 		{
-			executeGridInitialization(prepArgsObj, prepRes.readGridObject);
+			readGridObject = prepRes[2];
+			executeGridInitialization(prepArgsObj, readGridObject);
 		}
 	});
 	
@@ -93,13 +95,15 @@ function executeGridInitialization(pArgsObj, readGridObj)
 
 function executeGraphTasks(pArguments, readGrid, parsedGraph)
 {
-	asyncModule.series(
-	{
-		"traverseSuccessful": gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),
-		"validStructure": parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),
-		"pathfindObject": routeFind.performGraphPathfinding.bind(null, pArguments.mapModeFlag, parsedGraph),
-		"folderPrepared": resultFolder.createOutputFolder.bind(null, pArguments.preparedPaths.outputFolder)
-	},
+	var pathfindObject = null;
+	
+	series(
+	[
+		gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),						// Traverse grid for nodes.
+		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),						// Check graph structure valid.
+		routeFind.performGraphPathfinding.bind(null, pArguments.mapModeFlag, parsedGraph),		// Run pathfinding algorithm.
+		resultFolder.createOutputFolder.bind(null, pArguments.preparedPaths.outputFolder)		// Prepare output folder.
+	],
 	function (graphError, graphResult)
 	{
 		if (graphError !== null)
@@ -108,11 +112,11 @@ function executeGraphTasks(pArguments, readGrid, parsedGraph)
 		}
 		else
 		{
-			executeOutputTasks(pArguments, parsedGraph, graphResult.pathfindObject);
+			pathfindObject = graphResult[2];
+			executeOutputTasks(pArguments, parsedGraph, pathfindObject);
 		}
 	});
 }
-
 
 
 function executeOutputTasks(pArgs, pGraph, pPathResult)

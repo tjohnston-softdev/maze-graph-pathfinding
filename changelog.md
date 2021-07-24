@@ -1,19 +1,19 @@
 # Changelog
 
-**./src/map-absolute-main.js**
+**./src/map-grid-main.js**
 * Removed 'async' requirement.
 * Added 'run-series' requirement.
 * executePreperationTasks
-	* Declared 'parsedGraphObject' variable.
+	* Declared 'readGridObject' variable. - Stores parsed grid.
 	* Replaced 'asyncModule.series' with 'series'
 	* 'series' now returns an array instead of an object.
 	* Replaced property names with comments.
-	* On successful result, 'parsedGraphObject' is assigned with `prepRes[2]`
-	* Replaced 'prepRes.parsedGraphObject' with 'parsedGraphObject'
-* executePathfindingTasks
-	* Declared 'pathfindObject' variable.
+	* On success, 'readGridObject' is assigned with `prepRes[2]`
+	* Replaced 'prepRes.readGridObject' with 'readGridObject'
+* executeGraphTasks
+	* Declared 'pathfindObject' variable. - Stores pathfinding result.
 	* Replaced 'asyncModule.series' with 'series'
 	* 'series' now returns an array instead of an object.
 	* Replaced property names with comments.
-	* On successful result, 'pathfindObject' is assigned with `pathRes[1]`
-	* Replaced 'pathRes.pathfindObject' with 'pathfindObject'
+	* On success, 'pathfindObject' is assigned with `graphResult[2]`
+	* Replaced 'graphResult.pathfindObject' with 'pathfindObject'
