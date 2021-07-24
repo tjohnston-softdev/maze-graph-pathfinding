@@ -1,4 +1,4 @@
-const asyncModule = require("async");
+const series = require("run-series");
 const ora = require("ora");
 const fsDelete = require("../../common/sub-files/fs-delete");
 const spinText = require("../../common/sub-interface/spin-text/st-output-clean");
@@ -12,7 +12,7 @@ function removeSavedTextGraphFiles(graphPathsObject, removeCallback)
 {
 	var removeSpinner = ora(spinText.graphProg).start();
 	
-	asyncModule.series(
+	series(
 	[
 		fsDelete.deleteFile.bind(null, graphPathsObject.mainGraphFile, "Graph"),
 		fsDelete.deleteFile.bind(null, graphPathsObject.rawNodesFile, "Raw Nodes Data"),
@@ -40,7 +40,7 @@ function removeSavedImageGraphFiles(graphPathsObject, removeCallback)
 {
 	var removeSpinner = ora(spinText.graphProg).start();
 	
-	asyncModule.series(
+	series(
 	[
 		fsDelete.deleteFile.bind(null, graphPathsObject.mainGraphFile, "Graph"),
 		fsDelete.deleteFile.bind(null, graphPathsObject.rawNodesFile, "Raw Nodes Data"),

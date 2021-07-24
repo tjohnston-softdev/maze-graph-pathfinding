@@ -1,8 +1,10 @@
 # Changelog
 
-**./src/traverse/absolute-grid-map.js**
-* Removed 'async' requirement.
-* Added 'run-series' requirement.
-* Changes to 'carveGridPaths'
+**./src/output/**
+* Changes:
+	* Removed 'async' requirement.
+	* Added 'run-series' requirement.
 	* Replaced 'asyncModule.series' with 'series'
-	* Removed 'carvePathRes' parameter from series callback.
+* Affected files:
+	* conversion-clean.js
+	* graph-clean.js

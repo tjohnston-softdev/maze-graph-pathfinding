@@ -1,4 +1,4 @@
-const asyncModule = require("async");
+const series = require("run-series");
 const ora = require("ora");
 const fsDelete = require("../../common/sub-files/fs-delete");
 const spinText = require("../../common/sub-interface/spin-text/st-output-clean");
@@ -33,7 +33,7 @@ function removeImageConversionFiles(pObject, removeCallback)
 {
 	var removeSpinner = ora(spinText.conversionMultipleProg).start();
 	
-	asyncModule.series(
+	series(
 	[
 		fsDelete.deleteFile.bind(null, pObject.writePath, "Conversion"),
 		fsDelete.deleteFile.bind(null, pObject.saveConfig, "Image Config")
@@ -53,9 +53,6 @@ function removeImageConversionFiles(pObject, removeCallback)
 	});
 	
 }
-
-
-
 
 
 
