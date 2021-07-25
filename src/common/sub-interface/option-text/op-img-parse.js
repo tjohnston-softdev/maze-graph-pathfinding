@@ -4,8 +4,8 @@ function defineOptionText()
 	
 	defineRes["tolerancePercent"] = "the percentage difference allowed when checking image pixel colours. (default: 0)";
 	defineRes["tileSize"] = "the approximate size of a maze tile in pixels. (default: 10)";
-	defineRes["imageOriginX"] = writeOriginDesc("x");
-	defineRes["imageOriginY"] = writeOriginDesc("y");
+	defineRes["originX"] = writeOriginDesc("x");
+	defineRes["originY"] = writeOriginDesc("y");
 	
 	return defineRes;
 }

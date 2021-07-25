@@ -1,18 +1,33 @@
 # Changelog
 
-**./src/common/sub-interface/option-desc.js**
-* Added requirements for the files in the 'option-text' subfolder.
-* Restructured file to export 'option-text' files as a single object.
-	* This is handled using the 'combineOptionText' function.
-	* Function result is exported.
+**./src/common/sub-interface/option-text/op-ignore-err.js**
+* Renamed properties:
+	* 'ignoreTextParse' to 'txtParse'
+	* 'ignoreImageParse' to 'imgParse'
 
 ---
 
-**./src/common/sub-interface/option-text/**
-* Files export 'defineOptionText' as a function, and not as the result.
-	* Called publicly as 'defineText'
+**./src/common/sub-interface/option-text/op-img-config.js**
+* Renamed properties:
+	* 'loadImageConfig' to 'load'
+	* 'saveImageConfig' to 'save'
+	* 'saveImageConvConfig' to 'saveConv'
+
+---
+
+**./src/common/sub-interface/option-text/op-img-parse.js**
+* Renamed properties:
+	* 'imageOriginX' to 'originX'
+	* 'imageOriginY' to 'originY'
+
+---
+
+**./src/common/sub-interface/option-text/op-output.js**
+* Renamed properties:
+	* 'outputFolder' to 'folder'
+	* 'replaceExistingFile' to 'replace'
 
 ---
 
 **./maze.js**
-* Updated 'optionDesc' references to use new object structure.
+* Updated 'optionDesc' property names.

@@ -2,8 +2,8 @@ function defineOptionText()
 {
 	var defineRes = {};
 	
-	defineRes["ignoreTextParse"] = writeIgnoreParseDesc("text");
-	defineRes["ignoreImageParse"] = writeIgnoreParseDesc("image");
+	defineRes["txtParse"] = writeIgnoreParseDesc("text");
+	defineRes["imgParse"] = writeIgnoreParseDesc("image");
 	
 	return defineRes;
 }

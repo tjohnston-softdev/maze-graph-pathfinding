@@ -2,9 +2,9 @@ function defineOptionText()
 {
 	var defineRes = {};
 	
-	defineRes["loadImageConfig"] = writeLoadSaveImageConfigDesc("file path of an existing", "loaded.");
-	defineRes["saveImageConfig"] = writeLoadSaveImageConfigDesc("name of a saved", "saved.");
-	defineRes["saveImageConvConfig"] = writeSaveImageConvConfigDesc();
+	defineRes["load"] = writeLoadSaveImageConfigDesc("file path of an existing", "loaded.");
+	defineRes["save"] = writeLoadSaveImageConfigDesc("name of a saved", "saved.");
+	defineRes["saveConv"] = writeSaveImageConvConfigDesc();
 	
 	return defineRes;
 }
