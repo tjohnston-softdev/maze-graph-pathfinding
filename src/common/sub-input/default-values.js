@@ -14,6 +14,7 @@ const replaceExistingFile = false;												// Replace existing files
 const absoluteConversionPathString = "./absolute.txt";							// 'to-absolute' output path
 const gridConversionPathString = "./grid.txt";									// 'to-grid' output path
 const relativeConversionPathString = "./relative.txt";							// 'to-relative' output path
+const imgConversionPathString = "./image.png";									// 'to-image' output path
 
 
 
@@ -32,5 +33,6 @@ module.exports =
 	replaceExisting: replaceExistingFile,
 	absoluteConversionPath: absoluteConversionPathString,
 	gridConversionPath: gridConversionPathString,
-	relativeConversionPath: relativeConversionPathString
+	relativeConversionPath: relativeConversionPathString,
+	imgConversionPath: imgConversionPathString
 };

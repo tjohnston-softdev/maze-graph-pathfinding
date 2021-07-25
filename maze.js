@@ -15,6 +15,7 @@ const imageToGridMain = require("./src/image-to-grid-main");
 const absoluteToRelativeMain = require("./src/absolute-to-relative-main");
 const gridToRelativeMain = require("./src/grid-to-relative-main");
 const imageToRelativeMain = require("./src/image-to-relative-main");
+const gridToImageMain = require("./src/grid-to-image-main");
 const testExportMain = require("./src/test-export-main");
 
 const versionText = "Version 1.2.0";
@@ -198,6 +199,23 @@ program
 {
 	gridToRelativeMain.performCommand(inpFilePath, inpWritePath, options);
 });
+
+
+
+// grid-to-image <input-grid> [output-path]
+program
+.command("grid-to-image <input-grid> [output-path]")
+.description(cmdDesc.gridToRelative)
+.option("-r --replace", optionDesc.replaceExistingFile)
+.option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
+.option("--wall <colour>", optionDesc.wallColour)
+.option("--floor <colour>", optionDesc.floorColour)
+.option("--size <number>", optionDesc.tileSize)
+.action(function (inpFilePath, inpWritePath, options)
+{
+	gridToImageMain.performCommand(inpFilePath, inpWritePath, options);
+});
+
 
 
 
