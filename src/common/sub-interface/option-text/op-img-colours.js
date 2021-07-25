@@ -2,22 +2,31 @@ function defineOptionText()
 {
 	var defineRes = {};
 	
-	defineRes["wallColour"] = writeColourDesc("wall", "#000000");
-	defineRes["floorColour"] = writeColourDesc("floor", "#FFFFFF");
+	handlePixelType("wall", "#000000", defineRes, "wallRead", "wallWrite");
+	handlePixelType("floor", "#FFFFFF", defineRes, "floorRead", "floorWrite");
 	
 	return defineRes;
 }
 
 
-function writeColourDesc(pixelDesc, defaultHex)
+function handlePixelType(pixelDesc, defaultHex, parentObj, readProp, writeProp)
+{
+	parentObj[readProp] = writeColourDesc(pixelDesc, "target", defaultHex);
+	parentObj[writeProp] = writeColourDesc(pixelDesc, "output", defaultHex);
+}
+
+
+function writeColourDesc(vDesc, vMode, vDefault)
 {
 	var writeRes = "";
 	
 	writeRes += "the hex colour of ";
-	writeRes += pixelDesc;
-	writeRes += " pixels in the target image. ";
+	writeRes += vDesc;
+	writeRes += " pixels in the ";
+	writeRes += vMode;
+	writeRes += " image. ";
 	writeRes += "(default: ";
-	writeRes += defaultHex;
+	writeRes += vDefault;
 	writeRes += ")";
 	
 	return writeRes;
