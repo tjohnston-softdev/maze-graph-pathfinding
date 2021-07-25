@@ -13,6 +13,7 @@ const imageToGridDesc = writeGridConversionDesc("image");
 const absoluteToRelativeDesc = writeRelativeConversionDesc("absolute definition text");
 const gridToRelativeDesc = writeRelativeConversionDesc("grid definition text");
 const imageToRelativeDesc = writeRelativeConversionDesc("image");
+const gridToImageDesc = "takes an existing grid definition text file and converts it to an image.";
 const testExportDesc = "used to test file output by exporting a hard-coded graph.";
 const versionDesc = "displays current version number.";
 
@@ -87,6 +88,7 @@ module.exports =
 	absoluteToRelative: absoluteToRelativeDesc,
 	gridToRelative: gridToRelativeDesc,
 	imageToRelative: imageToRelativeDesc,
+	gridToImage: gridToImageDesc,
 	testExport: testExportDesc,
 	version: versionDesc
 };

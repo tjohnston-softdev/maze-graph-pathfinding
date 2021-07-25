@@ -205,7 +205,7 @@ program
 // grid-to-image <input-grid> [output-path]
 program
 .command("grid-to-image <input-grid> [output-path]")
-.description(cmdDesc.gridToRelative)
+.description(cmdDesc.gridToImage)
 .option("-r --replace", optionDesc.replaceExistingFile)
 .option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
 .option("--wall <colour>", optionDesc.wallColour)
