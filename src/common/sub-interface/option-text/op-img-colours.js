@@ -11,7 +11,7 @@ function defineOptionText()
 
 function handlePixelType(pixelDesc, defaultHex, parentObj, readProp, writeProp)
 {
-	parentObj[readProp] = writeColourDesc(pixelDesc, "target", defaultHex);
+	parentObj[readProp] = writeColourDesc(pixelDesc, "input", defaultHex);
 	parentObj[writeProp] = writeColourDesc(pixelDesc, "output", defaultHex);
 }
 
