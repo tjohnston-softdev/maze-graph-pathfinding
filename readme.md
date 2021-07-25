@@ -27,5 +27,3 @@ Example maze images have been generated using Kees Meijer's [Maze Generator](htt
 
 ## Disclaimer
 This project is licensed under [MIT](https://opensource.org/licenses/MIT). I wrote this program as a personal exercise and for my professional portfolio. You are free to use this project as you see fit for both commercial and non-commercial purposes as long as proper credit is retained and that the MIT license remains intact.
-
-As this is a personal project, I am not actively looking for contributions. However, I am open to suggestions, bug reports, etc.

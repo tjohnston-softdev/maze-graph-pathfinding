@@ -1,4 +1,4 @@
 # Changelog
 
-**./src/input/arguments/image-options/hex-colour.js**
-* Added reference comment to 'validator' hex colour regular expression.
+**./readme.md**
+* Removed "As this is a personal project [...]" from disclaimer.
