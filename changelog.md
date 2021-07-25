@@ -1,4 +1,6 @@
 # Changelog
 
-**./src/common/sub-interface/option-text/op-img-colours.js - handlePixelType**
-* Replaced "target" with "input"
+**./src/image-to-grid-main.js - executeGridPreperationTasks**
+* Corrected property index when assigning 'graphObject'
+	* Before: 1
+	* After: 0

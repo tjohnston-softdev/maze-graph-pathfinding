@@ -132,7 +132,7 @@ function executeGridPreperationTasks(pArgs, rGridObject)
 		}
 		else
 		{
-			graphObject = gridTaskRes[1];
+			graphObject = gridTaskRes[0];
 			resultControl.callImageToGrid(pArgs, rGridObject, graphObject, "Image to Grid Conversion");
 		}
 	});
