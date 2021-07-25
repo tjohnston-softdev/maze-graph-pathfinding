@@ -26,9 +26,9 @@ program.version(versionText);
 program
 .command("map-absolute <input-path> [pathfinding-mode]")
 .description(cmdDesc.mapAbsolute)
-.option("-o --output-folder <path>", optionDesc.outputFolder)
-.option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
-.option("-r --raw", optionDesc.exportRaw)
+.option("-o --output-folder <path>", optionDesc.fileOutput.outputFolder)
+.option("-i --ignore-parse-errors", optionDesc.ignoreErr.ignoreTextParse)
+.option("-r --raw", optionDesc.fileOutput.exportRaw)
 .action(function (inpFilePath, inpFindMode, options)
 {
 	mapAbsoluteMain.performCommand(inpFilePath, inpFindMode, options);
@@ -39,9 +39,9 @@ program
 program
 .command("map-grid <input-path> [pathfinding-mode]")
 .description(cmdDesc.mapGrid)
-.option("-o --output-folder <path>", optionDesc.outputFolder)
-.option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
-.option("-r --raw", optionDesc.exportRaw)
+.option("-o --output-folder <path>", optionDesc.fileOutput.outputFolder)
+.option("-i --ignore-parse-errors", optionDesc.ignoreErr.ignoreTextParse)
+.option("-r --raw", optionDesc.fileOutput.exportRaw)
 .action(function (inpFilePath, inpFindMode, options)
 {
 	mapGridMain.performCommand(inpFilePath, inpFindMode, options);
@@ -52,9 +52,9 @@ program
 program
 .command("map-relative <input-path> [pathfinding-mode]")
 .description(cmdDesc.mapRelative)
-.option("-o --output-folder <path>", optionDesc.outputFolder)
-.option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
-.option("-r --raw", optionDesc.exportRaw)
+.option("-o --output-folder <path>", optionDesc.fileOutput.outputFolder)
+.option("-i --ignore-parse-errors", optionDesc.ignoreErr.ignoreTextParse)
+.option("-r --raw", optionDesc.fileOutput.exportRaw)
 .action(function (inpFilePath, inpFindMode, options)
 {
 	mapRelativeMain.performCommand(inpFilePath, inpFindMode, options);
@@ -65,17 +65,17 @@ program
 program
 .command("map-image <input-path> [pathfinding-mode]")
 .description(cmdDesc.mapImage)
-.option("-o --output-folder <path>", optionDesc.outputFolder)
-.option("-i --ignore-parse-errors", optionDesc.ignoreImageParse)
-.option("-r --raw", optionDesc.exportRaw)
-.option("--load <path>", optionDesc.loadImageConfig)
-.option("--save <name>", optionDesc.saveImageConfig)
-.option("--wall <colour>", optionDesc.wallColour)
-.option("--floor <colour>", optionDesc.floorColour)
-.option("--tolerance <percent>", optionDesc.tolerancePercent)
-.option("--size <number>", optionDesc.tileSize)
-.option("-x --start-x <number>", optionDesc.imageOriginX)
-.option("-y --start-y <number>", optionDesc.imageOriginY)
+.option("-o --output-folder <path>", optionDesc.fileOutput.outputFolder)
+.option("-i --ignore-parse-errors", optionDesc.ignoreErr.ignoreImageParse)
+.option("-r --raw", optionDesc.fileOutput.exportRaw)
+.option("--load <path>", optionDesc.imgConfig.loadImageConfig)
+.option("--save <name>", optionDesc.imgConfig.saveImageConfig)
+.option("--wall <colour>", optionDesc.imgColours.wallColour)
+.option("--floor <colour>", optionDesc.imgColours.floorColour)
+.option("--tolerance <percent>", optionDesc.imgParse.tolerancePercent)
+.option("--size <number>", optionDesc.imgParse.tileSize)
+.option("-x --start-x <number>", optionDesc.imgParse.imageOriginX)
+.option("-y --start-y <number>", optionDesc.imgParse.imageOriginY)
 .action(function (inpImagePath, inpFindMode, options)
 {
 	mapImageMain.performCommand(inpImagePath, inpFindMode, options);
@@ -87,13 +87,13 @@ program
 program
 .command("create-image-config [output-path]")
 .description(cmdDesc.createImageConfig)
-.option("-r --replace", optionDesc.replaceExistingFile)
-.option("--wall <colour>", optionDesc.wallColour)
-.option("--floor <colour>", optionDesc.floorColour)
-.option("--tolerance <percent>", optionDesc.tolerancePercent)
-.option("--size <number>", optionDesc.tileSize)
-.option("-x --start-x <number>", optionDesc.imageOriginX)
-.option("-y --start-y <number>", optionDesc.imageOriginY)
+.option("-r --replace", optionDesc.fileOutput.replaceExistingFile)
+.option("--wall <colour>", optionDesc.imgColours.wallColour)
+.option("--floor <colour>", optionDesc.imgColours.floorColour)
+.option("--tolerance <percent>", optionDesc.imgParse.tolerancePercent)
+.option("--size <number>", optionDesc.imgParse.tileSize)
+.option("-x --start-x <number>", optionDesc.imgParse.imageOriginX)
+.option("-y --start-y <number>", optionDesc.imgParse.imageOriginY)
 .action(function (inpWritePath, options)
 {
 	createImageConfigMain.performCommand(inpWritePath, options);
@@ -115,8 +115,8 @@ program
 program
 .command("grid-to-absolute <input-grid> [output-path]")
 .description(cmdDesc.gridToAbsolute)
-.option("-r --replace", optionDesc.replaceExistingFile)
-.option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
+.option("-r --replace", optionDesc.fileOutput.replaceExistingFile)
+.option("-i --ignore-parse-errors", optionDesc.ignoreErr.ignoreTextParse)
 .action(function (inpGridPath, inpWritePath, options)
 {
 	gridToAbsoluteMain.performCommand(inpGridPath, inpWritePath, options);
@@ -127,8 +127,8 @@ program
 program
 .command("absolute-to-grid <input-absolute> [output-path]")
 .description(cmdDesc.absoluteToGrid)
-.option("-r --replace", optionDesc.replaceExistingFile)
-.option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
+.option("-r --replace", optionDesc.fileOutput.replaceExistingFile)
+.option("-i --ignore-parse-errors", optionDesc.ignoreErr.ignoreTextParse)
 .action(function (inpAbsolutePath, inpWritePath, options)
 {
 	absoluteToGridMain.performCommand(inpAbsolutePath, inpWritePath, options);
@@ -140,16 +140,16 @@ program
 program
 .command("image-to-absolute <input-image> [output-path]")
 .description(cmdDesc.imageToAbsolute)
-.option("-r --replace", optionDesc.replaceExistingFile)
-.option("-i --ignore-parse-errors", optionDesc.ignoreImageParse)
-.option("--load <path>", optionDesc.loadImageConfig)
-.option("--save <path>", optionDesc.saveImageConvConfig)
-.option("--wall <colour>", optionDesc.wallColour)
-.option("--floor <colour>", optionDesc.floorColour)
-.option("--tolerance <percent>", optionDesc.tolerancePercent)
-.option("--size <number>", optionDesc.tileSize)
-.option("-x --start-x <number>", optionDesc.imageOriginX)
-.option("-y --start-y <number>", optionDesc.imageOriginY)
+.option("-r --replace", optionDesc.fileOutput.replaceExistingFile)
+.option("-i --ignore-parse-errors", optionDesc.ignoreErr.ignoreImageParse)
+.option("--load <path>", optionDesc.imgConfig.loadImageConfig)
+.option("--save <path>", optionDesc.imgConfig.saveImageConvConfig)
+.option("--wall <colour>", optionDesc.imgColours.wallColour)
+.option("--floor <colour>", optionDesc.imgColours.floorColour)
+.option("--tolerance <percent>", optionDesc.imgParse.tolerancePercent)
+.option("--size <number>", optionDesc.imgParse.tileSize)
+.option("-x --start-x <number>", optionDesc.imgParse.imageOriginX)
+.option("-y --start-y <number>", optionDesc.imgParse.imageOriginY)
 .action(function (inpImagePath, inpWritePath, options)
 {
 	imageToAbsoluteMain.performCommand(inpImagePath, inpWritePath, options);
@@ -161,16 +161,16 @@ program
 program
 .command("image-to-grid <input-image> [output-path]")
 .description(cmdDesc.imageToGrid)
-.option("-r --replace", optionDesc.replaceExistingFile)
-.option("-i --ignore-parse-errors", optionDesc.ignoreImageParse)
-.option("--load <path>", optionDesc.loadImageConfig)
-.option("--save <path>", optionDesc.saveImageConvConfig)
-.option("--wall <colour>", optionDesc.wallColour)
-.option("--floor <colour>", optionDesc.floorColour)
-.option("--tolerance <percent>", optionDesc.tolerancePercent)
-.option("--size <number>", optionDesc.tileSize)
-.option("-x --start-x <number>", optionDesc.imageOriginX)
-.option("-y --start-y <number>", optionDesc.imageOriginY)
+.option("-r --replace", optionDesc.fileOutput.replaceExistingFile)
+.option("-i --ignore-parse-errors", optionDesc.ignoreErr.ignoreImageParse)
+.option("--load <path>", optionDesc.imgConfig.loadImageConfig)
+.option("--save <path>", optionDesc.imgConfig.saveImageConvConfig)
+.option("--wall <colour>", optionDesc.imgColours.wallColour)
+.option("--floor <colour>", optionDesc.imgColours.floorColour)
+.option("--tolerance <percent>", optionDesc.imgParse.tolerancePercent)
+.option("--size <number>", optionDesc.imgParse.tileSize)
+.option("-x --start-x <number>", optionDesc.imgParse.imageOriginX)
+.option("-y --start-y <number>", optionDesc.imgParse.imageOriginY)
 .action(function (inpImagePath, inpWritePath, options)
 {
 	imageToGridMain.performCommand(inpImagePath, inpWritePath, options);
@@ -181,8 +181,8 @@ program
 program
 .command("absolute-to-relative <input-absolute> [output-path]")
 .description(cmdDesc.absoluteToRelative)
-.option("-r --replace", optionDesc.replaceExistingFile)
-.option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
+.option("-r --replace", optionDesc.fileOutput.replaceExistingFile)
+.option("-i --ignore-parse-errors", optionDesc.ignoreErr.ignoreTextParse)
 .action(function (inpFilePath, inpWritePath, options)
 {
 	absoluteToRelativeMain.performCommand(inpFilePath, inpWritePath, options);
@@ -193,8 +193,8 @@ program
 program
 .command("grid-to-relative <input-grid> [output-path]")
 .description(cmdDesc.gridToRelative)
-.option("-r --replace", optionDesc.replaceExistingFile)
-.option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
+.option("-r --replace", optionDesc.fileOutput.replaceExistingFile)
+.option("-i --ignore-parse-errors", optionDesc.ignoreErr.ignoreTextParse)
 .action(function (inpFilePath, inpWritePath, options)
 {
 	gridToRelativeMain.performCommand(inpFilePath, inpWritePath, options);
@@ -206,11 +206,11 @@ program
 program
 .command("grid-to-image <input-grid> [output-path]")
 .description(cmdDesc.gridToImage)
-.option("-r --replace", optionDesc.replaceExistingFile)
-.option("-i --ignore-parse-errors", optionDesc.ignoreTextParse)
-.option("--wall <colour>", optionDesc.wallColour)
-.option("--floor <colour>", optionDesc.floorColour)
-.option("--size <number>", optionDesc.tileSize)
+.option("-r --replace", optionDesc.fileOutput.replaceExistingFile)
+.option("-i --ignore-parse-errors", optionDesc.ignoreErr.ignoreTextParse)
+.option("--wall <colour>", optionDesc.imgColours.wallColour)
+.option("--floor <colour>", optionDesc.imgColours.floorColour)
+.option("--size <number>", optionDesc.imgParse.tileSize)
 .action(function (inpFilePath, inpWritePath, options)
 {
 	gridToImageMain.performCommand(inpFilePath, inpWritePath, options);
@@ -223,16 +223,16 @@ program
 program
 .command("image-to-relative <input-image> [output-path]")
 .description(cmdDesc.imageToRelative)
-.option("-r --replace", optionDesc.replaceExistingFile)
-.option("-i --ignore-parse-errors", optionDesc.ignoreImageParse)
-.option("--load <path>", optionDesc.loadImageConfig)
-.option("--save <path>", optionDesc.saveImageConvConfig)
-.option("--wall <colour>", optionDesc.wallColour)
-.option("--floor <colour>", optionDesc.floorColour)
-.option("--tolerance <percent>", optionDesc.tolerancePercent)
-.option("--size <number>", optionDesc.tileSize)
-.option("-x --start-x <number>", optionDesc.imageOriginX)
-.option("-y --start-y <number>", optionDesc.imageOriginY)
+.option("-r --replace", optionDesc.fileOutput.replaceExistingFile)
+.option("-i --ignore-parse-errors", optionDesc.ignoreErr.ignoreImageParse)
+.option("--load <path>", optionDesc.imgConfig.loadImageConfig)
+.option("--save <path>", optionDesc.imgConfig.saveImageConvConfig)
+.option("--wall <colour>", optionDesc.imgColours.wallColour)
+.option("--floor <colour>", optionDesc.imgColours.floorColour)
+.option("--tolerance <percent>", optionDesc.imgParse.tolerancePercent)
+.option("--size <number>", optionDesc.imgParse.tileSize)
+.option("-x --start-x <number>", optionDesc.imgParse.imageOriginX)
+.option("-y --start-y <number>", optionDesc.imgParse.imageOriginY)
 .action(function (inpImagePath, inpWritePath, options)
 {
 	imageToRelativeMain.performCommand(inpImagePath, inpWritePath, options);
@@ -242,9 +242,9 @@ program
 program
 .command("test-export [pathfinding-mode]")
 .description(cmdDesc.testExport)
-.option("-o --output-folder <path>", optionDesc.outputFolder, ".")
-.option("-g --graph", optionDesc.exportGraph)
-.option("-r --raw", optionDesc.exportRaw)
+.option("-o --output-folder <path>", optionDesc.fileOutput.outputFolder, ".")
+.option("-g --graph", optionDesc.fileOutput.exportGraph)
+.option("-r --raw", optionDesc.fileOutput.exportRaw)
 .action(function (inpFindMode, options)
 {
 	testExportMain.performCommand(inpFindMode, options);

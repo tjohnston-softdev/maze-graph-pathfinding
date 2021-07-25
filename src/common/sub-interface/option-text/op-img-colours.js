@@ -24,4 +24,7 @@ function writeColourDesc(pixelDesc, defaultHex)
 }
 
 
-module.exports = defineOptionText();
+module.exports =
+{
+	defineText: defineOptionText
+}

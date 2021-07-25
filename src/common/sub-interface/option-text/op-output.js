@@ -11,4 +11,7 @@ function defineOptionText()
 }
 
 
-module.exports = defineOptionText();
+module.exports =
+{
+	defineText: defineOptionText
+}

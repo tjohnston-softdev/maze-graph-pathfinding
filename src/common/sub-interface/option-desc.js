@@ -1,20 +1,25 @@
 // Option description text.
 
-module.exports =
+const opIgnoreErr = require("./option-text/op-ignore-err");
+const opImgColours = require("./option-text/op-img-colours");
+const opImgConfig = require("./option-text/op-img-config");
+const opImgParse = require("./option-text/op-img-parse");
+const opOutput = require("./option-text/op-output");
+
+
+function combineOptionText()
 {
-	outputFolder: "OPTION_TEXT",
-	ignoreTextParse: "OPTION_TEXT",
-	ignoreImageParse: "OPTION_TEXT",
-	exportGraph: "OPTION_TEXT",
-	exportRaw: "OPTION_TEXT",
-	loadImageConfig: "OPTION_TEXT",
-	saveImageConfig: "OPTION_TEXT",
-	wallColour: "OPTION_TEXT",
-	floorColour: "OPTION_TEXT",
-	tolerancePercent: "OPTION_TEXT",
-	tileSize: "OPTION_TEXT",
-	imageOriginX: "OPTION_TEXT",
-	imageOriginY: "OPTION_TEXT",
-	replaceExistingFile: "OPTION_TEXT",
-	saveImageConvConfig: "OPTION_TEXT"
-};
+	var combineRes = {};
+	
+	combineRes["ignoreErr"] = opIgnoreErr.defineText();
+	combineRes["imgColours"] = opImgColours.defineText();
+	combineRes["imgConfig"] = opImgConfig.defineText();
+	combineRes["imgParse"] = opImgParse.defineText();
+	combineRes["fileOutput"] = opOutput.defineText();
+	
+	return combineRes;
+}
+
+
+
+module.exports = combineOptionText();

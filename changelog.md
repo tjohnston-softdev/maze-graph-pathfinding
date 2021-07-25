@@ -1,33 +1,18 @@
 # Changelog
 
 **./src/common/sub-interface/option-desc.js**
-* This file has been split into the new 'option-text' folder.
-	* op-output.js
-		* outputFolderDesc
-		* exportGraphDesc
-		* exportRawDesc
-		* replaceExistingFileDesc
-	* op-ignore-err.js
-		* ignoreTextParseDesc
-		* ignoreImageParseDesc
-		* writeIgnoreParseDesc
-	* op-img-config.js
-		* loadImageConfigDesc
-		* saveImageConfigDesc
-		* saveImageConvConfigDesc
-		* writeLoadSaveImageConfigDesc
-		* writeSaveImageConvConfigDesc
-	* op-img-parse.js
-		* tolerancePercentDesc
-		* tileSizeDesc
-		* imageOriginDescX
-		* imageOriginDescY
-		* writeOriginDesc
-	* op-img-colours.js
-		* wallColourDesc
-		* floorColourDesc
-		* writeColourDesc
-* This file now only contains:
-	* Header comment.
-	* Public exports.
-	* Placeholder text
+* Added requirements for the files in the 'option-text' subfolder.
+* Restructured file to export 'option-text' files as a single object.
+	* This is handled using the 'combineOptionText' function.
+	* Function result is exported.
+
+---
+
+**./src/common/sub-interface/option-text/**
+* Files export 'defineOptionText' as a function, and not as the result.
+	* Called publicly as 'defineText'
+
+---
+
+**./maze.js**
+* Updated 'optionDesc' references to use new object structure.

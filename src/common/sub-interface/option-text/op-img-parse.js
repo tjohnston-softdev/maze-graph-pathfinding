@@ -24,4 +24,7 @@ function writeOriginDesc(oPlane)
 }
 
 
-module.exports = defineOptionText();
+module.exports =
+{
+	defineText: defineOptionText
+}

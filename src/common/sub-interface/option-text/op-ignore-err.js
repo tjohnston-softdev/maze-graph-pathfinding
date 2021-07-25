@@ -23,4 +23,7 @@ function writeIgnoreParseDesc(typeDesc)
 }
 
 
-module.exports = defineOptionText();
+module.exports =
+{
+	defineText: defineOptionText
+}
