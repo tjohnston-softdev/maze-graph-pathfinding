@@ -5,10 +5,11 @@
 Takes an existing Absolute definition text file, parses it into a graph, and outputs it as a definition text file.
 
 **Options:**
-| Argument                 | Description                                                         | Default |
-|--------------------------|---------------------------------------------------------------------|---------|
-| -r --replace             | Specifies whether existing files will be replaced.                  | False   |
-| -i --ignore-parse-errors | Ignores or corrects non-fatal errors when parsing input text files. | False   |
+| Argument | Description | Default |
+|---|---|---|
+| -r --replace | Specifies whether existing files will be replaced. | False |
+| -i --ignore-parse-errors | Ignores or corrects non-fatal errors when parsing input text files. | False |
+
 
 **Note:** If no output path is specified, the output file will be created in the program folder named `absolute.txt`
 
