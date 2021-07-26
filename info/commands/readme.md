@@ -11,6 +11,7 @@
 * [image-to-grid](./image-to-grid.md)
 * [absolute-to-relative](./absolute-to-relative.md)
 * [grid-to-relative](./grid-to-relative.md)
+* [grid-to-image](./grid-to-image.md)
 * [image-to-relative](./image-to-relative.md)
 * [test-export](./test-export.md)
 
