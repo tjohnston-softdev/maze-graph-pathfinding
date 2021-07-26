@@ -10,7 +10,8 @@ maze-graph-pathfinding can perform several different algorithms on parsed node g
 | Block | This does not find a complete path. Rather, it finds and blocks all nodes which lead to a dead-end. | N/A |
 | Blank | Skips pathfinding and uses the graph as-is. (Default) | N/A |
 
-Links retrieved: 2020-10-15
+\
+**Links Retrieved:** 2020-10-15
 
 ---
 
