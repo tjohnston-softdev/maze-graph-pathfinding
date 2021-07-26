@@ -1,4 +1,4 @@
 # Changelog
 
-**./src/parsing/initialize-grid.js**
-* Moved the 'series' batch to its own function 'coordinateInitialization'
+**./src/grid-to-image-main.js**
+* Added comments.

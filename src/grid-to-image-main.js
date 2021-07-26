@@ -13,6 +13,24 @@ const binaryGrid = require("./parsing/binary-grid");
 const createGridImage = require("./output/create-grid-image");
 
 
+/*
+	Command: grid-to-image
+	Description: Takes an existing grid definition text file and converts it to an image.
+	Steps:
+		* Validate console input.
+		* Initialize output image options.
+		* Check input file exists.
+		* Check output path safe.
+		* Validate output image options.
+		* Parse input file into grid.
+		* Validate grid dimensions.
+		* Convert grid tiles to binary characters.
+		* Generate image file.
+*/
+
+
+
+
 function runGridToImageFileConversion(eInputPath, eTargetPath, optionalArgumentsObject)
 {
 	var preparedArgumentsObject = conversionEntryValidation.readGridToImage(eInputPath, eTargetPath, optionalArgumentsObject);
@@ -38,10 +56,10 @@ function executePreperationTasks(prepArgsObj, optArgsObj)
 	
 	series(
 	[
-		ioConversionExist.verifyTextConvertInputExists.bind(null, sInputPath),
-		ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),
-		imageOptionsValidation.prepareOutputArguments.bind(null, prepArgsObj, optArgsObj),
-		textFileRead.performGridParsing.bind(null, sInputPath, sIgnoreTextErrors)
+		ioConversionExist.verifyTextConvertInputExists.bind(null, sInputPath),							// Check input file exists.
+		ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),										// Check output path safe.
+		imageOptionsValidation.prepareOutputArguments.bind(null, prepArgsObj, optArgsObj),				// Validate image option arguments.
+		textFileRead.performGridParsing.bind(null, sInputPath, sIgnoreTextErrors)						// Parse grid from input file.
 	],
 	function (prepError, prepRes)
 	{
@@ -63,9 +81,9 @@ function executeConversionTasks(pArgs, rGridObject)
 {
 	series(
 	[
-		initializeGrid.performGridInitialization.bind(null, rGridObject, pArgs.ignoreSafeParseErrors),
-		binaryGrid.convertTiles.bind(null, rGridObject),
-		createGridImage.createFile.bind(null, pArgs, rGridObject)
+		initializeGrid.performGridInitialization.bind(null, rGridObject, pArgs.ignoreSafeParseErrors),			// Find start and end points on grid.
+		binaryGrid.convertTiles.bind(null, rGridObject),														// Convert tiles characters to binary numbers.
+		createGridImage.createFile.bind(null, pArgs, rGridObject)												// Generate output image file.
 	],
 	function (convTaskError, convTaskRes)
 	{
