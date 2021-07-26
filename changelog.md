@@ -1,4 +1,3 @@
 # Changelog
 
-**./src/input/image-colour-validation.js - performColourConversion**
-* Replaced 'coordinateTargetColours' with 'coordinateColours'
+Script cleaning complete (2021-07-26)
