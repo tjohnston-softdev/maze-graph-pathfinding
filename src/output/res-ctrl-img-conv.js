@@ -21,7 +21,7 @@ function callImageToAbsoluteOutputTasks(cPreparedInput, cGraphObject, cHeaderTex
 {
 	series(
 	[
-		absConversionExport.performFileExport.bind(null, cPreparedInput.preparedPaths.writePath, cGraphObject, cHeaderText),
+		absConversionExport.performExport.bind(null, cPreparedInput.preparedPaths.writePath, cGraphObject, cHeaderText),
 		imageConfigSaveExport.performFileExport.bind(null, cPreparedInput.preparedPaths.saveConfig, cPreparedInput.imageItems)
 	],
 	function (saveError)
@@ -43,7 +43,7 @@ function callImageToGridOutputTasks(cPreparedInput, cGridObject, cGraphObject, c
 {
 	series(
 	[
-		gridConversionExport.performFileExport.bind(null, cPreparedInput.preparedPaths.writePath, cGridObject, cGraphObject, cHeaderText),
+		gridConversionExport.performExport.bind(null, cPreparedInput.preparedPaths.writePath, cGridObject, cGraphObject, cHeaderText),
 		imageConfigSaveExport.performFileExport.bind(null, cPreparedInput.preparedPaths.saveConfig, cPreparedInput.imageItems)
 	],
 	function (saveError)
@@ -67,7 +67,7 @@ function callImageToRelativeOutputTasks(cPreparedInput, cGraphObject, cHeaderTex
 {
 	series(
 	[
-		relativeConversionExport.performFileExport.bind(null, cPreparedInput.preparedPaths.writePath, cGraphObject, cHeaderText),
+		relativeConversionExport.performExport.bind(null, cPreparedInput.preparedPaths.writePath, cGraphObject, cHeaderText),
 		imageConfigSaveExport.performFileExport.bind(null, cPreparedInput.preparedPaths.saveConfig, cPreparedInput.imageItems)
 	],
 	function (saveError)
@@ -87,7 +87,7 @@ function callImageToRelativeOutputTasks(cPreparedInput, cGraphObject, cHeaderTex
 // Deletes invalid output files.
 function handleImageConversionFileClean(oPaths, eMsg)
 {
-	conversionClean.removeImageConversion(oPaths, function (cleanError)
+	conversionClean.removeImageFiles(oPaths, function (cleanError)
 	{
 		// Error is displayed regardless.
 		if (cleanError !== null)

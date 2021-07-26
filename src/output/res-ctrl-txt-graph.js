@@ -20,8 +20,8 @@ function callOutputTasks(outputPathsObject, cMapMode, cGraphObject, cPathObject,
 {
 	series(
 	[
-		graphFileExport.performGraphExport.bind(null, cMapMode, outputPathsObject, cGraphObject, cPathObject, outputLabel),
-		rawDataExport.performRawDataExport.bind(null, cMapMode, outputPathsObject, cGraphObject, cPathObject)
+		graphFileExport.performExport.bind(null, cMapMode, outputPathsObject, cGraphObject, cPathObject, outputLabel),
+		rawDataExport.performExport.bind(null, cMapMode, outputPathsObject, cGraphObject, cPathObject)
 	],
 	function (outputError)
 	{

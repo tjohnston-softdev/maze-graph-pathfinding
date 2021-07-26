@@ -318,9 +318,6 @@ function handleClose(dStream)
 }
 
 
-
-
-
 module.exports =
 {
 	createPathFile: createRawPathDataFile

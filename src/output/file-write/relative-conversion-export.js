@@ -106,5 +106,5 @@ function coordinateFileWrite(inpDestPth, inpGraphObj, fileHeadTxt, fwCallback)
 
 module.exports =
 {
-	performFileExport: performRelativeConversionFileExport
+	performExport: performRelativeConversionFileExport
 };

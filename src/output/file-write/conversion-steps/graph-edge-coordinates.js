@@ -98,8 +98,6 @@ function prepareEdgeLine(originPart, destPart, eIndex, eLast)
 }
 
 
-
-
 module.exports =
 {
 	writeEdgeList: writeEdgeCoordinatesList

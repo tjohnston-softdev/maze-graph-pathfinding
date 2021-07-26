@@ -18,8 +18,8 @@ function callOutputTasks(cPreparedInput, cGraphObject, cPathObject, outputLabel)
 	
 	series(
 	[
-		graphFileExport.performGraphExport.bind(null, cPreparedInput.mapModeFlag, cPreparedInput.preparedPaths, cGraphObject, cPathObject, outputLabel),
-		rawDataExport.performRawDataExport.bind(null, cPreparedInput.mapModeFlag, cPreparedInput.preparedPaths, cGraphObject, cPathObject),
+		graphFileExport.performExport.bind(null, cPreparedInput.mapModeFlag, cPreparedInput.preparedPaths, cGraphObject, cPathObject, outputLabel),
+		rawDataExport.performExport.bind(null, cPreparedInput.mapModeFlag, cPreparedInput.preparedPaths, cGraphObject, cPathObject),
 		imageConfigSaveExport.performFileExport.bind(null, cPreparedInput.preparedPaths.imageConfigSaveFile, cPreparedInput.imageItems)
 	],
 	function (outputError)

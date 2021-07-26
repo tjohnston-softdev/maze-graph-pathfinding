@@ -84,5 +84,5 @@ function coordinateFileWrite(inpDestPth, inpGridObj, inpGraphObj, fileHeadTxt, f
 
 module.exports =
 {
-	performFileExport: performGridConversionFileExport
+	performExport: performGridConversionFileExport
 };

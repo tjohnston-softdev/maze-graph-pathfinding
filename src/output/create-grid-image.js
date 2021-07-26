@@ -1,7 +1,10 @@
 const ora = require("ora");
 const jimp = require("jimp");
 
-// This file is used to generate an image file from a parsed input grid.
+/*
+	This file generates an image file from a parsed input grid.
+	Used in the 'grid-to-image' command.
+*/
 
 
 // Main function.

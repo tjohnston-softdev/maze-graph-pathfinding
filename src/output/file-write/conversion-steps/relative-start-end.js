@@ -42,8 +42,6 @@ function handleNodeIndex(nodeInd, nodeArray)
 }
 
 
-
-
 module.exports =
 {
 	writePoints: writeStartEndPoints

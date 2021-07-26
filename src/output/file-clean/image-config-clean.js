@@ -28,5 +28,5 @@ function removeCreatedImageConfigFile(configPathString, removeCallback)
 
 module.exports =
 {
-	removeCreatedImageConfig: removeCreatedImageConfigFile
+	removeFile: removeCreatedImageConfigFile
 };

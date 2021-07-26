@@ -190,5 +190,5 @@ function coordinateDataExportSkip(modeCallback)
 
 module.exports =
 {
-	performRawDataExport: performNodeRawDataExport
+	performExport: performNodeRawDataExport
 };

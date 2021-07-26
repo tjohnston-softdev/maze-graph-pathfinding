@@ -31,7 +31,7 @@ function callOutputTask(cPreparedInput)
 // Deletes invalid output file.
 function handleCreateImageConfigFileClean(oPath, eMsg)
 {
-	imageConfigClean.removeCreatedImageConfig(oPath, function (cleanError, cleanRes)
+	imageConfigClean.removeFile(oPath, function (cleanError, cleanRes)
 	{
 		if (cleanError !== null)
 		{

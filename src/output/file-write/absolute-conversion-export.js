@@ -89,5 +89,5 @@ function coordinateFileWrite(inpDestPth, inpGraphObj, fileHeadTxt, fwCallback)
 
 module.exports =
 {
-	performFileExport: performAbsoluteConversionFileExport
+	performExport: performAbsoluteConversionFileExport
 };

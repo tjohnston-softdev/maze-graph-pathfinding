@@ -59,6 +59,6 @@ function removeImageConversionFiles(pObject, removeCallback)
 
 module.exports =
 {
-	removeTextConversion: removeTextConversionFiles,
-	removeImageConversion: removeImageConversionFiles
+	removeTextFiles: removeTextConversionFiles,
+	removeImageFiles: removeImageConversionFiles
 };

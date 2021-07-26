@@ -267,5 +267,5 @@ function compileBlankPath(gfsObject, compGraphObj, gText, fileResObj)
 
 module.exports =
 {
-	performGraphExport: performNodeGraphExport
+	performExport: performNodeGraphExport
 };

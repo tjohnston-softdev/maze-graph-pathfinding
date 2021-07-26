@@ -18,7 +18,7 @@ const conversionClean = require("./file-clean/conversion-clean");
 // 'grid-to-absolute'
 function callGridToAbsoluteOutputTask(cTargetPath, cGraphObject, cHeaderText)
 {
-	absConversionExport.performFileExport(cTargetPath, cGraphObject, cHeaderText, function (saveError, saveRes)
+	absConversionExport.performExport(cTargetPath, cGraphObject, cHeaderText, function (saveError, saveRes)
 	{
 		if (saveError !== null)
 		{
@@ -35,7 +35,7 @@ function callGridToAbsoluteOutputTask(cTargetPath, cGraphObject, cHeaderText)
 // 'absolute-to-grid'
 function callAbsoluteToGridOutputTask(cTargetPath, cGridObject, cGraphObject, cHeaderText)
 {
-	gridConversionExport.performFileExport(cTargetPath, cGridObject, cGraphObject, cHeaderText, function (saveError, saveRes)
+	gridConversionExport.performExport(cTargetPath, cGridObject, cGraphObject, cHeaderText, function (saveError, saveRes)
 	{
 		if (saveError !== null)
 		{
@@ -52,7 +52,7 @@ function callAbsoluteToGridOutputTask(cTargetPath, cGridObject, cGraphObject, cH
 // 'absolute-to-relative', 'grid-to-relative'
 function callToRelativeOutputTask(cTargetPath, cGraphObject, cHeaderText)
 {
-	relativeConversionExport.performFileExport(cTargetPath, cGraphObject, cHeaderText, function (saveError, saveRes)
+	relativeConversionExport.performExport(cTargetPath, cGraphObject, cHeaderText, function (saveError, saveRes)
 	{
 		if (saveError !== null)
 		{
@@ -70,7 +70,7 @@ function callToRelativeOutputTask(cTargetPath, cGraphObject, cHeaderText)
 // Deletes invalid output file.
 function handleTextConversionFileClean(oPath, eMsg)
 {
-	conversionClean.removeTextConversion(oPath, function (cleanError, cleanRes)
+	conversionClean.removeTextFiles(oPath, function (cleanError, cleanRes)
 	{
 		if (cleanError !== null)
 		{
