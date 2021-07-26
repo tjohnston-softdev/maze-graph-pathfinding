@@ -12,12 +12,12 @@ Takes an existing image file of a maze, converts it into an interactive diagram,
 | -r --raw                 | Exports raw graph and path data to separate files.                                                          | False          |
 | --load                   | Specifies the file path of an existing image configuration file.  If this is blank, no file will be loaded. |                |
 | --save                   | Specifies the name of a saved image configuration file.  If this is blank, no file will be saved.           |                |
-| --wall                   | The hex colour of wall pixels in the target image.                                                          | #000000        |
-| --floor                  | The hex colour of floor pixels in the target image.                                                         | #FFFFFF        |
+| --wall                   | The hex colour of wall pixels in the input image.                                                           | #000000        |
+| --floor                  | The hex colour of floor pixels in the input image.                                                          | #FFFFFF        |
 | --tolerance              | The percentage difference allowed when checking image pixel colours.                                        | 0              |
-| --size                   | The approximate size of a maze tile in pixels.                                                              | 10             |
-| -x --start-x             | The approximate X location of the first tile.                                                               | 0              |
-| -y --start-y             | The approximate Y location of the first tile.                                                               | 0              |
+| --size                   | The size of a maze tile in pixels.                                                                          | 10             |
+| -x --start-x             | The X location of the first tile.                                                                           | 0              |
+| -y --start-y             | The Y location of the first tile.                                                                           | 0              |
 
 ---
 

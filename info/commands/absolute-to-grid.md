@@ -2,7 +2,7 @@
 **Usage:** `maze absolute-to-grid [options] <input-absolute> [output-path]`  
 **Example:** `maze absolute-to-grid ./examples/absolute/input.txt ./output.txt -r`
 
-Takes an existing Absolute definition text file, parses it into a graph, and outputs a definition text file.
+Takes an existing Absolute definition text file, parses it into a graph, and outputs it as a definition text file.
 
 **Options:**
 | Argument                 | Description                                                         | Default |
