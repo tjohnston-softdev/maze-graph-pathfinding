@@ -1,48 +1,48 @@
 # Changelog
 
-**./src/output/file-clean/conversion-clean.js**
-* Renamed public exports:
-	* 'removeTextConversion' to 'removeTextFiles'
-	* 'removeImageConversion' to 'removeImageFiles'
-* Affected files:
-	* ../res-ctrl-txt-conv.js
-	* ../res-ctrl-img-conv.js
+**./src/parsing/binary-grid.js**
+* Revised header comment to include both commands:
+	* image-to-grid
+	* grid-to-image
 
 ---
 
-**./src/output/file-clean/image-config-clean.js**
-* Renamed public export:
-	* 'removeCreatedImageConfig' to 'removeFile'
+**./src/parsing/initialize-grid.js**
+* Changed 'performGridObjectInitialization' public name.
+	* Before: 'performGridInitialization'
+	* After: 'performIntl'
+* Affected files:
+	* ../grid-to-absolute-main.js
+	* ../grid-to-image-main.js
+	* ../grid-to-relative-main.js
+	* ../image-to-absolute-main.js
+	* ../image-to-grid-main.js
+	* ../image-to-relative-main.js
+	* ../map-grid-main.js
+	* ../map-image-main.js
+
+---
+
+**./src/parsing/manual-heuristics.js**
+* Renamed:
+	* 'performManualHeuristicValueCheck' function to 'performValueCheck'
+	* 'performManualHeuristicCheck' export to 'performCheck'
 * Affected file:
-	* ../res-ctrl-img-config.js
+	* ../map-relative-main.js
 
 ---
 
-**./src/output/file-write/**
-* Changed public function names to 'performExport' where applicable:
-	* performFileExport
-	* performGraphExport
-	* performRawDataExport
+**./src/parsing/parse-structure-integrity.js**
+* Renamed export:
+	* 'performGraphCheck' to 'performCheck'
 * Affected files:
-	* ../res-ctrl-img-conv.js
-	* ../res-ctrl-txt-conv.js
-	* ../res-ctrl-img-graph.js
-	* ../res-ctrl-txt-graph.js
-
----
-
-**./src/output/file-write/conversion-steps/**
-* Reduced whitespace above 'module.exports'
-* Affected files:
-	* graph-edge-coordinates.js
-	* relative-start-end.js
-
----
-
-**./src/output/file-write/raw-data-steps/path-data.js**
-* Reduced whitespace above 'module.exports'
-
----
-
-**./src/output/create-grid-image.js**
-* Revised header comment to clarify overall usage.
+	* ../absolute-to-grid-main.js
+	* ../absolute-to-relative-main.js
+	* ../grid-to-absolute-main.js
+	* ../grid-to-relative-main.js
+	* ../image-to-absolute-main.js
+	* ../image-to-relative-main.js
+	* ../map-absolute-main.js
+	* ../map-grid-main.js
+	* ../map-image-main.js
+	* ../map-relative-main.js

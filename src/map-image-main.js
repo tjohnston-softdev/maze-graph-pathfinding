@@ -118,7 +118,7 @@ function executeImageReadTasks(pArgsObj, targetColoursObject, targetImageObject)
 
 function executeGridInitialization(pArgs, readGridObject)
 {
-	initializeGrid.performGridInitialization(readGridObject, pArgs.ignoreImageParseErrors, function (intlGridError, intlGridRes)
+	initializeGrid.performIntl(readGridObject, pArgs.ignoreImageParseErrors, function (intlGridError, intlGridRes)
 	{
 		if (intlGridError !== null)
 		{
@@ -140,7 +140,7 @@ function executeGraphTasks(pArguments, readGrid, parsedGraph)
 	series(
 	[
 		gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),						// Traverse grid for nodes.
-		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),						// Validate graph structure.
+		parseStructureIntegrity.performCheck.bind(null, parsedGraph),						// Validate graph structure.
 		routeFind.performGraphPathfinding.bind(null, pArguments.mapModeFlag, parsedGraph),		// Run pathfinding algorithm.
 		resultFolder.createOutputFolder.bind(null, pArguments.preparedPaths.outputFolder)		// Prepare output folder.
 	],

@@ -71,7 +71,7 @@ function executeGraphTasks(pArguments, parsedGraph)
 {
 	series(
 	[
-		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),
+		parseStructureIntegrity.performCheck.bind(null, parsedGraph),
 		automaticHeuristics.performCalculation.bind(null, parsedGraph)
 	],
 	function (graphTasksErr, graphTasksRes)

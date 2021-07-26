@@ -27,5 +27,5 @@ function performGraphObjectIntegrityCheck(inpGraphObject, integrityCheckCallback
 
 module.exports =
 {
-	performGraphCheck: performGraphObjectIntegrityCheck
+	performCheck: performGraphObjectIntegrityCheck
 };

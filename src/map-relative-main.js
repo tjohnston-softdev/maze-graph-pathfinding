@@ -76,8 +76,8 @@ function executeGraphStructureTasks(pArgsObj, parsedGraph)
 	
 	series(
 	[
-		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),									// Check graph structure.
-		manualHeuristics.performManualHeuristicCheck.bind(null, parsedGraph, pArgsObj.mapModeFlag)			// Check heuristics valid.
+		parseStructureIntegrity.performCheck.bind(null, parsedGraph),									// Check graph structure.
+		manualHeuristics.performCheck.bind(null, parsedGraph, pArgsObj.mapModeFlag)							// Check heuristics valid.
 	],
 	function (structureError, structureRes)
 	{

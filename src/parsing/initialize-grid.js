@@ -60,5 +60,5 @@ function coordinateInitialization(inpGrid, inpTrim, coordCallback)
 
 module.exports =
 {
-	performGridInitialization: performGridObjectInitialization
+	performIntl: performGridObjectInitialization
 };

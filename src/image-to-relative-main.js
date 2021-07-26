@@ -119,7 +119,7 @@ function executeImageReadTasks(pArgsObj, tgtColsObj, tgtImgObj)
 
 function executeGridInitialization(pArguments, rGridObj)
 {
-	initializeGrid.performGridInitialization(rGridObj, pArguments.ignoreSafeParseErrors, function (intlGridError, intlGridRes)
+	initializeGrid.performIntl(rGridObj, pArguments.ignoreSafeParseErrors, function (intlGridError, intlGridRes)
 	{
 		if (intlGridError !== null)
 		{
@@ -138,7 +138,7 @@ function executeGraphTasks(pArgs, readGrid, parsedGraph)
 	series(
 	[
 		gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),						// Traverse grid for graph nodes.
-		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),						// Validate graph object structure.
+		parseStructureIntegrity.performCheck.bind(null, parsedGraph),						// Validate graph object structure.
 		automaticHeuristics.performCalculation.bind(null, parsedGraph)							// Calculate node heuristic values.
 	],
 	function (graphTasksError)

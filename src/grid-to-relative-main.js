@@ -74,7 +74,7 @@ function executePreperationTasks(prepArgsObj)
 
 function executeGridInitialization(pArgsObj, readGridObj)
 {
-	initializeGrid.performGridInitialization(readGridObj, pArgsObj.ignoreSafeParseErrors, function (gIntlError, gIntlRes)
+	initializeGrid.performIntl(readGridObj, pArgsObj.ignoreSafeParseErrors, function (gIntlError, gIntlRes)
 	{
 		if (gIntlError !== null)
 		{
@@ -93,7 +93,7 @@ function executeGraphTasks(pArgs, readGrid, parsedGraph)
 	series(
 	[
 		gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),
-		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),
+		parseStructureIntegrity.performCheck.bind(null, parsedGraph),
 		automaticHeuristics.performCalculation.bind(null, parsedGraph)
 	],
 	function (graphError)

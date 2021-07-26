@@ -75,7 +75,7 @@ function executePathfindingTasks(pArgsObj, parsedGraph)
 	
 	series(
 	[
-		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),						// Check graph structure valid.
+		parseStructureIntegrity.performCheck.bind(null, parsedGraph),						// Check graph structure valid.
 		routeFind.performGraphPathfinding.bind(null, pArgsObj.mapModeFlag, parsedGraph),		// Run pathfinding algorithm.
 		resultFolder.createOutputFolder.bind(null, pArgsObj.preparedPaths.outputFolder)			// Create output folder.
 	],

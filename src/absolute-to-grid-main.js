@@ -74,7 +74,7 @@ function executeGraphTasks(pArguments, parsedGraphObj)
 	
 	series(
 	[
-		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraphObj),			// Check graph structure valid.
+		parseStructureIntegrity.performCheck.bind(null, parsedGraphObj),			// Check graph structure valid.
 		absoluteGridMap.performMapping.bind(null, parsedGraphObj)						// Convert parsed graph to grid.
 	],
 	function (graphTasksErr, graphTasksRes)

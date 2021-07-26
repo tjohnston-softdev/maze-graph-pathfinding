@@ -81,7 +81,7 @@ function executeConversionTasks(pArgs, rGridObject)
 {
 	series(
 	[
-		initializeGrid.performGridInitialization.bind(null, rGridObject, pArgs.ignoreSafeParseErrors),			// Find start and end points on grid.
+		initializeGrid.performIntl.bind(null, rGridObject, pArgs.ignoreSafeParseErrors),			// Find start and end points on grid.
 		binaryGrid.convertTiles.bind(null, rGridObject),														// Convert tiles characters to binary numbers.
 		createGridImage.createFile.bind(null, pArgs, rGridObject)												// Generate output image file.
 	],

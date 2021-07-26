@@ -4,7 +4,7 @@ const imageErrorText = require("../common/sub-parse/errors/image-error-text");
 
 /*
 	* This file is used to convert parsed grid objects into binary input format.
-	* Used in the 'image-to-grid' command.
+	* Used in the 'image-to-grid' and 'grid-to-image' commands.
 */
 
 

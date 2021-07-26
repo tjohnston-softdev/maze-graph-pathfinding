@@ -10,7 +10,7 @@ const pathContext = require("../common/sub-input/path-context");
 
 
 // Main function.
-function performManualHeuristicValueCheck(inpGraphObject, inpPathMode, manualHeuristicCallback)
+function performValueCheck(inpGraphObject, inpPathMode, manualHeuristicCallback)
 {
 	var heuristicSpinner = ora("Checking Heuristic Values").start();
 	
@@ -107,5 +107,5 @@ function writeErrorMessage(descText)
 
 module.exports =
 {
-	performManualHeuristicCheck: performManualHeuristicValueCheck
+	performCheck: performValueCheck
 };

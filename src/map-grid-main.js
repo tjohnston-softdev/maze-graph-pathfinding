@@ -78,7 +78,7 @@ function executePreperationTasks(prepArgsObj)
 
 function executeGridInitialization(pArgsObj, readGridObj)
 {
-	initializeGrid.performGridInitialization(readGridObj, pArgsObj.ignoreTextErrors, function(gIntlError, gIntlRes)
+	initializeGrid.performIntl(readGridObj, pArgsObj.ignoreTextErrors, function(gIntlError, gIntlRes)
 	{
 		if (gIntlError !== null)
 		{
@@ -100,7 +100,7 @@ function executeGraphTasks(pArguments, readGrid, parsedGraph)
 	series(
 	[
 		gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),						// Traverse grid for nodes.
-		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),						// Check graph structure valid.
+		parseStructureIntegrity.performCheck.bind(null, parsedGraph),						// Check graph structure valid.
 		routeFind.performGraphPathfinding.bind(null, pArguments.mapModeFlag, parsedGraph),		// Run pathfinding algorithm.
 		resultFolder.createOutputFolder.bind(null, pArguments.preparedPaths.outputFolder)		// Prepare output folder.
 	],

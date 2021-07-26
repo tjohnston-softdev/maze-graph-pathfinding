@@ -121,7 +121,7 @@ function executeGridPreperationTasks(pArgs, rGridObject)
 	
 	series(
 	[
-		initializeGrid.performGridInitialization.bind(null, rGridObject, pArgs.ignoreSafeParseErrors),				// Find start and end points on grid.
+		initializeGrid.performIntl.bind(null, rGridObject, pArgs.ignoreSafeParseErrors),				// Find start and end points on grid.
 		binaryGrid.convertTiles.bind(null, rGridObject)																// Convert tiles characters to binary numbers.
 	],
 	function (gridTaskError, gridTaskRes)
