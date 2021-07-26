@@ -6,7 +6,7 @@ const mathTasks = require("../common/math-tasks");
 
 
 // Prepares target image colours and validates difference.
-function performTargetColourConversion(imagePropertiesObject, colourConversionCallback)
+function performColourConversion(imagePropertiesObject, colourConversionCallback)
 {
 	var colourSpinner = ora("Preparing Target Colours").start();
 	
@@ -27,10 +27,10 @@ function performTargetColourConversion(imagePropertiesObject, colourConversionCa
 }
 
 
-function coordinateTargetColours(imageProps, tgtColourCallback)
+function coordinateColours(imageProps, tgtColourCallback)
 {
 	var colourResultObject = configHelp.defineColourResult();
-	var hexDifferent = hexColour.validateStringsDifferent(imageProps.wallColour, imageProps.floorColour, colourResultObject);
+	var hexDifferent = hexColour.validateDifferent(imageProps.wallColour, imageProps.floorColour, colourResultObject);
 	var projectedDifference = -1;
 	var differenceValid = false;
 	
@@ -58,16 +58,11 @@ function coordinateTargetColours(imageProps, tgtColourCallback)
 	else
 	{
 		return tgtColourCallback(new Error(colourResultObject.errorMessage), null);
-	}
-	
-	
-	
+	}	
 }
-
-
 
 
 module.exports =
 {
-	convertTargetColours: performTargetColourConversion
+	convertColours: performColourConversion
 };

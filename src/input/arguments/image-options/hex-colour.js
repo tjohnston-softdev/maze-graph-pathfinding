@@ -68,7 +68,7 @@ function prepareHexString(hStr)
 
 module.exports =
 {
-	validateHexColour: validateHexColourString,
-	validateStringsDifferent: validateHexStringsDifferent,
-	prepareHex: prepareHexString
+	validateString: validateHexColourString,
+	validateDifferent: validateHexStringsDifferent,
+	prepareString: prepareHexString
 };

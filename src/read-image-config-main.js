@@ -42,8 +42,8 @@ function executeReadTasks(prepArgsObj)
 	series(
 	[
 		loadImageConfig.loadRequiredFile.bind(null, prepArgsObj.preparedFilePath, prepArgsObj.imageItems),		// Read successful
-		imageOptionsValidation.prepareOptionArguments.bind(null, prepArgsObj, optionsPlaceholder),				// Contents valid
-		imageColourValidation.convertTargetColours.bind(null, prepArgsObj.imageItems)							// Colours valid
+		imageOptionsValidation.prepareGeneral.bind(null, prepArgsObj, optionsPlaceholder),				// Contents valid
+		imageColourValidation.convertColours.bind(null, prepArgsObj.imageItems)							// Colours valid
 	],
 	function (readTaskError)
 	{

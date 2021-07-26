@@ -58,7 +58,7 @@ function executePreperationTasks(prepArgsObj, optArgsObj)
 	[
 		ioConversionExist.verifyTextConvertInputExists.bind(null, sInputPath),							// Check input file exists.
 		ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),										// Check output path safe.
-		imageOptionsValidation.prepareOutputArguments.bind(null, prepArgsObj, optArgsObj),				// Validate image option arguments.
+		imageOptionsValidation.prepareOutput.bind(null, prepArgsObj, optArgsObj),						// Validate image option arguments.
 		textFileRead.performGridParsing.bind(null, sInputPath, sIgnoreTextErrors)						// Parse grid from input file.
 	],
 	function (prepError, prepRes)

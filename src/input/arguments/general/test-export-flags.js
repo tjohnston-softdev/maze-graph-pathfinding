@@ -23,5 +23,5 @@ function validateTestExportFlagsSet(resObject)
 
 module.exports =
 {
-	validateTestExportFlags: validateTestExportFlagsSet
+	validateFlags: validateTestExportFlagsSet
 };

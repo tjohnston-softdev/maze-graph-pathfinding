@@ -12,7 +12,8 @@ const optionalItems = require("./arguments/general/optional-items");
 // Handles entry validation for the 'grid-to-absolute' command.
 function readGridToAbsoluteArguments(argInputPath, argWritePath, optionalArgsObj)
 {
-	var argumentReadResult = coordinateMainArguments(argInputPath, argWritePath, optionalArgsObj, defaultValues.absoluteConversionPath);
+	var defaultOutput = defaultValues.absoluteConversionPath;
+	var argumentReadResult = coordinateMain(argInputPath, argWritePath, optionalArgsObj, defaultOutput);
 	return argumentReadResult;
 }
 
@@ -20,7 +21,8 @@ function readGridToAbsoluteArguments(argInputPath, argWritePath, optionalArgsObj
 // Handles entry validation for the 'absolute-to-grid' command.
 function readAbsoluteToGridArguments(argInputPath, argWritePath, optionalArgsObj)
 {
-	var argumentReadResult = coordinateMainArguments(argInputPath, argWritePath, optionalArgsObj, defaultValues.gridConversionPath);
+	var defaultOutput = defaultValues.gridConversionPath;
+	var argumentReadResult = coordinateMain(argInputPath, argWritePath, optionalArgsObj, defaultOutput);
 	return argumentReadResult;
 }
 
@@ -28,7 +30,8 @@ function readAbsoluteToGridArguments(argInputPath, argWritePath, optionalArgsObj
 // Handles entry validation for the 'image-to-absolute' command.
 function readImageToAbsoluteArguments(argInputPath, argWritePath, optionalArgsObj)
 {
-	var argumentReadResult = coordinateMainArguments(argInputPath, argWritePath, optionalArgsObj, defaultValues.absoluteConversionPath);
+	var defaultOutput = defaultValues.absoluteConversionPath;
+	var argumentReadResult = coordinateMain(argInputPath, argWritePath, optionalArgsObj, defaultOutput);
 	var imageAppendSuccessful = false;
 	
 	if (argumentReadResult.valid === true)
@@ -44,7 +47,8 @@ function readImageToAbsoluteArguments(argInputPath, argWritePath, optionalArgsOb
 // Handles entry validation for the 'image-to-grid' command.
 function readImageToGridArguments(argInputPath, argWritePath, optionalArgsObj)
 {
-	var argumentReadResult = coordinateMainArguments(argInputPath, argWritePath, optionalArgsObj, defaultValues.gridConversionPath);
+	var defaultOutput = defaultValues.gridConversionPath;
+	var argumentReadResult = coordinateMain(argInputPath, argWritePath, optionalArgsObj, defaultOutput);
 	var imageAppendSuccessful = false;
 	
 	if (argumentReadResult.valid === true)
@@ -60,14 +64,16 @@ function readImageToGridArguments(argInputPath, argWritePath, optionalArgsObj)
 // Handles entry validation for the 'absolute-to-relative' and 'grid-to-relative' commands.
 function readTextToRelativeArguments(argInputPath, argWritePath, optionalArgsObj)
 {
-	var argumentReadResult = coordinateMainArguments(argInputPath, argWritePath, optionalArgsObj, defaultValues.relativeConversionPath);
+	var defaultOutput = defaultValues.relativeConversionPath;
+	var argumentReadResult = coordinateMain(argInputPath, argWritePath, optionalArgsObj, defaultOutput);
 	return argumentReadResult;
 }
 
 // Handles entry validation for the 'grid-to-image' command.
 function readGridToImageArguments(argInputPath, argWritePath, optionalArgsObj)
 {
-	var argumentReadResult = coordinateMainArguments(argInputPath, argWritePath, optionalArgsObj, defaultValues.imgConversionPath);
+	var defaultOutput = defaultValues.imgConversionPath;
+	var argumentReadResult = coordinateMain(argInputPath, argWritePath, optionalArgsObj, defaultOutput);
 	return argumentReadResult;
 	
 }
@@ -76,7 +82,8 @@ function readGridToImageArguments(argInputPath, argWritePath, optionalArgsObj)
 // Handles entry validation for the 'image-to-relative' commands.
 function readImageToRelativeArguments(argInputPath, argWritePath, optionalArgsObj)
 {
-	var argumentReadResult = coordinateMainArguments(argInputPath, argWritePath, optionalArgsObj, defaultValues.relativeConversionPath);
+	var defaultOutput = defaultValues.relativeConversionPath;
+	var argumentReadResult = coordinateMain(argInputPath, argWritePath, optionalArgsObj, defaultOutput);
 	var imageAppendSuccessful = false;
 	
 	if (argumentReadResult.valid === true)
@@ -90,7 +97,7 @@ function readImageToRelativeArguments(argInputPath, argWritePath, optionalArgsOb
 
 
 // Validates main arguments which are used in all conversion commands.
-function coordinateMainArguments(aInputPath, aWritePath, optionalArgs, defaultWritePath)
+function coordinateMain(aInputPath, aWritePath, optionalArgs, defaultWritePath)
 {
 	var aReadRes = definePreparedArguments(defaultWritePath);
 	
@@ -149,7 +156,7 @@ function coordinateImageItems(optionalArgs, aReadRes)
 	
 	// Validates entered load and save config paths.
 	loadPathValid = imageConfigPath.validateLoadConfigPath(optionalArgs.load, aReadRes);
-	savePathValid = saveConfig.validateSaveConfigPath(optionalArgs.save, aReadRes);
+	savePathValid = saveConfig.validateSavePath(optionalArgs.save, aReadRes);
 	
 	var appendRes = false;
 	

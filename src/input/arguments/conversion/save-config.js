@@ -5,7 +5,7 @@ const errorText = require("../../../common/sub-input/error-text");
 
 
 // Validates image config save path for conversion commands.
-function validateSaveConfigPathString(saveFileStr, resObject)
+function validateSavePathString(saveFileStr, resObject)
 {
 	var stringTypeUsed = valuePrep.checkStringType(saveFileStr);
 	var validationResult = false;
@@ -62,5 +62,5 @@ function handleStringEntry(sFileStr, rObject)
 
 module.exports =
 {
-	validateSaveConfigPath: validateSaveConfigPathString
+	validateSavePath: validateSavePathString
 };

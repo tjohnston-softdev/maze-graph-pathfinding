@@ -69,8 +69,8 @@ function executePreperationTasks(optArgsObj, prepArgsObj)
 	series(
 	[
 		loadImageConfig.loadExistingFile.bind(null, sLoadPath, prepArgsObj.imageItems),				// Load existing config file, if entered.
-		imageOptionsValidation.prepareOptionArguments.bind(null, prepArgsObj, optArgsObj),			// Validate image option arguments.
-		imageColourValidation.convertTargetColours.bind(null, prepArgsObj.imageItems),				// Convert hex colours to RGB.
+		imageOptionsValidation.prepareGeneral.bind(null, prepArgsObj, optArgsObj),			// Validate image option arguments.
+		imageColourValidation.convertColours.bind(null, prepArgsObj.imageItems),				// Convert hex colours to RGB.
 		mapExist.verifyImagePathsExist.bind(null, sInputPath, sOutputFolder),						// Check IO paths safe.
 		templateFiles.verifyTemplateFiles.bind(null),												// Check template files exist.
 		imageFileRead.performFileOpen.bind(null, sInputPath)										// Open image file.

@@ -69,8 +69,8 @@ function executePreperationTasks(prepArgsObj, optArgsObj)
 		ioTargetPath.verifySafe.bind(null, sOutputPath, sReplace),										// Check target output file path safe.
 		ioTargetPath.verifySafe.bind(null, sSavePath, sReplace),										// Check image config save path safe.
 		loadImageConfig.loadExistingFile.bind(null, sLoadPath, prepArgsObj.imageItems),					// Load existing image config file, if given.
-		imageOptionsValidation.prepareOptionArguments.bind(null, prepArgsObj, optArgsObj),				// Validate image option arguments.
-		imageColourValidation.convertTargetColours.bind(null, prepArgsObj.imageItems),					// Convert input hex colours to RGB.
+		imageOptionsValidation.prepareGeneral.bind(null, prepArgsObj, optArgsObj),				// Validate image option arguments.
+		imageColourValidation.convertColours.bind(null, prepArgsObj.imageItems),					// Convert input hex colours to RGB.
 		imageFileRead.performFileOpen.bind(null, sInputPath)											// Open input image file.
 	],
 	function (prepTaskError, prepTaskRes)

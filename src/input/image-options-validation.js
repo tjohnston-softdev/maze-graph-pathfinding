@@ -6,11 +6,11 @@ const spinText = require("../common/sub-interface/spin-text/st-img-opts");
 
 
 // Validates image parsing options.
-function prepareImageOptionArguments(fullInputObject, optionalArgs, imageOptionCallback)
+function prepareImageGeneralArguments(fullInputObject, optionalArgs, imageOptionCallback)
 {
 	var preperationSpinner = ora(spinText.imgOptProg).start();
 	
-	coordinateOptionValidation(fullInputObject, optionalArgs, function(argError, argRes)
+	coordinateGeneralValidation(fullInputObject, optionalArgs, function(argError, argRes)
 	{
 		if (argError !== null)
 		{
@@ -48,7 +48,7 @@ function prepareImageOutputArguments(fullInputObject, optionalArgs, imageOutputC
 
 
 
-function coordinateOptionValidation(fullInput, optArgs, imgOptCallback)
+function coordinateGeneralValidation(fullInput, optArgs, imgOptCallback)
 {
 	var validationOutcomeObject = configHelp.defineValidationResult();
 	
@@ -177,14 +177,14 @@ function coordinateOutputValidation(fullInput, optArgs, argCallback)
 
 function handleWallValidation(inpValue, fullInpObj, validOutcomeObj)
 {
-	var handleRes = hexColour.validateHexColour(inpValue, "wallColour", "Wall Colour", fullInpObj, validOutcomeObj);
+	var handleRes = hexColour.validateString(inpValue, "wallColour", "Wall Colour", fullInpObj, validOutcomeObj);
 	return handleRes;
 }
 
 
 function handleFloorValidation(inpValue, fullInpObj, validOutcomeObj)
 {
-	var handleRes = hexColour.validateHexColour(inpValue, "floorColour", "Floor Colour", fullInpObj, validOutcomeObj);
+	var handleRes = hexColour.validateString(inpValue, "floorColour", "Floor Colour", fullInpObj, validOutcomeObj);
 	return handleRes;
 }
 
@@ -193,6 +193,6 @@ function handleFloorValidation(inpValue, fullInpObj, validOutcomeObj)
 
 module.exports =
 {
-	prepareOptionArguments: prepareImageOptionArguments,
-	prepareOutputArguments: prepareImageOutputArguments
+	prepareGeneral: prepareImageGeneralArguments,
+	prepareOutput: prepareImageOutputArguments
 };

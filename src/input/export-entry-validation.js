@@ -31,7 +31,7 @@ function readTestExportArguments(argMapMode, optionalArgs)
 	if (outputFolderResolved === true)
 	{
 		// Validates export mode toggles (At least one must be enabled)
-		exportModesValid = testExportFlags.validateTestExportFlags(argumentReadResult);
+		exportModesValid = testExportFlags.validateFlags(argumentReadResult);
 	}
 	
 	

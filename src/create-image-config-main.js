@@ -38,7 +38,7 @@ function executePreperationTasks(optArgsObj, prepArgsObj)
 {
 	series(
 	[
-		imageOptionsValidation.prepareOptionArguments.bind(null, prepArgsObj, optArgsObj),
+		imageOptionsValidation.prepareGeneral.bind(null, prepArgsObj, optArgsObj),
 		ioTargetPath.verifySafe.bind(null, prepArgsObj.resolvedTargetPath, prepArgsObj.replaceExistingFile)
 	],
 	function (prepError)
