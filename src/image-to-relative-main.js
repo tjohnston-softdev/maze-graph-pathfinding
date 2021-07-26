@@ -98,8 +98,8 @@ function executeImageReadTasks(pArgsObj, tgtColsObj, tgtImgObj)
 	
 	series(
 	[
-		imageFileRead.performDimensionsRead.bind(null, tgtImgObj, pArgsObj.imageItems),
-		imageFileRead.performContentsParse.bind(null, tgtImgObj, tgtColsObj, pArgsObj.imageItems, sIgnore)
+		imageFileRead.performDimensionsRead.bind(null, tgtImgObj, pArgsObj.imageItems),								// Validate image dimensions.
+		imageFileRead.performContentsParse.bind(null, tgtImgObj, tgtColsObj, pArgsObj.imageItems, sIgnore)			// Parse grid from image pixels.
 	],
 	function (imageTaskError, imageTaskRes)
 	{
@@ -137,9 +137,9 @@ function executeGraphTasks(pArgs, readGrid, parsedGraph)
 {
 	series(
 	[
-		gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),
-		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),
-		automaticHeuristics.performCalculation.bind(null, parsedGraph)
+		gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),						// Traverse grid for graph nodes.
+		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph),						// Validate graph object structure.
+		automaticHeuristics.performCalculation.bind(null, parsedGraph)							// Calculate node heuristic values.
 	],
 	function (graphTasksError)
 	{

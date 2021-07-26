@@ -1,6 +1,7 @@
 # Changelog
 
-**./src/image-to-grid-main.js - executeGridPreperationTasks**
-* Corrected property index when assigning 'graphObject'
-	* Before: 1
-	* After: 0
+**./src/**
+* Added missing comments to 'series' batch tasks.
+* Affected files:
+	* image-to-relative-main.js
+	* image-to-absolute-main.js
