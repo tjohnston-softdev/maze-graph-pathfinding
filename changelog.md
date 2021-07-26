@@ -1,7 +1,4 @@
 # Changelog
 
-**./src/**
-* Added missing comments to 'series' batch tasks.
-* Affected files:
-	* image-to-relative-main.js
-	* image-to-absolute-main.js
+**./src/parsing/initialize-grid.js**
+* Moved the 'series' batch to its own function 'coordinateInitialization'

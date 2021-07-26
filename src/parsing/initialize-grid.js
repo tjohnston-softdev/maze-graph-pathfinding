@@ -15,25 +15,45 @@ function performGridObjectInitialization(inpMatrixGrid, inpAllowMatrixTrim, grid
 {
 	var gridSpinner = ora("Initializing Grid").start();
 	
-	series(
-	[
-		gridDimensions.verifyDimensions.bind(null, inpMatrixGrid, inpAllowMatrixTrim),
-		gridPoints.setEntryExit.bind(null, inpMatrixGrid)
-	],
-	function (intlError, intlResult)
+	coordinateInitialization(inpMatrixGrid, inpAllowMatrixTrim, function (gridIntlErr, gridIntlRes)
 	{
-		if (intlError !== null)
+		if (gridIntlErr !== null)
 		{
 			gridSpinner.fail("Grid Initialization Failed");
-			return gridIntlCallback(intlError, null);
+			return gridIntlCallback(gridIntlErr, null);
 		}
 		else
 		{
 			gridSpinner.succeed("Grid Initialized");
-			return gridIntlCallback(null, intlResult[1]);
+			return gridIntlCallback(null, gridIntlRes);
 		}
 	});
 	
+}
+
+
+
+function coordinateInitialization(inpGrid, inpTrim, coordCallback)
+{
+	var retrievedGraph = null;
+	
+	series(
+	[
+		gridDimensions.verifyDimensions.bind(null, inpGrid, inpTrim),
+		gridPoints.setEntryExit.bind(null, inpGrid)
+	],
+	function (intlErr, intlRes)
+	{
+		if (intlErr !== null)
+		{
+			return coordCallback(intlErr, null);
+		}
+		else
+		{
+			retrievedGraph = intlRes[1];
+			return coordCallback(null, retrievedGraph);
+		}
+	});
 }
 
 
