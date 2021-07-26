@@ -173,9 +173,6 @@ function checkTargetPointLoopContinue(graphObj)
 
 
 
-
-
-
 // Trims all rows in a matrix to a specified length.
 function trimRowsToLength(fullGrid, targetLength)
 {
@@ -198,11 +195,6 @@ function trimRowsToLength(fullGrid, targetLength)
 	}
 	
 }
-
-
-
-
-
 
 
 module.exports =

@@ -241,7 +241,7 @@ function handleEdge(edgeTxt, lineNum, retData, oResObj)
 	if (distanceValid === true)
 	{
 		// Checks whether connection is available and edge can be added.
-		connectionAvailable = findEdges.checkEdgeAvailable(originNodeObject.nodeID, destinationNodeObject.nodeID, retData.edgeList);
+		connectionAvailable = findEdges.checkAvailable(originNodeObject.nodeID, destinationNodeObject.nodeID, retData.edgeList);
 		canAdd = parseHelpTasks.checkEdgePossible(connectionAvailable, retData.edgeList.length, lineNum, oResObj);
 	}
 	

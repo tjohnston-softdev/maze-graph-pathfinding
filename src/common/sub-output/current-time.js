@@ -6,7 +6,7 @@
 
 
 // Main function.
-function prepareCurrentTimestampString()
+function prepareTimestampString()
 {
 	var tsObject = new Date();
 	
@@ -67,5 +67,5 @@ function formatTimeNumber(origNum)
 
 module.exports =
 {
-	prepareString: prepareCurrentTimestampString
+	prepareString: prepareTimestampString
 };

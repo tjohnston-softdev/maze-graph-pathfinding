@@ -129,7 +129,7 @@ function checkImageRowAddPossible(pCount, maxDimension, safeRowCount, originPoin
 
 module.exports =
 {
-	checkImageDimensionsValid: checkImageDimensionNumbersValid,
+	checkDimensions: checkImageDimensionNumbersValid,
 	checkOriginPointExists: checkOriginPointCoordinatesExist,
 	flagInvalidPixel: flagInvalidPixelColour,
 	checkRowAddPossible: checkImageRowAddPossible

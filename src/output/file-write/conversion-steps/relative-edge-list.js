@@ -60,7 +60,7 @@ function writeEdgeList(cWriteStream, fullGraphObject)
 // Reads node ID from edge.
 function readNodeID(eNodeID, gNodeList)
 {
-	var matchFlag = findNodes.checkNodeNumberExists(eNodeID, gNodeList);
+	var matchFlag = findNodes.checkIdExists(eNodeID, gNodeList);
 	var readRes = "";
 	
 	if (matchFlag >= 0 && matchFlag < gNodeList.length)

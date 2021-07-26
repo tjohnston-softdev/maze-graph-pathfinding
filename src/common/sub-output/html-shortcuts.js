@@ -1,14 +1,17 @@
 // HTML text shortcuts. Used when writing HTML for exported graph file.
 
-const openInfoLabelCode = '<span class="infoLabel">';
-const openInfoValueCode = '<span class="infoValue">';
-const closeSpanCode = "</span>";
-const breakCode = "<br>";
 
-module.exports =
+function defineShortcuts()
 {
-	openInfoLabel: openInfoLabelCode,
-	openInfoValue: openInfoValueCode,
-	closeSpan: closeSpanCode,
-	br: breakCode
-};
+	var defineRes = {};
+	
+	defineRes["openInfoLabel"] = '<span class="infoLabel">';
+	defineRes["openInfoValue"] = '<span class="infoValue">';
+	defineRes["closeSpan"] = "</span>";
+	defineRes["br"] = "<br>";
+	
+	return defineRes;
+}
+
+
+module.exports = defineShortcuts();

@@ -1,7 +1,6 @@
 // Functions related to searching for nodes in a graph.
 
 
-
 // Plots the final route from start to end by backtracking through the 'previous' property.
 function plotFinalRoutePath(lastNodeObj, nList, seqList)
 {
@@ -88,5 +87,5 @@ function findNodeID(tNodeID, nodeObjectArr)
 module.exports =
 {
 	plotFinalPath: plotFinalRoutePath,
-	checkNodeNumberExists: findNodeID
+	checkIdExists: findNodeID
 };

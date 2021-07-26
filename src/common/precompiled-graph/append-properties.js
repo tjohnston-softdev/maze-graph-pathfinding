@@ -266,8 +266,8 @@ function defineBlockAttributes()
 
 module.exports =
 {
-	appendDsktra: appendDsktraNodeAttributes,
-	appendAstar: appendAstarNodeAttributes,
-	appendAnyPossible: appendAnyPossibleAttributes,
-	appendBlock: appendBlockNodeAttributes
+	dsktra: appendDsktraNodeAttributes,
+	astar: appendAstarNodeAttributes,
+	anyPossible: appendAnyPossibleAttributes,
+	block: appendBlockNodeAttributes
 };

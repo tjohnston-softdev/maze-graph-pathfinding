@@ -166,7 +166,7 @@ function updateAdjacentNodes(visitNode, adjList, fullGraph)
 		// Reads entry object and checks if corresponding node exists.
 		currentAdjacentObject = adjList[adjacentIndex];
 		currentNodeNumber = currentAdjacentObject.nodeNumber;
-		currentExistFlag = findNodes.checkNodeNumberExists(currentNodeNumber, fullGraph.nodeList);
+		currentExistFlag = findNodes.checkIdExists(currentNodeNumber, fullGraph.nodeList);
 		
 		currentNodeObject = {};
 		currentFound = false;

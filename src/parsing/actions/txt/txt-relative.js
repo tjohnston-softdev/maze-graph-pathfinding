@@ -194,7 +194,7 @@ function handleTargetPoint(pointTxt, lineNum, retData, propName, propDesc, entry
 	if (idValid === true)
 	{
 		// Checks whether target node exists.
-		existFlag = findNodes.checkNodeNumberExists(enteredID, retData.nodeList);
+		existFlag = findNodes.checkIdExists(enteredID, retData.nodeList);
 		flagValid = relativeHelpTasks.checkNodeExistFlag(existFlag, retData.nodeList.length, propDesc, lineNum, oResObj);
 	}
 	
@@ -322,8 +322,8 @@ function handleEdgeDefinition(edgeTxt, lineNum, retData, oResObj)
 	if (keyNumbersDifferent === true)
 	{
 		// Check origin node exists.
-		originExistsFlag = findNodes.checkNodeNumberExists(enteredOriginID, retData.nodeList);
-		destinationExistsFlag = findNodes.checkNodeNumberExists(enteredDestinationID, retData.nodeList);
+		originExistsFlag = findNodes.checkIdExists(enteredOriginID, retData.nodeList);
+		destinationExistsFlag = findNodes.checkIdExists(enteredDestinationID, retData.nodeList);
 		
 		originFlagValid = relativeHelpTasks.checkNodeExistFlag(originExistsFlag, retData.nodeList.length, "Origin", lineNum, oResObj);
 	}
@@ -337,7 +337,7 @@ function handleEdgeDefinition(edgeTxt, lineNum, retData, oResObj)
 	if (destinationFlagValid === true)
 	{
 		// Checks whether connection is available and edge can be added.
-		connectionAvailable = findEdges.checkEdgeAvailable(enteredOriginID, enteredDestinationID, retData.edgeList);
+		connectionAvailable = findEdges.checkAvailable(enteredOriginID, enteredDestinationID, retData.edgeList);
 		canAdd = parseHelpTasks.checkEdgePossible(connectionAvailable, retData.edgeList.length, valueLimits.maxEdgeCount, lineNum, oResObj);
 	}
 	
@@ -360,7 +360,7 @@ function handleEdgeDefinition(edgeTxt, lineNum, retData, oResObj)
 // Adds or retrieves node object from graph based on ID.
 function addNewNode(assignedID, assignedHeuristic, existingNodesList)
 {
-	var matchFound = findNodes.checkNodeNumberExists(assignedID, existingNodesList);
+	var matchFound = findNodes.checkIdExists(assignedID, existingNodesList);
 	var addedObject = {};
 	var searchResult = parseObjects.defineNodeSearch();
 	

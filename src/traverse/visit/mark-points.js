@@ -118,7 +118,7 @@ function addNodeObjectsAtMarkedPositions(originalNode, markList, gMatrix, fullGr
 
 function updateEdgeList(nOrig, nMarked, gObject, cellRes)
 {
-	var updateRequired = findEdges.checkEdgeAvailable(nOrig.nodeID, nMarked.nodeID, gObject.edgeList);
+	var updateRequired = findEdges.checkAvailable(nOrig.nodeID, nMarked.nodeID, gObject.edgeList);
 	var updateRes = false;
 	
 	if (updateRequired === true)

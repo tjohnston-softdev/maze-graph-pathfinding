@@ -2,79 +2,75 @@
 
 
 // Path missing.
-function writeMissingError(dText)
+function writeMissingError(vDesc)
 {
-	var missingRes = dText + " path does not exist.";
-	return missingRes;
+	var writeRes = vDesc + " path does not exist.";
+	return writeRes;
 }
 
 
 // File empty.
-function writeEmptyError(dText)
+function writeEmptyError(vDesc)
 {
-	var emptyRes = dText + " file cannot be empty.";
-	return emptyRes;
+	var writeRes = vDesc + " file cannot be empty.";
+	return writeRes;
 }
 
 
 // Invalid file.
-function writeInvalidFileError(dText)
+function writeInvalidFileError(vDesc)
 {
-	var emptyRes = dText + " is not a valid file.";
-	return emptyRes;
+	var writeRes = vDesc + " is not a valid file.";
+	return writeRes;
 }
 
 
 // Invalid folder path.
-function writeFolderSafetyError(dText)
+function writeFolderSafetyError(vDesc)
 {
-	var emptyRes = dText + " must not refer to an existing file.";
-	return emptyRes;
+	var writeRes = vDesc + " must not refer to an existing file.";
+	return writeRes;
 }
 
 
 // File too large.
-function writeFileSizeLimitError(dFileText, dSizeText)
+function writeFileSizeLimitError(vFileDesc, vMaxSize)
 {
-	var sizeRes = dFileText + " file size must not exceed " + dSizeText;
-	return sizeRes;
+	var writeRes = vFileDesc + " file size must not exceed " + vMaxSize;
+	return writeRes;
 }
 
 
 // File delete error.
-function writeDeleteError(dText)
+function writeDeleteError(vDesc)
 {
-	var copyRes = "Error deleting " + dText + " file";
-	return copyRes;
+	var writeRes = "Error deleting " + vDesc + " file";
+	return writeRes;
 }
 
 
 // Invalid file path.
-function writeUnexpectedFolderError(dText)
+function writeUnexpectedFolderError(vDesc)
 {
-	var unexpectedFolderRes = dText + " path does not refer to a valid file.";
-	return unexpectedFolderRes;
+	var writeRes = vDesc + " path does not refer to a valid file.";
+	return writeRes;
 }
 
 
 // Read permission error.
-function writeReadNotPermittedError(dText)
+function writeReadNotPermittedError(vDesc)
 {
-	var readPermitRes = dText + " file is not allowed to be read.";
-	return readPermitRes;
+	var writeRes = vDesc + " file is not allowed to be read.";
+	return writeRes;
 }
 
 
 // Too many files open.
-function writeManyFilesError(dText)
+function writeManyFilesError(vDesc)
 {
-	var manyFilesRes = "Cannot open " + dText + " file. Too many files are currently open already.";
-	return manyFilesRes;
+	var writeRes = "Cannot open " + vDesc + " file. Too many files are currently open already.";
+	return writeRes;
 }
-
-
-
-
 
 
 module.exports =

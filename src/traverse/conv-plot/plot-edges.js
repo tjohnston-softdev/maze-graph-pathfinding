@@ -37,8 +37,8 @@ function plotEdgePathTiles(gObject, mapGridObj, plotCallback)
 	{
 		// Read current edge and find connected nodes.
 		currentEdgeObject = gObject.edgeList[edgeIndex];
-		currentOriginIndex = findNodes.checkNodeNumberExists(currentEdgeObject.origin, gObject.nodeList);
-		currentDestinationIndex = findNodes.checkNodeNumberExists(currentEdgeObject.destination, gObject.nodeList);
+		currentOriginIndex = findNodes.checkIdExists(currentEdgeObject.origin, gObject.nodeList);
+		currentDestinationIndex = findNodes.checkIdExists(currentEdgeObject.destination, gObject.nodeList);
 		
 		// Validate origin node.
 		currentOriginExists = verifyNodeExists(currentEdgeObject.origin, currentOriginIndex, gObject.nodeList.length, loopObject);

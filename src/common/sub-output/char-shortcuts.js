@@ -1,24 +1,20 @@
 // Text shortcuts. Used for writing output files.
 
-const lineBreakCode = "\r\n";
-const firstIndentCode = "\t";
-const secondIndentCode = "\t\t";
-const thirdIndentCode = "\t\t\t";
-const fourthIndentCode = "\t\t\t\t";
-const fifthIndentCode = "\t\t\t\t\t";
-const quoteCode = "'";
-const dividerCode = "---";
-
-
-
-module.exports =
+function defineShortcuts()
 {
-	lineBreak: lineBreakCode,
-	firstIndent: firstIndentCode,
-	secondIndent: secondIndentCode,
-	thirdIndent: thirdIndentCode,
-	fourthIndent: fourthIndentCode,
-	fifthIndent: fifthIndentCode,
-	quote: quoteCode,
-	divider: dividerCode
-};
+	var defineRes = {};
+	
+	defineRes["lineBreak"] = "\r\n";
+	defineRes["firstIndent"] = "\t";
+	defineRes["secondIndent"] = "\t\t";
+	defineRes["thirdIndent"] = "\t\t\t";
+	defineRes["fourthIndent"] = "\t\t\t\t";
+	defineRes["fifthIndent"] = "\t\t\t\t\t";
+	defineRes["quote"] = "'";
+	defineRes["divider"] = "---";
+	
+	return defineRes;
+}
+
+
+module.exports = defineShortcuts();

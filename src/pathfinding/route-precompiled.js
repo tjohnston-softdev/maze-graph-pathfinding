@@ -29,7 +29,7 @@ function retrievePrecompiledData(inpPathMode)
 		// Dijkstra
 		highlightList = edgeStatus.defineDsktra();
 		
-		appendProperties.appendDsktra(compiledObject.graphData);
+		appendProperties.dsktra(compiledObject.graphData);
 		edgeStatus.setHighlights(compiledObject.graphData.edgeList, highlightList);
 		compiledObject.pathData = pathObjects.defineDsktra();
 	}
@@ -38,7 +38,7 @@ function retrievePrecompiledData(inpPathMode)
 		// A*Star
 		highlightList = edgeStatus.defineAstar();
 		
-		appendProperties.appendAstar(compiledObject.graphData);
+		appendProperties.astar(compiledObject.graphData);
 		edgeStatus.setHighlights(compiledObject.graphData.edgeList, highlightList);
 		compiledObject.pathData = pathObjects.defineAstar();
 	}
@@ -52,14 +52,14 @@ function retrievePrecompiledData(inpPathMode)
 		// Any Possible
 		highlightList = edgeStatus.defineAnyPossible();
 		
-		appendProperties.appendAnyPossible(compiledObject.graphData);
+		appendProperties.anyPossible(compiledObject.graphData);
 		edgeStatus.setHighlights(compiledObject.graphData.edgeList, highlightList);
 		compiledObject.pathData = pathObjects.defineAnyPossible();
 	}
 	else if (inpPathMode === pathContext.modes.BLOCK)
 	{
 		// Block
-		appendProperties.appendBlock(compiledObject.graphData);
+		appendProperties.block(compiledObject.graphData);
 		compiledObject.pathData = pathObjects.defineBlock();
 	}
 	else

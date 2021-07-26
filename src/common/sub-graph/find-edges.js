@@ -4,7 +4,7 @@
 // Checks whether there is already a connection between two nodes.
 function checkEdgeConnectionAvailable(tgtOrigin, tgtDestination, eList)
 {
-	var matchFlag = findConnection(tgtOrigin, tgtDestination, eList);				// Retrieves target edge index.
+	var matchFlag = findConnection(tgtOrigin, tgtDestination, eList);		// Retrieves target edge index.
 	var checkRes = true;
 	
 	if (matchFlag >= 0 && matchFlag < eList.length)
@@ -146,7 +146,7 @@ function findConnection(tOrigin, tDest, connectionArr)
 
 module.exports =
 {
-	checkEdgeAvailable: checkEdgeConnectionAvailable,
+	checkAvailable: checkEdgeConnectionAvailable,
 	traceRoute: traceEdgeRoute,
 	highlightRoute: highlightEdgeRoute
 };

@@ -130,7 +130,7 @@ function handleCommonNodeArray(wStream, gNodeArray)
 	{
 		// Converts node object into graph element.
 		currentNode = gNodeArray[nodeIndex];
-		currentElement = graphElements.defineNodeElement(currentNode);
+		currentElement = graphElements.defineNode(currentNode);
 		
 		// Converts graph element to text.
 		currentLine = writeObjectLine(currentElement, nodeIndex, lastIndex);
@@ -175,7 +175,7 @@ function handleBlockNodeArray(wStream, gNodeArray)
 	{
 		// Converts node object into graph element.
 		currentNode = gNodeArray[nodeIndex];
-		currentElement = graphElements.defineNodeElement(currentNode);
+		currentElement = graphElements.defineNode(currentNode);
 		graphElements.setNodeBlocked(currentElement, currentNode.blocked);
 		
 		// Converts graph element to text.
@@ -226,7 +226,7 @@ function handleEdgeArray(wStream, gEdgeArray)
 	{
 		// Converts edge into graph element.
 		currentEdge = gEdgeArray[edgeIndex];
-		currentElement = graphElements.defineEdgeElement(currentEdge);
+		currentElement = graphElements.defineEdge(currentEdge);
 		
 		// Converts edge element to text.
 		currentLine = writeObjectLine(currentElement, edgeIndex, lastIndex);

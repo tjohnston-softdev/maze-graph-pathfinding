@@ -47,7 +47,7 @@ function setNodeBlockStatus(nElement, nBlocked)
 
 module.exports =
 {
-	defineNodeElement: defineNodeElementObject,
-	defineEdgeElement: defineEdgeElementObject,
+	defineNode: defineNodeElementObject,
+	defineEdge: defineEdgeElementObject,
 	setNodeBlocked: setNodeBlockStatus
 };

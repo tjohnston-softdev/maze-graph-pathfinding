@@ -38,7 +38,7 @@ function verifyImageDimensions(imgObject, imgSettings, dimensionCallback)
 // Checks image dimensions.
 function callDimensionCheck(pWidth, pHeight, dRes)
 {
-	var dValid = imageHelpTasks.checkImageDimensionsValid(pWidth, pHeight, valueLimits.minImageDimension, valueLimits.maxImageDimension, dRes);
+	var dValid = imageHelpTasks.checkDimensions(pWidth, pHeight, valueLimits.minImageDimension, valueLimits.maxImageDimension, dRes);
 	return dValid;
 }
 

@@ -153,7 +153,7 @@ function updateAdjacentNodes(visitNode, adjacentList, graphObj)
 		currentDistance = currentItemObject.connectionDistance;
 		
 		// Checks if adjacent node exists.
-		currentExistFlag = findNodes.checkNodeNumberExists(currentNextID, graphObj.nodeList);
+		currentExistFlag = findNodes.checkIdExists(currentNextID, graphObj.nodeList);
 		currentNextNode = {};
 		currentFound = false;
 		

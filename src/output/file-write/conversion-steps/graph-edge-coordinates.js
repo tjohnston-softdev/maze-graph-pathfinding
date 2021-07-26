@@ -60,7 +60,7 @@ function writeEdgeCoordinatesList(cWriteStream, fullGraphObject)
 // Gets coordinates from Node ID.
 function readEdgeCoordinates(eNodeID, gNodeList)
 {
-	var matchFlag = findNodes.checkNodeNumberExists(eNodeID, gNodeList);
+	var matchFlag = findNodes.checkIdExists(eNodeID, gNodeList);
 	var retrievedNodeObject = {};
 	var readRes = "";
 	
