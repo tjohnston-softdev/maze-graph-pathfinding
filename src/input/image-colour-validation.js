@@ -10,7 +10,7 @@ function performColourConversion(imagePropertiesObject, colourConversionCallback
 {
 	var colourSpinner = ora("Preparing Target Colours").start();
 	
-	coordinateTargetColours(imagePropertiesObject, function(colError, colRes)
+	coordinateColours(imagePropertiesObject, function(colError, colRes)
 	{
 		if (colError !== null)
 		{
