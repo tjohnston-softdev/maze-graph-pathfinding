@@ -1,3 +1,4 @@
 # Changelog
 
-Script cleaning complete (2021-07-26)
+**./result-folder/readme.md**
+* Corrected link to commands list document.
