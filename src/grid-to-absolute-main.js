@@ -89,8 +89,8 @@ function executeGraphTasks(pArguments, readGrid, parsedGraph)
 {
 	series(
 	[
-		gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),
-		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph)
+		gridTraverse.performGridTraverse.bind(null, readGrid, parsedGraph),			// Traverse grid for graph nodes.
+		parseStructureIntegrity.performGraphCheck.bind(null, parsedGraph)			// Validate graph object structure.
 	],
 	function (graphError)
 	{

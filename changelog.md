@@ -1,4 +1,4 @@
 # Changelog
 
-**./src/grid-to-image-main.js**
-* Added comments.
+**./src/grid-to-absolute-main.js**
+* Added missing 'series' comments to 'executeGraphTasks'
