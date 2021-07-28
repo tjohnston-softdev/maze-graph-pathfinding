@@ -44,7 +44,8 @@
 						selector: "node[?blocked]",
 						style: {"background-color": "#777777", "border-width": 1, "label": ""}
 					}
-				]
+				],
+				wheelSensitivity: 0.1
 			});
 			
 			
@@ -123,7 +124,12 @@
 			
 			cytoscapeGraph.nodes().bind("mouseover", function(event)
 			{
-				event.target.tippy.show();
+				var zoomLevel = cytoscapeGraph.zoom();
+				
+				if (zoomLevel < 0.5)
+				{
+					event.target.tippy.show();
+				}
 			});
 			
 			cytoscapeGraph.nodes().bind("mouseout", function(event)
@@ -140,5 +146,11 @@
 			cytoscapeGraph.edges().bind("mouseout", function(event)
 			{
 				event.target.tippy.hide();
+			});
+			
+			cytoscapeGraph.on("zoom", function(event)
+			{
+				var zVal = cytoscapeGraph.zoom();
+				console.log(zVal);
 			});
 			
