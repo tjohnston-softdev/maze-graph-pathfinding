@@ -24,6 +24,7 @@ function writeBodyText(graphWriteStream, inpTypeText, inpPathFlag, bodyTxtCallba
 	handleInfoEnd(graphWriteStream);
 	handleGraphWidget(graphWriteStream);
 	handleLoadSpinnerWidget(graphWriteStream);
+	handleExportButton(graphWriteStream);
 	handleEndBody(graphWriteStream);
 	
 	return bodyTxtCallback(null, true);
@@ -155,6 +156,27 @@ function handleLoadSpinnerWidget(wStream)
 	widgetTxt += charShortcuts.lineBreak;
 	
 	wStream.write(widgetTxt);
+}
+
+
+function handleExportButton(wStream)
+{
+	var buttonTxt = "";
+	
+	buttonTxt += charShortcuts.secondIndent;
+	buttonTxt += charShortcuts.lineBreak;
+	
+	buttonTxt += charShortcuts.secondIndent;
+	buttonTxt += htmlShortcuts.br;
+	buttonTxt += charShortcuts.lineBreak;
+	
+	buttonTxt += charShortcuts.secondIndent;
+	buttonTxt += '<button type="button" id="btnExport" onclick="exportGraphImage();">';
+	buttonTxt += "Export Image";
+	buttonTxt += "</button>";
+	buttonTxt += charShortcuts.lineBreak;
+	
+	wStream.write(buttonTxt);
 }
 
 

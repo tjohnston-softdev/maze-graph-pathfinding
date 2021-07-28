@@ -129,6 +129,15 @@
 				cytoscapeGraph.panBy(posOffset);
 			}
 			
+			
+			function exportGraphImage()
+			{
+				var imgOpts = {full: true, output: "blob", bg: "#FFFFFF"};
+				var binaryData = cytoscapeGraph.png(imgOpts);
+				var preparedURL = URL.createObjectURL(binaryData);
+				window.open(preparedURL, '_blank').focus();
+			}
+			
 			// Event: Graph loaded.
 			cytoscapeGraph.ready(function()
 			{
