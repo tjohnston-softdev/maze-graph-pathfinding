@@ -4,7 +4,7 @@
 				container: document.getElementById("graphContainer"),
 				elements: {nodes: nodeContents, edges: edgeContents},
 				layout: {name: "preset"},
-				wheelSensitivity: 0.25
+				wheelSensitivity: 0.25,
 				style:
 				[
 					{
@@ -114,11 +114,21 @@
 				}
 			}
 			
+			
+			function setInitialView()
+			{
+				var startNode = cytoscapeGraph.nodes("[typeFlag < 0]");
+				var posOffset = {x: 300, y: 50};
+				cytoscapeGraph.center(startNode);
+				cytoscapeGraph.panBy(posOffset);
+			}
+			
 			cytoscapeGraph.ready(function()
 			{
 				displayGraph();
 				prepareEdgeTooltips();
 				prepareNodeTooltips();
+				setInitialView();
 			});
 			
 			

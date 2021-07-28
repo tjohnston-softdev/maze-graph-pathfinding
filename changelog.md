@@ -1,7 +1,8 @@
 # Changelog
 
 **./templates/web-output/f-graph.js**
-* Removed 'zoom' event.
-* Increased zoom rate.
-	* `wheelSensitivity: 0.25`
-* Moved 'wheelSensitivity' property declaration to before 'style'
+* Added missing comma when setting 'wheelSensitivity' property.
+* Wrote new function 'setInitialView'
+	* Position set to start node, offset by 300x250
+	* Called during 'cytoscapeGraph.ready'
+* Should work for all graph sizes.
