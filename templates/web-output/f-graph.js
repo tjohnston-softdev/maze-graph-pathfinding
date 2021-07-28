@@ -4,6 +4,7 @@
 				container: document.getElementById("graphContainer"),
 				elements: {nodes: nodeContents, edges: edgeContents},
 				layout: {name: "preset"},
+				wheelSensitivity: 0.25
 				style:
 				[
 					{
@@ -44,8 +45,7 @@
 						selector: "node[?blocked]",
 						style: {"background-color": "#777777", "border-width": 1, "label": ""}
 					}
-				],
-				wheelSensitivity: 0.1
+				]
 			});
 			
 			
@@ -146,11 +146,5 @@
 			cytoscapeGraph.edges().bind("mouseout", function(event)
 			{
 				event.target.tippy.hide();
-			});
-			
-			cytoscapeGraph.on("zoom", function(event)
-			{
-				var zVal = cytoscapeGraph.zoom();
-				console.log(zVal);
 			});
 			
