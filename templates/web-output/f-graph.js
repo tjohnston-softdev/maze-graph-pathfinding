@@ -1,4 +1,5 @@
 			
+			// Define graph object.
 			var cytoscapeGraph = cytoscape(
 			{
 				container: document.getElementById("graphContainer"),
@@ -48,6 +49,7 @@
 			});
 			
 			
+			// Add ID tooltips to nodes.
 			function prepareNodeTooltips()
 			{
 				cytoscapeGraph.nodes().forEach(function (currentNode)
@@ -57,6 +59,7 @@
 			} 
 			
 			
+			// Add length tooltips to edges.
 			function prepareEdgeTooltips()
 			{
 				cytoscapeGraph.edges().forEach(function (currentEdge)
@@ -66,6 +69,7 @@
 			}
 			
 			
+			// Add tooltip to current node.
 			function addNodeTooltip(nodeObj)
 			{
 				var tipText = "Node " + nodeObj.data("id");
@@ -83,6 +87,7 @@
 			}
 			
 			
+			// Add tooltip to current edge.
 			function addEdgeTooltip(edgeObj)
 			{
 				var tipRef = edgeObj.popperRef();
@@ -99,6 +104,7 @@
 			}
 			
 			
+			// Display graph viewport.
 			function displayGraph()
 			{
 				try
@@ -114,6 +120,7 @@
 			}
 			
 			
+			// Set viewport to start node.
 			function setInitialView()
 			{
 				var startNode = cytoscapeGraph.nodes("[typeFlag < 0]");
@@ -122,6 +129,7 @@
 				cytoscapeGraph.panBy(posOffset);
 			}
 			
+			// Event: Graph loaded.
 			cytoscapeGraph.ready(function()
 			{
 				displayGraph();
@@ -131,29 +139,36 @@
 			});
 			
 			
+			// Event: Mouse enter node.
 			cytoscapeGraph.nodes().bind("mouseover", function(event)
 			{
 				var zoomLevel = cytoscapeGraph.zoom();
 				
+				// Only show tooltip if zoomed out far enough.
 				if (zoomLevel < 0.5)
 				{
 					event.target.tippy.show();
 				}
 			});
 			
+			// Event: Mouse exit node.
 			cytoscapeGraph.nodes().bind("mouseout", function(event)
 			{
+				// Hide tooltip
 				event.target.tippy.hide();
 			});
 			
-			
+			// Event: Mouse enter edge.
 			cytoscapeGraph.edges().bind("mouseover", function(event)
 			{
+				// Show edge length tooltip.
 				event.target.tippy.show();
 			});
 			
+			// Event: Mouse exit edge.
 			cytoscapeGraph.edges().bind("mouseout", function(event)
 			{
+				// Hide tooltip
 				event.target.tippy.hide();
 			});
 			
