@@ -132,10 +132,14 @@
 			
 			function exportGraphImage()
 			{
-				var imgOpts = {full: true, output: "blob", bg: "#FFFFFF"};
-				var binaryData = cytoscapeGraph.png(imgOpts);
-				var preparedURL = URL.createObjectURL(binaryData);
-				window.open(preparedURL, '_blank').focus();
+				var imgOpts = {full: true, output: "blob-promise", bg: "#FFFFFF"};
+				var preparedURL = "";
+				
+				cytoscapeGraph.png(imgOpts).then(function(binaryData)
+				{
+					preparedURL = URL.createObjectURL(binaryData);
+					window.open(preparedURL, '_blank').focus();
+				});
 			}
 			
 			// Event: Graph loaded.
