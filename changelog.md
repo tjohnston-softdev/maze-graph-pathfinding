@@ -1,3 +1,4 @@
 # Changelog
 
-Version 1.4 complete
+**./package.json**
+* Uninstalled 'ora'
