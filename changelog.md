@@ -1,3 +1,4 @@
 # Changelog
 
-Opened 1.4 branch
+**./package.json**
+* Updated packages: 'commander' and 'jimp'
