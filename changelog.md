@@ -1,4 +1,4 @@
 # Changelog
 
 **./package.json**
-* Updated packages: 'commander' and 'jimp'
+* Installed 'ora-classic'
