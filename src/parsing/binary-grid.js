@@ -1,4 +1,4 @@
-const ora = require("ora");
+const ora = require("ora-classic");
 const tileSet = require("../common/sub-parse/tile-set");
 const imageErrorText = require("../common/sub-parse/errors/image-error-text");
 

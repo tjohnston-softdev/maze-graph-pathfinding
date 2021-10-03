@@ -1,4 +1,4 @@
-const ora = require("ora");
+const ora = require("ora-classic");
 const tileSet = require("../common/sub-parse/tile-set");
 const graphObjects = require("../common/sub-graph/graph-objects");
 const traverseHelpTasks = require("../common/sub-traverse/traverse-help-tasks");

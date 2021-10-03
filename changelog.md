@@ -1,4 +1,3 @@
 # Changelog
 
-**./package.json**
-* Installed 'ora-classic'
+Replaced references to the 'ora' package with 'ora-classic'

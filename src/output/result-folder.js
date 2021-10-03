@@ -1,5 +1,5 @@
 const fs = require("fs");
-const ora = require("ora");
+const ora = require("ora-classic");
 const streamExceptions = require("../common/sub-files/stream-exceptions");
 const folderOptions = {recursive: true};
 

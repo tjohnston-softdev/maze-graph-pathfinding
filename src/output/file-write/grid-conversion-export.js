@@ -1,5 +1,5 @@
 const fs = require("fs");
-const ora = require("ora");
+const ora = require("ora-classic");
 const spinText = require("../../common/sub-interface/spin-text/st-output-convert");
 const writeOptions = require("../../common/sub-files/write-options");
 const streamExceptions = require("../../common/sub-files/stream-exceptions");

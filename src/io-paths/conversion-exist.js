@@ -1,4 +1,4 @@
-const ora = require("ora");
+const ora = require("ora-classic");
 const spinText = require("../common/sub-interface/spin-text/st-io-paths");
 const fsFileSize = require("../common/sub-files/fs-file-size");
 const sizeLimits = require("../common/sub-files/size-limits");

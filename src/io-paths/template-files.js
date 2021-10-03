@@ -1,5 +1,5 @@
 const parallel = require("run-parallel");
-const ora = require("ora");
+const ora = require("ora-classic");
 const fsFileSize = require("../common/sub-files/fs-file-size");
 const sizeLimits = require("../common/sub-files/size-limits");
 const storedPaths = require("../../stored-paths");

@@ -1,5 +1,5 @@
 const series = require("run-series");
-const ora = require("ora");
+const ora = require("ora-classic");
 const fsDelete = require("../../common/sub-files/fs-delete");
 const spinText = require("../../common/sub-interface/spin-text/st-output-clean");
 

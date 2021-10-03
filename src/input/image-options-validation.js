@@ -1,4 +1,4 @@
-const ora = require("ora");
+const ora = require("ora-classic");
 const configHelp = require("./image-components/config-help");
 const hexColour = require("./arguments/image-options/hex-colour");
 const imageNumbers = require("./arguments/image-options/image-numbers");

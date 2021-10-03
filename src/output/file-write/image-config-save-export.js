@@ -1,5 +1,5 @@
 const fs = require("fs");
-const ora = require("ora");
+const ora = require("ora-classic");
 const writeOptions = require("../../common/sub-files/write-options");
 const streamExceptions = require("../../common/sub-files/stream-exceptions");
 const writtenFile = require("../../common/sub-output/written-file");

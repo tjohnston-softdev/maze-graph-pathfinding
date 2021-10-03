@@ -1,5 +1,5 @@
 const series = require("run-series");
-const ora = require("ora");
+const ora = require("ora-classic");
 const plotDimensions = require("./conv-plot/plot-dimensions");
 const plotNodes = require("./conv-plot/plot-nodes");
 const plotEdges = require("./conv-plot/plot-edges");

@@ -1,4 +1,4 @@
-const ora = require("ora");
+const ora = require("ora-classic");
 const spinText = require("../common/sub-interface/spin-text/st-parse");
 const txtAbsolute = require("./actions/txt/txt-absolute");
 const txtGrid = require("./actions/txt/txt-grid");

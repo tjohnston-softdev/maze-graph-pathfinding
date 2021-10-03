@@ -1,4 +1,4 @@
-const ora = require("ora");
+const ora = require("ora-classic");
 const fsFolderSafe = require("../common/sub-files/fs-folder-safe");
 
 

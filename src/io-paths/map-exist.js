@@ -1,5 +1,5 @@
 const parallel = require("run-parallel");
-const ora = require("ora");
+const ora = require("ora-classic");
 const spinText = require("../common/sub-interface/spin-text/st-io-paths");
 const fsFileSize = require("../common/sub-files/fs-file-size");
 const fsFolderSafe = require("../common/sub-files/fs-folder-safe");

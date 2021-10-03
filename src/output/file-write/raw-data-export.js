@@ -1,5 +1,5 @@
 const series = require("run-series");
-const ora = require("ora");
+const ora = require("ora-classic");
 const spinText = require("../../common/sub-interface/spin-text/st-output-raw");
 const pathContext = require("../../common/sub-input/path-context");
 const graphPoints = require("./raw-data-steps/graph-points");

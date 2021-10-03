@@ -1,6 +1,6 @@
 const series = require("run-series");
 const fs = require("fs");
-const ora = require("ora");
+const ora = require("ora-classic");
 const valuePrep = require("../../common/value-prep");
 const writeOptions = require("../../common/sub-files/write-options");
 const streamExceptions = require("../../common/sub-files/stream-exceptions");

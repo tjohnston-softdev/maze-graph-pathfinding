@@ -1,5 +1,5 @@
 const series = require("run-series");
-const ora = require("ora");
+const ora = require("ora-classic");
 const gridDimensions = require("./actions/grid/grid-dimensions");
 const gridPoints = require("./actions/grid/grid-points");
 

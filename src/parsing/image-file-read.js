@@ -1,4 +1,4 @@
-const ora = require("ora");
+const ora = require("ora-classic");
 const spinText = require("../common/sub-interface/spin-text/st-parse");
 const imgOpen = require("./actions/img/img-open");
 const imgDimensions = require("./actions/img/img-dimensions");

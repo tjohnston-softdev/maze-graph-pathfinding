@@ -1,4 +1,4 @@
-const ora = require("ora");
+const ora = require("ora-classic");
 const spinText = require("../common/sub-interface/spin-text/st-pathfind");
 const pathContext = require("../common/sub-input/path-context");
 const pthDsktra = require("./modes/pth-dsktra");

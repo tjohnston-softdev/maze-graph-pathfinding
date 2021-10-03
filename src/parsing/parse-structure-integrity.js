@@ -1,4 +1,4 @@
-const ora = require("ora");
+const ora = require("ora-classic");
 const graphIntegrity = require("./actions/graph-integrity");
 
 

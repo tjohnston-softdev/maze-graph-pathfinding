@@ -1,4 +1,4 @@
-const ora = require("ora");
+const ora = require("ora-classic");
 const spinText = require("../common/sub-interface/spin-text/st-io-paths");
 const fsPathExist = require("../common/sub-files/fs-path-exist");
 
