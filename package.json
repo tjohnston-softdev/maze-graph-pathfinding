@@ -1,6 +1,6 @@
 {
   "name": "maze-graph-pathfinding",
-  "version": "1.3.0",
+  "version": "1.4.1",
   "description": "Used to find the shortest path between start and end nodes on a maze graph",
   "main": "maze.js",
   "scripts": {
